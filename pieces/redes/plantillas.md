@@ -478,5 +478,6 @@ story, la tinta llega hasta y = 1580 porque ahí va el pie.
 - [ ] Lo que te toca va primero en el feed.
 - [ ] Ninguna fila ni tarjeta nombra un agente (Cliente, Producto, Vendedor): cada fila dice el
   resultado, con lo que cambió en `<b>`.
-- [ ] Las cifras inventadas están marcadas, y no hay ningún dato real.
+- [ ] Las cifras inventadas están marcadas, y no hay ningún dato real. La única excepción es un
+  testimonio con consentimiento escrito guardado (guide/09, 9.10).
 - [ ] La `-guias.png` es para revisar: nunca se publica.

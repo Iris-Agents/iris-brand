@@ -199,4 +199,17 @@ teléfono, una dirección, un id), se tapa con un chip:
 
 La censura es para una captura real que se muestra, como una demo o un video. En una pieza
 pública, antes que censurar se usan datos de ejemplo: un cliente, su tienda o sus cifras no se
-publican, ni siquiera tapados.
+publican, ni siquiera tapados. La única excepción es un testimonio con consentimiento escrito (8.8).
+
+## 8.8 El testimonio
+
+La pieza para un usuario real que firmó su consentimiento (las condiciones, en 9.10).
+
+- **La cita**, textual, en la sans: `copy.lede` en `text.primary`. No va en la firma: la DM Serif
+  queda para sus tres usos.
+- **Quién la dice:** el nombre en `label` y `text.primary`; debajo, el rubro y la fecha en
+  `eyebrow` o `copy.ui` en `text.tertiary`. El nombre de la tienda sólo si lo autorizó.
+- **Las cifras que aprobó**, en la sans con cifras tabulares, cada una con su fecha y contra qué se
+  midió. Si suman, se pueden mostrar como filas del feed (8.2), con ✓ y la cifra en `<b>`.
+- **Nada más:** sin foto de stock, sin logo de la tienda salvo autorización escrita, sin comillas
+  decorativas gigantes, y sin «Datos de ejemplo.» en la misma pieza.

@@ -138,6 +138,27 @@ porque no lo nombra.
 
 ---
 
+## 9.10 Testimonios
+
+Un usuario real puede aparecer en una pieza **sólo si firmó su consentimiento por escrito**. Es la
+única excepción a «ningún cliente ni dato real» (1.7): todo lo demás sigue con datos de ejemplo.
+
+- **El consentimiento se guarda.** Por escrito (un mail o un documento firmado), con la fecha, el
+  uso que autoriza y el texto exacto que aprobó. Se guarda fuera de este repo, en el registro
+  privado de iris. Sin consentimiento guardado, no se publica.
+- **Qué se puede mostrar:** el nombre de la persona (y el de su tienda, si lo autorizó), su rubro,
+  la cita textual y las cifras que la persona aprobó, cada una con su fecha y contra qué se midió
+  («95 de 100 preguntas respondidas en 3 días, agosto de 2026»). Nada que no esté en el texto
+  aprobado: no se edita la cita ni se redondea una cifra.
+- **El permiso se puede retirar.** Si la persona lo retira, la pieza se baja de donde se pueda, no
+  se vuelve a usar y se anota la fecha del retiro junto al consentimiento.
+- **Mercado Libre sigue igual:** no va en titulares ni en pauta paga aunque la persona venda ahí. Si
+  hace falta, va como un hecho chico («vende en Mercado Libre»), nunca con su logo (capítulo 12).
+- **Se ve como testimonio:** la cita lleva el nombre y la fecha. Una pieza con un testimonio no
+  lleva «Datos de ejemplo.»: o es real y aprobada, o es de ejemplo, nunca las dos en la misma pieza.
+
+---
+
 ## 9.9 A revalidar
 
 - La metáfora de «empleado» y «sueldo» de la primera versión. «El primer empleado de IA» está

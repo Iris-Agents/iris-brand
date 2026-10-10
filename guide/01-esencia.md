@@ -109,7 +109,8 @@ un producto, no el informe de un cliente.
 
 **Se ve así:** no se usan el amarillo ni el logo de Mercado Libre, y no hay co-branding. La marca base
 no lleva modismos, monedas ni organismos de un país: lo local vive en los datos. Los casos públicos
-no nombran clientes ni rubros identificables. Mercado Libre se nombra como un hecho y con la grafía
+no nombran clientes ni rubros identificables, salvo un testimonio con consentimiento escrito
+(9.10). Mercado Libre se nombra como un hecho y con la grafía
 de cada país («Mercado Livre» en Brasil). Al lado de Claude, iris se sostiene sin imitarlo: nada de
 su naranja, su marfil ni su tipografía.
 

@@ -12,7 +12,8 @@ Reglas que valen para todas:
 - **En lo público, el resultado.** Las filas dicen qué logró iris, sin el nombre del agente
   (capítulo 09).
 - **Las cifras de una pieza son de ejemplo**, y se marcan: «Datos de ejemplo.» en la pieza cuando
-  tiene lugar para una nota, y siempre en el HTML. Un dato real de un cliente no va nunca.
+  tiene lugar para una nota, y siempre en el HTML. Un dato real de un cliente no va nunca, salvo
+  en un testimonio con consentimiento escrito (9.10).
 - **Mercado Libre se nombra como un hecho**, chico y en texto, nunca en un titular (capítulo 12).
 
 ---
