@@ -1,0 +1,54 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "iris, modo oscuro: la marca. Es el default del resolver, de la landing y de las piezas. Semánticos: lo único que consumen los componentes y lo único que cambia entre modos. Cada valor apunta a un primitivo de foundation.tokens.json.",
+  "color": {
+    "bg": {
+      "canvas": {"$type": "color", "$value": "{color.neutral-dark.1}", "$description": "Piso de la página, nivel 0. También es el meta theme-color."},
+      "surface": {"$type": "color", "$value": "{color.neutral-dark.2}", "$description": "Card, panel, composer. Nivel 1, con border.subtle."},
+      "raised": {"$type": "color", "$value": "{color.neutral-dark.3}", "$description": "Popover, menú, diálogo, ⌘K. Nivel 2, con border.default. Sin sombras."},
+      "hover": {"$type": "color", "$value": "{color.neutral-dark.4}", "$description": "Hover de fila, ítem y botón secundario, sobre cualquier nivel."},
+      "selected": {"$type": "color", "$value": "{color.neutral-dark.5}", "$description": "Fila o ítem seleccionado; va con la regla inset de 2px en text.primary."}
+    },
+    "text": {
+      "primary": {"$type": "color", "$value": "{color.neutral-dark.11}", "$description": "Texto pleno: titulares, nombres, el hilo del agente, el cuerpo de lectura."},
+      "secondary": {"$type": "color", "$value": "{color.neutral-dark.10}", "$description": "Texto de apoyo de 13px para arriba: bajadas, ayudas, la segunda línea del titular."},
+      "tertiary": {"$type": "color", "$value": "{color.neutral-dark.9}", "$description": "Datos sueltos que se leen de un vistazo: hora, id, contador, eyebrow, meta de fila. Nunca una oración. >= 4,5:1 en los cinco fondos."},
+      "placeholder": {"$type": "color", "$value": "{color.neutral-dark.9}", "$description": "Placeholder de input: el mismo valor que tertiary, para que pase AA sobre cualquier fondo."},
+      "disabled": {"$type": "color", "$value": "{color.neutral-dark.8}", "$description": "Etiqueta deshabilitada (exenta de contraste por WCAG 1.4.3; igual queda en >= 3:1)."},
+      "on-action": {"$type": "color", "$value": "{color.neutral-dark.1}", "$description": "Texto sobre el CTA de tinta."}
+    },
+    "border": {
+      "subtle": {"$type": "color", "$value": "{color.neutral-dark.6}", "$description": "El hairline dominante: separadores, cards (decorativo)."},
+      "default": {"$type": "color", "$value": "{color.neutral-dark.7}", "$description": "Línea fuerte: popovers, diálogos, scrollbar, botón secundario (decorativo)."},
+      "control": {"$type": "color", "$value": "{color.neutral-dark.8}", "$description": "Borde de input y de todo control sin otra señal. >= 3:1 en los cinco fondos."}
+    },
+    "action": {
+      "primary": {"$type": "color", "$value": "{color.neutral-dark.11}", "$description": "El CTA es tinta: relleno de text.primary con text.on-action encima."},
+      "destructive": {"$type": "color", "$value": "{color.signal.red-on-dark}", "$description": "Texto y borde del botón que borra o revierte (ghost, nunca relleno). Va con una confirmación que repite el objeto."}
+    },
+    "focus": {"$type": "color", "$value": "{color.neutral-dark.11}", "$description": "Anillo de foco: outline de 2px a 2px de distancia."},
+    "selection": {"$type": "color", "$value": "{color.neutral-dark.7}", "$description": "Fondo de la selección de texto."},
+    "backdrop": {"$type": "color", "$value": "{color.alpha.black-60}", "$description": "Cortina detrás de un diálogo. Nunca detrás de un vidrio: con cortina, el vidrio desaparece."},
+    "status": {
+      "attention": {"$type": "color", "$value": "{color.signal.amber-on-dark}", "$description": "● lleno: te toca. El único ● del set; va agrupado arriba de todo y, con el CTA, es lo único que grita."},
+      "working": {"$type": "color", "$value": "{color.signal.green-on-dark}", "$description": "◐ medio círculo (contorno y mitad derecha llena): iris trabajando. Late en opacidad dos veces al entrar y queda quieto; nunca gira."},
+      "failed": {"$type": "color", "$value": "{color.signal.red-on-dark}", "$description": "✕: falló. El único estado que también puede ir como texto (destructivo, error de un campo)."},
+      "done": {"$type": "color", "$value": "{color.neutral-dark.9}", "$description": "✓: resuelto, en silencio. El mismo gris que text.tertiary, igual que el texto de la fila."},
+      "idle": {"$type": "color", "$value": "{color.neutral-dark.11}", "$description": "○ hueco: esperando a un tercero (un comprador, Mercado Libre) o sin declarar. En oscuro va en blanco, como el texto."}
+    },
+    "data": {
+      "series": {"$type": "color", "$value": "{color.neutral-dark.11}", "$description": "La serie protagonista de un gráfico: trazo sólido de 1,5px."},
+      "comparison": {"$type": "color", "$value": "{color.neutral-dark.9}", "$description": "La serie de referencia (período anterior, precio ganador): trazo punteado. Más de dos series: gráficos chicos repetidos, nunca más grises."},
+      "grid": {"$type": "color", "$value": "{color.neutral-dark.6}", "$description": "Grilla y ejes (decorativo). Las etiquetas de eje van en text.tertiary."}
+    },
+    "link": {
+      "underline": {"$type": "color", "$value": "{color.neutral-dark.8}", "$description": "Subrayado de un link en texto corrido: 1px, a link.underline-offset. En hover pasa a text.primary. El link no cambia de color."}
+    },
+    "glass": {
+      "bar": {"$type": "color", "$value": "{color.alpha.neutral-dark-2-80}", "$description": "Tinte de la barra que flota (la nav de la landing). Lleva sólo text.primary, text.secondary, el CTA sólido y el foco; ni texto gris ni glifos de estado. En oscuro es bg.surface al 80 %."},
+      "panel": {"$type": "color", "$value": "{color.alpha.neutral-dark-3-94}", "$description": "Tinte del panel que flota (⌘K sin cortina, popover, la aprobación que flota): bg.raised al 94 %. Todo lo que pasa sobre los fondos pasa acá, aun con el peor fondo detrás."},
+      "rim": {"$type": "color", "$value": "{color.alpha.white-14}", "$description": "Borde de 1px del vidrio. En oscuro, blanco al 14 %."},
+      "specular": {"$type": "color", "$value": "{color.alpha.white-10}", "$description": "Línea de luz de 1px, inset, en el borde de arriba. Es luz, no sombra."}
+    }
+  }
+}

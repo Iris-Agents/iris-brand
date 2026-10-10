@@ -1,0 +1,90 @@
+/* Plantillas de contenido para redes (feed 4:5, cuadrado y story).
+   Se enlaza DESPUÉS de ../../_base/brand.css: de ahí salen todos los colores y las fuentes.
+   Cada HTML fija en su <style> el tamaño del lienzo y los tamaños de letra de su formato. */
+
+html, body { width: var(--ancho); height: var(--alto); overflow: hidden; }
+body { position: relative; font-weight: 400; }
+
+/* La caja que respeta la zona segura. Cada formato le pone su inset. */
+.marco { position: absolute; display: flex; flex-direction: column; }
+
+/* ---------- Texto ---------- */
+
+.eyebrow { margin: 0; font-weight: 500; line-height: 1.3; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+
+/* Titular de dos líneas: la 1 en Plex 500, la 2 en la firma, mismo tamaño. */
+.titular { margin: 0; font-weight: 500; line-height: 1.04; letter-spacing: -0.02em; color: var(--text-primary); }
+.titular > span { display: block; text-wrap: balance; }
+.titular > .signature { letter-spacing: -0.01em; color: var(--text-secondary); }
+
+.bajada { margin: 0; line-height: 1.4; letter-spacing: -0.015em; color: var(--text-secondary); text-wrap: balance; }
+
+.nota { margin: 0; line-height: 1.4; letter-spacing: -0.01em; color: var(--text-tertiary); }
+
+/* ---------- Pie: lockup chico + @ ---------- */
+
+.pie { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.lockup { display: inline-flex; align-items: center; gap: calc(var(--logo-alto) * 0.27); }
+/* Proporciones del lockup (guide/03-logo-e-icono.md, 3.4): ícono 52, radio 12, i 42, palabra 40, separación 14. */
+.icono { display: inline-flex; align-items: center; justify-content: center; flex: none; width: var(--logo-alto); height: var(--logo-alto); padding-bottom: calc(var(--logo-alto) * 0.077); border: 2px solid var(--border-default); border-radius: calc(var(--logo-alto) * 0.23); background: var(--brand-black); color: var(--brand-white); font-size: calc(var(--logo-alto) * 0.81); line-height: 1; }
+.wordmark { font-size: calc(var(--logo-alto) * 0.77); line-height: 1; letter-spacing: -0.01em; color: var(--brand-white); white-space: nowrap; }
+.handle { line-height: 1; letter-spacing: -0.015em; color: var(--text-tertiary); white-space: nowrap; }
+
+/* ---------- Piezas de producto ----------
+   Se dibujan a la escala de la app (los px de los tokens) y se agrandan con
+   zoom: con --pieza-zoom 2.4 una pieza de 936 px equivale a la app en un teléfono de 390. */
+
+.pieza { zoom: var(--pieza-zoom); font-size: 14px; line-height: 1.45; letter-spacing: -0.01em; }
+.pieza .eyebrow { font-size: 12px; line-height: 1.4; }
+.pieza .num { font-variant-numeric: tabular-nums; }
+.pieza .mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0; }
+
+.glifo { display: block; flex: none; width: 10px; height: 10px; overflow: visible; }
+.glifo.te-toca { color: var(--status-attention); }
+.glifo.fallo { color: var(--status-failed); }
+.glifo.trabajando { color: var(--status-working); }
+.glifo.resuelto { color: var(--status-done); }
+.glifo.esperando { color: var(--status-idle); }
+
+.pildora { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border: 1px solid var(--border-control); border-radius: 9999px; font-size: 12px; font-weight: 500; white-space: nowrap; color: var(--text-primary); }
+
+/* El feed «Hoy en tu cuenta» */
+.feed { display: grid; gap: 10px; padding: 18px 20px 14px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px; }
+.feed ul { margin: 0; padding: 0; list-style: none; }
+.fila { display: grid; grid-template-columns: 10px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 11px 0; border-top: 1px solid var(--border-subtle); }
+.fila:first-child { border-top: 0; }
+/* Cada fila es un resultado: lo que cambió (la cifra o el objeto) va en <b>, más claro; el resto, en secundario. */
+.fila .que { color: var(--text-secondary); }
+.fila .que b { font-weight: 500; color: var(--text-primary); }
+.fila .en-curso { font-size: 12px; color: var(--text-tertiary); white-space: nowrap; }
+.leyenda { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; padding-top: 10px; border-top: 1px solid var(--border-subtle); font-size: 12px; color: var(--text-tertiary); }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+
+/* La tarjeta de aprobación */
+.aprobacion { display: grid; gap: 16px; padding: 20px; background: var(--bg-raised); border: 1px solid var(--border-default); border-radius: 12px; }
+.aprobacion-cabeza { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.aprobacion h2 { margin: 0; font-size: 18px; line-height: 1.35; font-weight: 500; letter-spacing: -0.01em; text-wrap: balance; }
+.aprobacion dl { display: grid; margin: 0; }
+.aprobacion dl div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; padding: 9px 0; border-top: 1px solid var(--border-subtle); }
+.aprobacion dt { color: var(--text-secondary); }
+.aprobacion dd { margin: 0; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.aprobacion-acciones { display: flex; flex-wrap: wrap; gap: 8px; }
+.boton { display: inline-flex; align-items: center; justify-content: center; height: 40px; padding: 0 16px; border-radius: 6px; font: 500 14px/1 var(--font-sans); letter-spacing: -0.01em; }
+/* Tinta llena: el CTA, «Aprobar» en la tarjeta de aprobación (guide/08-piezas-propias.md, 8.3). */
+.boton-lleno { background: var(--action-primary); color: var(--text-on-action); border: 1px solid var(--action-primary); }
+.boton-ghost { background: transparent; color: var(--text-primary); border: 1px solid var(--border-default); }
+
+/* ---------- Guías (sólo con ?guias en la URL) ----------
+   El magenta no es un color de marca: existe sólo para dibujar zonas y nunca sale en la pieza limpia. */
+
+:root { --guia: #ff2d95; }
+.guia { display: none; position: absolute; pointer-events: none; border: 3px dashed var(--guia); }
+html.guias .guia { display: block; }
+.guia.punteada { border-style: dotted; border-width: 4px; }
+.guia::after { content: attr(data-etiqueta); position: absolute; top: 8px; left: 8px; padding: 4px 8px; background: var(--brand-black); color: var(--guia); font: 500 20px/1.2 var(--font-mono); letter-spacing: 0; white-space: nowrap; }
+.guia.etiqueta-abajo::after { top: auto; bottom: 8px; }
+.guia.etiqueta-derecha::after { left: auto; right: 8px; }
+/* Etiqueta afuera de la zona, para que no tape el contenido. */
+.guia.etiqueta-arriba-fuera::after { top: auto; bottom: calc(100% + 6px); left: 0; }
+.guia.etiqueta-abajo-fuera::after { top: calc(100% + 6px); left: 0; }
+.guia.etiqueta-abajo-fuera.etiqueta-derecha::after { left: auto; right: 8px; }

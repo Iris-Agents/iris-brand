@@ -1,0 +1,185 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "iris: los primitivos y todo lo que no cambia entre modos (tipografía, espacio, forma y movimiento). DTCG 2025.10. Los colores de acá no los usa ningún componente: pasan por los semánticos de themes/dark.tokens.json y themes/light.tokens.json.",
+  "color": {
+    "$description": "Primitivos de color. La escala existe porque un contexto del resolver sólo puede apuntar a foundation.",
+    "brand": {
+      "black": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.145, 0.002, 95], "hex": "#0a0a09"}, "$description": "Negro de marca: el fondo del ícono y el piso del oscuro (landing, piezas, OG, banner). A la vista es neutro: la calidez del sistema vive en los grises medios."},
+      "white": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.985, 0.0013, 95], "hex": "#fafaf9"}, "$description": "Blanco de marca: la i del ícono, el logotipo sobre oscuro y el piso del claro."}
+    },
+    "neutral-dark": {
+      "$description": "Los once valores del oscuro, de abajo hacia arriba. Tono 95, croma de 0,002 a 0,006.",
+      "1": {"$type": "color", "$value": "{color.brand.black}", "$description": "canvas · on-action"},
+      "2": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.176, 0.0022, 95], "hex": "#111110"}, "$description": "surface (+3,1 de L: el escalón que la landing validó)"},
+      "3": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.207, 0.0025, 95], "hex": "#181816"}, "$description": "raised (+3,1)"},
+      "4": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.24, 0.0028, 95], "hex": "#201f1e"}, "$description": "hover"},
+      "5": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.268, 0.003, 95], "hex": "#262624"}, "$description": "selected"},
+      "6": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.29, 0.0035, 95], "hex": "#2c2b29"}, "$description": "border.subtle · data.grid"},
+      "7": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.345, 0.004, 95], "hex": "#3a3937"}, "$description": "border.default · selection"},
+      "8": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.55, 0.005, 95], "hex": "#72716e"}, "$description": "border.control · disabled · link.underline (>= 3:1 sobre los cinco fondos)"},
+      "9": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.685, 0.006, 95], "hex": "#9b9a96"}, "$description": "tertiary · placeholder · status.done · data.comparison (>= 4,5:1 sobre los cinco fondos)"},
+      "10": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.8, 0.006, 95], "hex": "#bfbeb9"}, "$description": "secondary"},
+      "11": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.945, 0.004, 95], "hex": "#ededea"}, "$description": "primary · action · focus · status.idle · data.series"}
+    },
+    "neutral-light": {
+      "$description": "Los diez valores del claro, de arriba hacia abajo. Misma familia; no es la oscura invertida.",
+      "1": {"$type": "color", "$value": "{color.brand.white}", "$description": "canvas · surface · raised · on-action"},
+      "2": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.955, 0.002, 95], "hex": "#f0f0ef"}, "$description": "hover"},
+      "3": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.935, 0.0025, 95], "hex": "#eae9e8"}, "$description": "selected"},
+      "4": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.915, 0.003, 95], "hex": "#e3e3e1"}, "$description": "border.subtle · data.grid"},
+      "5": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.89, 0.0035, 95], "hex": "#dbdbd8"}, "$description": "selection"},
+      "6": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.85, 0.004, 95], "hex": "#cececb"}, "$description": "border.default"},
+      "7": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.615, 0.0055, 95], "hex": "#868581"}, "$description": "border.control · disabled · link.underline (>= 3:1 sobre los fondos del claro)"},
+      "8": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.515, 0.006, 95], "hex": "#686764"}, "$description": "tertiary · placeholder · status.done · data.comparison (>= 4,5:1 sobre los fondos del claro)"},
+      "9": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.42, 0.006, 95], "hex": "#4e4d49"}, "$description": "secondary · status.idle"},
+      "10": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.215, 0.004, 95], "hex": "#1a1917"}, "$description": "primary · action · focus · data.series"}
+    },
+    "signal": {
+      "$description": "Los colores de estado, lo único fuera de los neutros. Van en el glifo de estado, siempre con su palabra; el rojo además puede ir como texto (destructivo, error de un campo). Nunca en el logo, en un fondo ni como adorno. Medidos contra los que usa Claude (Claude Code y claude.ai).",
+      "amber-on-dark": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.8, 0.14, 70], "hex": "#f7ac4d"}, "$description": "Te toca (●). 7,9:1 en el peor fondo del oscuro. Tono 70, L 0,80: a ΔEOK 0,156 del amarillo de Mercado Libre y a 0,146 del clay de Claude."},
+      "amber-on-light": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.6, 0.12, 70], "hex": "#ad721c"}, "$description": "Te toca (●) en claro. 3,33:1 en el peor fondo: sólo relleno, nunca texto ni un trazo fino."},
+      "green-on-dark": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.64, 0.12, 150], "hex": "#50a064"}, "$description": "iris trabajando (◐). 4,73:1 en el peor fondo del oscuro. El verde de los cambios agregados en Claude Code (ΔEOK 0,025)."},
+      "green-on-light": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.46, 0.1, 150], "hex": "#266739"}, "$description": "iris trabajando (◐) en claro. 5,62:1 en el peor fondo."},
+      "red-on-dark": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.68, 0.15, 25], "hex": "#e66e68"}, "$description": "Falló (✕) y destructivo. 4,91:1 en el peor fondo del oscuro: pasa como texto."},
+      "red-on-light": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.535, 0.17, 27], "hex": "#bc3732"}, "$description": "Falló (✕) y destructivo en claro. 4,64:1 en el peor fondo: pasa como texto."}
+    },
+    "alpha": {
+      "$description": "Colores con transparencia. Los tintes del vidrio repiten los componentes de un neutro; el test falla si dejan de coincidir.",
+      "black-60": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0.6, "hex": "#000000"}, "$description": "Cortina del oscuro, detrás de un diálogo."},
+      "black-30": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0.3, "hex": "#000000"}, "$description": "Cortina del claro, detrás de un diálogo."},
+      "neutral-dark-2-80": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.176, 0.0022, 95], "alpha": 0.8, "hex": "#111110"}, "$description": "neutral-dark.2 (surface) al 80 %: el tinte de la barra de vidrio."},
+      "neutral-dark-3-94": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.207, 0.0025, 95], "alpha": 0.94, "hex": "#181816"}, "$description": "neutral-dark.3 (raised) al 94 %: el tinte del panel de vidrio."},
+      "neutral-light-1-82": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.985, 0.0013, 95], "alpha": 0.82, "hex": "#fafaf9"}, "$description": "neutral-light.1 (surface) al 82 %: el tinte de la barra de vidrio en claro."},
+      "neutral-light-1-94": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.985, 0.0013, 95], "alpha": 0.94, "hex": "#fafaf9"}, "$description": "neutral-light.1 (raised) al 94 %: el tinte del panel de vidrio en claro."},
+      "neutral-light-10-20": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.215, 0.004, 95], "alpha": 0.2, "hex": "#1a1917"}, "$description": "neutral-light.10 al 20 %: el borde del vidrio en claro."},
+      "white-14": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.14, "hex": "#ffffff"}, "$description": "El borde del vidrio en oscuro."},
+      "white-10": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.1, "hex": "#ffffff"}, "$description": "La línea de luz del vidrio en oscuro."},
+      "white-70": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.7, "hex": "#ffffff"}, "$description": "La línea de luz del vidrio en claro."}
+    }
+  },
+  "font": {
+    "family": {
+      "signature": {"$type": "fontFamily", "$value": ["DM Serif Display Italic", "DM Serif Display Italic Fallback", "serif"], "$description": "La firma. 'DM Serif Display Italic' es una familia propia de css/fonts.css con una sola cara, la itálica; su fallback es Georgia Italic con las métricas ajustadas. Va en tres lugares y ninguno más: el logotipo y la i del ícono (los dos son dibujos) y la segunda línea de un titular de dos líneas (texto, 400, de 32px para arriba). Siempre con font-style: italic y font-synthesis: none."},
+      "sans": {"$type": "fontFamily", "$value": ["IBM Plex Sans", "IBM Plex Sans Fallback", "sans-serif"], "$description": "Todo lo que se lee y se opera, en 400 y 500. Las cifras de Plex ya son tabulares. El fallback es Arial con las métricas de Plex (css/fonts.css), para que el cambio no corra el texto."},
+      "mono": {"$type": "fontFamily", "$value": ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"], "$description": "Sólo datos: ids, horas, nombres de tools, payloads, atajos. Mínimo 12px; nunca en eyebrows ni etiquetas."}
+    },
+    "weight": {
+      "regular": {"$type": "fontWeight", "$value": 400, "$description": "Cuerpo y la firma."},
+      "medium": {"$type": "fontWeight", "$value": 500, "$description": "Titulares, títulos, etiquetas. No hay tercer peso."}
+    }
+  },
+  "typography": {
+    "$description": "Doce estilos. letterSpacing en px, calculado con la regla de cada familia: Plex 0 en 12px, -0,01em de 13 a 24px, -0,015em en 40px y -0,02em en 64px; la firma -0,01em; el eyebrow +0,08em. Abajo de layout.breakpoint.narrow el hero usa los estilos de section: no hay tipografía fluida.",
+    "headline": {
+      "hero": {
+        "first": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 64, "unit": "px"}, "fontWeight": "{font.weight.medium}", "letterSpacing": {"value": -1.28, "unit": "px"}, "lineHeight": 1.05}, "$description": "Primera línea del hero y de la OG, en text.primary."},
+        "second": {"$type": "typography", "$value": {"fontFamily": "{font.family.signature}", "fontSize": {"value": 64, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": -0.64, "unit": "px"}, "lineHeight": 1.05}, "$description": "Segunda línea del hero y de la OG: la firma, en text.secondary, del mismo tamaño que la primera."}
+      },
+      "section": {
+        "first": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 40, "unit": "px"}, "fontWeight": "{font.weight.medium}", "letterSpacing": {"value": -0.6, "unit": "px"}, "lineHeight": 1.1}, "$description": "Primera línea de un titular de sección y del banner; el hero en pantallas angostas."},
+        "second": {"$type": "typography", "$value": {"fontFamily": "{font.family.signature}", "fontSize": {"value": 40, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": -0.4, "unit": "px"}, "lineHeight": 1.1}, "$description": "Segunda línea del mismo titular: la firma, en text.secondary."}
+      }
+    },
+    "title": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 18, "unit": "px"}, "fontWeight": "{font.weight.medium}", "letterSpacing": {"value": -0.18, "unit": "px"}, "lineHeight": 1.35}, "$description": "Título de entidad en la app; título de card en la landing."},
+    "copy": {
+      "lede": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 18, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": -0.18, "unit": "px"}, "lineHeight": 1.55}, "$description": "Bajada del hero, hasta layout.measure.lede."},
+      "body": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 16, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": -0.16, "unit": "px"}, "lineHeight": 1.6}, "$description": "Cuerpo de la landing, de los documentos y de los legales, hasta layout.measure.prose."},
+      "reading": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 15, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": -0.15, "unit": "px"}, "lineHeight": 1.65}, "$description": "El hilo del agente, las skills y la memoria, hasta layout.measure.reading."},
+      "ui": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 13, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": -0.13, "unit": "px"}, "lineHeight": 1.5}, "$description": "La base densa de la app."}
+    },
+    "label": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 13, "unit": "px"}, "fontWeight": "{font.weight.medium}", "letterSpacing": {"value": -0.13, "unit": "px"}, "lineHeight": 1.4}, "$description": "Botón, nav, título de fila, píldora."},
+    "eyebrow": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 12, "unit": "px"}, "fontWeight": "{font.weight.medium}", "letterSpacing": {"value": 0.96, "unit": "px"}, "lineHeight": 1.4}, "$description": "Antetítulo, en MAYÚSCULAS y text.tertiary. Sans, no mono: la mono en mayúsculas lee terminal."},
+    "mono": {"$type": "typography", "$value": {"fontFamily": "{font.family.mono}", "fontSize": {"value": 12, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": 0, "unit": "px"}, "lineHeight": 1.5}, "$description": "La línea 'tool · estado', horas, ids, payloads. El tamaño más chico del sistema."}
+  },
+  "space": {
+    "$description": "Base de 4px; el nombre es el múltiplo (space.4 = 16px), igual que Tailwind.",
+    "1": {"$type": "dimension", "$value": {"value": 4, "unit": "px"}},
+    "2": {"$type": "dimension", "$value": {"value": 8, "unit": "px"}},
+    "3": {"$type": "dimension", "$value": {"value": 12, "unit": "px"}},
+    "4": {"$type": "dimension", "$value": {"value": 16, "unit": "px"}},
+    "5": {"$type": "dimension", "$value": {"value": 20, "unit": "px"}},
+    "6": {"$type": "dimension", "$value": {"value": 24, "unit": "px"}},
+    "8": {"$type": "dimension", "$value": {"value": 32, "unit": "px"}},
+    "10": {"$type": "dimension", "$value": {"value": 40, "unit": "px"}},
+    "12": {"$type": "dimension", "$value": {"value": 48, "unit": "px"}},
+    "16": {"$type": "dimension", "$value": {"value": 64, "unit": "px"}}
+  },
+  "layout": {
+    "container": {"$type": "dimension", "$value": {"value": 1080, "unit": "px"}, "$description": "Ancho máximo de la landing."},
+    "gutter": {"$type": "dimension", "$value": {"value": 24, "unit": "px"}, "$description": "Margen lateral."},
+    "gutter-narrow": {"$type": "dimension", "$value": {"value": 16, "unit": "px"}, "$description": "Margen lateral abajo de layout.breakpoint.narrow."},
+    "section": {"$type": "dimension", "$value": {"value": 80, "unit": "px"}, "$description": "Ritmo entre secciones."},
+    "section-narrow": {"$type": "dimension", "$value": {"value": 56, "unit": "px"}, "$description": "En pantallas angostas se achica el ritmo, no el contenido."},
+    "hero": {"$type": "dimension", "$value": {"value": 104, "unit": "px"}, "$description": "Aire arriba y abajo del hero."},
+    "hero-narrow": {"$type": "dimension", "$value": {"value": 64, "unit": "px"}, "$description": "Aire del hero en pantallas angostas."},
+    "breakpoint": {
+      "narrow": {"$type": "dimension", "$value": {"value": 600, "unit": "px"}, "$description": "Por debajo de este ancho rigen los valores -narrow y el hero usa typography.headline.section."}
+    },
+    "measure": {
+      "$description": "Largo de línea en caracteres: quien lo usa multiplica por 1ch.",
+      "reading": {"$type": "number", "$value": 72, "$description": "Hilo del agente."},
+      "prose": {"$type": "number", "$value": 66, "$description": "Documentos, legales, blog."},
+      "lede": {"$type": "number", "$value": 60, "$description": "Bajada del hero."}
+    }
+  },
+  "size": {
+    "target-min": {"$type": "dimension", "$value": {"value": 24, "unit": "px"}, "$description": "Lado mínimo de cualquier cosa que se toca o se clickea (WCAG 2.5.8)."},
+    "control": {
+      "dense": {"$type": "dimension", "$value": {"value": 28, "unit": "px"}, "$description": "Alto de botón e input en la app."},
+      "comfortable": {"$type": "dimension", "$value": {"value": 40, "unit": "px"}, "$description": "Alto del botón de la landing y de las piezas."}
+    }
+  },
+  "radius": {
+    "$description": "Por rol, y concéntricos: el radio de un hijo es el del padre menos el padding, nunca mayor.",
+    "chip": {"$type": "dimension", "$value": {"value": 4, "unit": "px"}, "$description": "kbd, badge, controles chicos."},
+    "control": {"$type": "dimension", "$value": {"value": 6, "unit": "px"}, "$description": "Botón e input."},
+    "card": {"$type": "dimension", "$value": {"value": 8, "unit": "px"}, "$description": "Card, popover, burbuja, composer."},
+    "panel": {"$type": "dimension", "$value": {"value": 12, "unit": "px"}, "$description": "Paneles y diálogos; cards grandes de la landing."},
+    "frame": {"$type": "dimension", "$value": {"value": 16, "unit": "px"}, "$description": "Marcos de captura y de video."},
+    "pill": {"$type": "dimension", "$value": {"value": 9999, "unit": "px"}, "$description": "Píldoras ('Espera tu OK')."}
+  },
+  "border": {
+    "width": {
+      "hairline": {"$type": "dimension", "$value": {"value": 1, "unit": "px"}, "$description": "El único grosor de borde."},
+      "rule": {"$type": "dimension", "$value": {"value": 2, "unit": "px"}, "$description": "Regla inset de la fila activa: de las listas, nunca un adorno de card."}
+    },
+    "focus": {
+      "width": {"$type": "dimension", "$value": {"value": 2, "unit": "px"}, "$description": "Grosor del anillo de foco."},
+      "offset": {"$type": "dimension", "$value": {"value": 2, "unit": "px"}, "$description": "Distancia del anillo de foco al control."}
+    }
+  },
+  "glyph": {
+    "status": {
+      "$description": "● te toca (el único lleno) · ◐ iris trabajando · ✕ falló · ✓ resuelto · ○ esperando o sin declarar. Ninguna forma se repite, y siempre van con su palabra o una leyenda.",
+      "size": {"$type": "dimension", "$value": {"value": 10, "unit": "px"}, "$description": "Lado del glifo, en un viewBox de 10."},
+      "stroke": {"$type": "dimension", "$value": {"value": 1.5, "unit": "px"}, "$description": "Trazo del ○ y del contorno del ◐."},
+      "stroke-mark": {"$type": "dimension", "$value": {"value": 1.7, "unit": "px"}, "$description": "Trazo del ✕ y del ✓, con puntas redondas."}
+    }
+  },
+  "link": {
+    "underline-offset": {"$type": "dimension", "$value": {"value": 3, "unit": "px"}, "$description": "Distancia del subrayado de un link en texto corrido."}
+  },
+  "opacity": {
+    "hover": {"$type": "number", "$value": 0.9, "$description": "Hover del CTA de tinta."},
+    "disabled": {"$type": "number", "$value": 0.4, "$description": "Control deshabilitado entero."},
+    "pulse": {"$type": "number", "$value": 0.45, "$description": "El punto más bajo del latido del ◐."}
+  },
+  "glass": {
+    "$description": "El material de la capa que flota (barra de la landing, ⌘K, popovers, la aprobación cuando flota). Es el único blur del sistema y nunca se anima: el vidrio aparece y se va con opacity.",
+    "blur": {"$type": "dimension", "$value": {"value": 24, "unit": "px"}, "$description": "Desenfoque del fondo. Con 24px no se lee nada de lo que pasa por abajo."},
+    "saturate": {"$type": "number", "$value": 1.4, "$description": "Devuelve el tono a las fotos que el tinte apaga. Sobre neutros no hace nada."}
+  },
+  "duration": {
+    "$description": "Se animan transform, opacity y colores. Nunca 'transition: all', nunca filter ni el blur. Con prefers-reduced-motion todo queda quieto y visible.",
+    "fast": {"$type": "duration", "$value": {"value": 120, "unit": "ms"}, "$description": "Color, borde, hover."},
+    "base": {"$type": "duration", "$value": {"value": 180, "unit": "ms"}, "$description": "Plegar, desplegar, popover."},
+    "slow": {"$type": "duration", "$value": {"value": 280, "unit": "ms"}, "$description": "Panel lateral, sheet."},
+    "reveal": {"$type": "duration", "$value": {"value": 600, "unit": "ms"}, "$description": "La única entrada orquestada de la página."},
+    "stagger": {"$type": "duration", "$value": {"value": 80, "unit": "ms"}, "$description": "Desfase entre líneas del hero."},
+    "pulse": {"$type": "duration", "$value": {"value": 1200, "unit": "ms"}, "$description": "Un latido del ◐ al entrar en trabajando: baja a opacity.pulse y vuelve. Late dos veces y queda quieto; nunca gira."}
+  },
+  "easing": {
+    "out": {"$type": "cubicBezier", "$value": [0.23, 1, 0.32, 1], "$description": "Default (ease-out quint): entra rápido y frena suave. Sin rebotes."},
+    "in-out": {"$type": "cubicBezier", "$value": [0.65, 0, 0.35, 1], "$description": "Lo que se mueve de un lugar a otro, y el latido del ◐."}
+  }
+}

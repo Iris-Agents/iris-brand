@@ -1,0 +1,23 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "name": "iris",
+  "version": "2025.10",
+  "description": "Los tokens de iris en sus dos modos. Oscuro es la marca y el default; claro existe para la app.",
+  "sets": {
+    "foundation": {
+      "description": "Primitivos, tipografía, espacio, forma y movimiento.",
+      "sources": [{"$ref": "foundation.tokens.json"}]
+    }
+  },
+  "modifiers": {
+    "theme": {
+      "description": "El modo de color. Sólo cambia los semánticos de color.",
+      "contexts": {
+        "dark": [{"$ref": "themes/dark.tokens.json"}],
+        "light": [{"$ref": "themes/light.tokens.json"}]
+      },
+      "default": "dark"
+    }
+  },
+  "resolutionOrder": [{"$ref": "#/sets/foundation"}, {"$ref": "#/modifiers/theme"}]
+}

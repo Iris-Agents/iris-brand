@@ -1,0 +1,96 @@
+/* Portada de la página de Facebook: 1640×624 px, el doble de los 820×312 que muestra la
+   computadora. La comparten portada-a-mercadolibre.html y portada-b-cuenta.html.
+
+   ZONAS, en píxeles de esta imagen (x de izquierda a derecha, y de arriba abajo):
+   - Escritorio: la imagen entera. Facebook la muestra a 820×312 de pantalla (escala 0,5).
+   - Celular: la franja central x 266–1374, alto entero. Se muestra a 640×360 de pantalla:
+     alto 624 → 360 (escala 0,577), y de ancho entran 640 / 0,577 = 1109 px centrados;
+     se pierden 265 px de cada lado.
+   - Foto de perfil: abajo a la izquierda, x 0–660, y 420–624. Une dos casos: escritorio
+     (círculo de 176 px de pantalla a 32 del borde, sube 96 sobre la portada) y celular
+     (círculo de 196 px a 16 del borde, sube 40), con 24 px de margen.
+   - Contenido: x 294–1346 (28 px dentro de la franja del celular), fuera de la foto de perfil.
+   - Texto mínimo: 22 px acá = 12,7 px en el celular (el piso pedido son 12 px = 20,8 px acá).
+   Fuentes (leídas el 2026-10-10): 820×312 y 640×360, Meta Business Help citado por
+   outfeed.ai/blog/facebook-cover-photo-size (verificado 2026-09-27) y postfa.st/sizes/facebook/cover;
+   círculo de 176 y 196 px y "se superpone unos 40 px en el celular", facebook.com/help/125379114252045;
+   96 px sobre la portada en escritorio, contentstudio.io/blog/facebook-cover-photo-size (2026-08-07).
+   Ojo: esa misma página de ayuda hoy dice "alineada a la izquierda, 16:9 en computadora y 2.4:1 en
+   celular". Si el recorte fuera a la izquierda y no centrado, el panel se corta: mirarla subida. */
+
+:root {
+  --cover-width: 1640px;
+  --cover-height: 624px;
+  /* Sólo para la versión con guías: no es un color de la marca. */
+  --guide: #ff2d95;
+}
+
+html, body { width: var(--cover-width); height: var(--cover-height); overflow: hidden; }
+
+.cover {
+  position: relative;
+  width: var(--cover-width);
+  height: var(--cover-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px 294px 84px;
+  background:
+    radial-gradient(980px 560px at 66% 32%, color-mix(in srgb, var(--brand-white) 4%, transparent), transparent 70%),
+    var(--bg-canvas);
+}
+
+/* Lockup y titular */
+.lead { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 32px; }
+/* Proporciones del lockup (guide/03-logo-e-icono.md, 3.4), las mismas de las plantillas: ícono 52, radio 12,
+   i 42, palabra 40, separación 14. Esta imagen es el doble de la pantalla: los bordes van de 2 px. */
+.lockup { display: flex; align-items: center; gap: 14px; }
+.tile {
+  width: 52px; height: 52px; flex: none;
+  display: flex; align-items: center; justify-content: center; padding-bottom: 4px;
+  background: var(--brand-black); color: var(--brand-white);
+  border: 2px solid var(--border-default); border-radius: 12px;
+  font-size: 42px; line-height: 1;
+}
+.wordmark { font-size: 40px; line-height: 1; letter-spacing: -0.01em; color: var(--brand-white); white-space: nowrap; }
+.headline { margin: 0; font-size: 38px; line-height: 1.14; font-weight: 500; letter-spacing: -0.015em; color: var(--text-primary); }
+.headline span { display: block; white-space: nowrap; }
+.headline .signature { letter-spacing: -0.01em; color: var(--text-secondary); }
+
+/* Panel "Hoy en tu cuenta": el mismo del banner de LinkedIn. Cinco resultados resueltos, sin hora
+   ni leyenda; abajo queda el mismo aire que arriba porque ya no hay leyenda. */
+.feed {
+  flex: none; width: 544px;
+  padding: 24px 24px 10px;
+  background: var(--bg-surface); border: 2px solid var(--border-subtle); border-radius: 16px;
+}
+.eyebrow { margin: 0 0 6px; font-size: 22px; font-weight: 500; line-height: 1.4; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+.feed ul { margin: 0; padding: 0; list-style: none; }
+.feed-row {
+  display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 14px; align-items: center;
+  padding: 14px 0; border-top: 2px solid var(--border-subtle);
+  font-size: 23px; line-height: 1.4; white-space: nowrap;
+}
+.feed-row:first-child { border-top: 0; }
+/* Lo que cambió (la cifra o el objeto) va en <b>, más claro; el resto de la oración, en secundario. */
+.feed-row .what { color: var(--text-secondary); }
+.feed-row .what b { font-weight: 500; color: var(--text-primary); }
+
+.glyph { width: 16px; height: 16px; flex: none; display: block; overflow: visible; }
+.glyph-done { color: var(--status-done); }
+
+/* Guías: sólo con ?guias en la dirección. Nunca en la versión limpia. */
+.guides { display: none; }
+html.with-guides .guides { display: block; position: absolute; inset: 0; pointer-events: none; }
+.zone { position: absolute; border: 2px dashed var(--guide); }
+.zone-label {
+  position: absolute; padding: 2px 8px; background: var(--bg-canvas);
+  font: 400 18px/1.3 var(--font-mono); color: var(--guide); white-space: nowrap;
+}
+.zone-desktop { left: 2px; top: 2px; right: 2px; bottom: 2px; }
+.zone-desktop .zone-label { left: 12px; top: 10px; white-space: normal; }
+.zone-mobile { left: 266px; top: 14px; width: 1108px; bottom: 14px; }
+.zone-mobile .zone-label { right: 10px; top: 10px; }
+.zone-profile { left: 2px; top: 420px; width: 658px; bottom: 2px; }
+.zone-profile .zone-label { left: 10px; bottom: 10px; }

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=720">
+<title>Destacadas en el perfil</title>
+<link rel="stylesheet" href="../../_base/brand.css">
+<style>
+  /* Hoja de control, no se publica. Simula la fila de destacadas del perfil: cada PNG
+     recortado al centro como lo hace Instagram (object-fit: cover = el cuadrado del medio,
+     y el círculo encima) a 64px, con el anillo gris que Instagram dibuja alrededor.
+     Los colores --ig-* son de la interfaz de Instagram, aproximados; no son de la marca. */
+  :root {
+    --ig-dark-bg: #000000;
+    --ig-dark-ring: #363636;
+    --ig-dark-text: #f5f5f5;
+    --ig-light-bg: #ffffff;
+    --ig-light-ring: #dbdbdb;
+    --ig-light-text: #262626;
+    --highlight-size: 64px;
+  }
+  html, body { width: 720px; height: 420px; overflow: hidden; }
+  .sheet { display: flex; flex-direction: column; height: 100%; }
+  .profile { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 0 24px; }
+  .profile-dark { background: var(--ig-dark-bg); color: var(--ig-dark-text); --ring: var(--ig-dark-ring); }
+  .profile-light { background: var(--ig-light-bg); color: var(--ig-light-text); --ring: var(--ig-light-ring); }
+  .caption { margin: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+  .profile-light .caption { color: var(--border-control); }
+  .highlights { display: flex; gap: 14px; margin: 0; padding: 0; list-style: none; }
+  .highlight { width: 80px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .ring { padding: 3px; border: 1px solid var(--ring); border-radius: 50%; }
+  .ring img { display: block; width: var(--highlight-size); height: var(--highlight-size); border-radius: 50%; object-fit: cover; object-position: center; }
+  /* La etiqueta la pone Instagram con la fuente del sistema; se corta con «…». */
+  .name { max-width: 80px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif; font-size: 12px; }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <section class="profile profile-dark">
+    <p class="caption">Perfil en modo oscuro · círculo de 64px · las 3 últimas son propuesta</p>
+    <ul class="highlights">
+      <li class="highlight"><span class="ring"><img src="destacada-demo.png" alt=""></span><span class="name">Demo</span></li>
+      <li class="highlight"><span class="ring"><img src="destacada-casos.png" alt=""></span><span class="name">Casos</span></li>
+      <li class="highlight"><span class="ring"><img src="destacada-precios.png" alt=""></span><span class="name">Precios</span></li>
+      <li class="highlight"><span class="ring"><img src="destacada-ayuda.png" alt=""></span><span class="name">Ayuda</span></li>
+      <li class="highlight"><span class="ring"><img src="destacada-como-funciona.png" alt=""></span><span class="name">Cómo funciona</span></li>
+      <li class="highlight"><span class="ring"><img src="destacada-novedades.png" alt=""></span><span class="name">Novedades</span></li>
+      <li class="highlight"><span class="ring"><img src="destacada-permisos.png" alt=""></span><span class="name">Permisos</span></li>
+    </ul>
+  </section>
+  <section class="profile profile-light">
+    <p class="caption">Perfil en modo claro · círculo de 64px</p>
+    <ul class="highlights">
+      <li class="highlight"><span class="ring"><img src="destacada-demo.png" alt=""></span><span class="name">Demo</span></li>
+      <li class="highlight"><span class="ring"><img src="destacada-casos.png" alt=""></span><span class="name">Casos</span></li>
+      <li class="highlight"><span class="ring"><img src="destacada-precios.png" alt=""></span><span class="name">Precios</span></li>
+      <li class="highlight"><span class="ring"><img src="destacada-ayuda.png" alt=""></span><span class="name">Ayuda</span></li>
+      <li class="highlight"><span class="ring"><img src="destacada-como-funciona.png" alt=""></span><span class="name">Cómo funciona</span></li>
+      <li class="highlight"><span class="ring"><img src="destacada-novedades.png" alt=""></span><span class="name">Novedades</span></li>
+      <li class="highlight"><span class="ring"><img src="destacada-permisos.png" alt=""></span><span class="name">Permisos</span></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

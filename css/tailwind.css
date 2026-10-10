@@ -1,0 +1,113 @@
+/*
+  iris · puente a Tailwind v4. Escrito a mano y sin un solo valor: cada nombre apunta a una
+  variable de dist/tokens.css (importala antes). Con `inline`, la utilidad lleva la variable y el
+  modo lo resuelve tokens.css: no hace falta `dark:` para los colores de la marca.
+
+  En el markup se lee por rol: bg-canvas text-fg border-line-subtle · bg-action text-on-action ·
+  rounded-card · font-signature italic. El vidrio no está acá: va con las clases de glass.css.
+  No se bloquea la paleta de Tailwind ni se redefinen los nombres de shadcn: eso lo decide la app.
+*/
+
+@theme inline {
+  /* Fondos */
+  --color-canvas: var(--iris-color-bg-canvas);
+  --color-surface: var(--iris-color-bg-surface);
+  --color-raised: var(--iris-color-bg-raised);
+  --color-hover: var(--iris-color-bg-hover);
+  --color-selected: var(--iris-color-bg-selected);
+
+  /* Texto */
+  --color-fg: var(--iris-color-text-primary);
+  --color-fg-secondary: var(--iris-color-text-secondary);
+  --color-fg-tertiary: var(--iris-color-text-tertiary);
+  --color-fg-placeholder: var(--iris-color-text-placeholder);
+  --color-fg-disabled: var(--iris-color-text-disabled);
+  --color-on-action: var(--iris-color-text-on-action);
+
+  /* Bordes */
+  --color-line-subtle: var(--iris-color-border-subtle);
+  --color-line: var(--iris-color-border-default);
+  --color-line-control: var(--iris-color-border-control);
+
+  /* Acción, foco, selección y cortina */
+  --color-action: var(--iris-color-action-primary);
+  --color-action-destructive: var(--iris-color-action-destructive);
+  --color-focus: var(--iris-color-focus);
+  --color-selection: var(--iris-color-selection);
+  --color-backdrop: var(--iris-color-backdrop);
+
+  /* Estados: sólo en el glifo, siempre con su palabra */
+  --color-status-attention: var(--iris-color-status-attention);
+  --color-status-working: var(--iris-color-status-working);
+  --color-status-failed: var(--iris-color-status-failed);
+  --color-status-done: var(--iris-color-status-done);
+  --color-status-idle: var(--iris-color-status-idle);
+
+  /* Datos y links */
+  --color-data-series: var(--iris-color-data-series);
+  --color-data-comparison: var(--iris-color-data-comparison);
+  --color-data-grid: var(--iris-color-data-grid);
+  --color-link-underline: var(--iris-color-link-underline);
+
+  /* Familias. font-sans y font-mono reemplazan a las de Tailwind a propósito. */
+  --font-sans: var(--iris-font-family-sans);
+  --font-mono: var(--iris-font-family-mono);
+  --font-signature: var(--iris-font-family-signature);
+
+  /* Radios por rol (las píldoras usan rounded-full) */
+  --radius-chip: var(--iris-radius-chip);
+  --radius-control: var(--iris-radius-control);
+  --radius-card: var(--iris-radius-card);
+  --radius-panel: var(--iris-radius-panel);
+  --radius-frame: var(--iris-radius-frame);
+
+  /* Estilos de texto: tamaño, interlineado, tracking y peso. La familia va aparte. */
+  --text-hero: var(--iris-typography-headline-hero-first-font-size);
+  --text-hero--line-height: var(--iris-typography-headline-hero-first-line-height);
+  --text-hero--letter-spacing: var(--iris-typography-headline-hero-first-letter-spacing);
+  --text-hero--font-weight: var(--iris-typography-headline-hero-first-font-weight);
+  --text-hero-signature: var(--iris-typography-headline-hero-second-font-size);
+  --text-hero-signature--line-height: var(--iris-typography-headline-hero-second-line-height);
+  --text-hero-signature--letter-spacing: var(--iris-typography-headline-hero-second-letter-spacing);
+  --text-hero-signature--font-weight: var(--iris-typography-headline-hero-second-font-weight);
+  --text-section: var(--iris-typography-headline-section-first-font-size);
+  --text-section--line-height: var(--iris-typography-headline-section-first-line-height);
+  --text-section--letter-spacing: var(--iris-typography-headline-section-first-letter-spacing);
+  --text-section--font-weight: var(--iris-typography-headline-section-first-font-weight);
+  --text-section-signature: var(--iris-typography-headline-section-second-font-size);
+  --text-section-signature--line-height: var(--iris-typography-headline-section-second-line-height);
+  --text-section-signature--letter-spacing: var(--iris-typography-headline-section-second-letter-spacing);
+  --text-section-signature--font-weight: var(--iris-typography-headline-section-second-font-weight);
+  --text-title: var(--iris-typography-title-font-size);
+  --text-title--line-height: var(--iris-typography-title-line-height);
+  --text-title--letter-spacing: var(--iris-typography-title-letter-spacing);
+  --text-title--font-weight: var(--iris-typography-title-font-weight);
+  --text-lede: var(--iris-typography-copy-lede-font-size);
+  --text-lede--line-height: var(--iris-typography-copy-lede-line-height);
+  --text-lede--letter-spacing: var(--iris-typography-copy-lede-letter-spacing);
+  --text-lede--font-weight: var(--iris-typography-copy-lede-font-weight);
+  --text-body: var(--iris-typography-copy-body-font-size);
+  --text-body--line-height: var(--iris-typography-copy-body-line-height);
+  --text-body--letter-spacing: var(--iris-typography-copy-body-letter-spacing);
+  --text-body--font-weight: var(--iris-typography-copy-body-font-weight);
+  --text-reading: var(--iris-typography-copy-reading-font-size);
+  --text-reading--line-height: var(--iris-typography-copy-reading-line-height);
+  --text-reading--letter-spacing: var(--iris-typography-copy-reading-letter-spacing);
+  --text-reading--font-weight: var(--iris-typography-copy-reading-font-weight);
+  --text-ui: var(--iris-typography-copy-ui-font-size);
+  --text-ui--line-height: var(--iris-typography-copy-ui-line-height);
+  --text-ui--letter-spacing: var(--iris-typography-copy-ui-letter-spacing);
+  --text-ui--font-weight: var(--iris-typography-copy-ui-font-weight);
+  --text-label: var(--iris-typography-label-font-size);
+  --text-label--line-height: var(--iris-typography-label-line-height);
+  --text-label--letter-spacing: var(--iris-typography-label-letter-spacing);
+  --text-label--font-weight: var(--iris-typography-label-font-weight);
+  --text-eyebrow: var(--iris-typography-eyebrow-font-size);
+  --text-eyebrow--line-height: var(--iris-typography-eyebrow-line-height);
+  --text-eyebrow--letter-spacing: var(--iris-typography-eyebrow-letter-spacing);
+  --text-eyebrow--font-weight: var(--iris-typography-eyebrow-font-weight);
+  --text-mono: var(--iris-typography-mono-font-size);
+  --text-mono--line-height: var(--iris-typography-mono-line-height);
+  --text-mono--letter-spacing: var(--iris-typography-mono-letter-spacing);
+  --text-mono--font-weight: var(--iris-typography-mono-font-weight);
+}

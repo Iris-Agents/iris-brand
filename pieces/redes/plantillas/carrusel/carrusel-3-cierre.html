@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es" data-lamina="cierre">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Carrusel · cierre</title>
+<link rel="stylesheet" href="../../_base/brand.css">
+<link rel="stylesheet" href="carrusel.css">
+<script src="carrusel-guias.js" defer></script>
+</head>
+<body>
+<!--
+  Carrusel 4:5 de iris · lámina final, el cierre. 1080 × 1350.
+  Limpia:  ../../_base/render.sh carrusel-3-cierre.html 1080 1350 carrusel-3-cierre.png
+  Guías:   ../../_base/render.sh "carrusel-3-cierre.html?guias" 1080 1350 carrusel-3-cierre-guias.png
+  El lockup grande reemplaza al chico de las otras láminas. El llamado es un titular de dos líneas:
+  sin superlativos, sin «gratis» si no lo es, sin urgencia inventada.
+-->
+<main class="lamina lamina-cierre">
+  <section class="cuerpo">
+    <span class="lockup lockup-grande" role="img" aria-label="iris agents"><span class="icono signature" aria-hidden="true">i</span><span class="logotipo signature" aria-hidden="true">iris agents</span></span>
+    <h2 class="titular titular-cierre">
+      <!-- EDITAR: llamado a la acción, línea 1, en IBM Plex. Máximo 28 caracteres (hasta 2 renglones). Ej.: «Probalo en iris-agents.com».
+           Una dirección o un @usuario va dentro de <span class="sin-corte">, para que no se parta en el guion. -->
+      <span data-slot="cta-linea-1">Probalo en <span class="sin-corte">iris-agents.com</span></span>
+      <!-- EDITAR: línea 2, en la firma. Máximo 22 caracteres (1 renglón). Ej.: «o escribinos por DM.» -->
+      <em class="signature" data-slot="cta-linea-2">o escribinos por DM.</em>
+    </h2>
+    <!-- EDITAR: dato chico de para quién es. Máximo 44 caracteres. Acá sí puede ir «Mercado Libre», nunca con su logo ni sus colores. -->
+    <p class="dato" data-slot="dato">Para vendedores de Mercado Libre.</p>
+  </section>
+
+  <footer class="pie">
+    <span class="pie-texto">@iris_agents</span>
+    <!-- EDITAR: número de esta lámina / total de láminas, en mono. Ej.: 3/3. -->
+    <span class="contador" data-slot="contador">3/3</span>
+  </footer>
+</main>
+</body>
+</html>

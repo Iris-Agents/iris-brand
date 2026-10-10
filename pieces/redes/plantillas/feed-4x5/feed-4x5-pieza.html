@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Feed 4:5 · pieza</title>
+<!-- Plantilla de post para feed: 1080 × 1350, con la tarjeta de aprobación como imagen.
+     Render: ../../_base/render.sh feed-4x5-pieza.html 1080 1350 salida.png
+     Con guías: render.sh "feed-4x5-pieza.html?guias" 1080 1350 salida-guias.png
+     La tarjeta usa los px de la app y se agranda con --pieza-zoom; el feed «Hoy en tu cuenta»
+     (cuadrado-pieza.html, story-pieza.html) entra en el mismo lugar con el mismo zoom. -->
+<link rel="stylesheet" href="../../_base/brand.css">
+<link rel="stylesheet" href="../_comun/plantilla.css">
+<script>if (new URLSearchParams(location.search).has('guias')) document.documentElement.classList.add('guias');</script>
+<style>
+  :root { --ancho: 1080px; --alto: 1350px; --pieza-zoom: 2.4; }
+  .marco { inset: 72px; }
+  .titular { font-size: 72px; }
+  .imagen { margin-block: auto; }
+  .nota { margin-top: 24px; font-size: 26px; }
+  .lockup { --logo-alto: 56px; }
+  .handle { font-size: 30px; }
+</style>
+</head>
+<body>
+<main class="marco" data-bloque="marco">
+  <h1 class="titular" data-bloque="titular">
+    <!-- EDITAR: línea 1 del titular (Plex). Corta: máximo 22 caracteres (1 renglón). -->
+    <span data-slot="titular-linea-1">Antes de reponer,</span>
+    <!-- EDITAR: línea 2 del titular (va en la firma). Sin números. Máximo 22 caracteres (1 renglón). -->
+    <span class="signature" data-slot="titular-linea-2">te muestra las cifras.</span>
+  </h1>
+
+  <div class="imagen" data-bloque="imagen">
+    <!-- EJEMPLO: todas las cifras de la tarjeta son inventadas. Nunca datos reales de un cliente. -->
+    <article class="pieza aprobacion" data-bloque="pieza">
+      <div class="aprobacion-cabeza">
+        <!-- EDITAR: antetítulo de la tarjeta. Va «Propuesta», nunca el nombre de un agente: quien ve la pieza
+             todavía no usó la app. Máximo 28 caracteres. -->
+        <span class="eyebrow" data-slot="aprobacion-antetitulo">Propuesta</span>
+        <span class="pildora">Espera tu OK</span>
+      </div>
+      <!-- EDITAR: la acción, con verbo y objeto. Máximo 30 caracteres (1 renglón). -->
+      <h2 data-slot="aprobacion-titulo">Reponer Mochila urbana 22 L</h2>
+      <dl>
+        <!-- EDITAR: dos datos de «lo que va a hacer». Etiqueta máximo 24 caracteres; valor máximo 13 (cifras, o «antes → después»). -->
+        <div><dt data-slot="dato-1-etiqueta">Stock publicado</dt><dd data-slot="dato-1-valor">3 → 43</dd></div>
+        <div><dt data-slot="dato-2-etiqueta">Vendió en 7 días</dt><dd data-slot="dato-2-valor">27</dd></div>
+        <!-- EDITAR: cuándo leyó el dato: el día («hoy» o «ayer», en Plex) y la hora HH:MM (en mono). -->
+        <div><dt>Leído</dt><dd><span data-slot="dato-3-dia">hoy</span> · <time class="mono" data-slot="dato-3-hora">10:40</time></dd></div>
+      </dl>
+      <div class="aprobacion-acciones">
+        <span class="boton boton-lleno">Aprobar</span>
+        <span class="boton boton-ghost">Rechazar con motivo</span>
+      </div>
+    </article>
+    <!-- EDITAR: dejala mientras las cifras sean inventadas. Máximo 40 caracteres. -->
+    <p class="nota" data-slot="nota">Datos de ejemplo.</p>
+  </div>
+
+  <footer class="pie" data-bloque="pie">
+    <span class="lockup" aria-label="iris agents">
+      <span class="icono signature" aria-hidden="true">i</span>
+      <span class="wordmark signature">iris agents</span>
+    </span>
+    <span class="handle">@iris_agents</span>
+  </footer>
+</main>
+
+<!-- Guías: sólo se ven con ?guias. Margen 72 px: pedido de marca. Grilla 3:4 (1080 × 1440 desde enero de 2025): un 4:5 se ve a 1012 de ancho, centrado (help.hopperhq.com/en/articles/10907941). -->
+<i class="guia etiqueta-arriba-fuera" data-etiqueta="margen 72 px" style="left: 72px; top: 72px; width: 936px; height: 1206px;"></i>
+<i class="guia punteada etiqueta-abajo" data-etiqueta="grilla del perfil 3:4 · recorta 34 px por lado" style="left: 34px; top: 0; width: 1012px; height: 1350px;"></i>
+</body>
+</html>

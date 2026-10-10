@@ -1,0 +1,47 @@
+/* Portadas de historias destacadas de Instagram: 1080×1920, fondo negro de marca y un
+   pictograma de trazo centrado. Instagram recorta un círculo del centro (Ø1080 si no se
+   hace zoom) y lo muestra a ~64px: todo lo que importa vive en la zona segura (Ø720).
+   Instagram no publica la medida del recorte; Ø720 es la más conservadora de las guías
+   de terceros y aguanta un zoom de 1,5× en «Editar portada». */
+:root {
+  /* Caja del pictograma: grilla de 24×24 unidades, 22px por unidad. */
+  --pictogram-box: 528px;
+  /* Trazo en px de la pieza, igual en todas: 30 × 64 / 1080 = 1,78px en el círculo de 64. */
+  --pictogram-stroke: 30px;
+  /* Sólo en la versión -guias (?guias). Nunca en la pieza limpia. */
+  --guide: #ff2d95;
+}
+
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--brand-black); }
+
+.cover {
+  width: 1080px;
+  height: 1920px;
+  display: grid;
+  place-items: center;
+  background: var(--brand-black);
+}
+
+.pictogram {
+  width: var(--pictogram-box);
+  height: var(--pictogram-box);
+  overflow: visible;
+  color: var(--brand-white);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--pictogram-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* El trazo se mide en px de la pieza, no en unidades de la grilla: así no cambia
+   cuando un pictograma se agranda o se achica para compensarlo a ojo. */
+.pictogram * { vector-effect: non-scaling-stroke; }
+.pictogram .dot { fill: currentColor; stroke: none; }
+
+/* Versión -guias */
+.guides { position: absolute; inset: 0; width: 1080px; height: 1920px; pointer-events: none; }
+.guides * { fill: none; stroke: var(--guide); stroke-width: 4; stroke-dasharray: 18 14; }
+.guides .guide-safe { stroke-dasharray: 8 10; }
+.guides .guide-box { stroke-width: 3; stroke-dasharray: 4 8; }
+.guides .guide-axis { stroke-width: 2; stroke-dasharray: 4 10; }
+.guides text { fill: var(--guide); stroke: none; font-family: var(--font-mono); font-size: 30px; }

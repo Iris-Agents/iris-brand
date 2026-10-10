@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=620">
+<title>Foto de perfil en chico</title>
+<!--
+  Hoja de control, no se publica. Genera perfil-preview-circulos.png a partir de perfil-1080.png:
+  la foto como la muestran las redes, reducida y recortada en círculo (110, 40 y 32 px), sobre el
+  fondo de Instagram en modo claro (#FFFFFF) y en modo oscuro (#000000). El oscuro es el peor caso:
+  el disco negro se funde con el fondo.
+  Render (después de perfil-1080.png): _base/render.sh perfil/perfil-preview.html 620 192 perfil/perfil-preview-circulos.png
+  NO EDITAR: no tiene textos editables.
+-->
+<link rel="stylesheet" href="../_base/brand.css">
+<style>
+  /* Los colores --ig-* imitan la interfaz de Instagram, aproximados; no son de la marca. */
+  :root {
+    --ig-light-bg: #ffffff;
+    --ig-light-label: #6e6e6e;
+    --ig-dark-bg: #000000;
+    --ig-dark-label: #969696;
+  }
+  html, body { width: 620px; height: 192px; overflow: hidden; }
+  .sheet { display: flex; height: 100%; }
+  .panel { flex: 1; display: flex; align-items: flex-end; gap: 36px; padding: 28px; }
+  .panel-light { background: var(--ig-light-bg); color: var(--ig-light-label); }
+  .panel-dark { background: var(--ig-dark-bg); color: var(--ig-dark-label); }
+  figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  img { display: block; border-radius: 50%; }
+  figcaption { font-size: 12px; line-height: 16px; }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <section class="panel panel-light" aria-label="Instagram en modo claro">
+    <figure><img src="perfil-1080.png" width="110" height="110" alt=""><figcaption>110 px</figcaption></figure>
+    <figure><img src="perfil-1080.png" width="40" height="40" alt=""><figcaption>40 px</figcaption></figure>
+    <figure><img src="perfil-1080.png" width="32" height="32" alt=""><figcaption>32 px</figcaption></figure>
+  </section>
+  <section class="panel panel-dark" aria-label="Instagram en modo oscuro">
+    <figure><img src="perfil-1080.png" width="110" height="110" alt=""><figcaption>110 px</figcaption></figure>
+    <figure><img src="perfil-1080.png" width="40" height="40" alt=""><figcaption>40 px</figcaption></figure>
+    <figure><img src="perfil-1080.png" width="32" height="32" alt=""><figcaption>32 px</figcaption></figure>
+  </section>
+</main>
+</body>
+</html>

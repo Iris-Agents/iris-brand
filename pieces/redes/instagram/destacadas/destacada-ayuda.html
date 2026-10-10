@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Destacada Ayuda</title>
+<link rel="stylesheet" href="../../_base/brand.css">
+<link rel="stylesheet" href="destacada.css">
+<script src="guias.js" defer></script>
+</head>
+<body>
+<!-- Portada de la destacada «Ayuda» · 1080×1920. Render: ../../_base/render.sh destacada-ayuda.html 1080 1920 destacada-ayuda.png
+     Versión con guías: la misma plantilla con ?guias (destacada-ayuda.html?guias). -->
+<main class="cover">
+  <!-- EDITAR: pictograma de «Ayuda» (un signo de pregunta adentro de un círculo). Un solo SVG de trazo, sin texto
+       (el nombre lo escribe Instagram abajo). Grilla 24×24, dibujar entre 2 y 22; el grosor
+       lo fija destacada.css (--pictogram-stroke, no se pone stroke-width acá); los puntos
+       llenos llevan class="dot". Si se agranda o achica para compensarlo a ojo, cambiar sólo
+       --pictogram-box y no pasar de 560px: la zona segura es un círculo de Ø720. -->
+  <svg class="pictogram" data-slot="pictograma" viewBox="0 0 24 24" role="img" aria-label="Ayuda: un signo de pregunta adentro de un círculo">
+    <circle cx="12" cy="12" r="9.75"/>
+    <path d="M9.25 9.75A2.75 2.75 0 1 1 14.11 11.52C13.4 12.1 12 12.7 12 14.25"/>
+    <circle class="dot" cx="12" cy="17.25" r="1.15"/>
+  </svg>
+</main>
+</body>
+</html>

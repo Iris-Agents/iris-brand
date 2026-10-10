@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es" data-lamina="interior">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Carrusel · interior</title>
+<link rel="stylesheet" href="../../_base/brand.css">
+<link rel="stylesheet" href="carrusel.css">
+<script src="carrusel-guias.js" defer></script>
+</head>
+<body>
+<!--
+  Carrusel 4:5 de iris · lámina interior, repetible: una por punto o paso. 1080 × 1350.
+  Limpia:  ../../_base/render.sh carrusel-2-interior.html 1080 1350 carrusel-2-interior.png
+  Guías:   ../../_base/render.sh "carrusel-2-interior.html?guias" 1080 1350 carrusel-2-interior-guias.png
+  Para repetirla: copiá el archivo, cambiá los data-slot y el contador. El lockup y el pie no se tocan.
+  La pieza de abajo es opcional: va la tarjeta de aprobación, el feed (está en el <template> del final)
+  o nada. Sin pieza, borrá el <figure> entero y su comentario EDITAR: el texto queda arriba, en el mismo
+  lugar que con pieza, y el pie no se mueve.
+  Las cifras de la pieza son SIEMPRE de ejemplo: nunca un dato real de un cliente.
+-->
+<main class="lamina lamina-interior">
+  <header class="cabecera">
+    <span class="lockup lockup-chico" role="img" aria-label="iris agents"><span class="icono signature" aria-hidden="true">i</span><span class="logotipo signature" aria-hidden="true">iris agents</span></span>
+  </header>
+
+  <section class="cuerpo">
+    <!-- EDITAR: número del punto o del paso, dos dígitos en mono: 01, 02, 03. -->
+    <p class="marcador" data-slot="marcador">01</p>
+    <!-- EDITAR: título corto, una idea, en IBM Plex. Máximo 36 caracteres (hasta 2 renglones). Sin firma: la firma es sólo de la portada y el cierre. -->
+    <h2 class="titulo" data-slot="titulo">Cada acción tiene su permiso.</h2>
+    <!-- EDITAR: texto, una idea por oración. Máximo 140 caracteres (3 renglones). Con número, fecha o contra qué se midió cuando haya. -->
+    <p class="texto" data-slot="texto">Para cada una elegís: no, con tu OK o sola. Hasta que elijas, te pregunta antes de hacerla.</p>
+  </section>
+
+  <!-- EDITAR: pieza de producto, opcional. La tarjeta de aprobación (ésta), el feed (el <template> del final) o nada.
+       Va abajo, siempre en el mismo lugar. CIFRAS DE EJEMPLO, no son de ningún cliente. -->
+  <figure class="pieza" data-slot="pieza" data-ejemplo="cifras de ejemplo">
+    <div class="aprobacion">
+      <div class="aprobacion-arriba">
+        <!-- EDITAR: antetítulo de la tarjeta. Va «Propuesta», nunca el nombre de un agente: quien ve la pieza
+             todavía no usó la app. Máximo 38 caracteres. -->
+        <span class="eyebrow" data-slot="aprobacion-antetitulo">Propuesta</span>
+        <span class="pildora">Espera tu OK</span>
+      </div>
+      <!-- EDITAR: la acción que espera el OK. Máximo 30 caracteres, 1 renglón. Ejemplo genérico, sin rubro identificable. -->
+      <h3 data-slot="aprobacion-titulo">Reponer Mochila urbana 22 L</h3>
+      <dl>
+        <div>
+          <!-- EDITAR: lo que va a hacer, fila 1: el concepto. Máximo 24 caracteres. -->
+          <dt data-slot="aprobacion-concepto-1">Stock publicado</dt>
+          <!-- EDITAR: la cifra de la fila 1, antes → después si cambia algo. Máximo 12 caracteres. CIFRA DE EJEMPLO. -->
+          <dd data-slot="aprobacion-cifra-1" data-ejemplo>3 → 43</dd>
+        </div>
+        <div>
+          <!-- EDITAR: fila 2: el dato que justifica la acción. Máximo 24 caracteres. -->
+          <dt data-slot="aprobacion-concepto-2">Vendió en 7 días</dt>
+          <!-- EDITAR: la cifra de la fila 2. Máximo 12 caracteres. CIFRA DE EJEMPLO. -->
+          <dd data-slot="aprobacion-cifra-2" data-ejemplo>27</dd>
+        </div>
+        <div>
+          <dt>Leído</dt>
+          <!-- EDITAR: cuándo se leyó el dato: el día en Plex, la hora en mono dentro de <time>. Máximo 14 caracteres. «no lo leí» no es «no tiene». HORA DE EJEMPLO. -->
+          <dd data-slot="aprobacion-leido" data-ejemplo>hoy · <time class="hora">10:40</time></dd>
+        </div>
+      </dl>
+      <div class="aprobacion-acciones">
+        <span class="boton boton-tinta">Aprobar</span>
+        <span class="boton boton-ghost">Rechazar con motivo</span>
+      </div>
+    </div>
+  </figure>
+
+  <footer class="pie">
+    <!-- EDITAR: dejala mientras la pieza tenga cifras inventadas; si la lámina va sin pieza, vaciala. Máximo 40 caracteres. -->
+    <span class="pie-texto" data-slot="nota">Datos de ejemplo.</span>
+    <!-- EDITAR: número de esta lámina / total de láminas, en mono. Ej.: 2/3. -->
+    <span class="contador" data-slot="contador">2/3</span>
+  </footer>
+</main>
+
+<!--
+  Pieza alternativa: el feed «Hoy en tu cuenta». Para usarla, reemplazá el contenido del <figure class="pieza">
+  por el de este template. Hasta 4 filas, lo que te toca primero. El glifo va siempre con la leyenda de abajo, que
+  nombra sólo los estados que aparecen. CIFRAS DE EJEMPLO.
+  Glifos: ● --status-attention te toca · ✕ --status-failed falló · ◐ medio círculo --status-working trabajando ·
+  ✓ --status-done resuelto · ○ --status-idle esperando.
+  Cada fila dice el resultado, sin el nombre del agente: quien ve la pieza todavía no usó la app y no sabe cómo
+  se llaman los agentes. Empieza con mayúscula, sin punto; lo que cambió (la cifra o el objeto) va dentro de <b>.
+  El verbo dice el estado: «Reponer …» (te toca: lo que propone), «Revisa …» (trabajando), «Contestó …» (resuelto),
+  «No pudo …» (falló). A la derecha, la píldora (sólo te toca) o «en curso» (sólo trabajando); las demás filas no
+  llevan nada: el «hoy» lo da el título del panel. Largo, contando lo que va en <b>: máximo 37 caracteres con
+  píldora, 43 con «en curso» y 51 sin nada a la derecha.
+-->
+<template id="pieza-feed">
+  <div class="feed">
+    <p class="eyebrow">Hoy en tu cuenta</p>
+    <ul>
+      <li class="feed-fila"><svg class="glifo glifo-te-toca" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4.25" fill="currentColor"/></svg><span class="accion">Reponer <b>Mochila urbana 22 L</b></span><span class="pildora">Espera tu OK</span></li>
+      <li class="feed-fila"><svg class="glifo glifo-trabajando" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5 1a4 4 0 0 1 0 8z" fill="currentColor"/></svg><span class="accion">Revisa <b>el precio del ganador</b></span><span class="cuando">en curso</span></li>
+      <li class="feed-fila"><svg class="glifo glifo-resuelto" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.6 5.4 4 7.8 8.6 2.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><span class="accion">Contestó <b>40 preguntas</b></span></li>
+      <li class="feed-fila"><svg class="glifo glifo-resuelto" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.6 5.4 4 7.8 8.6 2.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><span class="accion">Resolvió <b>3 reclamos</b></span></li>
+    </ul>
+    <p class="feed-leyenda">
+      <span><svg class="glifo glifo-te-toca" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4.25" fill="currentColor"/></svg>te toca</span>
+      <span><svg class="glifo glifo-trabajando" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5 1a4 4 0 0 1 0 8z" fill="currentColor"/></svg>trabajando</span>
+      <span><svg class="glifo glifo-resuelto" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.6 5.4 4 7.8 8.6 2.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>resuelto</span>
+    </p>
+  </div>
+</template>
+</body>
+</html>

@@ -1,0 +1,46 @@
+/* Base de marca para las piezas de redes de iris.
+   Copia a mano valores de tokens/, porque las piezas se renderizan sin build.
+   test/pieces.test.mjs la ata a los tokens: si un valor no coincide, mandan los tokens. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=block');
+
+:root {
+  --brand-black: #0a0a09;
+  --brand-white: #fafaf9;
+
+  --bg-canvas: #0a0a09;
+  --bg-surface: #111110;
+  --bg-raised: #181816;
+  --bg-hover: #201f1e;
+  --bg-selected: #262624;
+  --border-subtle: #2c2b29;
+  --border-default: #3a3937;
+  --border-control: #72716e;
+  --text-tertiary: #9b9a96;
+  --text-secondary: #bfbeb9;
+  --text-primary: #ededea;
+
+  /* Acción principal (el botón «Aprobar»): tinta llena y su texto. */
+  --action-primary: #ededea;
+  --text-on-action: #0a0a09;
+
+  /* Estados (paleta verificada 2026-10-10, modo oscuro). Usarlos sólo por variable.
+     Decisión de Franco del 2026-10-10: verde = en movimiento (trabajando, ◐ medio círculo:
+     contorno entero y la mitad derecha llena); lo resuelto va en silencio (✓ gris, el mismo valor
+     que --text-tertiary). El único ● es te toca y el único ○ es esperando. */
+  --status-attention: #f7ac4d;
+  --status-working: #50a064;
+  --status-done: #9b9a96;
+  --status-failed: #e66e68;
+  --status-idle: #ededea;
+
+  --font-signature: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg-canvas); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-sans); }
+
+/* La firma: sólo logotipo, la i del ícono y la segunda línea de un titular de dos líneas. */
+.signature { font-family: var(--font-signature); font-style: italic; font-weight: 400; font-synthesis: none; }

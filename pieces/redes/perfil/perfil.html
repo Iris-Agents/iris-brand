@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080, height=1080">
+<title>Foto de perfil</title>
+<!--
+  Foto de perfil de iris agents: una sola para Instagram, Facebook y WhatsApp.
+  Render: _base/render.sh perfil/perfil.html 1080 1080 perfil/perfil-1080.png
+  Guías:  _base/render.sh "perfil/perfil.html?guias" 1080 1080 perfil/perfil-guias.png
+
+  NO EDITAR: esta pieza no tiene textos editables (no hay data-slot a propósito).
+  La i es el ícono de la marca; su tamaño y su posición están medidos, no se tocan a ojo.
+
+  Zona segura: las tres redes recortan en el círculo inscripto (radio 540). La i entera queda a
+  <= 432 px del centro (0,40 × 1080, el círculo del 80%): margen de 20% del radio como mínimo.
+
+  Tamaño: 1170 px de cuerpo -> la i mide 837 px de alto (0,775 del lado) y su píxel más lejano cae
+  a ~428 px del centro. Es lo más grande que entra en el 80% dejando 4 px para el antialias.
+
+  Centrado óptico (en unidades de la fuente, 1/1000 em; la i ocupa x 53..296, y −15..700):
+  1. Se centra el dibujo, no la caja de texto. Centrada por su avance (285), la itálica queda
+     32 u corrida a la derecha: sobresale de su caja y la caña se inclina hacia allá.
+  2. Se corre 10 u más a la izquierda (12 px). El ojo lee la i por la cabeza (punto y remate de
+     arriba), que está a la derecha del eje inclinado; así la cabeza queda sobre el centro.
+  3. En vertical va centrada por su caja: el mismo aire sobre el punto que bajo el pie. El
+     centroide de tinta cae 28 u más abajo (la caña pesa más que el punto), pero el punto, chico
+     y aislado, pesa a la vista más que su área: con el punto contado 1,5 veces el centro de masa
+     coincide con el de la caja. Centrar por tinta pura subía la i y apretaba el punto contra el borde.
+  x = −(174,5 + 10) / 1000 em; y = 342,5 / 1000 em (el origen del texto es la línea de base).
+-->
+<link rel="stylesheet" href="../_base/brand.css">
+<script>
+  if (new URLSearchParams(location.search).has('guias')) document.documentElement.classList.add('show-guides');
+</script>
+<style>
+  :root {
+    --icon-size: 1170px;
+    /* Sólo para la versión con guías: no es un color de marca. */
+    --guide-color: #ff2d95;
+  }
+  html, body { width: 1080px; height: 1080px; overflow: hidden; background: var(--brand-black); }
+  .avatar { display: block; width: 1080px; height: 1080px; background: var(--brand-black); }
+  .avatar-glyph { font-size: var(--icon-size); fill: var(--brand-white); }
+  .guides { display: none; fill: none; stroke: var(--guide-color); stroke-width: 3; stroke-dasharray: 14 10; }
+  .show-guides .guides { display: inline; }
+</style>
+</head>
+<body>
+<svg class="avatar" viewBox="0 0 1080 1080" width="1080" height="1080" role="img" aria-label="iris agents">
+  <g transform="translate(540 540)">
+    <text class="avatar-glyph signature" x="-0.1845em" y="0.3425em">i</text>
+  </g>
+  <g class="guides" transform="translate(540 540)">
+    <!-- Círculo inscripto (el recorte de las redes) y círculo del 80% (radio 432, límite de la i). -->
+    <circle r="538.5"/>
+    <circle r="432"/>
+  </g>
+</svg>
+</body>
+</html>

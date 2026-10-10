@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Cuadrado · titular</title>
+<!-- Plantilla de post cuadrado: 1080 × 1080. Render: ../../_base/render.sh cuadrado-titular.html 1080 1080 salida.png
+     Con guías: render.sh "cuadrado-titular.html?guias" 1080 1080 salida-guias.png
+     Ojo: la grilla del perfil de Instagram es 3:4 y a un cuadrado le recorta 135 px por lado en la
+     vista previa (el post completo se ve al abrirlo). Para Instagram conviene feed-4x5. -->
+<link rel="stylesheet" href="../../_base/brand.css">
+<link rel="stylesheet" href="../_comun/plantilla.css">
+<script>if (new URLSearchParams(location.search).has('guias')) document.documentElement.classList.add('guias');</script>
+<style>
+  :root { --ancho: 1080px; --alto: 1080px; }
+  .marco { inset: 72px; }
+  .eyebrow { font-size: 26px; }
+  .titular { margin-top: auto; font-size: 96px; }
+  .bajada { margin-top: 40px; font-size: 36px; }
+  .pie { margin-top: 88px; }
+  .lockup { --logo-alto: 52px; }
+  .handle { font-size: 28px; }
+</style>
+</head>
+<body>
+<main class="marco" data-bloque="marco">
+  <!-- EDITAR: eyebrow, el tema en 1 a 3 palabras, sin punto. Máximo 30 caracteres. Sin «iris»: el eyebrow sale en mayúsculas y la marca va siempre en minúscula. -->
+  <p class="eyebrow" data-slot="eyebrow">Preguntas</p>
+
+  <h1 class="titular" data-bloque="titular">
+    <!-- EDITAR: línea 1 del titular (Plex). Una idea. Máximo 28 caracteres (hasta 2 renglones). -->
+    <span data-slot="titular-linea-1">Cuando no sabe,</span>
+    <!-- EDITAR: línea 2 del titular (va en la firma). Sin números. Máximo 28 caracteres (hasta 2 renglones). -->
+    <span class="signature" data-slot="titular-linea-2">te lo dice.</span>
+  </h1>
+
+  <!-- EDITAR: bajada, una o dos oraciones cortas, sin adjetivos. Máximo 110 caracteres (hasta 3 renglones). -->
+  <p class="bajada" data-slot="bajada">Si un dato no está en la publicación, el agente no inventa la respuesta. Te avisa y espera.</p>
+
+  <footer class="pie" data-bloque="pie">
+    <span class="lockup" aria-label="iris agents">
+      <span class="icono signature" aria-hidden="true">i</span>
+      <span class="wordmark signature">iris agents</span>
+    </span>
+    <span class="handle">@iris_agents</span>
+  </footer>
+</main>
+
+<!-- Guías: sólo se ven con ?guias. Margen 72 px: pedido de marca. Grilla 3:4 (1080 × 1440 desde enero de 2025): un cuadrado se ve a 810 de ancho, centrado (help.hopperhq.com/en/articles/10907941). -->
+<i class="guia etiqueta-arriba-fuera" data-etiqueta="margen 72 px" style="left: 72px; top: 72px; width: 936px; height: 936px;"></i>
+<i class="guia punteada etiqueta-abajo" data-etiqueta="grilla 3:4 · recorta 135 px por lado" style="left: 135px; top: 0; width: 810px; height: 1080px;"></i>
+</body>
+</html>

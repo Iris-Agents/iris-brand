@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Destacada Casos</title>
+<link rel="stylesheet" href="../../_base/brand.css">
+<link rel="stylesheet" href="destacada.css">
+<script src="guias.js" defer></script>
+</head>
+<body>
+<!-- Portada de la destacada «Casos» · 1080×1920. Render: ../../_base/render.sh destacada-casos.html 1080 1920 destacada-casos.png
+     Versión con guías: la misma plantilla con ?guias (destacada-casos.html?guias). -->
+<main class="cover">
+  <!-- EDITAR: pictograma de «Casos» (el feed de la cuenta: tres filas, cada una con su glifo). Un solo SVG de trazo, sin texto
+       (el nombre lo escribe Instagram abajo). Grilla 24×24, dibujar entre 2 y 22; el grosor
+       lo fija destacada.css (--pictogram-stroke, no se pone stroke-width acá); los puntos
+       llenos llevan class="dot". Si se agranda o achica para compensarlo a ojo, cambiar sólo
+       --pictogram-box y no pasar de 560px: la zona segura es un círculo de Ø720. -->
+  <svg class="pictogram" data-slot="pictograma" viewBox="0 0 24 24" role="img" aria-label="Casos: tres filas de un registro, cada una con su punto">
+    <circle class="dot" cx="4" cy="5.5" r="1.85"/>
+    <circle class="dot" cx="4" cy="12" r="1.85"/>
+    <circle class="dot" cx="4" cy="18.5" r="1.85"/>
+    <path d="M9 5.5h12M9 12h12M9 18.5h12"/>
+  </svg>
+</main>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es" data-lamina="portada">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Carrusel · portada</title>
+<link rel="stylesheet" href="../../_base/brand.css">
+<link rel="stylesheet" href="carrusel.css">
+<script src="carrusel-guias.js" defer></script>
+</head>
+<body>
+<!--
+  Carrusel 4:5 de iris · lámina 1, la portada. 1080 × 1350.
+  Limpia:  ../../_base/render.sh carrusel-1-portada.html 1080 1350 carrusel-1-portada.png
+  Guías:   ../../_base/render.sh "carrusel-1-portada.html?guias" 1080 1350 carrusel-1-portada-guias.png
+  Lo fijo: el lockup arriba a la izquierda, «deslizá →» abajo a la izquierda y el contador abajo a la derecha.
+  Arriba a la derecha no va nada: ahí Instagram pone su contador de fotos.
+  Voz: una idea, sin adjetivos ni superlativos, le habla al dueño. «Mercado Libre» no va en el titular: «tu cuenta».
+-->
+<main class="lamina lamina-portada">
+  <header class="cabecera">
+    <span class="lockup lockup-chico" role="img" aria-label="iris agents"><span class="icono signature" aria-hidden="true">i</span><span class="logotipo signature" aria-hidden="true">iris agents</span></span>
+  </header>
+
+  <section class="cuerpo">
+    <!-- EDITAR: tema del carrusel, una o dos palabras. Máximo 24 caracteres. El CSS lo pasa a mayúsculas. -->
+    <p class="eyebrow" data-slot="eyebrow">Permisos</p>
+    <h1 class="titular titular-portada">
+      <!-- EDITAR: línea 1 del titular, en IBM Plex. Máximo 30 caracteres (ocupa hasta 2 renglones). -->
+      <span data-slot="titular-linea-1">Hasta dónde trabaja sola,</span>
+      <!-- EDITAR: línea 2 del titular, en la firma. Máximo 28 caracteres (hasta 2 renglones; con 16 entra en 1). Termina en punto. -->
+      <em class="signature" data-slot="titular-linea-2">lo decidís vos.</em>
+    </h1>
+  </section>
+
+  <footer class="pie">
+    <span class="pie-texto">deslizá →</span>
+    <!-- EDITAR: número de esta lámina / total de láminas, en mono. Ej.: 1/3, 1/5. -->
+    <span class="contador" data-slot="contador">1/3</span>
+  </footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Feed 4:5 · titular</title>
+<!-- Plantilla de post para feed: 1080 × 1350. Render: ../../_base/render.sh feed-4x5-titular.html 1080 1350 salida.png
+     Con guías: render.sh "feed-4x5-titular.html?guias" 1080 1350 salida-guias.png -->
+<link rel="stylesheet" href="../../_base/brand.css">
+<link rel="stylesheet" href="../_comun/plantilla.css">
+<script>if (new URLSearchParams(location.search).has('guias')) document.documentElement.classList.add('guias');</script>
+<style>
+  :root { --ancho: 1080px; --alto: 1350px; }
+  .marco { inset: 72px; }
+  .eyebrow { font-size: 28px; }
+  .titular { margin-top: auto; font-size: 120px; }
+  .bajada { margin-top: 48px; font-size: 40px; }
+  .pie { margin-top: 112px; }
+  .lockup { --logo-alto: 56px; }
+  .handle { font-size: 30px; }
+</style>
+</head>
+<body>
+<main class="marco" data-bloque="marco">
+  <!-- EDITAR: eyebrow, el tema en 1 a 3 palabras, sin punto. Máximo 30 caracteres. Sin «iris»: el eyebrow sale en mayúsculas y la marca va siempre en minúscula. -->
+  <p class="eyebrow" data-slot="eyebrow">Aprobaciones</p>
+
+  <h1 class="titular" data-bloque="titular">
+    <!-- EDITAR: línea 1 del titular (Plex). Una idea. Máximo 28 caracteres (hasta 2 renglones). -->
+    <span data-slot="titular-linea-1">Lo que no decidiste</span>
+    <!-- EDITAR: línea 2 del titular (va en la firma). Sin números. Máximo 28 caracteres (hasta 2 renglones). -->
+    <span class="signature" data-slot="titular-linea-2">te espera.</span>
+  </h1>
+
+  <!-- EDITAR: bajada, una o dos oraciones cortas, sin adjetivos. Máximo 110 caracteres (hasta 3 renglones). -->
+  <p class="bajada" data-slot="bajada">Un cambio de precio, stock o promo que no autorizaste queda esperando tu OK, con las cifras a la vista.</p>
+
+  <footer class="pie" data-bloque="pie">
+    <span class="lockup" aria-label="iris agents">
+      <span class="icono signature" aria-hidden="true">i</span>
+      <span class="wordmark signature">iris agents</span>
+    </span>
+    <span class="handle">@iris_agents</span>
+  </footer>
+</main>
+
+<!-- Guías: sólo se ven con ?guias. Margen 72 px: pedido de marca. Grilla 3:4 (1080 × 1440 desde enero de 2025): un 4:5 se ve a 1012 de ancho, centrado (help.hopperhq.com/en/articles/10907941). -->
+<i class="guia etiqueta-arriba-fuera" data-etiqueta="margen 72 px" style="left: 72px; top: 72px; width: 936px; height: 1206px;"></i>
+<i class="guia punteada etiqueta-abajo" data-etiqueta="grilla del perfil 3:4 · recorta 34 px por lado" style="left: 34px; top: 0; width: 1012px; height: 1350px;"></i>
+</body>
+</html>

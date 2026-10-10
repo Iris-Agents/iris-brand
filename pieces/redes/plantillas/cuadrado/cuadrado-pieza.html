@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Cuadrado · pieza</title>
+<!-- Plantilla de post cuadrado: 1080 × 1080, con el feed «Hoy en tu cuenta» como imagen.
+     Render: ../../_base/render.sh cuadrado-pieza.html 1080 1080 salida.png
+     Con guías: render.sh "cuadrado-pieza.html?guias" 1080 1080 salida-guias.png
+     El feed usa los px de la app y se agranda con --pieza-zoom; la tarjeta de aprobación
+     (feed-4x5-pieza.html) entra en el mismo lugar con el mismo zoom.
+     Ojo: la grilla del perfil de Instagram es 3:4 y a un cuadrado le recorta 135 px por lado en la
+     vista previa (el post completo se ve al abrirlo). Para Instagram conviene feed-4x5. -->
+<link rel="stylesheet" href="../../_base/brand.css">
+<link rel="stylesheet" href="../_comun/plantilla.css">
+<script>if (new URLSearchParams(location.search).has('guias')) document.documentElement.classList.add('guias');</script>
+<style>
+  :root { --ancho: 1080px; --alto: 1080px; --pieza-zoom: 2.4; }
+  .marco { inset: 72px; }
+  .titular { font-size: 64px; }
+  .imagen { margin-block: auto; }
+  .nota { margin-top: 20px; font-size: 26px; }
+  .lockup { --logo-alto: 52px; }
+  .handle { font-size: 28px; }
+</style>
+</head>
+<body>
+<!-- Glifos de estado. Cada uno va con su palabra en la leyenda. -->
+<svg width="0" height="0" style="position: absolute;" aria-hidden="true">
+  <symbol id="te-toca" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.25" fill="currentColor"/></symbol>
+  <symbol id="fallo" viewBox="0 0 10 10"><path d="M1.8 1.8 8.2 8.2M8.2 1.8 1.8 8.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="trabajando" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5 1a4 4 0 0 1 0 8z" fill="currentColor"/></symbol>
+  <symbol id="resuelto" viewBox="0 0 10 10"><path d="M1.6 5.4 4 7.8 8.6 2.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+  <symbol id="esperando" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+</svg>
+
+<main class="marco" data-bloque="marco">
+  <h1 class="titular" data-bloque="titular">
+    <!-- EDITAR: línea 1 del titular (Plex). Corta: máximo 24 caracteres (1 renglón). -->
+    <span data-slot="titular-linea-1">Lo que te toca, arriba.</span>
+    <!-- EDITAR: línea 2 del titular (va en la firma). Sin números. Máximo 24 caracteres (1 renglón). -->
+    <span class="signature" data-slot="titular-linea-2">Lo demás, ya resuelto.</span>
+  </h1>
+
+  <div class="imagen" data-bloque="imagen">
+    <!-- EJEMPLO: los resultados de las filas son inventados. Nunca datos reales de un cliente. -->
+    <section class="pieza feed" data-bloque="pieza">
+      <p class="eyebrow">Hoy en tu cuenta</p>
+      <!-- EDITAR: de 2 a 3 filas, lo que te toca primero. Cada fila dice el resultado, sin el nombre del agente:
+           quien ve la pieza todavía no usó la app y no sabe cómo se llaman los agentes. En cada fila:
+           · estado: te-toca, fallo, trabajando, resuelto o esperando. Va en la clase del <svg> y en el href, iguales.
+           · texto: empieza con mayúscula, sin punto. Lo que cambió (la cifra o el objeto) va dentro de <b>.
+             El verbo dice el estado: «Reponer …» (te toca: lo que propone), «Revisa …» (trabajando),
+             «Contestó …» (resuelto), «No pudo …» (falló).
+           · a la derecha: la píldora «Espera tu OK» (sólo te-toca) o «en curso» (sólo trabajando). Las demás
+             filas no llevan nada: el «hoy» lo da el título del panel.
+           · largo, contando lo que va en <b>: máximo 29 caracteres con píldora, 35 con «en curso»
+             y 41 sin nada a la derecha. -->
+      <ul>
+        <li class="fila">
+          <svg class="glifo te-toca"><use href="#te-toca"/></svg>
+          <span class="que" data-slot="fila-1-accion">Reponer <b>Mochila urbana 22 L</b></span>
+          <span class="pildora">Espera tu OK</span>
+        </li>
+        <li class="fila">
+          <svg class="glifo resuelto"><use href="#resuelto"/></svg>
+          <span class="que" data-slot="fila-2-accion">Contestó <b>40 preguntas</b></span>
+        </li>
+        <li class="fila">
+          <svg class="glifo resuelto"><use href="#resuelto"/></svg>
+          <span class="que" data-slot="fila-3-accion">Resolvió <b>3 reclamos</b></span>
+        </li>
+      </ul>
+      <!-- EDITAR: la leyenda lista sólo los estados que aparecen arriba, con su glifo. -->
+      <p class="leyenda">
+        <span><svg class="glifo te-toca"><use href="#te-toca"/></svg>te toca</span>
+        <span><svg class="glifo resuelto"><use href="#resuelto"/></svg>resuelto</span>
+      </p>
+    </section>
+    <!-- EDITAR: dejala mientras las filas sean inventadas. Máximo 40 caracteres. -->
+    <p class="nota" data-slot="nota">Datos de ejemplo.</p>
+  </div>
+
+  <footer class="pie" data-bloque="pie">
+    <span class="lockup" aria-label="iris agents">
+      <span class="icono signature" aria-hidden="true">i</span>
+      <span class="wordmark signature">iris agents</span>
+    </span>
+    <span class="handle">@iris_agents</span>
+  </footer>
+</main>
+
+<!-- Guías: sólo se ven con ?guias. Margen 72 px: pedido de marca. Grilla 3:4 (1080 × 1440 desde enero de 2025): un cuadrado se ve a 810 de ancho, centrado (help.hopperhq.com/en/articles/10907941). -->
+<i class="guia etiqueta-arriba-fuera" data-etiqueta="margen 72 px" style="left: 72px; top: 72px; width: 936px; height: 936px;"></i>
+<i class="guia punteada etiqueta-abajo" data-etiqueta="grilla 3:4 · recorta 135 px por lado" style="left: 135px; top: 0; width: 810px; height: 1080px;"></i>
+</body>
+</html>

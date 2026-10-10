@@ -1,0 +1,70 @@
+/*
+  iris · vidrio ahumado para la capa que flota. Lee las variables de dist/tokens.css (importala
+  antes); acá no hay un solo valor de color.
+
+  Va sólo en lo que flota sobre contenido que se mueve. Nunca en el contenido (feed, cards,
+  tablas, chat, formularios), nunca en una pieza estática, nunca vidrio sobre vidrio y nunca más
+  de dos a la vez. Es el único blur del sistema, y no se anima: aparece y se va con opacity.
+
+  - .glass-bar    la barra que flota (la nav de la landing). Sólo text.primary, text.secondary,
+                  el CTA de tinta sólido y el foco: ni texto gris, ni texto rojo, ni bordes de
+                  control, ni glifos de estado. Si hacen falta, es un panel.
+  - .glass-panel  lo que flota con texto (⌘K sin cortina, popovers, la aprobación cuando flota).
+                  El tinte es bg.raised al 94 %: todo lo que pasa sobre los fondos pasa acá.
+
+  El contraste lo garantiza el tinte, no el blur: con el peor fondo detrás y sin desenfoque, el
+  texto permitido igual pasa (lo mide test/glass.test.mjs). Sin lente ni refracción: el filtro
+  SVG sólo lo pinta Chromium y @supports no lo detecta.
+*/
+
+/* Sin backdrop-filter: la superficie lisa de siempre (nivel 2: raised + border.default). */
+.glass-bar,
+.glass-panel {
+  background-color: var(--iris-color-bg-raised);
+  border: var(--iris-border-width-hairline) solid var(--iris-color-border-default);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass-bar,
+  .glass-panel {
+    border-color: var(--iris-color-glass-rim);
+    box-shadow: inset 0 var(--iris-border-width-hairline) 0 var(--iris-color-glass-specular); /* luz, no sombra */
+    -webkit-backdrop-filter: blur(var(--iris-glass-blur)) saturate(var(--iris-glass-saturate));
+    backdrop-filter: blur(var(--iris-glass-blur)) saturate(var(--iris-glass-saturate));
+  }
+
+  .glass-bar {
+    background-color: var(--iris-color-glass-bar);
+  }
+
+  .glass-panel {
+    background-color: var(--iris-color-glass-panel);
+  }
+}
+
+/*
+  La preferencia de quien mira gana y vuelve a la superficie lisa. Safari no expone «Reducir
+  transparencia» a la web (WebKit 175497): ahí el vidrio queda puesto y el tinte sostiene el
+  contraste solo.
+*/
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .glass-bar,
+  .glass-panel {
+    background-color: var(--iris-color-bg-raised);
+    border-color: var(--iris-color-border-default);
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .glass-bar,
+  .glass-panel {
+    background-color: Canvas;
+    border-color: CanvasText;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}

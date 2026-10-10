@@ -1,0 +1,593 @@
+{
+  "name": "iris",
+  "version": 1,
+  "meta": {
+    "source": "iris-brand@1.0.0"
+  },
+  "color": {
+    "themes": [
+      {
+        "id": "dark",
+        "name": "Oscuro"
+      },
+      {
+        "id": "light",
+        "name": "Claro"
+      }
+    ],
+    "tokens": [
+      {
+        "name": "bg-canvas",
+        "value": {
+          "dark": "#0a0a09",
+          "light": "#fafaf9"
+        },
+        "usage": "Piso de la página, nivel 0. También es el meta theme-color."
+      },
+      {
+        "name": "bg-surface",
+        "value": {
+          "dark": "#111110",
+          "light": "#fafaf9"
+        },
+        "usage": "Card, panel, composer. Nivel 1, con border.subtle. En claro es el mismo blanco que canvas: el nivel lo dice border.subtle."
+      },
+      {
+        "name": "bg-raised",
+        "value": {
+          "dark": "#181816",
+          "light": "#fafaf9"
+        },
+        "usage": "Popover, menú, diálogo, ⌘K. Nivel 2, con border.default. Sin sombras. En claro es el mismo blanco, con border.default."
+      },
+      {
+        "name": "bg-hover",
+        "value": {
+          "dark": "#201f1e",
+          "light": "#f0f0ef"
+        },
+        "usage": "Hover de fila, ítem y botón secundario, sobre cualquier nivel."
+      },
+      {
+        "name": "bg-selected",
+        "value": {
+          "dark": "#262624",
+          "light": "#eae9e8"
+        },
+        "usage": "Fila o ítem seleccionado; va con la regla inset de 2px en text.primary."
+      },
+      {
+        "name": "text-primary",
+        "value": {
+          "dark": "#ededea",
+          "light": "#1a1917"
+        },
+        "usage": "Texto pleno: titulares, nombres, el hilo del agente, el cuerpo de lectura."
+      },
+      {
+        "name": "text-secondary",
+        "value": {
+          "dark": "#bfbeb9",
+          "light": "#4e4d49"
+        },
+        "usage": "Texto de apoyo de 13px para arriba: bajadas, ayudas, la segunda línea del titular."
+      },
+      {
+        "name": "text-tertiary",
+        "value": {
+          "dark": "#9b9a96",
+          "light": "#686764"
+        },
+        "usage": "Datos sueltos que se leen de un vistazo: hora, id, contador, eyebrow, meta de fila. Nunca una oración. >= 4,5:1 en los cinco fondos."
+      },
+      {
+        "name": "text-placeholder",
+        "value": {
+          "dark": "#9b9a96",
+          "light": "#686764"
+        },
+        "usage": "Placeholder de input: el mismo valor que tertiary, para que pase AA sobre cualquier fondo."
+      },
+      {
+        "name": "text-disabled",
+        "value": {
+          "dark": "#72716e",
+          "light": "#868581"
+        },
+        "usage": "Etiqueta deshabilitada (exenta de contraste por WCAG 1.4.3; igual queda en >= 3:1)."
+      },
+      {
+        "name": "text-on-action",
+        "value": {
+          "dark": "#0a0a09",
+          "light": "#fafaf9"
+        },
+        "usage": "Texto sobre el CTA de tinta."
+      },
+      {
+        "name": "border-subtle",
+        "value": {
+          "dark": "#2c2b29",
+          "light": "#e3e3e1"
+        },
+        "usage": "El hairline dominante: separadores, cards (decorativo)."
+      },
+      {
+        "name": "border-default",
+        "value": {
+          "dark": "#3a3937",
+          "light": "#cececb"
+        },
+        "usage": "Línea fuerte: popovers, diálogos, scrollbar, botón secundario (decorativo)."
+      },
+      {
+        "name": "border-control",
+        "value": {
+          "dark": "#72716e",
+          "light": "#868581"
+        },
+        "usage": "Borde de input y de todo control sin otra señal. >= 3:1 en los cinco fondos."
+      },
+      {
+        "name": "action-primary",
+        "value": {
+          "dark": "#ededea",
+          "light": "#1a1917"
+        },
+        "usage": "El CTA es tinta: relleno de text.primary con text.on-action encima."
+      },
+      {
+        "name": "action-destructive",
+        "value": {
+          "dark": "#e66e68",
+          "light": "#bc3732"
+        },
+        "usage": "Texto y borde del botón que borra o revierte (ghost, nunca relleno). Va con una confirmación que repite el objeto."
+      },
+      {
+        "name": "focus",
+        "value": {
+          "dark": "#ededea",
+          "light": "#1a1917"
+        },
+        "usage": "Anillo de foco: outline de 2px a 2px de distancia."
+      },
+      {
+        "name": "selection",
+        "value": {
+          "dark": "#3a3937",
+          "light": "#dbdbd8"
+        },
+        "usage": "Fondo de la selección de texto."
+      },
+      {
+        "name": "backdrop",
+        "value": {
+          "dark": "#00000099",
+          "light": "#0000004d"
+        },
+        "usage": "Cortina detrás de un diálogo. Nunca detrás de un vidrio: con cortina, el vidrio desaparece."
+      },
+      {
+        "name": "status-attention",
+        "value": {
+          "dark": "#f7ac4d",
+          "light": "#ad721c"
+        },
+        "usage": "● lleno: te toca. El único ● del set; va agrupado arriba de todo y, con el CTA, es lo único que grita. En claro va sólo como relleno, nunca como texto ni en un trazo fino."
+      },
+      {
+        "name": "status-working",
+        "value": {
+          "dark": "#50a064",
+          "light": "#266739"
+        },
+        "usage": "◐ medio círculo (contorno y mitad derecha llena): iris trabajando. Late en opacidad dos veces al entrar y queda quieto; nunca gira."
+      },
+      {
+        "name": "status-failed",
+        "value": {
+          "dark": "#e66e68",
+          "light": "#bc3732"
+        },
+        "usage": "✕: falló. El único estado que también puede ir como texto (destructivo, error de un campo)."
+      },
+      {
+        "name": "status-done",
+        "value": {
+          "dark": "#9b9a96",
+          "light": "#686764"
+        },
+        "usage": "✓: resuelto, en silencio. El mismo gris que text.tertiary, igual que el texto de la fila."
+      },
+      {
+        "name": "status-idle",
+        "value": {
+          "dark": "#ededea",
+          "light": "#4e4d49"
+        },
+        "usage": "○ hueco: esperando a un tercero (un comprador, Mercado Libre) o sin declarar. En oscuro va en blanco, como el texto. En claro baja a text.secondary para no pesar más que te toca."
+      },
+      {
+        "name": "data-series",
+        "value": {
+          "dark": "#ededea",
+          "light": "#1a1917"
+        },
+        "usage": "La serie protagonista de un gráfico: trazo sólido de 1,5px."
+      },
+      {
+        "name": "data-comparison",
+        "value": {
+          "dark": "#9b9a96",
+          "light": "#686764"
+        },
+        "usage": "La serie de referencia (período anterior, precio ganador): trazo punteado. Más de dos series: gráficos chicos repetidos, nunca más grises."
+      },
+      {
+        "name": "data-grid",
+        "value": {
+          "dark": "#2c2b29",
+          "light": "#e3e3e1"
+        },
+        "usage": "Grilla y ejes (decorativo). Las etiquetas de eje van en text.tertiary."
+      },
+      {
+        "name": "link-underline",
+        "value": {
+          "dark": "#72716e",
+          "light": "#868581"
+        },
+        "usage": "Subrayado de un link en texto corrido: 1px, a link.underline-offset. En hover pasa a text.primary. El link no cambia de color."
+      },
+      {
+        "name": "glass-bar",
+        "value": {
+          "dark": "#111110cc",
+          "light": "#fafaf9d1"
+        },
+        "usage": "Tinte de la barra que flota (la nav de la landing). Lleva sólo text.primary, text.secondary, el CTA sólido y el foco; ni texto gris ni glifos de estado. En oscuro es bg.surface al 80 %. En claro es bg.surface al 82 %."
+      },
+      {
+        "name": "glass-panel",
+        "value": {
+          "dark": "#181816f0",
+          "light": "#fafaf9f0"
+        },
+        "usage": "Tinte del panel que flota (⌘K sin cortina, popover, la aprobación que flota): bg.raised al 94 %. Todo lo que pasa sobre los fondos pasa acá, aun con el peor fondo detrás."
+      },
+      {
+        "name": "glass-rim",
+        "value": {
+          "dark": "#ffffff24",
+          "light": "#1a191733"
+        },
+        "usage": "Borde de 1px del vidrio. En oscuro, blanco al 14 %. En claro, text.primary al 20 %."
+      },
+      {
+        "name": "glass-specular",
+        "value": {
+          "dark": "#ffffff1a",
+          "light": "#ffffffb3"
+        },
+        "usage": "Línea de luz de 1px, inset, en el borde de arriba. Es luz, no sombra."
+      },
+      {
+        "name": "brand-black",
+        "value": "#0a0a09",
+        "usage": "Negro de marca: el fondo del ícono y el piso del oscuro (landing, piezas, OG, banner). A la vista es neutro: la calidez del sistema vive en los grises medios."
+      },
+      {
+        "name": "brand-white",
+        "value": "#fafaf9",
+        "usage": "Blanco de marca: la i del ícono, el logotipo sobre oscuro y el piso del claro."
+      }
+    ]
+  },
+  "type": {
+    "fonts": [
+      {
+        "family": "DM Serif Display Italic",
+        "file": "fonts/dm-serif-display-latin-ext-400-italic.woff2",
+        "weight": "400",
+        "style": "italic"
+      },
+      {
+        "family": "DM Serif Display Italic",
+        "file": "fonts/dm-serif-display-latin-400-italic.woff2",
+        "weight": "400",
+        "style": "italic"
+      },
+      {
+        "family": "IBM Plex Sans",
+        "file": "fonts/ibm-plex-sans-latin-ext-400-normal.woff2",
+        "weight": "400",
+        "style": "normal"
+      },
+      {
+        "family": "IBM Plex Sans",
+        "file": "fonts/ibm-plex-sans-latin-400-normal.woff2",
+        "weight": "400",
+        "style": "normal"
+      },
+      {
+        "family": "IBM Plex Sans",
+        "file": "fonts/ibm-plex-sans-latin-ext-500-normal.woff2",
+        "weight": "500",
+        "style": "normal"
+      },
+      {
+        "family": "IBM Plex Sans",
+        "file": "fonts/ibm-plex-sans-latin-500-normal.woff2",
+        "weight": "500",
+        "style": "normal"
+      },
+      {
+        "family": "IBM Plex Mono",
+        "file": "fonts/ibm-plex-mono-latin-ext-400-normal.woff2",
+        "weight": "400",
+        "style": "normal"
+      },
+      {
+        "family": "IBM Plex Mono",
+        "file": "fonts/ibm-plex-mono-latin-400-normal.woff2",
+        "weight": "400",
+        "style": "normal"
+      }
+    ],
+    "families": {
+      "sans": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", sans-serif",
+      "signature": "\"DM Serif Display Italic\", \"DM Serif Display Italic Fallback\", serif",
+      "mono": "\"IBM Plex Mono\", ui-monospace, SFMono-Regular, Menlo, monospace"
+    },
+    "groups": [
+      {
+        "name": "Sans",
+        "family": "sans",
+        "styles": [
+          {
+            "name": "headline-hero-first",
+            "fontSize": "64px",
+            "lineHeight": 1.05,
+            "fontWeight": 500,
+            "letterSpacing": "-1.28px",
+            "usage": "Primera línea del hero y de la OG, en text.primary."
+          },
+          {
+            "name": "headline-section-first",
+            "fontSize": "40px",
+            "lineHeight": 1.1,
+            "fontWeight": 500,
+            "letterSpacing": "-0.6px",
+            "usage": "Primera línea de un titular de sección y del banner; el hero en pantallas angostas."
+          },
+          {
+            "name": "title",
+            "fontSize": "18px",
+            "lineHeight": 1.35,
+            "fontWeight": 500,
+            "letterSpacing": "-0.18px",
+            "usage": "Título de entidad en la app; título de card en la landing."
+          },
+          {
+            "name": "copy-lede",
+            "fontSize": "18px",
+            "lineHeight": 1.55,
+            "fontWeight": 400,
+            "letterSpacing": "-0.18px",
+            "usage": "Bajada del hero, hasta layout.measure.lede."
+          },
+          {
+            "name": "copy-body",
+            "fontSize": "16px",
+            "lineHeight": 1.6,
+            "fontWeight": 400,
+            "letterSpacing": "-0.16px",
+            "usage": "Cuerpo de la landing, de los documentos y de los legales, hasta layout.measure.prose."
+          },
+          {
+            "name": "copy-reading",
+            "fontSize": "15px",
+            "lineHeight": 1.65,
+            "fontWeight": 400,
+            "letterSpacing": "-0.15px",
+            "usage": "El hilo del agente, las skills y la memoria, hasta layout.measure.reading."
+          },
+          {
+            "name": "copy-ui",
+            "fontSize": "13px",
+            "lineHeight": 1.5,
+            "fontWeight": 400,
+            "letterSpacing": "-0.13px",
+            "usage": "La base densa de la app."
+          },
+          {
+            "name": "label",
+            "fontSize": "13px",
+            "lineHeight": 1.4,
+            "fontWeight": 500,
+            "letterSpacing": "-0.13px",
+            "usage": "Botón, nav, título de fila, píldora."
+          },
+          {
+            "name": "eyebrow",
+            "fontSize": "12px",
+            "lineHeight": 1.4,
+            "fontWeight": 500,
+            "letterSpacing": "0.96px",
+            "usage": "Antetítulo, en MAYÚSCULAS y text.tertiary. Sans, no mono: la mono en mayúsculas lee terminal."
+          }
+        ]
+      },
+      {
+        "name": "Firma",
+        "family": "signature",
+        "styles": [
+          {
+            "name": "headline-hero-second",
+            "fontSize": "64px",
+            "lineHeight": 1.05,
+            "fontWeight": 400,
+            "letterSpacing": "-0.64px",
+            "usage": "Segunda línea del hero y de la OG: la firma, en text.secondary, del mismo tamaño que la primera."
+          },
+          {
+            "name": "headline-section-second",
+            "fontSize": "40px",
+            "lineHeight": 1.1,
+            "fontWeight": 400,
+            "letterSpacing": "-0.4px",
+            "usage": "Segunda línea del mismo titular: la firma, en text.secondary."
+          }
+        ]
+      },
+      {
+        "name": "Mono",
+        "family": "mono",
+        "styles": [
+          {
+            "name": "mono",
+            "fontSize": "12px",
+            "lineHeight": 1.5,
+            "fontWeight": 400,
+            "letterSpacing": "0px",
+            "usage": "La línea 'tool · estado', horas, ids, payloads. El tamaño más chico del sistema."
+          }
+        ]
+      }
+    ]
+  },
+  "spacing": {
+    "tokens": [
+      {
+        "name": "space-1",
+        "value": "4px"
+      },
+      {
+        "name": "space-2",
+        "value": "8px"
+      },
+      {
+        "name": "space-3",
+        "value": "12px"
+      },
+      {
+        "name": "space-4",
+        "value": "16px"
+      },
+      {
+        "name": "space-5",
+        "value": "20px"
+      },
+      {
+        "name": "space-6",
+        "value": "24px"
+      },
+      {
+        "name": "space-8",
+        "value": "32px"
+      },
+      {
+        "name": "space-10",
+        "value": "40px"
+      },
+      {
+        "name": "space-12",
+        "value": "48px"
+      },
+      {
+        "name": "space-16",
+        "value": "64px"
+      },
+      {
+        "name": "layout-container",
+        "value": "1080px",
+        "usage": "Ancho máximo de la landing."
+      },
+      {
+        "name": "layout-gutter",
+        "value": "24px",
+        "usage": "Margen lateral."
+      },
+      {
+        "name": "layout-gutter-narrow",
+        "value": "16px",
+        "usage": "Margen lateral abajo de layout.breakpoint.narrow."
+      },
+      {
+        "name": "layout-section",
+        "value": "80px",
+        "usage": "Ritmo entre secciones."
+      },
+      {
+        "name": "layout-section-narrow",
+        "value": "56px",
+        "usage": "En pantallas angostas se achica el ritmo, no el contenido."
+      },
+      {
+        "name": "layout-hero",
+        "value": "104px",
+        "usage": "Aire arriba y abajo del hero."
+      },
+      {
+        "name": "layout-hero-narrow",
+        "value": "64px",
+        "usage": "Aire del hero en pantallas angostas."
+      },
+      {
+        "name": "layout-breakpoint-narrow",
+        "value": "600px",
+        "usage": "Por debajo de este ancho rigen los valores -narrow y el hero usa typography.headline.section."
+      },
+      {
+        "name": "size-target-min",
+        "value": "24px",
+        "usage": "Lado mínimo de cualquier cosa que se toca o se clickea (WCAG 2.5.8)."
+      },
+      {
+        "name": "size-control-dense",
+        "value": "28px",
+        "usage": "Alto de botón e input en la app."
+      },
+      {
+        "name": "size-control-comfortable",
+        "value": "40px",
+        "usage": "Alto del botón de la landing y de las piezas."
+      }
+    ]
+  },
+  "radius": {
+    "tokens": [
+      {
+        "name": "radius-chip",
+        "value": "4px",
+        "usage": "kbd, badge, controles chicos."
+      },
+      {
+        "name": "radius-control",
+        "value": "6px",
+        "usage": "Botón e input."
+      },
+      {
+        "name": "radius-card",
+        "value": "8px",
+        "usage": "Card, popover, burbuja, composer."
+      },
+      {
+        "name": "radius-panel",
+        "value": "12px",
+        "usage": "Paneles y diálogos; cards grandes de la landing."
+      },
+      {
+        "name": "radius-frame",
+        "value": "16px",
+        "usage": "Marcos de captura y de video."
+      },
+      {
+        "name": "radius-pill",
+        "value": "9999px",
+        "usage": "Píldoras ('Espera tu OK')."
+      }
+    ]
+  }
+}

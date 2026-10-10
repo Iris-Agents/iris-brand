@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Story · pieza</title>
+<!-- Plantilla de story y portada de reel: 1080 × 1920, con el feed «Hoy en tu cuenta» como imagen.
+     Render: ../../_base/render.sh story-pieza.html 1080 1920 salida.png
+     Con guías: render.sh "story-pieza.html?guias" 1080 1920 salida-guias.png
+     Todo lo que importa vive en .contenido, entre y = 285 e y = 1248: ahí no lo tapa la interfaz
+     de la story ni la del reel, y sobrevive al recorte 4:5 del feed y al 3:4 de la grilla.
+     El pie va abajo, dentro de la zona de story; en un reel lo tapa la leyenda (el @ ya lo muestra Instagram).
+     El feed usa los px de la app y se agranda con --pieza-zoom; la tarjeta de aprobación
+     (feed-4x5-pieza.html) entra en el mismo lugar con el mismo zoom. -->
+<link rel="stylesheet" href="../../_base/brand.css">
+<link rel="stylesheet" href="../_comun/plantilla.css">
+<script>if (new URLSearchParams(location.search).has('guias')) document.documentElement.classList.add('guias');</script>
+<style>
+  :root { --ancho: 1080px; --alto: 1920px; --pieza-zoom: 2.4; }
+  .marco { top: 285px; right: 72px; bottom: 340px; left: 72px; }
+  .contenido { display: flex; flex-direction: column; height: 963px; }
+  .titular { font-size: 72px; }
+  .imagen { margin-top: auto; }
+  .nota { margin-top: 24px; font-size: 28px; }
+  .pie { margin-top: auto; }
+  .lockup { --logo-alto: 56px; }
+  .handle { font-size: 30px; }
+</style>
+</head>
+<body>
+<!-- Glifos de estado. Cada uno va con su palabra en la leyenda. -->
+<svg width="0" height="0" style="position: absolute;" aria-hidden="true">
+  <symbol id="te-toca" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.25" fill="currentColor"/></symbol>
+  <symbol id="fallo" viewBox="0 0 10 10"><path d="M1.8 1.8 8.2 8.2M8.2 1.8 1.8 8.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="trabajando" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5 1a4 4 0 0 1 0 8z" fill="currentColor"/></symbol>
+  <symbol id="resuelto" viewBox="0 0 10 10"><path d="M1.6 5.4 4 7.8 8.6 2.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+  <symbol id="esperando" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+</svg>
+
+<main class="marco" data-bloque="marco">
+  <div class="contenido" data-bloque="contenido">
+    <h1 class="titular" data-bloque="titular">
+      <!-- EDITAR: línea 1 del titular (Plex). Corta: máximo 22 caracteres (1 renglón). -->
+      <span data-slot="titular-linea-1">Lo que falló,</span>
+      <!-- EDITAR: línea 2 del titular (va en la firma). Sin números. Máximo 22 caracteres (1 renglón). -->
+      <span class="signature" data-slot="titular-linea-2">también te lo cuenta.</span>
+    </h1>
+
+    <div class="imagen" data-bloque="imagen">
+      <!-- EJEMPLO: los resultados de las filas son inventados. Nunca datos reales de un cliente. -->
+      <section class="pieza feed" data-bloque="pieza">
+        <p class="eyebrow">Hoy en tu cuenta</p>
+        <!-- EDITAR: de 3 a 4 filas, lo que te toca primero. Cada fila dice el resultado, sin el nombre del agente:
+             quien ve la pieza todavía no usó la app y no sabe cómo se llaman los agentes. En cada fila:
+             · estado: te-toca, fallo, trabajando, resuelto o esperando. Va en la clase del <svg> y en el href, iguales.
+             · texto: empieza con mayúscula, sin punto. Lo que cambió (la cifra o el objeto) va dentro de <b>.
+               El verbo dice el estado: «Reponer …» (te toca: lo que propone), «Revisa …» (trabajando),
+               «Contestó …» (resuelto), «No pudo …» (falló).
+             · a la derecha: la píldora «Espera tu OK» (sólo te-toca) o «en curso» (sólo trabajando). Las demás
+               filas no llevan nada: el «hoy» lo da el título del panel.
+             · largo, contando lo que va en <b>: máximo 29 caracteres con píldora, 35 con «en curso»
+               y 41 sin nada a la derecha. -->
+        <ul>
+          <li class="fila">
+            <svg class="glifo te-toca"><use href="#te-toca"/></svg>
+            <span class="que" data-slot="fila-1-accion">Reponer <b>Mochila urbana 22 L</b></span>
+            <span class="pildora">Espera tu OK</span>
+          </li>
+          <li class="fila">
+            <svg class="glifo fallo"><use href="#fallo"/></svg>
+            <span class="que" data-slot="fila-2-accion">No pudo activar <b>una promoción</b></span>
+          </li>
+          <li class="fila">
+            <svg class="glifo trabajando"><use href="#trabajando"/></svg>
+            <span class="que" data-slot="fila-3-accion">Revisa <b>el precio del ganador</b></span>
+            <span class="en-curso">en curso</span>
+          </li>
+          <li class="fila">
+            <svg class="glifo resuelto"><use href="#resuelto"/></svg>
+            <span class="que" data-slot="fila-4-accion">Contestó <b>40 preguntas</b></span>
+          </li>
+        </ul>
+        <!-- EDITAR: la leyenda lista sólo los estados que aparecen arriba, con su glifo. -->
+        <p class="leyenda">
+          <span><svg class="glifo te-toca"><use href="#te-toca"/></svg>te toca</span>
+          <span><svg class="glifo fallo"><use href="#fallo"/></svg>falló</span>
+          <span><svg class="glifo trabajando"><use href="#trabajando"/></svg>trabajando</span>
+          <span><svg class="glifo resuelto"><use href="#resuelto"/></svg>resuelto</span>
+        </p>
+      </section>
+      <!-- EDITAR: dejala mientras las filas sean inventadas. Máximo 40 caracteres. -->
+      <p class="nota" data-slot="nota">Datos de ejemplo.</p>
+    </div>
+  </div>
+
+  <footer class="pie" data-bloque="pie">
+    <span class="lockup" aria-label="iris agents">
+      <span class="icono signature" aria-hidden="true">i</span>
+      <span class="wordmark signature">iris agents</span>
+    </span>
+    <span class="handle">@iris_agents</span>
+  </footer>
+</main>
+
+<!-- Guías: sólo se ven con ?guias.
+     Story: 250 px arriba, 340 abajo y 64 por lado (pedido de marca).
+     Reel: Meta pide dejar libre el 14 % de arriba, el 35 % de abajo y el 6 % de cada lado (269, 672 y 65 px)
+       (facebook.com/business/ads-guide/update/video/instagram-reels).
+     Reel en el feed: se recorta a 4:5, los 1350 px del centro (y 285 a 1635).
+     Grilla del perfil: 3:4 desde enero de 2025, los 1440 px del centro (y 240 a 1680) (hopperhq.com/blog/instagram-reel-size). -->
+<i class="guia etiqueta-abajo-fuera" data-etiqueta="story · 250 arriba · 340 abajo · 64 por lado" style="left: 64px; top: 250px; width: 952px; height: 1330px;"></i>
+<i class="guia punteada etiqueta-abajo-fuera" data-etiqueta="reel (Meta) · 14 % arriba · 35 % abajo · 6 % por lado" style="left: 65px; top: 269px; width: 950px; height: 979px;"></i>
+<i class="guia etiqueta-abajo-fuera etiqueta-derecha" data-etiqueta="reel en el feed · 4:5" style="left: 0; top: 285px; width: 1080px; height: 1350px;"></i>
+<i class="guia punteada etiqueta-abajo-fuera etiqueta-derecha" data-etiqueta="grilla del perfil · 3:4" style="left: 0; top: 240px; width: 1080px; height: 1440px;"></i>
+</body>
+</html>
