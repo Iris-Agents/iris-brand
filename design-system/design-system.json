@@ -108,9 +108,9 @@
   ],
   "lastChange": {
     "by": "Franco",
-    "at": "2026-10-10T14:29:40Z",
-    "via": "GitHub · Iris-Agents/iris-brand@v1.2.0",
-    "note": "Sincronizado desde design-system/ de iris-brand 1.2.0: la fuente pasa a vivir en el repo."
+    "at": "2026-10-10T23:07:10Z",
+    "via": "GitHub · Iris-Agents/iris-brand@v1.3.0",
+    "note": "La firma va en sello: tokens signature-block y signature-text, Headline, Button (variante borde) y las reglas del titular."
   },
   "layout": "files",
   "libraries": [],
