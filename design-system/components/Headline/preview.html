@@ -1,0 +1,39 @@
+<!-- @dsCard group="Tipografía" width=960 height=440 subtitle="El titular de dos líneas: Plex Sans 500 arriba, la firma abajo, mismo tamaño" -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Headline</title>
+<style>
+  html { font-synthesis: none; }
+  body { margin: 0; background: var(--bg-canvas); color: var(--text-primary); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+  .titulares { display: grid; gap: var(--space-10); padding: var(--space-10) var(--space-12); }
+  .muestra { display: grid; gap: var(--space-3); }
+  .muestra + .muestra { padding-top: var(--space-10); border-top: 1px solid var(--border-subtle); }
+  .rotulo { margin: 0; color: var(--text-tertiary); }
+  .titular { margin: 0; }
+  .titular > span { display: block; text-wrap: balance; }
+  .primera { color: var(--text-primary); }
+  /* La firma: DM Serif Display itálica 400, en secundario, del mismo tamaño que la primera línea. */
+  .segunda { font-style: italic; color: var(--text-secondary); }
+</style>
+</head>
+<body>
+<div class="titulares">
+  <section class="muestra" aria-label="Hero">
+    <p class="rotulo copy-ui"><span class="mono">headline-hero-first</span> · <span class="mono">headline-hero-second</span> · 64 / 1,05</p>
+    <h1 class="titular">
+      <span class="primera headline-hero-first">Agentes expertos</span>
+      <span class="segunda headline-hero-second">a cargo de tu e-commerce.</span>
+    </h1>
+  </section>
+  <section class="muestra" aria-label="Sección">
+    <p class="rotulo copy-ui"><span class="mono">headline-section-first</span> · <span class="mono">headline-section-second</span> · 40 / 1,1</p>
+    <h2 class="titular">
+      <span class="primera headline-section-first">Agentes expertos</span>
+      <span class="segunda headline-section-second">a cargo de tu e-commerce.</span>
+    </h2>
+  </section>
+</div>
+</body>
+</html>

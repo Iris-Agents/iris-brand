@@ -154,20 +154,35 @@ Un número por versión del paquete, con tag de git.
 ## 14.6 El Design System de claude.ai
 
 Claude Design no instala nada: lee el Design System «iris» publicado en claude.ai, privado de la
-cuenta de iris. La primera versión salió de iris-brand 1.1.1.
+cuenta de iris. No puede leer este repo en vivo: la página sólo lee sus propios archivos. Por eso la
+fuente es la carpeta `design-system/`, y publicar es subirla tal cual.
 
-Qué tiene y de dónde sale cada cosa:
-- `tokens.json`: `dist/design-system.json`, con un `meta` que dice el commit de origen;
-- las fuentes de `fonts/` y los logos de `logo/` (los logos van como archivos subidos al sistema);
-- un manual condensado de `guide/` (README y seis secciones), con links a este repo;
-- seis componentes estáticos reconstruidos desde el capítulo 08: StatusGlyph, Feed, ApprovalCard,
-  Button, Headline y Glass, más la portada.
+Qué hay en `design-system/` y quién lo escribe:
 
-En cada versión se re-sincroniza archivo por archivo, nunca se rearma: se lee lo publicado, se
-actualizan los valores y textos que cambiaron en el tag, se conserva lo que alguien haya editado en
-la página y se listan los tokens que ya no existen antes de borrarlos. Los canvases que lo eligieron
-(el banner, las piezas) toman la versión nueva. El movimiento no viaja, porque el tipo no lo lee:
-queda en el manual.
+| Archivo | Lo escribe |
+|---|---|
+| `tokens.json` | el build (`scripts/design-system-claude.mjs`): los valores de `dist/design-system.json` con los textos de `tokens.notes.json` y la versión del paquete en `meta.ref` |
+| `fonts/` | el build: copia los archivos de `fonts/` que nombra `type.fonts` |
+| `tokens.notes.json` | a mano: la nota de uso de cada token, las notas de cada familia y grupo, y el ejemplo de cada estilo |
+| `README.md` y los otros `*.md` | a mano: el manual condensado que lee quien diseña. Cada `*.md` de la raíz de la carpeta es una sección del sistema (hasta 24) |
+| `components/<Nombre>/` | a mano: `preview.html` (un preview estático que usa sólo `var(--…)` de los tokens) y `README.md`; `components/Cover/` es la portada |
+| `assets/Logos/README.md` | a mano: qué es cada logo y sobre qué fondo va |
+| `design-system.json` | el índice del sistema: título, grupos de assets y el registro de cada logo subido (con su id en el almacén del sistema) |
+
+El test frena si `tokens.json` no es lo que genera el build, si un token queda sin nota o una nota
+apunta a un token que ya no existe, o si un preview usa una variable que el sistema no compila.
+
+Cómo se publica, después de sacar una versión (14.5): se le pide a una sesión de Claude
+«sincronizá el Design System desde iris-brand», y la sesión:
+1. lee el índice publicado (`design-system.json`) y lo compara con el del repo: si alguien editó en
+   la página, lo trae al repo antes de seguir;
+2. si cambió algún logo de `logo/`, lo sube al almacén del sistema y actualiza su registro en el índice;
+3. publica en una sola llamada los archivos de `design-system/` que cambiaron, con el índice al final
+   y su `lastChange` al día (quién, cuándo, desde qué versión).
+
+Los logos no viajan como archivos: son subidas que el índice nombra. El movimiento no viaja, porque el
+tipo no lo lee: queda en el manual. Los canvases que eligieron el sistema (el banner, las piezas)
+toman la versión nueva.
 
 ---
 

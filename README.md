@@ -19,8 +19,9 @@ Mercado Libre de punta a punta, con la autonomía que el dueño le da.
 | [`fonts/`](fonts/) | Los WOFF2 de DM Serif Display itálica, IBM Plex Sans 400 y 500 e IBM Plex Mono 400, con sus licencias OFL. Procedencia y sumas en `fonts/README.md`. |
 | [`logo/`](logo/) | El ícono, el logotipo y el lockup en SVG (contornos, sin fuentes), más el favicon y los PNG. En `logo/png/`, el logotipo y el lockup con fondo transparente y el ícono en más tamaños, para lo que no lee SVG (Canva, Google Docs y Slides, Keynote, Notion, la firma de mail); `logo/preview.png` los muestra todos. Qué va dónde: `logo/README.md`. |
 | [`guide/`](guide/README.md) | El manual, en 15 capítulos. |
+| [`design-system/`](design-system/) | La fuente del Design System «iris» de claude.ai, tal como se publica: su manual (`README.md` y seis secciones), los componentes con su preview y la portada, el índice (`design-system.json`) y los textos de los tokens (`tokens.notes.json`). `tokens.json` y `fonts/` los genera el build. Cómo se publica: capítulo 14 (14.6). |
 | [`pieces/`](pieces/) | Las piezas terminadas, en HTML con su PNG. En `pieces/redes/`, la foto de perfil, la portada de Facebook, las destacadas de Instagram y las plantillas de posts; en `pieces/linkedin/`, el banner del perfil y la portada y el logo de la página de empresa. |
-| [`scripts/`](scripts/) | El build: `terrazzo.mjs` (el parseo que comparten el build y el test) y `design-system.mjs` (escribe `dist/design-system.json`). La config de Terrazzo es `terrazzo.config.mjs`, en la raíz. |
+| [`scripts/`](scripts/) | El build: `terrazzo.mjs` (el parseo que comparten el build y el test), `design-system.mjs` (escribe `dist/design-system.json`) y `design-system-claude.mjs` (escribe `design-system/tokens.json` y copia las fuentes). La config de Terrazzo es `terrazzo.config.mjs`, en la raíz. |
 | [`test/`](test/) | La guarda que corre con cada build, con los esquemas oficiales de DTCG en `test/schemas/`. |
 
 ## Usarlo en una app
@@ -328,10 +329,12 @@ cuando cambia un SVG; el cómo está en `logo/README.md`.
 ### El Design System de claude.ai
 
 El Design System «iris» está publicado en claude.ai (privado de la cuenta de iris; se comparte desde
-su menú). Se armó con la versión 1.1.1: los tokens de `dist/design-system.json`, las fuentes de
-`fonts/`, los logos de `logo/`, un manual condensado de `guide/` y seis piezas como componentes
-estáticos (StatusGlyph, Feed, ApprovalCard, Button, Headline y Glass). Se re-sincroniza con cada
-versión, como dice el capítulo 14 (14.6). El movimiento no viaja, porque el tipo no lo lee.
+su menú) y su fuente vive en [`design-system/`](design-system/): lo que se publica es esa carpeta.
+Los valores salen de los tokens (el build escribe `design-system/tokens.json`); el manual condensado,
+los seis componentes estáticos (StatusGlyph, Feed, ApprovalCard, Button, Headline y Glass) y la
+portada se editan ahí, con el resto de la marca. Después de cada versión se publica la carpeta con
+una sesión de Claude: «sincronizá el Design System desde iris-brand» (capítulo 14, 14.6). Nunca se
+edita primero en la página de claude.ai: lo que no está en el repo, la próxima publicación lo pisa.
 
 ## Claude Design y Figma
 

@@ -1,0 +1,50 @@
+<!-- @dsCard group="Piezas" height=344 subtitle="La tarjeta de aprobación: lo que iris quiere hacer y todavía no hizo" -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>ApprovalCard</title>
+<style>
+  html { font-synthesis: none; }
+  body { margin: 0; background: var(--bg-canvas); color: var(--text-primary); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+  .lienzo { padding: var(--space-6); }
+  .aprobacion { display: grid; gap: var(--space-4); max-width: 440px; padding: var(--space-5); background: var(--bg-raised); border: 1px solid var(--border-default); border-radius: var(--radius-panel); }
+  .cabeza { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+  .eyebrow { margin: 0; text-transform: uppercase; color: var(--text-tertiary); }
+  .pildora { display: inline-flex; align-items: center; height: var(--space-6); padding: 0 10px; border: 1px solid var(--border-control); border-radius: var(--radius-pill); white-space: nowrap; color: var(--text-primary); }
+  .aprobacion h2 { margin: 0; color: var(--text-primary); text-wrap: balance; }
+  .aprobacion dl { display: grid; margin: 0; }
+  .aprobacion dl div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-4); padding: 9px 0; border-top: 1px solid var(--border-subtle); }
+  .aprobacion dt { color: var(--text-secondary); }
+  .aprobacion dd { margin: 0; white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--text-primary); }
+  .acciones { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .boton { display: inline-flex; align-items: center; justify-content: center; height: var(--size-control-comfortable); padding: 0 var(--space-4); border-radius: var(--radius-control); cursor: pointer; }
+  .boton:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  /* «Aprobar»: el CTA de tinta, el único botón lleno de la pantalla. */
+  .lleno { background: var(--action-primary); color: var(--text-on-action); border: 1px solid var(--action-primary); }
+  .lleno:hover { opacity: 0.9; }
+  .ghost { background: transparent; color: var(--text-primary); border: 1px solid var(--border-default); }
+  .ghost:hover { background: var(--bg-hover); }
+</style>
+</head>
+<body>
+<div class="lienzo">
+  <article class="aprobacion" aria-label="Propuesta">
+    <div class="cabeza">
+      <span class="eyebrow">Propuesta</span>
+      <span class="pildora label">Espera tu OK</span>
+    </div>
+    <h2 class="title">Reponer Mochila urbana 22 L</h2>
+    <dl class="copy-ui">
+      <div><dt>Stock publicado</dt><dd>3 → 43</dd></div>
+      <div><dt>Vendió en 7 días</dt><dd>27</dd></div>
+      <div><dt>Leído</dt><dd>hoy · <time class="mono">10:40</time></dd></div>
+    </dl>
+    <div class="acciones">
+      <button type="button" class="boton lleno label">Aprobar</button>
+      <button type="button" class="boton ghost label">Rechazar con motivo</button>
+    </div>
+  </article>
+</div>
+</body>
+</html>

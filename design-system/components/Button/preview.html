@@ -1,0 +1,49 @@
+<!-- @dsCard group="Controles" height=200 subtitle="Tinta llena, ghost y destructivo, en 28 px (app) y 40 px (landing y piezas)" -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Button</title>
+<style>
+  html { font-synthesis: none; }
+  body { margin: 0; background: var(--bg-canvas); color: var(--text-primary); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+  .tamanos { display: grid; gap: var(--space-6); padding: var(--space-6); }
+  .tamano { display: grid; gap: var(--space-3); }
+  .rotulo { margin: 0; color: var(--text-tertiary); }
+  .botones { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+  .boton { display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-control); white-space: nowrap; cursor: pointer; }
+  .boton:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .boton:disabled { opacity: 0.4; cursor: default; }
+  .denso { height: var(--size-control-dense); padding: 0 var(--space-3); }
+  .comodo { height: var(--size-control-comfortable); padding: 0 var(--space-4); }
+  /* El CTA es tinta: uno solo por pantalla. */
+  .lleno { background: var(--action-primary); color: var(--text-on-action); border: 1px solid var(--action-primary); }
+  .lleno:hover { opacity: 0.9; }
+  .ghost { background: transparent; color: var(--text-primary); border: 1px solid var(--border-default); }
+  .ghost:hover { background: var(--bg-hover); }
+  /* Destructivo: ghost con texto y borde en rojo, nunca relleno. */
+  .destructivo { background: transparent; color: var(--action-destructive); border: 1px solid var(--action-destructive); }
+  .destructivo:hover { background: var(--bg-hover); }
+</style>
+</head>
+<body>
+<div class="tamanos">
+  <section class="tamano" aria-label="Denso, 28 px">
+    <p class="rotulo copy-ui"><span class="mono">size-control-dense</span> · 28 px, en la app</p>
+    <div class="botones">
+      <button type="button" class="boton denso lleno label">Aprobar</button>
+      <button type="button" class="boton denso ghost label">Rechazar con motivo</button>
+      <button type="button" class="boton denso destructivo label">Borrar 12 publicaciones</button>
+    </div>
+  </section>
+  <section class="tamano" aria-label="Cómodo, 40 px">
+    <p class="rotulo copy-ui"><span class="mono">size-control-comfortable</span> · 40 px, en la landing y las piezas</p>
+    <div class="botones">
+      <button type="button" class="boton comodo lleno label">Aprobar</button>
+      <button type="button" class="boton comodo ghost label">Rechazar con motivo</button>
+      <button type="button" class="boton comodo destructivo label">Borrar 12 publicaciones</button>
+    </div>
+  </section>
+</div>
+</body>
+</html>

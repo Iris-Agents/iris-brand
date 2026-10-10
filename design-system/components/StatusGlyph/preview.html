@@ -1,0 +1,53 @@
+<!-- @dsCard group="Estado" height=144 subtitle="Los cinco estados: forma, color y palabra, en el orden de la urgencia" -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>StatusGlyph</title>
+<style>
+  html { font-synthesis: none; }
+  body { margin: 0; background: var(--bg-canvas); color: var(--text-primary); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+  .estados { display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: var(--space-6) var(--space-4); margin: 0; padding: var(--space-6); list-style: none; }
+  .estado { display: grid; gap: var(--space-3); justify-items: start; }
+  /* El glifo se dibuja a 10 px; la muestra grande es sólo para ver la forma. */
+  .glifo { display: block; flex: none; width: 10px; height: 10px; overflow: visible; }
+  .glifo.muestra { width: var(--space-8); height: var(--space-8); }
+  .te-toca { color: var(--status-attention); }
+  .fallo { color: var(--status-failed); }
+  .trabajando { color: var(--status-working); }
+  .esperando { color: var(--status-idle); }
+  .resuelto { color: var(--status-done); }
+  .palabra { display: inline-flex; align-items: center; gap: 6px; margin: 0; color: var(--text-primary); }
+  .token { margin: 0; color: var(--text-tertiary); }
+</style>
+</head>
+<body>
+<ul class="estados">
+  <li class="estado">
+    <svg class="glifo muestra te-toca" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4.25" fill="currentColor"/></svg>
+    <p class="palabra label"><svg class="glifo te-toca" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4.25" fill="currentColor"/></svg>te toca</p>
+    <p class="token mono">status-attention</p>
+  </li>
+  <li class="estado">
+    <svg class="glifo muestra fallo" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.8 1.8 8.2 8.2M8.2 1.8 1.8 8.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" fill="none"/></svg>
+    <p class="palabra label"><svg class="glifo fallo" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.8 1.8 8.2 8.2M8.2 1.8 1.8 8.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" fill="none"/></svg>falló</p>
+    <p class="token mono">status-failed</p>
+  </li>
+  <li class="estado">
+    <svg class="glifo muestra trabajando" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5 1a4 4 0 0 1 0 8z" fill="currentColor"/></svg>
+    <p class="palabra label"><svg class="glifo trabajando" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5 1a4 4 0 0 1 0 8z" fill="currentColor"/></svg>trabajando</p>
+    <p class="token mono">status-working</p>
+  </li>
+  <li class="estado">
+    <svg class="glifo muestra esperando" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+    <p class="palabra label"><svg class="glifo esperando" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>esperando</p>
+    <p class="token mono">status-idle</p>
+  </li>
+  <li class="estado">
+    <svg class="glifo muestra resuelto" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.6 5.4 4 7.8 8.6 2.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    <p class="palabra label"><svg class="glifo resuelto" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.6 5.4 4 7.8 8.6 2.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>resuelto</p>
+    <p class="token mono">status-done</p>
+  </li>
+</ul>
+</body>
+</html>
