@@ -1,21 +1,82 @@
 {
   "v": 3,
-  "layout": "files",
-  "createdOnFiles": {
-    "v": 1,
-    "at": "2026-10-10T13:27:29Z"
-  },
-  "title": "iris",
-  "namespace": "Iris",
-  "libraries": [],
-  "sections": {},
-  "groups": [
-    "Logos"
-  ],
   "assetGroups": {
     "Logos": {
+      "files": {
+        "icon-512.png": {
+          "blob": "94e0b4bc08ae5c31f733684ee8530c83",
+          "name": "icon-512.png",
+          "size": 6947,
+          "type": "image/png"
+        },
+        "icon-profile.svg": {
+          "blob": "6029b9797c593b1beb7bff709d0fa31c",
+          "name": "icon-profile.svg",
+          "size": 932,
+          "type": "image/svg+xml"
+        },
+        "icon-small.svg": {
+          "blob": "212cb4ad373b6f903f6882a634d62b5f",
+          "name": "icon-small.svg",
+          "size": 737,
+          "type": "image/svg+xml"
+        },
+        "icon.svg": {
+          "blob": "c439531a26f22f1bcd1e947fd596f363",
+          "name": "icon.svg",
+          "size": 902,
+          "type": "image/svg+xml"
+        },
+        "lockup-1024.png": {
+          "blob": "37bdaeb84600501ed7ef9604a7032c33",
+          "name": "lockup-1024.png",
+          "size": 30334,
+          "type": "image/png"
+        },
+        "lockup-on-light-1024.png": {
+          "blob": "cfdfa22c08b69e3210c85bd28706922c",
+          "name": "lockup-on-light-1024.png",
+          "size": 28133,
+          "type": "image/png"
+        },
+        "lockup-on-light.svg": {
+          "blob": "e0a9a07c8e0433c87d127bf4d8f58083",
+          "name": "lockup-on-light.svg",
+          "size": 9831,
+          "type": "image/svg+xml"
+        },
+        "lockup.svg": {
+          "blob": "08e43705d59305c2324e72531e4e1e4a",
+          "name": "lockup.svg",
+          "size": 9956,
+          "type": "image/svg+xml"
+        },
+        "wordmark-black-1024.png": {
+          "blob": "dc589ea9c9e287921e2a5c1bbacc3c5f",
+          "name": "wordmark-black-1024.png",
+          "size": 32068,
+          "type": "image/png"
+        },
+        "wordmark-black.svg": {
+          "blob": "58b172564fe332ba4f872199f0a8b8c4",
+          "name": "wordmark-black.svg",
+          "size": 5651,
+          "type": "image/svg+xml"
+        },
+        "wordmark-white-1024.png": {
+          "blob": "31f5bad4ff74eb886d66e93d9a704ddb",
+          "name": "wordmark-white-1024.png",
+          "size": 31720,
+          "type": "image/png"
+        },
+        "wordmark-white.svg": {
+          "blob": "b2fdb4a4f89cbdf63a9358d30f6908c9",
+          "name": "wordmark-white.svg",
+          "size": 5651,
+          "type": "image/svg+xml"
+        }
+      },
       "name": "Logos",
-      "tile": "m",
       "order": [
         "icon.svg",
         "icon-small.svg",
@@ -30,91 +91,30 @@
         "wordmark-white-1024.png",
         "wordmark-black-1024.png"
       ],
-      "files": {
-        "icon.svg": {
-          "name": "icon.svg",
-          "blob": "c439531a26f22f1bcd1e947fd596f363",
-          "size": 902,
-          "type": "image/svg+xml"
-        },
-        "icon-small.svg": {
-          "name": "icon-small.svg",
-          "blob": "212cb4ad373b6f903f6882a634d62b5f",
-          "size": 737,
-          "type": "image/svg+xml"
-        },
-        "icon-profile.svg": {
-          "name": "icon-profile.svg",
-          "blob": "6029b9797c593b1beb7bff709d0fa31c",
-          "size": 932,
-          "type": "image/svg+xml"
-        },
-        "lockup.svg": {
-          "name": "lockup.svg",
-          "blob": "08e43705d59305c2324e72531e4e1e4a",
-          "size": 9956,
-          "type": "image/svg+xml"
-        },
-        "lockup-on-light.svg": {
-          "name": "lockup-on-light.svg",
-          "blob": "e0a9a07c8e0433c87d127bf4d8f58083",
-          "size": 9831,
-          "type": "image/svg+xml"
-        },
-        "wordmark-white.svg": {
-          "name": "wordmark-white.svg",
-          "blob": "b2fdb4a4f89cbdf63a9358d30f6908c9",
-          "size": 5651,
-          "type": "image/svg+xml"
-        },
-        "wordmark-black.svg": {
-          "name": "wordmark-black.svg",
-          "blob": "58b172564fe332ba4f872199f0a8b8c4",
-          "size": 5651,
-          "type": "image/svg+xml"
-        },
-        "icon-512.png": {
-          "name": "icon-512.png",
-          "blob": "94e0b4bc08ae5c31f733684ee8530c83",
-          "size": 6947,
-          "type": "image/png"
-        },
-        "lockup-1024.png": {
-          "name": "lockup-1024.png",
-          "blob": "37bdaeb84600501ed7ef9604a7032c33",
-          "size": 30334,
-          "type": "image/png"
-        },
-        "lockup-on-light-1024.png": {
-          "name": "lockup-on-light-1024.png",
-          "blob": "cfdfa22c08b69e3210c85bd28706922c",
-          "size": 28133,
-          "type": "image/png"
-        },
-        "wordmark-white-1024.png": {
-          "name": "wordmark-white-1024.png",
-          "blob": "31f5bad4ff74eb886d66e93d9a704ddb",
-          "size": 31720,
-          "type": "image/png"
-        },
-        "wordmark-black-1024.png": {
-          "name": "wordmark-black-1024.png",
-          "blob": "dc589ea9c9e287921e2a5c1bbacc3c5f",
-          "size": 32068,
-          "type": "image/png"
-        }
-      }
+      "tile": "m"
     }
   },
   "blobs": {},
+  "createdOnFiles": {
+    "at": "2026-10-10T13:27:29Z",
+    "v": 1
+  },
   "docs": {
     "readme": "project/README.md",
     "sections": []
   },
+  "groups": [
+    "Logos"
+  ],
   "lastChange": {
     "by": "Franco",
-    "at": "2026-10-10T13:27:29Z",
-    "via": "GitHub · Iris-Agents/iris-brand@1c29a18",
-    "note": "Primera versión, desde iris-brand 1.1.1: tokens, fuentes, logos, manual y seis componentes estáticos."
-  }
+    "at": "2026-10-10T14:29:40Z",
+    "via": "GitHub · Iris-Agents/iris-brand@v1.2.0",
+    "note": "Sincronizado desde design-system/ de iris-brand 1.2.0: la fuente pasa a vivir en el repo."
+  },
+  "layout": "files",
+  "libraries": [],
+  "namespace": "Iris",
+  "sections": {},
+  "title": "iris"
 }
