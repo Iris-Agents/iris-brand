@@ -18,7 +18,7 @@ Dónde está cada cosa, cómo la toma una app, qué frena el test y cómo sale u
 | El manual | `guide/`, un archivo por capítulo. |
 | La guarda | `test/`. |
 | El registro de cómo se decidió | Es privado y no está en este repo. Si dice otra cosa que el manual, manda el manual. |
-| Fuera del repo | El Design System «iris» en claude.ai y la página /brand de la landing, cuando existan. |
+| Fuera del repo | El Design System «iris» en claude.ai; la página /brand de la landing, cuando exista. |
 
 ---
 
@@ -153,16 +153,21 @@ Un número por versión del paquete, con tag de git.
 
 ## 14.6 El Design System de claude.ai
 
-Claude Design no instala nada: lee el Design System «iris» publicado en claude.ai. Hoy no está
-publicado; es el paso siguiente.
+Claude Design no instala nada: lee el Design System «iris» publicado en claude.ai, privado de la
+cuenta de iris. La primera versión salió de iris-brand 1.1.1.
 
-Cuando exista, en cada versión:
-- se actualiza ese Design System con los archivos del tag: `dist/design-system.json`, `guide/`,
-  `logo/` y `fonts/`;
-- los canvases que lo eligieron (el banner, las OG, las piezas) toman la versión nueva;
-- el movimiento no viaja, porque el tipo no lo lee: queda en el manual.
+Qué tiene y de dónde sale cada cosa:
+- `tokens.json`: `dist/design-system.json`, con un `meta` que dice el commit de origen;
+- las fuentes de `fonts/` y los logos de `logo/` (los logos van como archivos subidos al sistema);
+- un manual condensado de `guide/` (README y seis secciones), con links a este repo;
+- seis componentes estáticos reconstruidos desde el capítulo 08: StatusGlyph, Feed, ApprovalCard,
+  Button, Headline y Glass, más la portada.
 
-El procedimiento exacto se escribe acá con la primera publicación.
+En cada versión se re-sincroniza archivo por archivo, nunca se rearma: se lee lo publicado, se
+actualizan los valores y textos que cambiaron en el tag, se conserva lo que alguien haya editado en
+la página y se listan los tokens que ya no existen antes de borrarlos. Los canvases que lo eligieron
+(el banner, las piezas) toman la versión nueva. El movimiento no viaja, porque el tipo no lo lee:
+queda en el manual.
 
 ---
 

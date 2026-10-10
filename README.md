@@ -304,7 +304,7 @@ de desarrollo y compilaría en cada instalación de cada app.
    git push --follow-tags
    ```
    Un tag publicado no se mueve ni se borra: si salió mal, sale otra versión.
-5. Se re-sincroniza el Design System de claude.ai, cuando exista, y se regeneran las piezas que usan
+5. Se re-sincroniza el Design System de claude.ai y se regeneran las piezas que usan
    lo que cambió.
 
 ### Regenerar las piezas
@@ -325,12 +325,13 @@ Después se miran las PNG con glifos y se repasa la lista de control de
 `pieces/redes/plantillas.md`. Los PNG y el `.ico` de `logo/` se exportan desde sus SVG sólo
 cuando cambia un SVG; el cómo está en `logo/README.md`.
 
-### El Design System de claude.ai (paso futuro)
+### El Design System de claude.ai
 
-Todavía no está publicado. Cuando se publique, el Design System «iris» se arma con
-`dist/design-system.json`, `guide/`, `logo/` y `fonts/`, y se re-sincroniza con cada versión. El
-movimiento no viaja, porque el tipo no lo lee: va escrito en el README de ese Design System. El
-procedimiento se escribe en el capítulo 14 con la primera publicación.
+El Design System «iris» está publicado en claude.ai (privado de la cuenta de iris; se comparte desde
+su menú). Se armó con la versión 1.1.1: los tokens de `dist/design-system.json`, las fuentes de
+`fonts/`, los logos de `logo/`, un manual condensado de `guide/` y seis piezas como componentes
+estáticos (StatusGlyph, Feed, ApprovalCard, Button, Headline y Glass). Se re-sincroniza con cada
+versión, como dice el capítulo 14 (14.6). El movimiento no viaja, porque el tipo no lo lee.
 
 ## Claude Design y Figma
 
