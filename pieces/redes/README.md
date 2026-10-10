@@ -12,7 +12,7 @@ Cómo se escribe y se publica un post no está en este repo.
 
 | Carpeta | Qué tiene | Para qué red |
 |---|---|---|
-| `_base/` | `brand.css` (tokens de color, fuentes de Google y la clase `.signature`), `render.sh` (una PNG), `render-all.sh` y `piezas.tsv` (todas las PNG). | Todas |
+| `_base/` | `brand.css` (tokens de color, fuentes de Google y las clases `.signature` y `.sello`, el sello de la segunda línea del titular), `render.sh` (una PNG), `render-all.sh` y `piezas.tsv` (todas las PNG). | Todas |
 | `perfil/` | La foto de perfil: la i del ícono a sangre sobre negro. `perfil-preview.html` es una hoja de control con la foto en chico. | Instagram, Facebook y WhatsApp: la misma foto en las tres |
 | `facebook/` | La portada de la página, en una sola versión: `portada.html`, con el titular «Agentes expertos / a cargo de tu e-commerce.». Mercado Libre no va en el titular: se nombra como un hecho en el «Acerca de» y en la bio (capítulo 12 del manual). | Facebook |
 | `instagram/destacadas/` | Las portadas de las historias destacadas: Demo, Casos, Precios y Ayuda, más tres propuestas (Cómo funciona, Novedades, Permisos). `destacadas-preview.html` las muestra juntas en chico. | Instagram |

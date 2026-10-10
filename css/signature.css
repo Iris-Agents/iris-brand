@@ -1,0 +1,38 @@
+/*
+  iris · el sello de la firma. Lee las variables de dist/tokens.css (importala antes); acá no hay
+  un solo valor de color.
+
+  La segunda línea de un titular de dos líneas va calada: la firma (DM Serif Display itálica 400,
+  del mismo tamaño que la primera línea) en el color del fondo, sobre un bloque de tinta.
+
+    <h1 class="text-hero">
+      Agentes expertos
+      <span class="signature-line text-hero-signature font-signature italic"><span
+        class="signature-seal">a cargo de tu e-commerce.</span></span>
+    </h1>
+
+  - .signature-line  la línea de la firma: en bloque, con 0,16em de aire arriba e interlineado 1
+                     (pisa el del estilo del titular).
+  - .signature-seal  el sello, adentro: inline-block, esquinas rectas, el bloque en
+                     signature.block y la letra en signature.text (16,89:1 en oscuro, 16,82:1 en
+                     claro).
+
+  Las medidas van en em: siguen al tamaño del titular. El sello es el único bloque lleno de tinta
+  de la pieza: si hay un botón principal a la vista (el «Aprobar» de la tarjeta en una pieza, el
+  botón principal del hero), va con borde de 1 px en text.primary, sin relleno.
+*/
+
+.signature-line {
+  display: block;
+  margin-top: 0.16em;
+  line-height: 1;
+}
+
+.signature-seal {
+  display: inline-block;
+  padding: 0.14em 0.16em 0.13em 0.13em;
+  line-height: 0.86;
+  border-radius: 0;
+  background-color: var(--iris-color-signature-block);
+  color: var(--iris-color-signature-text);
+}

@@ -14,7 +14,7 @@ Mercado Libre de punta a punta, con la autonomía que el dueño le da.
 | Carpeta | Qué tiene |
 |---|---|
 | [`tokens/`](tokens/) | La fuente de todo, en DTCG 2025.10: `foundation.tokens.json` (primitivos, tipografía, espacio, forma, vidrio y movimiento), `themes/dark.tokens.json` y `themes/light.tokens.json` (los roles de color de cada modo) e `iris.resolver.json` (los dos modos, con el oscuro por default). |
-| [`css/`](css/) | Escrito a mano y sin un valor propio: `fonts.css` (las caras), `tailwind.css` (el puente a Tailwind v4) y `glass.css` (el vidrio). |
+| [`css/`](css/) | Escrito a mano y sin un valor propio: `fonts.css` (las caras), `tailwind.css` (el puente a Tailwind v4), `glass.css` (el vidrio) y `signature.css` (el sello de la firma). |
 | [`dist/`](dist/) | Generado y commiteado: `tokens.css` (las variables `--iris-*` de los dos modos) y `design-system.json` (lo que va a leer Claude Design). No se edita a mano. |
 | [`fonts/`](fonts/) | Los WOFF2 de DM Serif Display itálica, IBM Plex Sans 400 y 500 e IBM Plex Mono 400, con sus licencias OFL. Procedencia y sumas en `fonts/README.md`. |
 | [`logo/`](logo/) | El ícono, el logotipo y el lockup en SVG (contornos, sin fuentes), más el favicon y los PNG. En `logo/png/`, el logotipo y el lockup con fondo transparente y el ícono en más tamaños, para lo que no lee SVG (Canva, Google Docs y Slides, Keynote, Notion, la firma de mail); `logo/preview.png` los muestra todos. Qué va dónde: `logo/README.md`. |
@@ -48,6 +48,7 @@ En el CSS principal, después de Tailwind:
 @import "iris-brand/fonts.css";     /* las caras: DM Serif Display itálica, IBM Plex Sans y Plex Mono */
 @import "iris-brand/tokens.css";    /* las variables --iris-*, en oscuro y en claro */
 @import "iris-brand/tailwind.css";  /* las utilidades: bg-canvas, text-fg, rounded-card… */
+@import "iris-brand/signature.css"; /* el sello de la firma: .signature-line y .signature-seal */
 
 html {
   font-synthesis: none;             /* que el navegador no invente negritas */
@@ -59,6 +60,8 @@ html {
 - `tailwind.css` pisa `font-sans` y `font-mono` a propósito: la familia por default de la app pasa
   a ser IBM Plex Sans. No bloquea la paleta de Tailwind ni redefine los nombres de shadcn; el puente
   a shadcn, si hace falta, queda en la app.
+- `signature.css` es la receta del sello: la segunda línea de un titular de dos líneas va calada en
+  un bloque de tinta (capítulo 05, 5.3). Hace falta en toda página con un titular de dos líneas.
 - El paquete también exporta `iris-brand/design-system.json`. Una app no lo necesita.
 - El logo y las fuentes se importan por su ruta: `import icono from "iris-brand/logo/icon.svg"`,
   `iris-brand/logo/favicon.ico`, `iris-brand/fonts/…`. Nunca se copian a mano a la app.
@@ -74,8 +77,8 @@ Se lee por rol, nunca por gris:
 <body class="bg-canvas text-fg text-body">
   <article class="bg-surface border border-line-subtle rounded-card">
     <h2 class="text-section">
-      Agentes expertos<br>
-      <span class="text-section-signature font-signature italic text-fg-secondary">a cargo de tu e-commerce.</span>
+      Agentes expertos
+      <span class="signature-line text-section-signature font-signature italic"><span class="signature-seal">a cargo de tu e-commerce.</span></span>
     </h2>
     <span class="font-mono text-mono text-fg-tertiary">10:40 · id 4418</span>
   </article>
@@ -84,7 +87,7 @@ Se lee por rol, nunca por gris:
 
 | Qué | Nombres |
 |---|---|
-| Colores, con cualquier prefijo (`bg-`, `text-`, `border-`, `fill-`…) | Fondos: `canvas` `surface` `raised` `hover` `selected` · Texto: `fg` `fg-secondary` `fg-tertiary` `fg-placeholder` `fg-disabled` `on-action` · Bordes: `line-subtle` `line` `line-control` · Acción: `action` `action-destructive` `focus` `selection` `backdrop` · Estados, sólo en el glifo: `status-attention` `status-working` `status-failed` `status-done` `status-idle` · Datos: `data-series` `data-comparison` `data-grid` `link-underline` |
+| Colores, con cualquier prefijo (`bg-`, `text-`, `border-`, `fill-`…) | Fondos: `canvas` `surface` `raised` `hover` `selected` · Texto: `fg` `fg-secondary` `fg-tertiary` `fg-placeholder` `fg-disabled` `on-action` · Bordes: `line-subtle` `line` `line-control` · Acción: `action` `action-destructive` `focus` `selection` `backdrop` · El sello: `signature` (el bloque) `on-signature` (la letra) · Estados, sólo en el glifo: `status-attention` `status-working` `status-failed` `status-done` `status-idle` · Datos: `data-series` `data-comparison` `data-grid` `link-underline` |
 | Radios | `rounded-chip` `rounded-control` `rounded-card` `rounded-panel` `rounded-frame`; las píldoras, `rounded-full` |
 | Estilos de texto (tamaño, interlineado, tracking y peso) | `text-hero` `text-hero-signature` `text-section` `text-section-signature` `text-title` `text-lede` `text-body` `text-reading` `text-ui` `text-label` `text-eyebrow` `text-mono` |
 | Familias | `font-sans` `font-signature` `font-mono` |
@@ -171,9 +174,15 @@ de empresa, facturas, contratos.
 
 | Familia | Para qué |
 |---|---|
-| DM Serif Display itálica, la firma | Sólo en tres lugares: el logotipo, la i del ícono y la segunda línea de un titular de dos líneas (desde 32 px, en `text.secondary`). |
+| DM Serif Display itálica, la firma | Sólo en tres lugares: el logotipo, la i del ícono y la segunda línea de un titular de dos líneas (desde 32 px, calada en el sello). |
 | IBM Plex Sans 400 y 500 | Todo lo que se lee y se opera. No hay tercer peso. |
 | IBM Plex Mono 400 | Sólo datos: ids, horas, nombres de tools, atajos. |
+
+**El sello.** La segunda línea del titular no va en gris: va calada, con la firma en el color del
+fondo sobre un bloque de tinta de esquinas rectas, del mismo tamaño que la primera línea
+(`css/signature.css`, capítulo 05). Es el único bloque lleno de tinta de la pieza: si hay un botón
+principal a la vista (el «Aprobar» de la tarjeta en una pieza, el botón principal del hero), va con
+borde de 1 px en `text.primary`, sin relleno. En la app y en un formulario, el CTA sigue lleno.
 
 **Color.** La base; la paleta completa, con OKLCH y contraste, está en el capítulo 04.
 
@@ -181,7 +190,8 @@ de empresa, facturas, contratos.
 |---|---|---|
 | `brand.black` · `brand.white` | #0A0A09 · #FAFAF9 | igual |
 | `bg.canvas` · `bg.surface` · `bg.raised` | #0A0A09 · #111110 · #181816 | #FAFAF9 en los tres |
-| `text.primary`, que también es la tinta del CTA y el foco | #EDEDEA | #1A1917 |
+| `text.primary`, que también es la tinta del CTA, del foco y del sello | #EDEDEA | #1A1917 |
+| `signature.block` · `signature.text`: el sello y la firma calada | #EDEDEA · #0A0A09 | #1A1917 · #FAFAF9 |
 | `text.secondary` · `text.tertiary` | #BFBEB9 · #9B9A96 | #4E4D49 · #686764 |
 | `border.subtle` · `border.default` | #2C2B29 · #3A3937 | #E3E3E1 · #CECECB |
 
@@ -263,9 +273,10 @@ de desarrollo y compilaría en cada instalación de cada app.
   `$extensions`; todo token tiene `$type`, y todo color y todo rol, `$description`.
 - **Color:** el hex coincide con sus componentes OKLCH, ningún color cae fuera de sRGB, y
   «resuelto» es el mismo gris que `text.tertiary`.
-- **Contraste:** los 155 pares llegan a WCAG 2.2 AA sobre los cinco fondos de su modo: 4,5:1 el
-  texto; 3:1 los bordes de control, los glifos de estado, el foco, las series y el subrayado.
-  `text.disabled` queda en 3:1 o más. APCA se imprime al lado, como dato.
+- **Contraste:** los 157 pares llegan a WCAG 2.2 AA sobre los cinco fondos de su modo: 4,5:1 el
+  texto (también la firma sobre el sello); 3:1 los bordes de control, los glifos de estado, el
+  foco, las series y el subrayado. `text.disabled` queda en 3:1 o más. APCA se imprime al lado,
+  como dato.
 - **Tipografía:** doce estilos, sólo pesos 400 y 500, nada debajo de 12 px, el tracking que le toca
   a cada familia y tamaño, y las dos líneas de un titular con el mismo tamaño e interlineado. La
   firma, sólo en la segunda línea de un titular, desde 32 px y en 400.
@@ -274,10 +285,11 @@ de desarrollo y compilaría en cada instalación de cada app.
   desenfoque no se pinte.
 - **`dist/`:** es exactamente lo que genera el build, ningún primitivo sale al CSS y los bloques
   del claro traen sólo color.
-- **`css/`:** `tailwind.css` y `glass.css` sólo nombran variables que existen y no escriben un valor
-  propio; ningún nombre de `tailwind.css` choca con shadcn ni con la paleta de Tailwind, salvo
-  `font-sans` y `font-mono`, a propósito; están todos los roles de color menos el vidrio, que va por
-  `glass.css`; cada familia de los tokens está en `fonts.css` y cada archivo que nombra existe.
+- **`css/`:** `tailwind.css`, `glass.css` y `signature.css` sólo nombran variables que existen y no
+  escriben un valor propio; ningún nombre de `tailwind.css` choca con shadcn ni con la paleta de
+  Tailwind, salvo `font-sans` y `font-mono`, a propósito; están todos los roles de color menos el
+  vidrio, que va por `glass.css`; cada familia de los tokens está en `fonts.css` y cada archivo que
+  nombra existe.
 - **Piezas:** cada variable de `pieces/redes/_base/brand.css` tiene su token, con el mismo valor.
 
 ### Cambiar un token

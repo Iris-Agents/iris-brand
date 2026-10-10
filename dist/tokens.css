@@ -55,6 +55,10 @@
   --iris-color-link-underline: #72716e;
   /* Fondo de la selección de texto. */
   --iris-color-selection: #3a3937;
+  /* El sello: el bloque de tinta detrás de la segunda línea de un titular de dos líneas, con la firma calada en signature.text. Es el valor de text.primary. Es el único bloque lleno de tinta de la pieza: si hay un botón principal a la vista, va con borde. */
+  --iris-color-signature-block: #ededea;
+  /* La firma calada en el sello: el color del fondo, sólo sobre signature.block. Es el valor de text.on-action. */
+  --iris-color-signature-text: #0a0a09;
   /* ● lleno: te toca. El único ● del set; va agrupado arriba de todo y, con el CTA, es lo único que grita. */
   --iris-color-status-attention: #f7ac4d;
   /* ✓: resuelto, en silencio. El mismo gris que text.tertiary, igual que el texto de la fila. */
@@ -73,7 +77,7 @@
   --iris-color-text-placeholder: #9b9a96;
   /* Texto pleno: titulares, nombres, el hilo del agente, el cuerpo de lectura. */
   --iris-color-text-primary: #ededea;
-  /* Texto de apoyo de 13px para arriba: bajadas, ayudas, la segunda línea del titular. */
+  /* Texto de apoyo de 13px para arriba: bajadas, ayudas, el verbo de una fila. */
   --iris-color-text-secondary: #bfbeb9;
   /* Datos sueltos que se leen de un vistazo: hora, id, contador, eyebrow, meta de fila. Nunca una oración. >= 4,5:1 en los cinco fondos. */
   --iris-color-text-tertiary: #9b9a96;
@@ -243,17 +247,17 @@
   --iris-typography-headline-hero-first-letter-spacing: -1.28px;
   /* Primera línea del hero y de la OG, en text.primary. */
   --iris-typography-headline-hero-first-line-height: 1.05;
-  /* Segunda línea del hero y de la OG: la firma, en text.secondary, del mismo tamaño que la primera. */
+  /* Segunda línea del hero y de la OG: la firma, calada en el sello (signature.text sobre signature.block), del mismo tamaño que la primera. */
   --iris-typography-headline-hero-second: var(--iris-typography-headline-hero-second-font-weight) var(--iris-typography-headline-hero-second-font-size)/var(--iris-typography-headline-hero-second-line-height) var(--iris-typography-headline-hero-second-font-family);
-  /* Segunda línea del hero y de la OG: la firma, en text.secondary, del mismo tamaño que la primera. */
+  /* Segunda línea del hero y de la OG: la firma, calada en el sello (signature.text sobre signature.block), del mismo tamaño que la primera. */
   --iris-typography-headline-hero-second-font-family: var(--iris-font-family-signature);
-  /* Segunda línea del hero y de la OG: la firma, en text.secondary, del mismo tamaño que la primera. */
+  /* Segunda línea del hero y de la OG: la firma, calada en el sello (signature.text sobre signature.block), del mismo tamaño que la primera. */
   --iris-typography-headline-hero-second-font-size: 64px;
-  /* Segunda línea del hero y de la OG: la firma, en text.secondary, del mismo tamaño que la primera. */
+  /* Segunda línea del hero y de la OG: la firma, calada en el sello (signature.text sobre signature.block), del mismo tamaño que la primera. */
   --iris-typography-headline-hero-second-font-weight: var(--iris-font-weight-regular);
-  /* Segunda línea del hero y de la OG: la firma, en text.secondary, del mismo tamaño que la primera. */
+  /* Segunda línea del hero y de la OG: la firma, calada en el sello (signature.text sobre signature.block), del mismo tamaño que la primera. */
   --iris-typography-headline-hero-second-letter-spacing: -0.64px;
-  /* Segunda línea del hero y de la OG: la firma, en text.secondary, del mismo tamaño que la primera. */
+  /* Segunda línea del hero y de la OG: la firma, calada en el sello (signature.text sobre signature.block), del mismo tamaño que la primera. */
   --iris-typography-headline-hero-second-line-height: 1.05;
   /* Primera línea de un titular de sección y del banner; el hero en pantallas angostas. */
   --iris-typography-headline-section-first: var(--iris-typography-headline-section-first-font-weight) var(--iris-typography-headline-section-first-font-size)/var(--iris-typography-headline-section-first-line-height) var(--iris-typography-headline-section-first-font-family);
@@ -267,17 +271,17 @@
   --iris-typography-headline-section-first-letter-spacing: -0.6px;
   /* Primera línea de un titular de sección y del banner; el hero en pantallas angostas. */
   --iris-typography-headline-section-first-line-height: 1.1;
-  /* Segunda línea del mismo titular: la firma, en text.secondary. */
+  /* Segunda línea del mismo titular: la firma, calada en el sello (signature.text sobre signature.block). */
   --iris-typography-headline-section-second: var(--iris-typography-headline-section-second-font-weight) var(--iris-typography-headline-section-second-font-size)/var(--iris-typography-headline-section-second-line-height) var(--iris-typography-headline-section-second-font-family);
-  /* Segunda línea del mismo titular: la firma, en text.secondary. */
+  /* Segunda línea del mismo titular: la firma, calada en el sello (signature.text sobre signature.block). */
   --iris-typography-headline-section-second-font-family: var(--iris-font-family-signature);
-  /* Segunda línea del mismo titular: la firma, en text.secondary. */
+  /* Segunda línea del mismo titular: la firma, calada en el sello (signature.text sobre signature.block). */
   --iris-typography-headline-section-second-font-size: 40px;
-  /* Segunda línea del mismo titular: la firma, en text.secondary. */
+  /* Segunda línea del mismo titular: la firma, calada en el sello (signature.text sobre signature.block). */
   --iris-typography-headline-section-second-font-weight: var(--iris-font-weight-regular);
-  /* Segunda línea del mismo titular: la firma, en text.secondary. */
+  /* Segunda línea del mismo titular: la firma, calada en el sello (signature.text sobre signature.block). */
   --iris-typography-headline-section-second-letter-spacing: -0.4px;
-  /* Segunda línea del mismo titular: la firma, en text.secondary. */
+  /* Segunda línea del mismo titular: la firma, calada en el sello (signature.text sobre signature.block). */
   --iris-typography-headline-section-second-line-height: 1.1;
   /* Botón, nav, título de fila, píldora. */
   --iris-typography-label: var(--iris-typography-label-font-weight) var(--iris-typography-label-font-size)/var(--iris-typography-label-line-height) var(--iris-typography-label-font-family);
@@ -361,6 +365,10 @@
   --iris-color-link-underline: #868581;
   /* Fondo de la selección de texto. */
   --iris-color-selection: #dbdbd8;
+  /* El sello: el bloque de tinta detrás de la segunda línea de un titular de dos líneas, con la firma calada en signature.text. Es el valor de text.primary. Es el único bloque lleno de tinta de la pieza: si hay un botón principal a la vista, va con borde. */
+  --iris-color-signature-block: #1a1917;
+  /* La firma calada en el sello: el color del fondo, sólo sobre signature.block. Es el valor de text.on-action. */
+  --iris-color-signature-text: #fafaf9;
   /* ● lleno: te toca. El único ● del set; va agrupado arriba de todo y, con el CTA, es lo único que grita. En claro va sólo como relleno, nunca como texto ni en un trazo fino. */
   --iris-color-status-attention: #ad721c;
   /* ✓: resuelto, en silencio. El mismo gris que text.tertiary, igual que el texto de la fila. */
@@ -379,7 +387,7 @@
   --iris-color-text-placeholder: #686764;
   /* Texto pleno: titulares, nombres, el hilo del agente, el cuerpo de lectura. */
   --iris-color-text-primary: #1a1917;
-  /* Texto de apoyo de 13px para arriba: bajadas, ayudas, la segunda línea del titular. */
+  /* Texto de apoyo de 13px para arriba: bajadas, ayudas, el verbo de una fila. */
   --iris-color-text-secondary: #4e4d49;
   /* Datos sueltos que se leen de un vistazo: hora, id, contador, eyebrow, meta de fila. Nunca una oración. >= 4,5:1 en los cinco fondos. */
   --iris-color-text-tertiary: #686764;
@@ -430,6 +438,10 @@
     --iris-color-link-underline: #868581;
     /* Fondo de la selección de texto. */
     --iris-color-selection: #dbdbd8;
+    /* El sello: el bloque de tinta detrás de la segunda línea de un titular de dos líneas, con la firma calada en signature.text. Es el valor de text.primary. Es el único bloque lleno de tinta de la pieza: si hay un botón principal a la vista, va con borde. */
+    --iris-color-signature-block: #1a1917;
+    /* La firma calada en el sello: el color del fondo, sólo sobre signature.block. Es el valor de text.on-action. */
+    --iris-color-signature-text: #fafaf9;
     /* ● lleno: te toca. El único ● del set; va agrupado arriba de todo y, con el CTA, es lo único que grita. En claro va sólo como relleno, nunca como texto ni en un trazo fino. */
     --iris-color-status-attention: #ad721c;
     /* ✓: resuelto, en silencio. El mismo gris que text.tertiary, igual que el texto de la fila. */
@@ -448,7 +460,7 @@
     --iris-color-text-placeholder: #686764;
     /* Texto pleno: titulares, nombres, el hilo del agente, el cuerpo de lectura. */
     --iris-color-text-primary: #1a1917;
-    /* Texto de apoyo de 13px para arriba: bajadas, ayudas, la segunda línea del titular. */
+    /* Texto de apoyo de 13px para arriba: bajadas, ayudas, el verbo de una fila. */
     --iris-color-text-secondary: #4e4d49;
     /* Datos sueltos que se leen de un vistazo: hora, id, contador, eyebrow, meta de fila. Nunca una oración. >= 4,5:1 en los cinco fondos. */
     --iris-color-text-tertiary: #686764;

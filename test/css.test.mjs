@@ -1,6 +1,6 @@
 // Lo que sale y lo que se escribe a mano: dist/ es la foto aprobada del build, tokens.css trae sólo
-// semánticos con los valores que resuelve el modelo propio, y tailwind.css y glass.css sólo
-// nombran variables que existen, sin un valor propio.
+// semánticos con los valores que resuelve el modelo propio, y tailwind.css, glass.css y
+// signature.css sólo nombran variables que existen, sin un valor propio.
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
 import { describe, test } from "node:test";
@@ -109,6 +109,18 @@ describe("css/fonts.css", () => {
 		const files = [...source.matchAll(/url\("\.\.\/(fonts\/[^"]+)"\)/g)].map(([, path]) => path);
 		assert.ok(files.length > 0);
 		assert.deepEqual(files.filter((path) => !existsSync(new URL(path, repoUrl))), []);
+	});
+});
+
+describe("css/signature.css", () => {
+	const source = readText("css/signature.css").replaceAll(/\/\*[\s\S]*?\*\//g, "");
+	test("sólo lee variables que tokens.css tiene", () => {
+		const references = [...source.matchAll(/var\((--[\w-]+)\)/g)].map(([, name]) => name);
+		assert.ok(references.length > 0);
+		assert.deepEqual(references.filter((name) => !rootVariables.has(name)), []);
+	});
+	test("no escribe ningún color propio", () => {
+		assert.deepEqual([...source.matchAll(/#[0-9a-f]{3,8}\b|rgba?\(|hsla?\(|oklch\(/gi)].map(([match]) => match), []);
 	});
 });
 

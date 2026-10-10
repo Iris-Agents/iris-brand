@@ -55,8 +55,9 @@ html, body { width: var(--cover-width); height: var(--cover-height); overflow: h
 }
 .wordmark { font-size: 40px; line-height: 1; letter-spacing: -0.01em; color: var(--brand-white); white-space: nowrap; }
 .headline { margin: 0; font-size: 38px; line-height: 1.14; font-weight: 500; letter-spacing: -0.015em; color: var(--text-primary); }
-.headline span { display: block; white-space: nowrap; }
-.headline .signature { letter-spacing: -0.01em; color: var(--text-secondary); }
+.headline > span { display: block; white-space: nowrap; }
+/* La 2 va calada en el sello (.sello, en brand.css): la línea lleva 0,16em de aire arriba e interlineado 1. */
+.headline .signature { margin-top: 0.16em; line-height: 1; letter-spacing: -0.01em; }
 
 /* Panel "Hoy en tu cuenta": el mismo del banner de LinkedIn. Cinco resultados resueltos, sin hora
    ni leyenda; abajo queda el mismo aire que arriba porque ya no hay leyenda. */

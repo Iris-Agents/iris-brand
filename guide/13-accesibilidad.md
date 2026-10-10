@@ -7,7 +7,7 @@ frena el test no se puede romper, y lo demás se revisa antes de entregar una pi
 
 ## 13.1 Contraste
 
-Lo frena el test: ninguno de los 155 pares baja de su mínimo sobre ninguno de los fondos de su
+Lo frena el test: ninguno de los 157 pares baja de su mínimo sobre ninguno de los fondos de su
 modo (canvas, surface, raised, hover y selected en oscuro; canvas, hover y selected en claro).
 
 Los valores son del peor fondo de cada modo (`bg.selected`), truncados a dos decimales como pide

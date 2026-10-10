@@ -41,9 +41,11 @@ La medida es la de la ayuda de LinkedIn.
 Cómo quedó:
 - El lockup y el titular empiezan en x 718, 16 px a la derecha de todas las fotos. Ninguna zona de
   foto tiene un píxel de tinta.
-- El titular termina en x 1153: entra entero aun con el recorte del 20 %.
-- El panel mide 340 px y va en x 1204–1543, a 40 px del borde derecho, con 50 px de aire después
-  del titular. Con el titular a 40 px no entra uno más ancho.
+- El sello de la segunda línea del titular termina en x 1167: entra entero aun con el recorte del
+  20 %.
+- El panel mide 340 px y va en x 1208–1547, a 36 px del borde derecho, con 40 px de aire después
+  del sello. Con el titular a 40 px no entra uno más ancho: el sello sumó 14 px al ancho de la
+  línea, y el panel se corrió 4 px a la derecha para no perder el aire.
 - En el celular el banner se ve a 0,25 y las filas quedan en 4 px: ahí se lee el titular. Si la
   app recorta los costados, el panel pierde su parte derecha.
 
@@ -60,7 +62,7 @@ La medida es la de la ayuda de LinkedIn (linkedin.com/help/linkedin/answer/a5633
 | Lo importante | En el centro y lejos de los bordes, sobre todo de la esquina de abajo a la derecha | La ayuda de LinkedIn. |
 
 Cómo quedó: la marca y el titular empiezan en x 640, a la derecha de los dos logos, y la tinta
-ocupa x 641–1075, y 53–202.
+ocupa x 640–1089, y 49–204 (el sello de la segunda línea va de x 640 a 1089).
 
 ### Logo de la página (400 × 400)
 

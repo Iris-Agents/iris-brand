@@ -9,6 +9,9 @@ Reglas que valen para todas:
   lo usan, salvo el email (11.10).
 - **Sin efectos.** Sin glow, sombras, vidrio ni gradientes. La única excepción es un degradé radial
   muy sutil (blanco al 4 %) en dos piezas: el banner de LinkedIn y la portada de Facebook.
+- **El titular de dos líneas, con sello.** La segunda línea va calada en el sello (capítulo 05,
+  5.3), que es el único bloque lleno de tinta de la pieza: si la pieza muestra la tarjeta de
+  aprobación, «Aprobar» va con borde (capítulo 06, 6.5).
 - **En lo público, el resultado.** Las filas dicen qué logró iris, sin el nombre del agente
   (capítulo 09).
 - **Las cifras de una pieza son de ejemplo**, y se marcan: «Datos de ejemplo.» en la pieza cuando
@@ -65,7 +68,7 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
   x 67–702 en el celular. El contenido empieza en x 718.
 - **Después de esa zona:** el lockup (el ícono y «iris agents») y, debajo, el titular de dos
   líneas a 40 px, «Agentes expertos / a cargo de tu e-commerce.». La primera línea en la sans 500 y
-  `text.primary`; la segunda en la firma y `text.secondary`. Sin Mercado Libre en el titular.
+  `text.primary`; la segunda en la firma, calada en el sello. Sin Mercado Libre en el titular.
 - **A la derecha:** el feed «Hoy en tu cuenta» en un panel de 340 px, con los cinco resultados:
   «Mejoró la reputación», «Contestó 40 preguntas», «Resolvió 3 reclamos», «Generó 3 ventas
   adicionales» y «Adhirió a una promoción». Cada fila con ✓, el verbo en `text.secondary` y el
@@ -81,7 +84,8 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
 - **La portada** es `pieces/linkedin/portada-empresa.html` → `portada-empresa.png`, de 1512 × 256
   (verificada en la ayuda de LinkedIn el 2026-10-10). El logo de la página ya está al lado, así que
   va la **marca sola** («iris agents», sin el ícono) y el titular, «Agentes expertos / a cargo de tu
-  e-commerce.», a la derecha de donde cae el logo. Sin feed, porque no entra, y sin degradé.
+  e-commerce.», con la segunda línea en el sello, a la derecha de donde cae el logo. Sin feed,
+  porque no entra, y sin degradé.
 - **El logo** es `pieces/linkedin/logo-empresa-400.png`, de 400 × 400: el ícono a sangre de
   `logo/icon.svg`, cuadrado y sin transparencia. Sale de `logo-empresa.html`, y
   `logo-empresa-preview.png` lo muestra en chico, cuadrado y en círculo.
@@ -90,8 +94,8 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
 ## 11.6 Portada de la página de Facebook (1640 × 624)
 
 - El archivo es `pieces/redes/facebook/portada.html` → `portada.png`, y es la única versión. Lleva
-  el mismo titular que el banner, «Agentes expertos / a cargo de tu e-commerce.», y el mismo degradé
-  radial; es su hermana.
+  el mismo titular que el banner, «Agentes expertos / a cargo de tu e-commerce.», con la segunda
+  línea en el sello, y el mismo degradé radial; es su hermana.
 - **Mercado Libre** no va en el titular: va en el «Acerca de» de la página, como un hecho.
 - La foto de perfil tapa la esquina de abajo a la izquierda y el celular recorta los costados: las
   zonas seguras y los largos de cada texto están en `pieces/redes/plantillas.md`, y hay que
@@ -105,8 +109,9 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
   `twitter:card` va `summary_large_image` con la misma imagen.
 - **La composición:**
   - el lockup arriba a la izquierda y un eyebrow de contexto arriba a la derecha;
-  - el titular de dos líneas a 64 px;
-  - la tarjeta de aprobación o unas filas del feed, como imagen del producto;
+  - el titular de dos líneas a 64 px, con la segunda en el sello;
+  - la tarjeta de aprobación o unas filas del feed, como imagen del producto; en la tarjeta,
+    «Aprobar» va con borde, porque el sello es el único bloque lleno;
   - abajo a la izquierda, una línea de hechos con su fuente; abajo a la derecha, el dominio en la
     mono.
 - **Se genera desde la página**: una plantilla HTML que lee `tokens.css` y se pasa a PNG en el
@@ -167,13 +172,16 @@ magenta, que **nunca se publica**.
 
 | Carpeta | Qué hay | Para qué red |
 |---|---|---|
-| `pieces/redes/_base/` | `brand.css` (colores, fuentes y la clase `.signature`), `render.sh`, `render-all.sh` y `piezas.tsv` | Todas |
+| `pieces/redes/_base/` | `brand.css` (colores, fuentes y las clases `.signature` y `.sello`), `render.sh`, `render-all.sh` y `piezas.tsv` | Todas |
 | `pieces/redes/perfil/` | La foto de perfil y una hoja de control con la foto en chico | Instagram, Facebook y WhatsApp |
 | `pieces/redes/facebook/` | La portada | Facebook |
 | `pieces/redes/instagram/destacadas/` | Las portadas de las historias destacadas: un pictograma de trazo, sin texto | Instagram |
 | `pieces/redes/plantillas/` | `feed-4x5/`, `cuadrado/`, `story/` (también portada de reel) y `carrusel/`, con lo común en `_comun/` | Instagram y Facebook |
 
 - **Qué hay en cada carpeta:** `pieces/redes/README.md`.
+- **El sello** ya viene armado en cada plantilla con titular de dos líneas: el texto de la segunda
+  línea va adentro del `<span class="sello">`. Donde hay tarjeta de aprobación, «Aprobar» va con
+  borde (`.boton-borde`).
 - **LinkedIn** va aparte, en `pieces/linkedin/` (11.4 y 11.5), y sus PNG salen con el mismo
   `render-all.sh`.
 - **La especificación de las plantillas** (formatos, zonas seguras, slots y largos máximos, cómo

@@ -83,7 +83,7 @@ Hay un solo comando, `pnpm build`: genera `dist/tokens.css` con Terrazzo, genera
    alguno lleva `$extensions`;
 3. un hex no coincide con su OKLCH, un color cae fuera de sRGB, o «resuelto» deja de ser el mismo
    gris que `text.tertiary`;
-4. alguno de los 155 pares de contraste baja de WCAG 2.2 AA sobre cualquier fondo de su modo
+4. alguno de los 157 pares de contraste baja de WCAG 2.2 AA sobre cualquier fondo de su modo
    (capítulo 13);
 5. no son doce estilos, aparece un peso fuera de 400 y 500, algo baja de 12 px, un estilo no cumple
    la regla de tracking de su familia, o las dos líneas de un titular no comparten tamaño e

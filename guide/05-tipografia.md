@@ -25,7 +25,7 @@ escasea.
 |---|---|---|
 | El logotipo | Header, footer, OG, firma de mail, el lockup | Dibujo vectorial (`wordmark.svg`), desde 20 px de cuerpo. |
 | La i del ícono | Favicon, foto de perfil, ícono de app, conector de Claude | Dibujo vectorial (`icon.svg`), desde 16 px con el master chico. |
-| La segunda línea de un titular de dos líneas | Hero y OG (64 px), secciones y banner (40 px) | Texto, 400 itálica, del mismo tamaño que la primera línea, en `text.secondary`, desde 32 px. |
+| La segunda línea de un titular de dos líneas | Hero y OG (64 px), secciones y banner (40 px) | Texto, 400 itálica, del mismo tamaño que la primera línea, desde 32 px, calada en el sello (5.3). |
 | **Nada más** | — | Ni una palabra suelta adentro de una línea sans, ni un titular de una sola línea, ni un estado vacío, ni números, ni botones, ni eyebrows, ni cuerpo, ni interfaz. |
 
 - **Por qué tan poco:** tiene un solo peso y no trae cifras tabulares, así que no sirve para datos
@@ -41,8 +41,9 @@ escasea.
 | | Línea 1 | Línea 2 |
 |---|---|---|
 | Familia | IBM Plex Sans 500 | La firma, 400 itálica |
-| Color | `text.primary` | `text.secondary` |
-| Tamaño e interlineado | El mismo en las dos | El mismo en las dos |
+| Color | `text.primary` | Calada en el sello: la letra en `signature.text` (el color del fondo) sobre un bloque en `signature.block` (la tinta) |
+| Tamaño | El mismo en las dos | El mismo en las dos |
+| Interlineado | El de su estilo | La línea, 1, con 0,16em de aire arriba; adentro del sello, 0,86 |
 
 - **El corte lo decide el copy:** la firma entra donde la frase se vuelve personal.
 - La línea 2 no lleva números y termina en punto.
@@ -54,6 +55,33 @@ escasea.
 >
 > **Lo que aprendió una vez**\
 > *le sirve para siempre.*
+
+### El sello
+
+La segunda línea no va en gris: el gris, en lugar de remarcar, apagaba. Va calada, con la firma en
+el color del fondo sobre un bloque de tinta. Lo decidió Franco el 2026-10-10, entre cuatro opciones
+(rosa, sello, rosa con rúbrica y rosa grande); «blanco y más blanco» quedó descartado.
+
+- **La receta** vive en `css/signature.css` y va siempre igual:
+  - la línea de la firma (`.signature-line`), en bloque, con `margin-top: 0.16em` y
+    `line-height: 1`;
+  - adentro, el sello (`.signature-seal`): un `<span>` con `display: inline-block`,
+    `padding: 0.14em 0.16em 0.13em 0.13em` (arriba, derecha, abajo, izquierda),
+    `line-height: 0.86` y esquinas rectas, sin borde ni sombra;
+  - el bloque en `signature.block` y la letra en `signature.text`: #EDEDEA y #0A0A09 en oscuro;
+    en claro se invierte igual, #1A1917 y #FAFAF9. Da 16,89:1 y 16,82:1.
+- **Las medidas van en em:** el sello sigue al tamaño del titular, en los dos pares y en las piezas.
+- **Es el único bloque lleno de tinta de la pieza.** Si hay un botón principal a la vista (el
+  «Aprobar» de la tarjeta en una pieza, el botón principal del hero de la landing), va con borde
+  (capítulo 06, 6.5).
+- **En dos renglones**, el sello es un solo bloque del ancho del titular.
+
+```html
+<h1 class="text-hero">
+  Agentes expertos
+  <span class="signature-line text-hero-signature font-signature italic"><span class="signature-seal">a cargo de tu e-commerce.</span></span>
+</h1>
+```
 
 Hay dos pares, sin tipografía fluida: `headline.hero` (64/1,05) para el hero y las OG, y
 `headline.section` (40/1,1) para secciones y el banner. Abajo de 600 px de ancho
@@ -137,6 +165,8 @@ El largo de línea está en `layout.measure.lede` (60), `layout.measure.prose` (
 - Un tercer peso (600 o 700) o un bold falso. Un titular va en 500.
 - La firma recta (DM Serif Display regular), la firma fuera de sus tres usos o por debajo de 32 px
   como texto.
+- La segunda línea del titular en gris o sin el sello; un sello con esquinas redondeadas, borde,
+  sombra o un color que no sea el de sus dos tokens.
 - Plex Sans en itálica: no se carga y el navegador la falsearía. La única itálica es la firma.
 - La mono en eyebrows, etiquetas, botones o palabras («en curso» y «hoy» van en sans).
 - Un texto de menos de 12 px.

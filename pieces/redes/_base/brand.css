@@ -19,9 +19,11 @@
   --text-secondary: #bfbeb9;
   --text-primary: #ededea;
 
-  /* Acción principal (el botón «Aprobar»): tinta llena y su texto. */
-  --action-primary: #ededea;
-  --text-on-action: #0a0a09;
+  /* El sello de la firma (la segunda línea del titular): el bloque de tinta y la letra calada en el
+     color del fondo. Es el único bloque lleno de tinta de la pieza: el botón principal, como
+     «Aprobar», va con borde de tinta y sin relleno. */
+  --signature-block: #ededea;
+  --signature-text: #0a0a09;
 
   /* Estados (paleta verificada 2026-10-10, modo oscuro). Usarlos sólo por variable.
      Decisión de Franco del 2026-10-10: verde = en movimiento (trabajando, ◐ medio círculo:
@@ -44,3 +46,7 @@ body { font-family: var(--font-sans); }
 
 /* La firma: sólo logotipo, la i del ícono y la segunda línea de un titular de dos líneas. */
 .signature { font-family: var(--font-signature); font-style: italic; font-weight: 400; font-synthesis: none; }
+
+/* El sello: va adentro de la segunda línea del titular, que lleva margin-top 0.16em y line-height 1
+   (lo pone el CSS de cada pieza). Esquinas rectas; las medidas en em siguen al tamaño del titular. */
+.sello { display: inline-block; padding: 0.14em 0.16em 0.13em 0.13em; line-height: 0.86; background: var(--signature-block); color: var(--signature-text); }

@@ -4,8 +4,9 @@
   modo lo resuelve tokens.css: no hace falta `dark:` para los colores de la marca.
 
   En el markup se lee por rol: bg-canvas text-fg border-line-subtle · bg-action text-on-action ·
-  rounded-card · font-signature italic. El vidrio no está acá: va con las clases de glass.css.
-  No se bloquea la paleta de Tailwind ni se redefinen los nombres de shadcn: eso lo decide la app.
+  bg-signature text-on-signature · rounded-card · font-signature italic. El vidrio no está acá: va
+  con las clases de glass.css. No se bloquea la paleta de Tailwind ni se redefinen los nombres de
+  shadcn: eso lo decide la app.
 */
 
 @theme inline {
@@ -35,6 +36,10 @@
   --color-focus: var(--iris-color-focus);
   --color-selection: var(--iris-color-selection);
   --color-backdrop: var(--iris-color-backdrop);
+
+  /* El sello de la firma: el bloque de tinta y la letra calada (css/signature.css) */
+  --color-signature: var(--iris-color-signature-block);
+  --color-on-signature: var(--iris-color-signature-text);
 
   /* Estados: sólo en el glifo, siempre con su palabra */
   --color-status-attention: var(--iris-color-status-attention);

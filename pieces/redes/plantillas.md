@@ -38,10 +38,10 @@ La marca es monocroma y oscura. La jerarquía sale de la luz: más claro es más
 | `--border-default` | #3A3937 | 1,72 | Borde de la tarjeta de aprobación y del botón «Rechazar con motivo». También el borde del cuadrado del ícono sobre fondo negro. | Para texto. |
 | `--border-control` | #72716E | 4,06 | Borde de la píldora «Espera tu OK» y de los controles. | Para separadores (pesa demasiado) o para texto. |
 | `--text-tertiary` | #9B9A96 | 7,03 | Datos sueltos: eyebrow, horas, contador, nota, `@iris_agents`, leyenda. | Para un párrafo que se lee de corrido. |
-| `--text-secondary` | #BFBEB9 | 10,64 | Bajada, texto de apoyo, segunda línea del titular (la firma), el texto de cada fila del feed menos lo que cambió. | Para la primera línea del titular. |
-| `--text-primary` | #EDEDEA | 16,89 | Primera línea del titular, lo que cambió en cada fila del feed (la cifra o el objeto, en `<b>` y Plex 500), cifras, título de la tarjeta. | Para el logotipo: va en `--brand-white`. |
-| `--action-primary` | #EDEDEA | 16,89 | El fondo del botón «Aprobar» (tinta llena). | Para cualquier otro botón: «Rechazar con motivo» va en ghost. |
-| `--text-on-action` | #0A0A09 | 16,89 sobre `--action-primary` | El texto del botón «Aprobar». | Fuera del botón de tinta llena. |
+| `--text-secondary` | #BFBEB9 | 10,64 | Bajada, texto de apoyo, el texto de cada fila del feed menos lo que cambió. | Para el titular: la línea 1 va en `--text-primary` y la 2, en el sello. |
+| `--text-primary` | #EDEDEA | 16,89 | Primera línea del titular, lo que cambió en cada fila del feed (la cifra o el objeto, en `<b>` y Plex 500), cifras, título de la tarjeta, el borde y la letra de «Aprobar». | Para el logotipo: va en `--brand-white`. |
+| `--signature-block` | #EDEDEA | — | El sello: el bloque de tinta detrás de la segunda línea del titular. Es el único bloque lleno de la pieza. | Para un botón: «Aprobar» va con borde de 1 px (2 px en el carrusel) en `--text-primary`, sin relleno. |
+| `--signature-text` | #0A0A09 | 16,89 sobre `--signature-block` | La firma calada en el sello: el color del fondo. | Fuera del sello. |
 
 ### Estados
 
@@ -125,12 +125,21 @@ interior del carrusel también va sin firma.
 ### El titular de dos líneas
 
 - **Línea 1:** IBM Plex Sans 500, en `--text-primary`.
-- **Línea 2:** la firma (DM Serif Display 400 itálica), en `--text-secondary`.
-- **Las dos al mismo tamaño.** El interlineado es de 1,04 a 1,14.
+- **Línea 2:** la firma (DM Serif Display 400 itálica), calada en el sello: la letra en
+  `--signature-text` (el color del fondo) sobre un bloque en `--signature-block` (la tinta). No va
+  en gris.
+- **Las dos al mismo tamaño.** El interlineado de la línea 1 es de 1,04 a 1,14; la línea 2 lleva el
+  del sello: 1, con 0,16em de aire arriba.
+- **El sello** es la clase `.sello` de `brand.css`: `inline-block`, padding de 0,14em 0,16em
+  0,13em 0,13em, interlineado de 0,86 y esquinas rectas. En dos renglones es un solo bloque del
+  ancho del titular.
+- **Es el único bloque lleno de la pieza.** Donde va la tarjeta de aprobación, «Aprobar» va con
+  borde de tinta y sin relleno (`.boton-borde`).
 - **La línea 2 no lleva números** y termina en punto.
 
 En las plantillas ya está armado: `<span data-slot="titular-linea-1">` y
-`<span class="signature" data-slot="titular-linea-2">`.
+`<span class="signature"><span class="sello" data-slot="titular-linea-2">…</span></span>` (en el
+carrusel, la línea es un `<em class="signature">`). El texto se cambia adentro del sello.
 
 ### Tamaños mínimos en piezas de 1080 px de ancho
 
@@ -300,8 +309,8 @@ La imagen de iris son sus **piezas propias**, dibujadas como en la app:
   - Arriba, el antetítulo «Propuesta» y la píldora «Espera tu OK». No va el nombre del agente.
   - El título es la acción, con verbo y objeto.
   - Debajo, «lo que va a hacer», con dos cifras (antes → después) y cuándo se leyó el dato.
-  - Los botones son «Aprobar», en tinta llena, y «Rechazar con motivo», en ghost. Esos dos textos
-    no se cambian.
+  - Los botones son «Aprobar», con borde de tinta y sin relleno (el sello del titular es el único
+    bloque lleno de la pieza), y «Rechazar con motivo», en ghost. Esos dos textos no se cambian.
 
 **No entran en ninguna pieza:** fotos de stock, robots, cerebros, destellos ✨, emojis, mockups de
 teléfonos, capturas de cuentas reales, gradientes llamativos, glow, glass ni sombras.
@@ -334,7 +343,7 @@ cada ruta va completa.
 | Archivo | Formato y uso | Tamaño (px) | Zonas seguras | Slots editables (máximo de caracteres) |
 |---|---|---|---|---|
 | `pieces/redes/perfil/perfil.html` → `perfil-1080.png`, `perfil-guias.png`; la vista en chico sale de `perfil-preview.html` → `perfil-preview-circulos.png` | Foto de perfil de Instagram, Facebook y WhatsApp: el ícono a sangre. | 1080 × 1080 | Las redes recortan el círculo inscripto (radio 540). La i entra en el círculo de radio 432 (el 80 %). | Ninguno: **no se edita**. El tamaño y la posición de la i están medidos. |
-| `pieces/redes/facebook/portada.html` → `portada.png`, `portada-guias.png` | Portada de la página de Facebook, en una sola versión. | 1640 × 624 | En escritorio se ve entera (a 820 × 312). En el celular, sólo la franja x 266–1374. La foto de perfil tapa x 0–660, y 420–624. El contenido va en x 294–1346 y empieza a 40 px de arriba. Texto de 22 px o más. | `titular-linea-1` 18 · `titular-linea-2` 28 · `panel-titulo` 22 · `fila-1..5-accion` 36. Las cinco filas van resueltas (✓), sin hora y sin leyenda, como el banner de LinkedIn. |
+| `pieces/redes/facebook/portada.html` → `portada.png`, `portada-guias.png` | Portada de la página de Facebook, en una sola versión. | 1640 × 624 | En escritorio se ve entera (a 820 × 312). En el celular, sólo la franja x 266–1374. La foto de perfil tapa x 0–660, y 420–624. El contenido va en x 294–1346 y empieza a 40 px de arriba. Texto de 22 px o más. | `titular-linea-1` 18 · `titular-linea-2` 23 de texto ancho (el sello termina antes de x 763 y quedan 40 px hasta el panel) · `panel-titulo` 22 · `fila-1..5-accion` 36. Las cinco filas van resueltas (✓), sin hora y sin leyenda, como el banner de LinkedIn. |
 | `pieces/redes/plantillas/feed-4x5/feed-4x5-titular.html` | Post de feed 4:5 con titular grande y bajada. **El formato de Instagram.** | 1080 × 1350 | Margen de 72 px. La grilla 3:4 del perfil recorta 34 px por lado. | `eyebrow` 30 · `titular-linea-1` 28 (hasta 2 renglones) · `titular-linea-2` 28 (hasta 2 renglones, sin números) · `bajada` 110 (hasta 3 renglones) |
 | `pieces/redes/plantillas/feed-4x5/feed-4x5-pieza.html` | Post de feed 4:5 con titular corto y la tarjeta de aprobación. | 1080 × 1350 | Margen de 72 px. La grilla 3:4 recorta 34 px por lado. | `titular-linea-1` 22 (1 renglón) · `titular-linea-2` 22 (sin números) · `aprobacion-antetitulo` 28 («Propuesta») · `aprobacion-titulo` 30 · `dato-1-etiqueta` 24 · `dato-1-valor` 13 · `dato-2-etiqueta` 24 · `dato-2-valor` 13 · `dato-3-dia` («hoy» o «ayer», en Plex) · `dato-3-hora` (HH:MM, en mono) · `nota` 40 |
 | `pieces/redes/plantillas/cuadrado/cuadrado-titular.html` | Post cuadrado con titular y bajada. **Para Facebook**: en Instagram la grilla lo recorta. | 1080 × 1080 | Margen de 72 px. La grilla 3:4 de Instagram recorta 135 px por lado y corta el titular en la vista previa. | `eyebrow` 30 · `titular-linea-1` 28 (hasta 2 renglones) · `titular-linea-2` 28 (hasta 2 renglones, sin números) · `bajada` 110 (hasta 3 renglones) |
@@ -472,6 +481,8 @@ story, la tinta llega hasta y = 1580 porque ahí va el pie.
 ### Lista de control
 
 - [ ] La firma va sólo en la segunda línea del titular, y el logotipo no se tocó.
+- [ ] La segunda línea va en el sello y ningún otro bloque va lleno de tinta: «Aprobar» va con
+  borde.
 - [ ] No hay «Mercado Libre» en el titular, el eyebrow ni el texto principal.
 - [ ] Cada glifo tiene su palabra o su leyenda, y la leyenda nombra sólo los estados que
   aparecen (un panel con todas las filas resueltas va sin leyenda).

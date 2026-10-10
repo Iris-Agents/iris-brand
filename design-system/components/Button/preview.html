@@ -1,4 +1,4 @@
-<!-- @dsCard group="Controles" height=200 subtitle="Tinta llena, ghost y destructivo, en 28 px (app) y 40 px (landing y piezas)" -->
+<!-- @dsCard group="Controles" height=200 subtitle="Tinta llena, ghost, destructivo y borde (en piezas con sello), en 28 px y 40 px" -->
 <!doctype html>
 <html lang="es">
 <head>
@@ -24,6 +24,9 @@
   /* Destructivo: ghost con texto y borde en rojo, nunca relleno. */
   .destructivo { background: transparent; color: var(--action-destructive); border: 1px solid var(--action-destructive); }
   .destructivo:hover { background: var(--bg-hover); }
+  /* Borde: el principal en una pieza con sello, que es el único bloque lleno de tinta. */
+  .borde { background: transparent; color: var(--text-primary); border: 1px solid var(--text-primary); }
+  .borde:hover { background: var(--bg-hover); }
 </style>
 </head>
 <body>
@@ -42,6 +45,7 @@
       <button type="button" class="boton comodo lleno label">Aprobar</button>
       <button type="button" class="boton comodo ghost label">Rechazar con motivo</button>
       <button type="button" class="boton comodo destructivo label">Borrar 12 publicaciones</button>
+      <button type="button" class="boton comodo borde label">Aprobar · en una pieza con sello</button>
     </div>
   </section>
 </div>

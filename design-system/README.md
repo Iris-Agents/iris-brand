@@ -47,7 +47,7 @@ iris es un SaaS de agentes que atienden a los clientes y manejan la cuenta de un
 | Token | Para qué | Sobre qué fondos |
 |---|---|---|
 | `text-primary` | Lo que se lee de corrido: titulares, nombres, el hilo del agente, el cuerpo. | Los cinco fondos, `glass-bar` y `glass-panel`, en los dos modos. |
-| `text-secondary` | Apoyo de 13px para arriba: bajadas, ayudas, el verbo de una fila, la segunda línea del titular. | Los cinco fondos, `glass-bar` y `glass-panel`. |
+| `text-secondary` | Apoyo de 13px para arriba: bajadas, ayudas, el verbo de una fila. Nunca la segunda línea del titular, que va en el sello. | Los cinco fondos, `glass-bar` y `glass-panel`. |
 | `text-tertiary` | Datos sueltos: hora, id, contador, eyebrow, leyenda, meta de fila. Nunca una oración. | Los cinco fondos y `glass-panel`. Nunca `glass-bar`. |
 | `text-placeholder` | El placeholder de un input (mismo valor que `text-tertiary`). | Los cinco fondos. |
 | `text-disabled` | Una etiqueta deshabilitada. | Los cinco fondos (exento de contraste; queda en 3:1). |
@@ -94,8 +94,9 @@ Tres familias, dos pesos (400 y 500). No hay tercer peso ni bold falso: poné `h
 | IBM Plex Mono 400 | `--font-mono` | Sólo datos: ids, horas, nombres de tools, payloads, atajos. |
 
 - Usá los doce estilos y nada entre medio: `.headline-hero-first` y `.headline-hero-second` (64px, hero y OG); `.headline-section-first` y `.headline-section-second` (40px, secciones, banner y el hero abajo de 600px); `.title` (18/500); `.copy-lede` (18, bajada, hasta 60 caracteres); `.copy-body` (16, landing y documentos, hasta 66); `.copy-reading` (15, el hilo del agente, hasta 72, sin globo); `.copy-ui` (13, la base densa de la app); `.label` (13/500, botón, nav, píldora); `.eyebrow` (12/500); `.mono` (12).
-- Aplicá la regla de la firma: DM Serif Display itálica va en el logotipo y en la i del ícono, que son dibujos de `assets/Logos/`, y como texto sólo en `.headline-hero-second` o `.headline-section-second`, en `text-secondary`, desde 32px. Nunca una palabra suelta en itálica, un titular de una línea, números, botones, eyebrows, cuerpo ni interfaz.
+- Aplicá la regla de la firma: DM Serif Display itálica va en el logotipo y en la i del ícono, que son dibujos de `assets/Logos/`, y como texto sólo en `.headline-hero-second` o `.headline-section-second`, calada en el sello (`signature-text` sobre un bloque de `signature-block`), desde 32px. Nunca una palabra suelta en itálica, un titular de una línea, números, botones, eyebrows, cuerpo ni interfaz.
 - Componé el titular de dos líneas con las dos clases del mismo par, el mismo tamaño e interlineado y `text-wrap: balance`. La primera en `text-primary`; la segunda, la firma, donde la frase se vuelve personal, sin números y terminada en punto. Un titular de una línea va entero en la sans.
+- Poné la firma en el sello: `display: inline-block`, `padding: 0.14em 0.16em 0.13em 0.13em`, interlineado 0,86, esquinas rectas, fondo `signature-block` y letra `signature-text`; la línea con 0,16em de aire arriba. El sello es el único bloque lleno de tinta de la pieza: si hay un botón principal a la vista (el «Aprobar» de la tarjeta, el botón del hero), dibujalo con borde de 1px en `text-primary`, sin relleno y con la letra en `text-primary`.
 
 ```html
 <h1>

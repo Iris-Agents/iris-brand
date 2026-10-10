@@ -27,7 +27,7 @@ escalón que la landing había calibrado, porque menos no se veía y más se le�
 
 | Paso | Hex | OKLCH | Roles |
 |---|---|---|---|
-| 1 | #0A0A09 | = `brand.black` | `bg.canvas` · `text.on-action` |
+| 1 | #0A0A09 | = `brand.black` | `bg.canvas` · `text.on-action` · `signature.text` |
 | 2 | #111110 | 0.176 0.0022 95 | `bg.surface` |
 | 3 | #181816 | 0.207 0.0025 95 | `bg.raised` |
 | 4 | #201F1E | 0.240 0.0028 95 | `bg.hover` |
@@ -37,13 +37,13 @@ escalón que la landing había calibrado, porque menos no se veía y más se le�
 | 8 | #72716E | 0.550 0.005 95 | `border.control` · `text.disabled` · `link.underline` |
 | 9 | #9B9A96 | 0.685 0.006 95 | `text.tertiary` · `text.placeholder` · `status.done` · `data.comparison` |
 | 10 | #BFBEB9 | 0.800 0.006 95 | `text.secondary` |
-| 11 | #EDEDEA | 0.945 0.004 95 | `text.primary` · `action.primary` · `focus` · `status.idle` · `data.series` |
+| 11 | #EDEDEA | 0.945 0.004 95 | `text.primary` · `action.primary` · `focus` · `status.idle` · `data.series` · `signature.block` |
 
 ### Neutros del claro: `color.neutral-light`
 
 | Paso | Hex | OKLCH | Roles |
 |---|---|---|---|
-| 1 | #FAFAF9 | = `brand.white` | `bg.canvas` · `bg.surface` · `bg.raised` · `text.on-action` |
+| 1 | #FAFAF9 | = `brand.white` | `bg.canvas` · `bg.surface` · `bg.raised` · `text.on-action` · `signature.text` |
 | 2 | #F0F0EF | 0.955 0.002 95 | `bg.hover` |
 | 3 | #EAE9E8 | 0.935 0.0025 95 | `bg.selected` |
 | 4 | #E3E3E1 | 0.915 0.003 95 | `border.subtle` · `data.grid` |
@@ -52,7 +52,7 @@ escalón que la landing había calibrado, porque menos no se veía y más se le�
 | 7 | #868581 | 0.615 0.0055 95 | `border.control` · `text.disabled` · `link.underline` |
 | 8 | #686764 | 0.515 0.006 95 | `text.tertiary` · `text.placeholder` · `status.done` · `data.comparison` |
 | 9 | #4E4D49 | 0.420 0.006 95 | `text.secondary` · `status.idle` |
-| 10 | #1A1917 | 0.215 0.004 95 | `text.primary` · `action.primary` · `focus` · `data.series` |
+| 10 | #1A1917 | 0.215 0.004 95 | `text.primary` · `action.primary` · `focus` · `data.series` · `signature.block` |
 
 ### Señal: `color.signal`
 
@@ -82,7 +82,7 @@ Un componente usa sólo estos nombres. Cambian de valor con el modo; el rol es e
 | `bg.hover` | #201F1E | #F0F0EF | Hover de fila, ítem o botón secundario, sobre cualquier nivel. |
 | `bg.selected` | #262624 | #EAE9E8 | Fila o ítem seleccionado, con la regla inset de 2 px en `text.primary`. |
 | `text.primary` | #EDEDEA | #1A1917 | Titulares, nombres, el hilo del agente, todo lo que se lee de corrido. |
-| `text.secondary` | #BFBEB9 | #4E4D49 | Texto de apoyo de 13 px para arriba: bajadas, ayudas, la segunda línea del titular. |
+| `text.secondary` | #BFBEB9 | #4E4D49 | Texto de apoyo de 13 px para arriba: bajadas, ayudas, el verbo de una fila. |
 | `text.tertiary` | #9B9A96 | #686764 | Datos sueltos: hora, id, contador, eyebrow, meta de fila, leyenda. Nunca una oración. |
 | `text.placeholder` | #9B9A96 | #686764 | El placeholder de un input. Es el valor del terciario para que pase AA sobre cualquier fondo. |
 | `text.disabled` | #72716E | #868581 | Etiqueta deshabilitada. |
@@ -90,8 +90,10 @@ Un componente usa sólo estos nombres. Cambian de valor con el modo; el rol es e
 | `border.subtle` | #2C2B29 | #E3E3E1 | El hairline dominante: separadores y cards. |
 | `border.default` | #3A3937 | #CECECB | Línea fuerte: popovers, diálogos, botón secundario, el borde del ícono sobre negro. |
 | `border.control` | #72716E | #868581 | Borde de input y de todo control sin otra señal; el borde de la píldora. |
-| `action.primary` | #EDEDEA | #1A1917 | El CTA: relleno de tinta con `text.on-action` encima. |
+| `action.primary` | #EDEDEA | #1A1917 | El CTA: relleno de tinta con `text.on-action` encima. Con el sello a la vista, el botón principal va con borde (4.3). |
 | `action.destructive` | #E66E68 | #BC3732 | Texto y borde del botón que borra o revierte. Ghost, nunca relleno. |
+| `signature.block` | #EDEDEA | #1A1917 | El sello: el bloque de tinta detrás de la segunda línea del titular (capítulo 05, 5.3). Es el valor de `text.primary`. |
+| `signature.text` | #0A0A09 | #FAFAF9 | La firma calada en el sello: el color del fondo, sólo sobre `signature.block`. Es el valor de `text.on-action`. |
 | `focus` | #EDEDEA | #1A1917 | El anillo de foco: 2 px a 2 px de distancia. |
 | `selection` | #3A3937 | #DBDBD8 | El fondo de la selección de texto. |
 | `backdrop` | negro al 60 % | negro al 30 % | La cortina detrás de un diálogo. |
@@ -101,9 +103,15 @@ Un componente usa sólo estos nombres. Cambian de valor con el modo; el rol es e
 
 ## 4.3 Por qué no hay color
 
-El acento es la tinta: el valor de `text.primary` es también el relleno del CTA y el anillo de foco.
-Como casi todo comparte tinta, lo que grita no puede ser el color: grita la forma. Un solo CTA lleno
-por pantalla y el ● de «te toca».
+El acento es la tinta: el valor de `text.primary` es también el relleno del CTA, el anillo de foco y
+el bloque del sello. Como casi todo comparte tinta, lo que grita no puede ser el color: grita la
+forma. Un solo bloque lleno de tinta por pantalla y el ● de «te toca».
+
+**Un solo lleno.** En una pieza con sello (la segunda línea del titular, capítulo 05, 5.3), el
+sello es el único bloque lleno de tinta. Si hay un botón principal a la vista (el «Aprobar» de la
+tarjeta de aprobación en una pieza, el botón principal del hero de la landing), se dibuja con borde
+de 1 px en `text.primary`, sin relleno y con la letra en `text.primary` (capítulo 06, 6.5). Fuera de
+las piezas con sello (la app, un formulario), el CTA de tinta lleno sigue como siempre.
 
 No hay color de marca ni un azul para «novedad»: se probó, queda a ΔE 0,091 del cian de Mercado Pago
 y, al lado del ámbar, arma la pareja de colores de Mercado Libre. Ningún estado lo necesita.
@@ -124,6 +132,7 @@ redondeado a dos decimales. El test compara el valor sin redondear.
 | `text.tertiary` · `text.placeholder` | 4,5 | 7,03 | 5,38 | 5,42 | 4,66 |
 | `status.failed` · `action.destructive` como texto | 4,5 | 6,41 | 4,91 | 5,39 | 4,64 |
 | `text.on-action` sobre `action.primary` | 4,5 | 16,89 | — | 16,82 | — |
+| `signature.text` sobre `signature.block` | 4,5 | 16,89 | — | 16,82 | — |
 | ● `status.attention` | 3 | 10,34 | 7,91 | 3,87 | **3,33** |
 | ◐ `status.working` | 3 | 6,18 | 4,73 | 6,52 | 5,62 |
 | ✓ `status.done` | 3 | 7,03 | 5,38 | 5,42 | 4,66 |
@@ -145,8 +154,8 @@ redondeado a dos decimales. El test compara el valor sin redondear.
 ## 4.5 Reglas por tamaño
 
 - **`text.primary`** en todo lo que se lee de corrido: el hilo del agente, los documentos, el cuerpo.
-- **`text.secondary`** en el apoyo de 13 px para arriba: bajadas, ayudas y la segunda línea del
-  titular.
+- **`text.secondary`** en el apoyo de 13 px para arriba: bajadas y ayudas. La segunda línea del
+  titular no va en gris: va calada en el sello (capítulo 05, 5.3).
 - **`text.tertiary`** sólo en datos sueltos que se leen de un vistazo: «10:40 · id 4418 · 27
   ventas». Nunca en una oración.
 - **No se atenúa con opacidad** un texto que significa algo: se elige el token.

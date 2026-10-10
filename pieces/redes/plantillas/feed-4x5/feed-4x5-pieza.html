@@ -27,8 +27,8 @@
   <h1 class="titular" data-bloque="titular">
     <!-- EDITAR: línea 1 del titular (Plex). Corta: máximo 22 caracteres (1 renglón). -->
     <span data-slot="titular-linea-1">Antes de reponer,</span>
-    <!-- EDITAR: línea 2 del titular (va en la firma). Sin números. Máximo 22 caracteres (1 renglón). -->
-    <span class="signature" data-slot="titular-linea-2">te muestra las cifras.</span>
+    <!-- EDITAR: línea 2 del titular (va en la firma, calada en el sello: el texto va adentro del <span class="sello">). Sin números. Máximo 22 caracteres (1 renglón). -->
+    <span class="signature"><span class="sello" data-slot="titular-linea-2">te muestra las cifras.</span></span>
   </h1>
 
   <div class="imagen" data-bloque="imagen">
@@ -50,7 +50,7 @@
         <div><dt>Leído</dt><dd><span data-slot="dato-3-dia">hoy</span> · <time class="mono" data-slot="dato-3-hora">10:40</time></dd></div>
       </dl>
       <div class="aprobacion-acciones">
-        <span class="boton boton-lleno">Aprobar</span>
+        <span class="boton boton-borde">Aprobar</span>
         <span class="boton boton-ghost">Rechazar con motivo</span>
       </div>
     </article>

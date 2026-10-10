@@ -34,7 +34,7 @@ Cómo se arma cada pieza que sale de iris. Todas usan lo mismo: el negro de marc
 
 - Fondo `brand-black`, con el degradé radial de blanco al 4 % arriba a la derecha.
 - La zona de la foto queda libre: LinkedIn la pone en x 33–373 en la computadora y en x 67–702 en el celular. El contenido empieza en x 718.
-- Después de esa zona, el lockup y, debajo, el titular a 40px: «Agentes expertos / *a cargo de tu e-commerce.*», con `.headline-section-first` en `text-primary` y `.headline-section-second` en `text-secondary`.
+- Después de esa zona, el lockup y, debajo, el titular a 40px: «Agentes expertos / *a cargo de tu e-commerce.*», con `.headline-section-first` en `text-primary` y `.headline-section-second` calada en el sello (`signature-block` y `signature-text`).
 - A la derecha, el feed en un panel de 340px con los cinco resultados («Mejoró la reputación», «Contestó 40 preguntas», «Resolvió 3 reclamos», «Generó 3 ventas adicionales», «Adhirió a una promoción»), cada uno con ✓, el verbo en `text-secondary` y el objeto en `text-primary` 500.
 - Mercado Libre va en el «Acerca de» del perfil, no en el banner.
 

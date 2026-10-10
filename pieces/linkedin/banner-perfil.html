@@ -29,7 +29,7 @@
   .banner {
     position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 40px 0 718px;
+    padding: 0 36px 0 718px;
     /* El degradé radial de la marca: sólo en este banner y en la portada de Facebook. */
     background:
       radial-gradient(900px 460px at 70% 20%, color-mix(in srgb, var(--brand-white) 4%, transparent), transparent 70%),
@@ -39,8 +39,8 @@
   .lockup { --logo-alto: 52px; }
   .titular { font-size: 40px; line-height: 1.1; letter-spacing: -0.015em; }
   .titular > span { white-space: nowrap; }
-  /* El panel mide 340 px y va a 40 del borde derecho, en x 1204–1543: así el titular, que termina
-     en x 1153, tiene 50 px de aire antes del borde del panel. */
+  /* El panel mide 340 px y va a 36 del borde derecho, en x 1208–1547: así el sello del titular, que
+     termina en x 1167, tiene 40 px de aire antes del borde del panel. */
   .feed { width: calc(340px / var(--pieza-zoom)); }
   .fila .que { white-space: nowrap; }
 </style>
@@ -59,11 +59,12 @@
     <h1 class="titular">
       <!-- EDITAR: línea 1 del titular, en Plex. Máximo 18 caracteres. -->
       <span data-slot="titular-linea-1">Agentes expertos</span>
-      <!-- EDITAR: línea 2 del titular, en la firma. Termina en punto y no lleva números. Entra hasta
-           x 1164 (40 px antes del borde del panel, en x 1204): con este texto mide 435 px y termina
-           en x 1153, así que está en el tope. Máximo 25 caracteres de texto común. «Mercado Libre»
+      <!-- EDITAR: línea 2 del titular, en la firma, calada en el sello (el texto va adentro del
+           <span class="sello">). Termina en punto y no lleva números. El sello entra hasta x 1168
+           (40 px antes del borde del panel, en x 1208): con este texto mide 450 px y termina en
+           x 1167, así que está en el tope. Máximo 25 caracteres de texto común. «Mercado Libre»
            no va en el titular: va en el «Acerca de» (guide/12-mercado-libre.md). -->
-      <span class="signature" data-slot="titular-linea-2">a cargo de tu e-commerce.</span>
+      <span class="signature"><span class="sello" data-slot="titular-linea-2">a cargo de tu e-commerce.</span></span>
     </h1>
   </div>
 

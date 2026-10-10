@@ -73,6 +73,12 @@ achica el ritmo, no el contenido.
 
 - **El CTA es tinta:** relleno de `action.primary` con `text.on-action` encima, en `label`. Hay uno
   solo por pantalla. En hover baja a opacidad 0,9 (`opacity.hover`).
+- **Con el sello a la vista, el CTA va con borde.** El sello del titular (capítulo 05, 5.3) es el
+  único bloque lleno de tinta de la pieza: el botón principal (el «Aprobar» de la tarjeta en una
+  pieza, el botón principal del hero de la landing) se dibuja con borde de 1 px en `text.primary`,
+  sin relleno y con la letra en `text.primary`. Del ghost lo separa el borde: tinta, no
+  `border.default`. Su hover es `bg.hover`, como el de todo control sin relleno. Fuera de las piezas
+  con sello (la app, un formulario), el CTA va lleno.
 - **El secundario es ghost:** sin relleno, con borde `border.default` y texto `text.primary`. Su hover
   es `bg.hover`.
 - **El destructivo es ghost:** texto y borde en `action.destructive`, nunca relleno. Va con una
@@ -147,7 +153,8 @@ En CSS son `--iris-color-glass-bar`, `--iris-color-glass-panel`, `--iris-color-g
 ### Dos niveles, por rol
 
 - **La barra** (`.glass-bar`) es la nav flotante de la landing. Lleva sólo `text.primary`,
-  `text.secondary`, el CTA de tinta sólido y el foco. Ni `text.tertiary`, ni placeholder, ni texto
+  `text.secondary`, el CTA de tinta sólido (con el sello del hero a la vista, con borde: 6.5) y el
+  foco. Ni `text.tertiary`, ni placeholder, ni texto
   rojo, ni `border.control`, ni glifos de estado: con blanco puro detrás la barra da #414140 y el
   terciario baja a 3,63:1. Si hace falta algo de eso, es un panel.
 - **El panel** (`.glass-panel`) es lo que flota con contenido: ⌘K, popovers y menús, la aprobación

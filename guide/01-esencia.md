@@ -81,8 +81,8 @@ reputación». No hay badges ni contadores sin base.
 Lo que necesita al dueño va arriba. Lo que iris resolvió va abajo y en silencio.
 
 **Se ve así:** monocromo. La jerarquía sale de la luz y la tinta es el acento. Lo que grita es poco
-y siempre lo mismo: un solo CTA lleno por pantalla y el ● ámbar de «te toca», el único ● del sistema,
-agrupado arriba. Lo resuelto lleva una ✓ gris y su texto baja a `text.tertiary`. El movimiento dura
+y siempre lo mismo: un solo bloque lleno de tinta por pantalla (el CTA, o en una pieza el sello del
+titular) y el ● ámbar de «te toca», el único ● del sistema, agrupado arriba. Lo resuelto lleva una ✓ gris y su texto baja a `text.tertiary`. El movimiento dura
 de 120 a 280 ms, frena suave y no rebota. Lo que se anima en un estado late dos veces y queda quieto.
 
 ### 5. El dueño decide, y la aprobación es parte del producto
@@ -91,7 +91,8 @@ La autonomía la da el dueño; iris no se la toma. Lo que no está autorizado se
 
 **Se ve así:** la tarjeta de aprobación es una pieza de marca: el antetítulo «Propuesta», la píldora
 «Espera tu OK», las cifras de antes y después, y cuándo se leyeron. El CTA es tinta (relleno de
-`action.primary`) y dice exactamente qué pasa: «Aprobar», «Rechazar con motivo».
+`action.primary`, o borde de tinta en una pieza con sello) y dice exactamente qué pasa: «Aprobar»,
+«Rechazar con motivo».
 
 ### 6. Se vende una sola cosa: iris
 

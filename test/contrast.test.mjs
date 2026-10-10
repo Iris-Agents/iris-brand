@@ -21,6 +21,7 @@ function buildPairs() {
 			for (const graphic of graphics) pair(graphic, background, 3);
 		}
 		pair("text.on-action", "action.primary", 4.5);
+		pair("signature.text", "signature.block", 4.5);
 		pair("text.primary", "selection", 4.5);
 	}
 	const brand = (id) => hexOf(resolved.dark.get(id).value);
@@ -31,8 +32,8 @@ function buildPairs() {
 const pairs = buildPairs();
 const formatRatio = (ratio) => ratio.toFixed(2).replace(".", ",");
 
-test("son 155 pares con umbral, y todos llegan a AA", (context) => {
-	assert.equal(pairs.length, 155);
+test("son 157 pares con umbral, y todos llegan a AA", (context) => {
+	assert.equal(pairs.length, 157);
 	const failing = pairs.filter((pair) => pair.ratio < pair.minimum);
 	for (const mode of [...modes, "logo"]) {
 		const worstByForeground = new Map();

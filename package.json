@@ -1,6 +1,6 @@
 {
   "name": "iris-brand",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "El sistema de marca de iris: design tokens DTCG 2025.10, el CSS ya generado, las fuentes, el logo y el manual.",
   "private": false,
   "type": "module",
@@ -10,6 +10,7 @@
     "./tailwind.css": "./css/tailwind.css",
     "./fonts.css": "./css/fonts.css",
     "./glass.css": "./css/glass.css",
+    "./signature.css": "./css/signature.css",
     "./design-system.json": "./dist/design-system.json",
     "./logo/*": "./logo/*",
     "./fonts/*": "./fonts/*",

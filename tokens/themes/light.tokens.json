@@ -11,7 +11,7 @@
     },
     "text": {
       "primary": {"$type": "color", "$value": "{color.neutral-light.10}", "$description": "Texto pleno: titulares, nombres, el hilo del agente, el cuerpo de lectura."},
-      "secondary": {"$type": "color", "$value": "{color.neutral-light.9}", "$description": "Texto de apoyo de 13px para arriba: bajadas, ayudas, la segunda línea del titular."},
+      "secondary": {"$type": "color", "$value": "{color.neutral-light.9}", "$description": "Texto de apoyo de 13px para arriba: bajadas, ayudas, el verbo de una fila."},
       "tertiary": {"$type": "color", "$value": "{color.neutral-light.8}", "$description": "Datos sueltos que se leen de un vistazo: hora, id, contador, eyebrow, meta de fila. Nunca una oración. >= 4,5:1 en los cinco fondos."},
       "placeholder": {"$type": "color", "$value": "{color.neutral-light.8}", "$description": "Placeholder de input: el mismo valor que tertiary, para que pase AA sobre cualquier fondo."},
       "disabled": {"$type": "color", "$value": "{color.neutral-light.7}", "$description": "Etiqueta deshabilitada (exenta de contraste por WCAG 1.4.3; igual queda en >= 3:1)."},
@@ -25,6 +25,10 @@
     "action": {
       "primary": {"$type": "color", "$value": "{color.neutral-light.10}", "$description": "El CTA es tinta: relleno de text.primary con text.on-action encima."},
       "destructive": {"$type": "color", "$value": "{color.signal.red-on-light}", "$description": "Texto y borde del botón que borra o revierte (ghost, nunca relleno). Va con una confirmación que repite el objeto."}
+    },
+    "signature": {
+      "block": {"$type": "color", "$value": "{color.neutral-light.10}", "$description": "El sello: el bloque de tinta detrás de la segunda línea de un titular de dos líneas, con la firma calada en signature.text. Es el valor de text.primary. Es el único bloque lleno de tinta de la pieza: si hay un botón principal a la vista, va con borde."},
+      "text": {"$type": "color", "$value": "{color.neutral-light.1}", "$description": "La firma calada en el sello: el color del fondo, sólo sobre signature.block. Es el valor de text.on-action."}
     },
     "focus": {"$type": "color", "$value": "{color.neutral-light.10}", "$description": "Anillo de foco: outline de 2px a 2px de distancia."},
     "selection": {"$type": "color", "$value": "{color.neutral-light.5}", "$description": "Fondo de la selección de texto."},

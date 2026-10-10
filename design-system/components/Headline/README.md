@@ -1,6 +1,8 @@
 # Headline
 
-El titular de dos líneas: la primera en IBM Plex Sans 500 y `text-primary`, la segunda en la firma (DM Serif Display itálica) y `text-secondary`, las dos del mismo tamaño e interlineado.
+El titular de dos líneas: la primera en IBM Plex Sans 500 y `text-primary`, la segunda en la firma (DM Serif Display itálica) calada en el sello, un bloque de `signature-block` con la letra en `signature-text`, las dos del mismo tamaño.
+
+El sello reemplazó a la firma en gris (2026-10-10): el gris, en lugar de remarcar, apagaba. Receta: la línea de la firma con 0,16em de aire arriba e interlineado 1; adentro, el sello con `padding: 0.14em 0.16em 0.13em 0.13em`, interlineado 0,86 y esquinas rectas (en iris-brand, `css/signature.css`, clase `.signature-seal`). El sello es el único bloque lleno de tinta de la pieza: si hay un botón principal a la vista, va con borde (ver `Button`).
 
 Reconstrucción estática del `.titular` de `pieces/redes/plantillas/_comun/plantilla.css` y del `.headline` de `pieces/redes/facebook/portada.html`, según `guide/05-tipografia.md` (5.2 y 5.3) de iris-brand.
 

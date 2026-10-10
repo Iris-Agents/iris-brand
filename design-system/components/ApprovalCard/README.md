@@ -28,6 +28,7 @@ Reconstrucción estática del `.aprobacion` de `pieces/redes/plantillas/_comun/p
 - En la app, la tarjeta además dice cuánto arriesga (en `.mono`) y deja abrir lo que va a mandar («Lo que va a hacer»). Rechazar abre un campo para el motivo, que le vuelve al agente, y el botón pasa a «Confirmar rechazo».
 - Cuando flota sobre el feed o sobre fotos, la tarjeta es vidrio (`.glass-panel`, ver `Glass`); adentro todo sigue sólido. Dentro del hilo, del feed o en una pieza estática, va lisa.
 - En lo público, el antetítulo es «Propuesta», nunca el nombre de un agente, y las cifras se marcan como de ejemplo.
+- En una pieza con titular de dos líneas (con sello), «Aprobar» va con borde en `text-primary` y sin relleno: el sello es el único bloque lleno de tinta (ver `Button`, variante Borde).
 
 ## No
 

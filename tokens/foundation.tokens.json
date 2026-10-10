@@ -9,7 +9,7 @@
     },
     "neutral-dark": {
       "$description": "Los once valores del oscuro, de abajo hacia arriba. Tono 95, croma de 0,002 a 0,006.",
-      "1": {"$type": "color", "$value": "{color.brand.black}", "$description": "canvas · on-action"},
+      "1": {"$type": "color", "$value": "{color.brand.black}", "$description": "canvas · on-action · signature.text"},
       "2": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.176, 0.0022, 95], "hex": "#111110"}, "$description": "surface (+3,1 de L: el escalón que la landing validó)"},
       "3": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.207, 0.0025, 95], "hex": "#181816"}, "$description": "raised (+3,1)"},
       "4": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.24, 0.0028, 95], "hex": "#201f1e"}, "$description": "hover"},
@@ -19,11 +19,11 @@
       "8": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.55, 0.005, 95], "hex": "#72716e"}, "$description": "border.control · disabled · link.underline (>= 3:1 sobre los cinco fondos)"},
       "9": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.685, 0.006, 95], "hex": "#9b9a96"}, "$description": "tertiary · placeholder · status.done · data.comparison (>= 4,5:1 sobre los cinco fondos)"},
       "10": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.8, 0.006, 95], "hex": "#bfbeb9"}, "$description": "secondary"},
-      "11": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.945, 0.004, 95], "hex": "#ededea"}, "$description": "primary · action · focus · status.idle · data.series"}
+      "11": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.945, 0.004, 95], "hex": "#ededea"}, "$description": "primary · action · focus · status.idle · data.series · signature.block"}
     },
     "neutral-light": {
       "$description": "Los diez valores del claro, de arriba hacia abajo. Misma familia; no es la oscura invertida.",
-      "1": {"$type": "color", "$value": "{color.brand.white}", "$description": "canvas · surface · raised · on-action"},
+      "1": {"$type": "color", "$value": "{color.brand.white}", "$description": "canvas · surface · raised · on-action · signature.text"},
       "2": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.955, 0.002, 95], "hex": "#f0f0ef"}, "$description": "hover"},
       "3": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.935, 0.0025, 95], "hex": "#eae9e8"}, "$description": "selected"},
       "4": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.915, 0.003, 95], "hex": "#e3e3e1"}, "$description": "border.subtle · data.grid"},
@@ -32,7 +32,7 @@
       "7": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.615, 0.0055, 95], "hex": "#868581"}, "$description": "border.control · disabled · link.underline (>= 3:1 sobre los fondos del claro)"},
       "8": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.515, 0.006, 95], "hex": "#686764"}, "$description": "tertiary · placeholder · status.done · data.comparison (>= 4,5:1 sobre los fondos del claro)"},
       "9": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.42, 0.006, 95], "hex": "#4e4d49"}, "$description": "secondary · status.idle"},
-      "10": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.215, 0.004, 95], "hex": "#1a1917"}, "$description": "primary · action · focus · data.series"}
+      "10": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.215, 0.004, 95], "hex": "#1a1917"}, "$description": "primary · action · focus · data.series · signature.block"}
     },
     "signal": {
       "$description": "Los colores de estado, lo único fuera de los neutros. Van en el glifo de estado, siempre con su palabra; el rojo además puede ir como texto (destructivo, error de un campo). Nunca en el logo, en un fondo ni como adorno. Medidos contra los que usa Claude (Claude Code y claude.ai).",
@@ -73,11 +73,11 @@
     "headline": {
       "hero": {
         "first": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 64, "unit": "px"}, "fontWeight": "{font.weight.medium}", "letterSpacing": {"value": -1.28, "unit": "px"}, "lineHeight": 1.05}, "$description": "Primera línea del hero y de la OG, en text.primary."},
-        "second": {"$type": "typography", "$value": {"fontFamily": "{font.family.signature}", "fontSize": {"value": 64, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": -0.64, "unit": "px"}, "lineHeight": 1.05}, "$description": "Segunda línea del hero y de la OG: la firma, en text.secondary, del mismo tamaño que la primera."}
+        "second": {"$type": "typography", "$value": {"fontFamily": "{font.family.signature}", "fontSize": {"value": 64, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": -0.64, "unit": "px"}, "lineHeight": 1.05}, "$description": "Segunda línea del hero y de la OG: la firma, calada en el sello (signature.text sobre signature.block), del mismo tamaño que la primera."}
       },
       "section": {
         "first": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 40, "unit": "px"}, "fontWeight": "{font.weight.medium}", "letterSpacing": {"value": -0.6, "unit": "px"}, "lineHeight": 1.1}, "$description": "Primera línea de un titular de sección y del banner; el hero en pantallas angostas."},
-        "second": {"$type": "typography", "$value": {"fontFamily": "{font.family.signature}", "fontSize": {"value": 40, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": -0.4, "unit": "px"}, "lineHeight": 1.1}, "$description": "Segunda línea del mismo titular: la firma, en text.secondary."}
+        "second": {"$type": "typography", "$value": {"fontFamily": "{font.family.signature}", "fontSize": {"value": 40, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": -0.4, "unit": "px"}, "lineHeight": 1.1}, "$description": "Segunda línea del mismo titular: la firma, calada en el sello (signature.text sobre signature.block)."}
       }
     },
     "title": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 18, "unit": "px"}, "fontWeight": "{font.weight.medium}", "letterSpacing": {"value": -0.18, "unit": "px"}, "lineHeight": 1.35}, "$description": "Título de entidad en la app; título de card en la landing."},

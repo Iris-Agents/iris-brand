@@ -47,7 +47,7 @@ Lo que se promete: **trabaja solo donde vos lo dejás; si no decidiste, te esper
 
 ## El titular de dos líneas
 
-- La primera línea en la sans (`.headline-hero-first` o `.headline-section-first`, en `text-primary`); la segunda en la firma (`.headline-hero-second` o `.headline-section-second`, en `text-secondary`).
+- La primera línea en la sans (`.headline-hero-first` o `.headline-section-first`, en `text-primary`); la segunda en la firma (`.headline-hero-second` o `.headline-section-second`), calada en el sello: un bloque de `signature-block` con la letra en `signature-text`. Nunca en gris: el gris apaga lo que tiene que remarcar.
 - El corte lo decide el copy: la firma entra donde la frase se vuelve personal. La segunda línea no lleva números y termina en punto.
 - Un titular de una sola línea va entero en la sans: la firma no se agrega para decorar.
 

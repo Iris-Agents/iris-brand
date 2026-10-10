@@ -124,6 +124,10 @@ solo donde vos lo dejás; si no decidiste, te espera.
 - Dos botones, y sus textos no se cambian:
   - **«Aprobar»**: el CTA de tinta (`action.primary` con `text.on-action`). Es el único botón
     lleno de la pantalla.
+  - **En una pieza con sello** (un post, una OG, un carrusel: la segunda línea del titular va
+    calada, capítulo 05), el sello es el único bloque lleno: «Aprobar» va con borde de 1 px en
+    `text.primary`, sin relleno y con la letra en `text.primary` (capítulo 06, 6.5). Sigue siendo
+    el principal: el borde de tinta lo separa del ghost.
   - **«Rechazar con motivo»**: ghost, con `border.default`.
 
 **En la app** la tarjeta además dice cuánto arriesga (en mono) y deja abrir lo que va a mandar
@@ -134,8 +138,8 @@ corregir; el botón pasa a «Confirmar rechazo».
 `css/glass.css`, con el tinte de `bg.raised` al 94 % (capítulo 06). Adentro todo es sólido: el
 botón de tinta y el ghost. Dentro del hilo o del feed, y en cualquier pieza estática, va lisa.
 
-**No se hace:** cambiar los textos de los botones, poner dos botones llenos, sacar la fecha de
-lectura, mostrar una cifra sin antes → después, o usar el ámbar fuera de la píldora y el glifo.
+**No se hace:** cambiar los textos de los botones, poner dos botones llenos, dejar «Aprobar» lleno
+al lado del sello, sacar la fecha de lectura, mostrar una cifra sin antes → después, o usar el ámbar fuera de la píldora y el glifo.
 
 ---
 

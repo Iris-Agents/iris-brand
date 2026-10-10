@@ -1,4 +1,4 @@
-<!-- @dsCard group="Tipografía" width=960 height=440 subtitle="El titular de dos líneas: Plex Sans 500 arriba, la firma abajo, mismo tamaño" -->
+<!-- @dsCard group="Tipografía" width=960 height=480 subtitle="El titular de dos líneas: Plex Sans 500 arriba y la firma calada en el sello abajo, mismo tamaño" -->
 <!doctype html>
 <html lang="es">
 <head>
@@ -14,8 +14,9 @@
   .titular { margin: 0; }
   .titular > span { display: block; text-wrap: balance; }
   .primera { color: var(--text-primary); }
-  /* La firma: DM Serif Display itálica 400, en secundario, del mismo tamaño que la primera línea. */
-  .segunda { font-style: italic; color: var(--text-secondary); }
+  /* La firma: DM Serif Display itálica 400, del mismo tamaño que la primera línea, calada en el sello. */
+  .segunda { font-style: italic; margin-top: 0.16em; line-height: 1; }
+  .sello { display: inline-block; padding: 0.14em 0.16em 0.13em 0.13em; line-height: 0.86; background: var(--signature-block); color: var(--signature-text); }
 </style>
 </head>
 <body>
@@ -24,14 +25,14 @@
     <p class="rotulo copy-ui"><span class="mono">headline-hero-first</span> · <span class="mono">headline-hero-second</span> · 64 / 1,05</p>
     <h1 class="titular">
       <span class="primera headline-hero-first">Agentes expertos</span>
-      <span class="segunda headline-hero-second">a cargo de tu e-commerce.</span>
+      <span class="segunda headline-hero-second"><span class="sello">a cargo de tu e-commerce.</span></span>
     </h1>
   </section>
   <section class="muestra" aria-label="Sección">
     <p class="rotulo copy-ui"><span class="mono">headline-section-first</span> · <span class="mono">headline-section-second</span> · 40 / 1,1</p>
     <h2 class="titular">
       <span class="primera headline-section-first">Agentes expertos</span>
-      <span class="segunda headline-section-second">a cargo de tu e-commerce.</span>
+      <span class="segunda headline-section-second"><span class="sello">a cargo de tu e-commerce.</span></span>
     </h2>
   </section>
 </div>
