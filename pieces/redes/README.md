@@ -14,7 +14,7 @@ Cómo se escribe y se publica un post no está en este repo.
 |---|---|---|
 | `_base/` | `brand.css` (tokens de color, fuentes de Google y la clase `.signature`), `render.sh` (una PNG), `render-all.sh` y `piezas.tsv` (todas las PNG). | Todas |
 | `perfil/` | La foto de perfil: la i del ícono a sangre sobre negro. `perfil-preview.html` es una hoja de control con la foto en chico. | Instagram, Facebook y WhatsApp: la misma foto en las tres |
-| `facebook/` | La portada de la página, en dos variantes: **B** («a cargo de tu cuenta.»), que es la que se usa, y **A** («a cargo de tu Mercado Libre.»), que no se usa porque nombra a Mercado Libre en el titular (capítulo 12 del manual). | Facebook |
+| `facebook/` | La portada de la página, en una sola versión: `portada.html`, con el titular «Agentes expertos / a cargo de tu e-commerce.». Mercado Libre no va en el titular: se nombra como un hecho en el «Acerca de» y en la bio (capítulo 12 del manual). | Facebook |
 | `instagram/destacadas/` | Las portadas de las historias destacadas: Demo, Casos, Precios y Ayuda, más tres propuestas (Cómo funciona, Novedades, Permisos). `destacadas-preview.html` las muestra juntas en chico. | Instagram |
 | `plantillas/` | Los posts: `feed-4x5/`, `cuadrado/`, `story/` (también portada de reel) y `carrusel/`, con los estilos comunes en `_comun/`. | Instagram y Facebook |
 
@@ -53,9 +53,9 @@ y ese mismo día Franco fijó las formas: el único ● lleno es «te toca» (á
 «trabajando» y «resuelto» es una ✓ gris. La tabla está en la sección 1 de [`plantillas.md`](plantillas.md).
 
 Cuando cambie un color: se edita `brand.css`, se corre `render-all.sh` y se miran las PNG que
-tienen glifos (la portada de Facebook, `cuadrado-pieza`, `story-pieza` y el feed alternativo del
-carrusel, que está en un `<template>` y no tiene PNG propia). Cuando cambie una forma, además se
-reemplaza el glifo en cada HTML que lo dibuja: el `<symbol>` de la ✓ en la portada de Facebook (A y
-B; es el único glifo que usa), los `<symbol>` de `cuadrado-pieza` y `story-pieza`, y los `<svg>`
-sueltos del `<template>` del carrusel interior.
+tienen glifos (la portada de Facebook, el banner de LinkedIn, `cuadrado-pieza`, `story-pieza` y el
+feed alternativo del carrusel, que está en un `<template>` y no tiene PNG propia). Cuando cambie una
+forma, además se reemplaza el glifo en cada HTML que lo dibuja: el `<symbol>` de la ✓ en la portada
+de Facebook y en `../linkedin/banner-perfil.html` (es el único glifo que usan), los `<symbol>` de
+`cuadrado-pieza` y `story-pieza`, y los `<svg>` sueltos del `<template>` del carrusel interior.
 El pictograma de la destacada «Cómo funciona» (de ○ a ✓) usa el mismo vocabulario.

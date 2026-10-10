@@ -50,7 +50,7 @@ escasea.
 - Un titular de una sola línea va entero en Plex Sans.
 
 > **Agentes expertos**\
-> *a cargo de tu cuenta.*
+> *a cargo de tu e-commerce.*
 >
 > **Lo que aprendió una vez**\
 > *le sirve para siempre.*

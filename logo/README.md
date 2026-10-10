@@ -3,7 +3,8 @@
 El logo de iris en vectores y sus exportes. Todo está en contornos: ningún archivo depende de una
 fuente instalada. El dibujo sale de DM Serif Display itálica (SIL OFL 1.1).
 
-Los SVG son la fuente de verdad. El logo nunca se tipea: si hay SVG, se usa el SVG.
+Los SVG son la fuente de verdad. El logo nunca se tipea: si hay SVG, se usa el SVG. Donde no se
+puede usar SVG, va un PNG de `png/`.
 
 ## Los archivos
 
@@ -22,8 +23,10 @@ Los SVG son la fuente de verdad. El logo nunca se tipea: si hay SVG, se usa el S
 | `icon-192.png`, `icon-512.png` | Desde `icon.svg`. | Los íconos del manifest de la web. |
 | `icon-1024.png` | Desde `icon.svg`. | Donde piden un PNG grande: tiendas, directorios de apps, el panel de developers de Mercado Libre. |
 | `icon-maskable-512.png` | El mismo dibujo que `icon-512.png`: la i a 0,64 ya entra en el círculo seguro de radio 0,4 (su píxel más lejano cae a 0,33 del centro). | El ícono del manifest con `purpose: "maskable"`: Android le pone su máscara (círculo, squircle). |
+| `png/` | El logotipo y el lockup con fondo transparente, y el ícono en más tamaños. | Canva, Google Docs y Slides, Keynote, Notion, la firma de mail: lo que no lee SVG. La tabla está en «Los PNG, para lo que no lee SVG». |
+| `preview.png` | La hoja de contacto: cada PNG de `png/` sobre #0A0A09 y sobre #FAFAF9, con su nombre abajo. | Para elegir cuál bajar. |
 
-Ningún archivo trae esquinas redondeadas ni transparencia: el ícono va cuadrado y a sangre, y cada
+Ningún archivo del ícono trae esquinas redondeadas ni transparencia: va cuadrado y a sangre, y cada
 plataforma pone su máscara. El radio existe sólo en el lockup y cuando una pieza dibuja el ícono
 como tile.
 
@@ -122,8 +125,59 @@ por los ajustes de kerning.
 ]
 ```
 
+## Los PNG, para lo que no lee SVG
+
+En `png/`, para Canva, Google Docs y Slides, Keynote, Notion y la firma de mail. Si la herramienta
+acepta SVG, va el SVG.
+
+- **Qué tamaño:** el que mida por lo menos el doble del ancho al que se va a ver, porque las
+  pantallas de alta densidad muestran dos píxeles por cada uno. El de 512 alcanza hasta 256 px en
+  pantalla; el de 1024, hasta 512; el de 2048, hasta 1024.
+- **El logotipo y el lockup** vienen con fondo transparente y recortados a la tinta, como el SVG: el
+  área de resguardo la deja quien lo pone. El ancho es exacto; el alto es el de la proporción,
+  redondeado para arriba.
+- **El ícono** viene lleno: el cuadrado negro a sangre, sin transparencia. Como el SVG, sobre claro
+  se ve el cuadrado y sobre oscuro, la i sola. Para una foto de perfil que se recorta en círculo no
+  va este: va `icon-profile.svg` o `pieces/redes/perfil/perfil-1080.png`.
+- **Los mínimos de arriba valen igual:** el lockup no baja de 26 px de alto en pantalla, ni el
+  logotipo de 18,7 px.
+
+| Archivo | Tamaño (px) | Fondo | Para qué |
+|---|---|---|---|
+| `png/lockup-512.png` | 512 × 112 | Transparente, para oscuro | La firma de mail o un documento con fondo oscuro. |
+| `png/lockup-1024.png` | 1024 × 223 | Transparente, para oscuro | Google Slides o Keynote con fondo oscuro → éste. |
+| `png/lockup-2048.png` | 2048 × 446 | Transparente, para oscuro | Canva sobre oscuro, o una diapositiva oscura donde el logo va grande. |
+| `png/lockup-on-light-512.png` | 512 × 112 | Transparente, para claro | La firma de mail sobre fondo blanco → éste. |
+| `png/lockup-on-light-1024.png` | 1024 × 223 | Transparente, para claro | Google Slides sobre fondo blanco → éste. También Google Docs, Notion y Keynote sobre claro. |
+| `png/lockup-on-light-2048.png` | 2048 × 446 | Transparente, para claro | Canva sobre claro, o la portada de un documento. |
+| `png/wordmark-white-512.png` | 512 × 113 | Transparente, para oscuro | La marca sola, cuando el ícono ya se ve cerca (capítulo 03, 3.1), sobre oscuro: un pie de diapositiva, un encabezado. |
+| `png/wordmark-white-1024.png` | 1024 × 225 | Transparente, para oscuro | Lo mismo, hasta 512 px en pantalla. |
+| `png/wordmark-white-2048.png` | 2048 × 450 | Transparente, para oscuro | Lo mismo, en Canva o en grande. |
+| `png/wordmark-black-512.png` | 512 × 113 | Transparente, para claro | La marca sola sobre claro: el encabezado de un Google Docs o de una página de Notion. |
+| `png/wordmark-black-1024.png` | 1024 × 225 | Transparente, para claro | Lo mismo, hasta 512 px en pantalla. |
+| `png/wordmark-black-2048.png` | 2048 × 450 | Transparente, para claro | Lo mismo, en Canva o en grande. |
+| `png/icon-64.png` | 64 × 64 | Opaco: el cuadrado negro | El ícono hasta 32 px en pantalla: una lista, la fila de un documento. |
+| `png/icon-128.png` | 128 × 128 | Opaco: el cuadrado negro | Hasta 64 px: el ícono de una página o de una diapositiva. |
+| `png/icon-256.png` | 256 × 256 | Opaco: el cuadrado negro | Hasta 128 px: el ícono como tile en un documento o una diapositiva. |
+| `png/icon-2048.png` | 2048 × 2048 | Opaco: el cuadrado negro | Canva o una pieza grande; de éste se reduce cualquier tamaño que no esté. |
+
+Los íconos de 180, 192, 512 y 1024 px son los de arriba: `apple-touch-icon.png`, `icon-192.png`,
+`icon-512.png` e `icon-1024.png`.
+
 ## Exportes
 
 Los PNG y el `.ico` salen de los SVG con Chrome headless (`pieces/redes/_base/render.sh`), con una
 página que muestra cada SVG a su tamaño exacto. El `.ico` lleva los renders de 16 y 32 px tal cual,
 sin reescalar. Si cambia un SVG, se vuelven a exportar todos.
+
+Los de `png/` salen igual, con el SVG en línea a ese ancho y `preserveAspectRatio="xMinYMin meet"`:
+la fracción de píxel que sobra del alto queda abajo y transparente. Los transparentes se capturan
+con `--default-background-color=00000000` y la página sin fondo; los íconos, con la página en
+blanco, para que se note si el cuadrado no llegara al borde. Cada uno se controla así: el ancho
+exacto, las esquinas en alfa 0, la tinta de borde a borde, el área y el centroide contra los
+trazados del SVG, los píxeles opacos en el color exacto y el PNG compuesto sobre #0A0A09 y sobre
+#FAFAF9 contra Chrome pintando el SVG sobre ese fondo (máximo 3 niveles de 255). Halo no hay: con
+alfa bajo, el color se aparta del de destino hacia el lado contrario (la blanca, más clara; la
+negra, más oscura), por guardarse sin premultiplicar en 8 bits, y al componerlo sobre cualquier
+fondo corre el resultado 1,2 niveles como mucho. `preview.png` se arma con los tokens y las
+fuentes del repo, después de exportar.

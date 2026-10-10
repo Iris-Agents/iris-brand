@@ -1,12 +1,17 @@
 # html	ancho	alto	png
-# Rutas relativas a pieces/redes/. Una línea por PNG; las -guias son la misma plantilla con ?guias.
-# El orden importa: las hojas de control (perfil-preview, destacadas-preview) van después de las PNG que muestran.
+# Rutas relativas a pieces/redes/ (las de LinkedIn, en pieces/linkedin/, van con ../). Una línea por PNG; las -guias son la misma plantilla con ?guias.
+# El orden importa: las hojas de control (perfil-preview, logo-empresa-preview, destacadas-preview) van después de las PNG que muestran.
 perfil/perfil.html	1080	1080	perfil/perfil-1080.png
 perfil/perfil.html?guias	1080	1080	perfil/perfil-guias.png
 perfil/perfil-preview.html	620	192	perfil/perfil-preview-circulos.png
-facebook/portada-b-cuenta.html	1640	624	facebook/portada-b-cuenta.png
-facebook/portada-b-cuenta.html?guias	1640	624	facebook/portada-guias.png
-facebook/portada-a-mercadolibre.html	1640	624	facebook/portada-a-mercadolibre.png
+facebook/portada.html	1640	624	facebook/portada.png
+facebook/portada.html?guias	1640	624	facebook/portada-guias.png
+../linkedin/banner-perfil.html	1584	396	../linkedin/banner-perfil.png
+../linkedin/banner-perfil.html?guias	1584	396	../linkedin/banner-perfil-guias.png
+../linkedin/portada-empresa.html	1512	256	../linkedin/portada-empresa.png
+../linkedin/portada-empresa.html?guias	1512	256	../linkedin/portada-empresa-guias.png
+../linkedin/logo-empresa.html	400	400	../linkedin/logo-empresa-400.png
+../linkedin/logo-empresa-preview.html	700	380	../linkedin/logo-empresa-preview.png
 instagram/destacadas/destacada-demo.html	1080	1920	instagram/destacadas/destacada-demo.png
 instagram/destacadas/destacada-demo.html?guias	1080	1920	instagram/destacadas/destacada-demo-guias.png
 instagram/destacadas/destacada-casos.html	1080	1920	instagram/destacadas/destacada-casos.png

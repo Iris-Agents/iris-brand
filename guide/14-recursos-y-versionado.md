@@ -14,7 +14,7 @@ Dónde está cada cosa, cómo la toma una app, qué frena el test y cómo sale u
 | El CSS escrito a mano, sin valores propios | `css/fonts.css`, `css/tailwind.css` y `css/glass.css`. |
 | Las fuentes | `fonts/`: WOFF2 de DM Serif Display itálica, IBM Plex Sans (400 y 500) e IBM Plex Mono (400), con sus licencias OFL. |
 | El logo | `logo/`: los SVG master del ícono, del logotipo y del lockup, y sus exportaciones (capítulo 03). |
-| Las piezas terminadas | `pieces/redes/`, con el avatar en `pieces/redes/perfil/`. El banner y la OG por defecto se guardan en `pieces/` cuando salgan de Claude Design (14.7). |
+| Las piezas terminadas | `pieces/redes/`, con el avatar en `pieces/redes/perfil/`, y `pieces/linkedin/`: el banner del perfil y la portada y el logo de la página de empresa. La OG por defecto se guarda en `pieces/` cuando salga de Claude Design (14.7). |
 | El manual | `guide/`, un archivo por capítulo. |
 | La guarda | `test/`. |
 | El registro de cómo se decidió | Es privado y no está en este repo. Si dice otra cosa que el manual, manda el manual. |
@@ -168,8 +168,8 @@ El procedimiento exacto se escribe acá con la primera publicación.
 
 ## 14.7 Cómo se regeneran las piezas
 
-**Las de redes** (`pieces/redes/`), con Google Chrome en `/Applications` e internet para las
-fuentes:
+**Las de redes y las de LinkedIn** (`pieces/redes/` y `pieces/linkedin/`), con Google Chrome en
+`/Applications` e internet para las fuentes:
 
 ```sh
 pieces/redes/_base/render-all.sh
@@ -190,8 +190,9 @@ pieces/redes/_base/render.sh "<pieza.html>?guias" <ancho> <alto> <salida-guias.p
 - Después de regenerar, se miran las PNG con glifos y se repasa la lista de control de
   `pieces/redes/plantillas.md`.
 
-**El banner y la OG por defecto** salen de sus canvases en Claude Design, que eligen el Design
-System «iris». El PNG final se guarda en `pieces/`. **El avatar** es la foto de perfil de
+**El banner de LinkedIn** salió de su canvas en Claude Design y hoy es un HTML más, en
+`pieces/linkedin/`. **La OG por defecto** sale de su canvas en Claude Design, que elige el Design
+System «iris», y el PNG final se guarda en `pieces/`. **El avatar** es la foto de perfil de
 `pieces/redes/perfil/`, y se regenera con el resto de las piezas de redes.
 
 **Las OG de la landing** las genera el build de la landing desde una plantilla HTML que lee

@@ -25,7 +25,7 @@ se decida. Hasta entonces, nada de este manual le exige un cambio.
 | El CSS que usan las apps | `dist/tokens.css` (generado) más `css/fonts.css`, `css/tailwind.css` y `css/glass.css`, escritos a mano y sin valores propios. |
 | El logo | `logo/`: los SVG master y sus exportaciones (capítulo 03). |
 | Las fuentes | `fonts/`: WOFF2 de las tres familias, con su licencia. |
-| Las piezas terminadas | `pieces/`: banner, OG por defecto, avatar y las piezas de redes. |
+| Las piezas terminadas | `pieces/`: las de LinkedIn (`pieces/linkedin/`) y las de redes, con la foto de perfil y la portada de Facebook (`pieces/redes/`). |
 | Cómo se llegó a cada decisión | En el registro de decisiones, que es privado y no está en este repo. Si dice otra cosa que este manual, manda el manual. |
 
 Además, el manual se publica en dos lugares que no son código:

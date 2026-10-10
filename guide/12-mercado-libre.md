@@ -13,7 +13,7 @@ decir un hecho, nunca su identidad.
 - **iris siempre es más grande.** Mercado Libre nunca es el elemento principal de una pieza ni el
   sujeto de la frase.
 - **No va en un titular.** El del banner y el de la portada de Facebook es «Agentes expertos / a
-  cargo de tu cuenta.». Mercado Libre va en la bajada, en un dato chico, en el «Acerca de» o en la
+  cargo de tu e-commerce.». Mercado Libre va en la bajada, en un dato chico, en el «Acerca de» o en la
   bio.
 - **«Mercado Libre»** en castellano y en inglés; **«Mercado Livre»** en portugués de Brasil.
   Siempre en dos palabras y con mayúsculas.

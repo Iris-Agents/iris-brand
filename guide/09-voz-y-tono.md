@@ -124,7 +124,7 @@ Las reglas completas están en el capítulo 02. Lo que más se olvida al escribi
 | una cifra con su fecha | el mejor, el único, el más |
 
 Además: «expertos» no va pegado a «Mercado Libre», porque evoca un programa de Mercado Libre
-(capítulo 12). El titular del banner, «Agentes expertos / a cargo de tu cuenta.», está bien
+(capítulo 12). El titular del banner, «Agentes expertos / a cargo de tu e-commerce.», está bien
 porque no lo nombra.
 
 ---
@@ -132,7 +132,7 @@ porque no lo nombra.
 ## 9.8 El titular de dos líneas
 
 - La primera línea, en la sans; la segunda, en la firma. El corte lo decide el copy: la firma
-  entra donde la frase se vuelve personal. «Agentes expertos / a cargo de tu cuenta.»
+  entra donde la frase se vuelve personal. «Agentes expertos / a cargo de tu e-commerce.»
 - La segunda línea no lleva números y termina en punto.
 - Un titular de una sola línea va entero en la sans: la firma no se agrega para decorar.
 

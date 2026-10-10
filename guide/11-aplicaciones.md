@@ -49,39 +49,49 @@ Seis archivos, desde los SVG de `logo/`:
 
 Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
 
-- Es la misma foto en Instagram, Facebook, WhatsApp, X, GitHub, Google Workspace y el logo de la
-  página de empresa de LinkedIn (que pide 400 × 400).
+- Es la misma foto en Instagram, Facebook, WhatsApp, X, GitHub y Google Workspace. El logo de la
+  página de empresa de LinkedIn tiene su propio archivo (11.5).
 - El archivo es `pieces/redes/perfil/perfil-1080.png` (1080 × 1080). Se sube cuadrado y cada red lo
   recorta en círculo: la i entra en el círculo de radio 432 (el 80 %), así que el recorte no la toca.
-- `perfil.html` no se edita: la medida y la posición de la i están medidas.
+- `pieces/redes/perfil/perfil.html` no se edita: la medida y la posición de la i están medidas.
 
 ## 11.4 Banner del perfil de LinkedIn (1584 × 396)
 
+- El archivo es `pieces/linkedin/banner-perfil.html` → `banner-perfil.png`, y va como foto de
+  fondo del perfil personal. Las zonas medidas y sus fuentes están en `pieces/linkedin/README.md`.
 - **Fondo** `color.brand.black`, con el degradé radial de blanco al 4 %, arriba a la derecha.
-- **La zona del avatar, libre:** unos 390 px a la izquierda. LinkedIn pone la foto encima.
+- **La zona de la foto, libre:** LinkedIn pone la foto encima, en x 33–373 en la computadora y en
+  x 67–702 en el celular. El contenido empieza en x 718.
 - **Después de esa zona:** el lockup (el ícono y «iris agents») y, debajo, el titular de dos
-  líneas a 40 px, «Agentes expertos / a cargo de tu cuenta.». La primera línea en la sans 500 y
+  líneas a 40 px, «Agentes expertos / a cargo de tu e-commerce.». La primera línea en la sans 500 y
   `text.primary`; la segunda en la firma y `text.secondary`. Sin Mercado Libre en el titular.
-- **A la derecha:** el feed «Hoy en tu cuenta» en un panel de unos 440 px, con los cinco resultados:
+- **A la derecha:** el feed «Hoy en tu cuenta» en un panel de 340 px, con los cinco resultados:
   «Mejoró la reputación», «Contestó 40 preguntas», «Resolvió 3 reclamos», «Generó 3 ventas
   adicionales» y «Adhirió a una promoción». Cada fila con ✓, el verbo en `text.secondary` y el
   objeto en `text.primary` 500 (capítulo 08, sección 8.2).
 - **Mercado Libre** va en el «Acerca de» del perfil, como un hecho: «para vendedores de Mercado
   Libre».
-- **Antes de darlo por bueno,** mirarlo subido en la computadora y en un celular: el recorte del
-  celular no está medido.
-- La fuente de diseño es el canvas del banner en Claude Design; el PNG final se guarda en `pieces/`.
+- **Antes de darlo por bueno,** mirarlo subido en la computadora y en un celular: cuánto recorta
+  la app del celular a los costados no está medido.
+- El diseño salió del canvas del banner en Claude Design; lo que se edita es el HTML.
 
-## 11.5 Portada de la página de empresa en LinkedIn (1512 × 256)
+## 11.5 Portada y logo de la página de empresa en LinkedIn
 
-La medida es 1512 × 256 (verificada en la ayuda de LinkedIn el 2026-10-10). El logo de la página ya
-está al lado, así que va la **marca sola** («iris agents») y una línea. Sin feed: no entra.
+- **La portada** es `pieces/linkedin/portada-empresa.html` → `portada-empresa.png`, de 1512 × 256
+  (verificada en la ayuda de LinkedIn el 2026-10-10). El logo de la página ya está al lado, así que
+  va la **marca sola** («iris agents», sin el ícono) y el titular, «Agentes expertos / a cargo de tu
+  e-commerce.», a la derecha de donde cae el logo. Sin feed, porque no entra, y sin degradé.
+- **El logo** es `pieces/linkedin/logo-empresa-400.png`, de 400 × 400: el ícono a sangre de
+  `logo/icon.svg`, cuadrado y sin transparencia. Sale de `logo-empresa.html`, y
+  `logo-empresa-preview.png` lo muestra en chico, cuadrado y en círculo.
+- Las zonas medidas y sus fuentes están en `pieces/linkedin/README.md`.
 
 ## 11.6 Portada de la página de Facebook (1640 × 624)
 
-- El archivo es `pieces/redes/facebook/portada-b-cuenta.html` → `portada-b-cuenta.png`. Lleva el
-  mismo titular que el banner y el mismo degradé radial; es su hermana.
-- `portada-a-mercadolibre.html` (con «a cargo de tu Mercado Libre.») **no se usa**.
+- El archivo es `pieces/redes/facebook/portada.html` → `portada.png`, y es la única versión. Lleva
+  el mismo titular que el banner, «Agentes expertos / a cargo de tu e-commerce.», y el mismo degradé
+  radial; es su hermana.
+- **Mercado Libre** no va en el titular: va en el «Acerca de» de la página, como un hecho.
 - La foto de perfil tapa la esquina de abajo a la izquierda y el celular recorta los costados: las
   zonas seguras y los largos de cada texto están en `pieces/redes/plantillas.md`, y hay que
   mirarla subida en la computadora y en un celular.
@@ -158,11 +168,13 @@ magenta, que **nunca se publica**.
 |---|---|---|
 | `pieces/redes/_base/` | `brand.css` (colores, fuentes y la clase `.signature`), `render.sh`, `render-all.sh` y `piezas.tsv` | Todas |
 | `pieces/redes/perfil/` | La foto de perfil y una hoja de control con la foto en chico | Instagram, Facebook y WhatsApp |
-| `pieces/redes/facebook/` | La portada: la B se usa, la A no | Facebook |
+| `pieces/redes/facebook/` | La portada | Facebook |
 | `pieces/redes/instagram/destacadas/` | Las portadas de las historias destacadas: un pictograma de trazo, sin texto | Instagram |
 | `pieces/redes/plantillas/` | `feed-4x5/`, `cuadrado/`, `story/` (también portada de reel) y `carrusel/`, con lo común en `_comun/` | Instagram y Facebook |
 
 - **Qué hay en cada carpeta:** `pieces/redes/README.md`.
+- **LinkedIn** va aparte, en `pieces/linkedin/` (11.4 y 11.5), y sus PNG salen con el mismo
+  `render-all.sh`.
 - **La especificación de las plantillas** (formatos, zonas seguras, slots y largos máximos, cómo
   se renderiza y la lista de control): `pieces/redes/plantillas.md`. En Instagram va el 4:5; el
   cuadrado queda para Facebook.

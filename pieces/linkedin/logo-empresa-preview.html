@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=700">
+<title>Logo de la página en chico</title>
+<!--
+  Hoja de control, no se publica. Genera logo-empresa-preview.png a partir de logo-empresa-400.png:
+  el logo reducido como lo muestra LinkedIn, a 128 px (la cabecera de la página, medido en la vista
+  pública), 60 y 32 px, sobre blanco y sobre negro (LinkedIn lo muestra sobre fondo claro y oscuro).
+  Arriba, cuadrado: así lo dibuja la vista pública (border-radius 0). Abajo, en círculo: el peor
+  caso de cualquier redondeo; la i entra igual, porque su píxel más lejano está a 0,33 del lado del
+  centro.
+  Render (después de logo-empresa-400.png): ../redes/_base/render.sh logo-empresa-preview.html 700 380 "$PWD/logo-empresa-preview.png"
+  NO EDITAR: no tiene textos editables.
+-->
+<link rel="stylesheet" href="../redes/_base/brand.css">
+<style>
+  /* Los dos fondos extremos de la interfaz, no colores de la marca. */
+  :root {
+    --ui-light-bg: #ffffff;
+    --ui-light-label: #6e6e6e;
+    --ui-dark-bg: #000000;
+    --ui-dark-label: #969696;
+  }
+  html, body { width: 700px; height: 380px; overflow: hidden; }
+  .sheet { display: flex; height: 100%; }
+  .panel { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 0 28px; }
+  .panel-light { background: var(--ui-light-bg); color: var(--ui-light-label); }
+  .panel-dark { background: var(--ui-dark-bg); color: var(--ui-dark-label); }
+  .row { display: flex; align-items: flex-end; gap: 36px; }
+  figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  img { display: block; }
+  .circle img { border-radius: 50%; }
+  figcaption { font-size: 12px; line-height: 16px; white-space: nowrap; }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <section class="panel panel-light" aria-label="Sobre fondo claro">
+    <div class="row">
+      <figure><img src="logo-empresa-400.png" width="128" height="128" alt=""><figcaption>128 px · cuadrado</figcaption></figure>
+      <figure><img src="logo-empresa-400.png" width="60" height="60" alt=""><figcaption>60 px</figcaption></figure>
+      <figure><img src="logo-empresa-400.png" width="32" height="32" alt=""><figcaption>32 px</figcaption></figure>
+    </div>
+    <div class="row circle">
+      <figure><img src="logo-empresa-400.png" width="128" height="128" alt=""><figcaption>128 px · en círculo</figcaption></figure>
+      <figure><img src="logo-empresa-400.png" width="60" height="60" alt=""><figcaption>60 px</figcaption></figure>
+      <figure><img src="logo-empresa-400.png" width="32" height="32" alt=""><figcaption>32 px</figcaption></figure>
+    </div>
+  </section>
+  <section class="panel panel-dark" aria-label="Sobre fondo oscuro">
+    <div class="row">
+      <figure><img src="logo-empresa-400.png" width="128" height="128" alt=""><figcaption>128 px · cuadrado</figcaption></figure>
+      <figure><img src="logo-empresa-400.png" width="60" height="60" alt=""><figcaption>60 px</figcaption></figure>
+      <figure><img src="logo-empresa-400.png" width="32" height="32" alt=""><figcaption>32 px</figcaption></figure>
+    </div>
+    <div class="row circle">
+      <figure><img src="logo-empresa-400.png" width="128" height="128" alt=""><figcaption>128 px · en círculo</figcaption></figure>
+      <figure><img src="logo-empresa-400.png" width="60" height="60" alt=""><figcaption>60 px</figcaption></figure>
+      <figure><img src="logo-empresa-400.png" width="32" height="32" alt=""><figcaption>32 px</figcaption></figure>
+    </div>
+  </section>
+</main>
+</body>
+</html>

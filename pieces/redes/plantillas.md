@@ -262,7 +262,7 @@ cumplen. El manual todavía no fija un número: esta regla es de esta especifica
 > Las reglas completas están en el capítulo 12 del manual (`guide/12-mercado-libre.md`). Mercado
 > Libre se nombra como un hecho, nunca como protagonista.
 
-- **No va en titulares.** El titular decidido es «Agentes expertos / a cargo de tu cuenta.». No:
+- **No va en titulares.** El titular decidido es «Agentes expertos / a cargo de tu e-commerce.». No:
   «a cargo de tu Mercado Libre.» Tampoco «expertos» pegado a «Mercado Libre»: evoca su programa
   «Experto Certificado».
 - **En la bio y en el «Acerca de» sí, como un hecho:** «tu cuenta de Mercado Libre», «para vendedores
@@ -275,8 +275,6 @@ cumplen. El manual todavía no fija un número: esta regla es de esta especifica
   de Mercado Libre.
 - **Nunca uses su logo, su amarillo** (#FFE600 y parecidos), **el cian de Mercado Pago** ni capturas
   de su interfaz.
-- **No usar la portada de Facebook A** (`portada-a-mercadolibre.html`): tiene el nombre en el
-  titular. Se usa la B.
 
 ---
 
@@ -336,8 +334,7 @@ cada ruta va completa.
 | Archivo | Formato y uso | Tamaño (px) | Zonas seguras | Slots editables (máximo de caracteres) |
 |---|---|---|---|---|
 | `pieces/redes/perfil/perfil.html` → `perfil-1080.png`, `perfil-guias.png`; la vista en chico sale de `perfil-preview.html` → `perfil-preview-circulos.png` | Foto de perfil de Instagram, Facebook y WhatsApp: el ícono a sangre. | 1080 × 1080 | Las redes recortan el círculo inscripto (radio 540). La i entra en el círculo de radio 432 (el 80 %). | Ninguno: **no se edita**. El tamaño y la posición de la i están medidos. |
-| `pieces/redes/facebook/portada-b-cuenta.html` → `portada-b-cuenta.png`, `portada-guias.png` | Portada de la página de Facebook. **Ésta es la que se usa.** | 1640 × 624 | En escritorio se ve entera (a 820 × 312). En el celular, sólo la franja x 266–1374. La foto de perfil tapa x 0–660, y 420–624. El contenido va en x 294–1346 y empieza a 40 px de arriba. Texto de 22 px o más. | `titular-linea-1` 18 · `titular-linea-2` 28 · `panel-titulo` 22 · `fila-1..5-accion` 36. Las cinco filas van resueltas (✓), sin hora y sin leyenda, como el banner de LinkedIn. |
-| `pieces/redes/facebook/portada-a-mercadolibre.html` → `portada-a-mercadolibre.png` | La misma portada, con «Mercado Libre» en el titular. **No usar** (ver la sección 4). | 1640 × 624 | Las mismas que la B. | Los mismos que la B. |
+| `pieces/redes/facebook/portada.html` → `portada.png`, `portada-guias.png` | Portada de la página de Facebook, en una sola versión. | 1640 × 624 | En escritorio se ve entera (a 820 × 312). En el celular, sólo la franja x 266–1374. La foto de perfil tapa x 0–660, y 420–624. El contenido va en x 294–1346 y empieza a 40 px de arriba. Texto de 22 px o más. | `titular-linea-1` 18 · `titular-linea-2` 28 · `panel-titulo` 22 · `fila-1..5-accion` 36. Las cinco filas van resueltas (✓), sin hora y sin leyenda, como el banner de LinkedIn. |
 | `pieces/redes/plantillas/feed-4x5/feed-4x5-titular.html` | Post de feed 4:5 con titular grande y bajada. **El formato de Instagram.** | 1080 × 1350 | Margen de 72 px. La grilla 3:4 del perfil recorta 34 px por lado. | `eyebrow` 30 · `titular-linea-1` 28 (hasta 2 renglones) · `titular-linea-2` 28 (hasta 2 renglones, sin números) · `bajada` 110 (hasta 3 renglones) |
 | `pieces/redes/plantillas/feed-4x5/feed-4x5-pieza.html` | Post de feed 4:5 con titular corto y la tarjeta de aprobación. | 1080 × 1350 | Margen de 72 px. La grilla 3:4 recorta 34 px por lado. | `titular-linea-1` 22 (1 renglón) · `titular-linea-2` 22 (sin números) · `aprobacion-antetitulo` 28 («Propuesta») · `aprobacion-titulo` 30 · `dato-1-etiqueta` 24 · `dato-1-valor` 13 · `dato-2-etiqueta` 24 · `dato-2-valor` 13 · `dato-3-dia` («hoy» o «ayer», en Plex) · `dato-3-hora` (HH:MM, en mono) · `nota` 40 |
 | `pieces/redes/plantillas/cuadrado/cuadrado-titular.html` | Post cuadrado con titular y bajada. **Para Facebook**: en Instagram la grilla lo recorta. | 1080 × 1080 | Margen de 72 px. La grilla 3:4 de Instagram recorta 135 px por lado y corta el titular en la vista previa. | `eyebrow` 30 · `titular-linea-1` 28 (hasta 2 renglones) · `titular-linea-2` 28 (hasta 2 renglones, sin números) · `bajada` 110 (hasta 3 renglones) |

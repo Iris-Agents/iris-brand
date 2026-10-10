@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1584">
+<title>Banner del perfil de LinkedIn</title>
+<!--
+  Banner del perfil personal de Franco en LinkedIn: 1584 × 396 (la medida de la ayuda de LinkedIn).
+  Render: ../redes/_base/render.sh banner-perfil.html 1584 396 "$PWD/banner-perfil.png"
+  Guías:  ../redes/_base/render.sh "banner-perfil.html?guias" 1584 396 "$PWD/banner-perfil-guias.png"
+  Es el diseño del canvas del banner en Claude Design, con los tokens: el lockup y el panel son los
+  de ../redes/plantillas/_comun/plantilla.css, y el panel es el mismo de la portada de Facebook.
+
+  ZONAS, en píxeles de esta imagen (el detalle y las fuentes, en README.md):
+  - Escritorio, foto de perfil: x 33–373, y 228–396 (medido en la vista pública de LinkedIn, con
+    ventanas de 800 a 1440 px). Terceros la dan más grande: 568 × 264 abajo a la izquierda.
+  - Celular, foto de perfil: x 67–702, y 31–396 (medido en la vista pública, a 360 y 390 px).
+  - Celular, los costados: la vista pública no recorta; según terceros, la app recorta del 15 al
+    20 % de cada lado (se ve x 238–1346, o x 317–1267).
+  El lockup y el titular empiezan en x 718, 16 px a la derecha de todas las fotos. En el celular el
+  banner se ve a 0,25 y las filas del panel quedan en 4 px: ahí lo que se lee es el titular, y el
+  panel puede perder su borde derecho si la app recorta.
+-->
+<link rel="stylesheet" href="../redes/_base/brand.css">
+<link rel="stylesheet" href="../redes/plantillas/_comun/plantilla.css">
+<script>if (new URLSearchParams(location.search).has('guias')) document.documentElement.classList.add('guias');</script>
+<style>
+  :root { --ancho: 1584px; --alto: 396px; --pieza-zoom: 1.2; }
+  .banner {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px 0 718px;
+    /* El degradé radial de la marca: sólo en este banner y en la portada de Facebook. */
+    background:
+      radial-gradient(900px 460px at 70% 20%, color-mix(in srgb, var(--brand-white) 4%, transparent), transparent 70%),
+      var(--bg-canvas);
+  }
+  .lead { display: flex; flex-direction: column; gap: 26px; padding-bottom: 12px; }
+  .lockup { --logo-alto: 52px; }
+  .titular { font-size: 40px; line-height: 1.1; letter-spacing: -0.015em; }
+  .titular > span { white-space: nowrap; }
+  /* El panel mide 340 px y va a 40 del borde derecho, en x 1204–1543: así el titular, que termina
+     en x 1153, tiene 50 px de aire antes del borde del panel. */
+  .feed { width: calc(340px / var(--pieza-zoom)); }
+  .fila .que { white-space: nowrap; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position: absolute;" aria-hidden="true">
+  <symbol id="resuelto" viewBox="0 0 10 10"><path d="M1.6 5.4 4 7.8 8.6 2.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+</svg>
+
+<main class="banner">
+  <div class="lead">
+    <span class="lockup" aria-label="iris agents">
+      <span class="icono signature" aria-hidden="true">i</span>
+      <span class="wordmark signature">iris agents</span>
+    </span>
+    <h1 class="titular">
+      <!-- EDITAR: línea 1 del titular, en Plex. Máximo 18 caracteres. -->
+      <span data-slot="titular-linea-1">Agentes expertos</span>
+      <!-- EDITAR: línea 2 del titular, en la firma. Termina en punto y no lleva números. Entra hasta
+           x 1164 (40 px antes del borde del panel, en x 1204): con este texto mide 435 px y termina
+           en x 1153, así que está en el tope. Máximo 25 caracteres de texto común. «Mercado Libre»
+           no va en el titular: va en el «Acerca de» (guide/12-mercado-libre.md). -->
+      <span class="signature" data-slot="titular-linea-2">a cargo de tu e-commerce.</span>
+    </h1>
+  </div>
+
+  <!-- EJEMPLO: los resultados del panel son de ejemplo, no de una cuenta real. -->
+  <section class="pieza feed" aria-label="Hoy en tu cuenta">
+    <!-- EDITAR: título del panel, en mayúsculas por estilo. Máximo 22 caracteres. -->
+    <p class="eyebrow" data-slot="panel-titulo">Hoy en tu cuenta</p>
+    <!-- EDITAR cada fila: un resultado del día, el mismo panel que la portada de Facebook. Sin el
+         nombre del agente. Empieza con mayúscula y sin punto: el verbo en pasado y, dentro de <b>, lo
+         que cambió, que sale en text.primary 500. Todas resueltas (✓ gris), sin hora y sin leyenda:
+         el «hoy» lo da el título del panel. Máximo 26 caracteres por fila, contando lo que va en <b>
+         (medido con texto ancho, todo en <b> salvo la primera palabra). Un texto común entra con
+         algo más: «Generó 3 ventas adicionales» (27) termina 53 px antes del margen del panel. -->
+    <ul>
+      <li class="fila">
+        <svg class="glifo resuelto" aria-hidden="true"><use href="#resuelto"/></svg>
+        <span class="que" data-slot="fila-1-accion">Mejoró la <b>reputación</b></span>
+      </li>
+      <li class="fila">
+        <svg class="glifo resuelto" aria-hidden="true"><use href="#resuelto"/></svg>
+        <span class="que" data-slot="fila-2-accion">Contestó <b>40 preguntas</b></span>
+      </li>
+      <li class="fila">
+        <svg class="glifo resuelto" aria-hidden="true"><use href="#resuelto"/></svg>
+        <span class="que" data-slot="fila-3-accion">Resolvió <b>3 reclamos</b></span>
+      </li>
+      <li class="fila">
+        <svg class="glifo resuelto" aria-hidden="true"><use href="#resuelto"/></svg>
+        <span class="que" data-slot="fila-4-accion">Generó <b>3 ventas adicionales</b></span>
+      </li>
+      <li class="fila">
+        <svg class="glifo resuelto" aria-hidden="true"><use href="#resuelto"/></svg>
+        <span class="que" data-slot="fila-5-accion">Adhirió a <b>una promoción</b></span>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<!-- GUÍAS: no editar. Sólo se ven con ?guias. Rayadas: medidas en la vista pública de LinkedIn.
+     Punteadas: lo que dicen terceros, sin medir. -->
+<i class="guia etiqueta-derecha" data-etiqueta="celular · foto · x 67–702 · y 31–396" style="left: 67px; top: 31px; width: 635px; height: 365px;"></i>
+<i class="guia punteada" data-etiqueta="escritorio · foto según terceros · 568 × 264" style="left: 0; top: 132px; width: 568px; height: 264px;"></i>
+<i class="guia etiqueta-abajo" data-etiqueta="escritorio · foto" style="left: 33px; top: 228px; width: 340px; height: 168px;"></i>
+<i class="guia punteada etiqueta-derecha" data-etiqueta="app · costados según terceros: 15 %" style="left: 238px; top: 0; width: 1108px; height: 396px;"></i>
+<i class="guia punteada etiqueta-abajo etiqueta-derecha" data-etiqueta="20 %" style="left: 317px; top: 0; width: 950px; height: 396px;"></i>
+</body>
+</html>

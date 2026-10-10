@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1512">
+<title>Portada de la página de LinkedIn</title>
+<!--
+  Portada de la página de empresa «Iris Agents» en LinkedIn: 1512 × 256, la medida de la ayuda de
+  LinkedIn (linkedin.com/help/linkedin/answer/a563309, leída el 2026-10-10).
+  Render: ../redes/_base/render.sh portada-empresa.html 1512 256 "$PWD/portada-empresa.png"
+  Guías:  ../redes/_base/render.sh "portada-empresa.html?guias" 1512 256 "$PWD/portada-empresa-guias.png"
+
+  Va la marca sola, sin el ícono: el logo de la página (el ícono) se ve pegado a la portada
+  (guide/03-logo-e-icono.md, 3.1, y guide/11-aplicaciones.md, 11.5). Sin panel y sin degradé: el
+  degradé es sólo del banner del perfil y de la portada de Facebook.
+
+  ZONAS, en píxeles de esta imagen (el detalle y las fuentes, en README.md):
+  - Escritorio, el logo de la página: x 39–327, y 95–256 (medido en la vista pública de LinkedIn,
+    con ventanas de 800 a 1440 px). La portada se ve casi entera: pierde unos 8 px de cada costado.
+  - Celular, el logo: x 65–605, y 128–256 (medido en la vista pública, a 360 y 390 px).
+  - La ayuda de LinkedIn pide lo importante en el centro y lejos de los bordes, sobre todo de la
+    esquina de abajo a la derecha.
+  La marca y el titular empiezan en x 640, a la derecha de los dos logos.
+-->
+<link rel="stylesheet" href="../redes/_base/brand.css">
+<link rel="stylesheet" href="../redes/plantillas/_comun/plantilla.css">
+<script>if (new URLSearchParams(location.search).has('guias')) document.documentElement.classList.add('guias');</script>
+<style>
+  :root { --ancho: 1512px; --alto: 256px; }
+  .portada { position: absolute; inset: 0; display: flex; align-items: center; padding-left: 640px; background: var(--bg-canvas); }
+  .lead { display: flex; flex-direction: column; gap: 26px; padding-bottom: 8px; }
+  /* La marca sola, al cuerpo que tiene dentro del lockup de 52 (40 px). */
+  .marca { --logo-alto: 52px; }
+  .titular { font-size: 40px; line-height: 1.1; letter-spacing: -0.015em; }
+  .titular > span { white-space: nowrap; }
+</style>
+</head>
+<body>
+<main class="portada">
+  <div class="lead">
+    <span class="wordmark signature marca" aria-label="iris agents">iris agents</span>
+    <h1 class="titular">
+      <!-- EDITAR: línea 1 del titular, en Plex. Máximo 18 caracteres. -->
+      <span data-slot="titular-linea-1">Agentes expertos</span>
+      <!-- EDITAR: línea 2 del titular, en la firma. Termina en punto y no lleva números. «Mercado
+           Libre» no va en el titular: va en el «Acerca de» de la página (guide/12-mercado-libre.md).
+           Hasta 28 caracteres: con 28 de texto ancho termina en x 1150, lejos de la esquina de abajo
+           a la derecha. -->
+      <span class="signature" data-slot="titular-linea-2">a cargo de tu e-commerce.</span>
+    </h1>
+  </div>
+</main>
+
+<!-- GUÍAS: no editar. Sólo se ven con ?guias. Medidas en la vista pública de LinkedIn. -->
+<i class="guia etiqueta-derecha" data-etiqueta="celular · logo" style="left: 65px; top: 128px; width: 540px; height: 128px;"></i>
+<i class="guia" data-etiqueta="escritorio · logo" style="left: 39px; top: 95px; width: 288px; height: 161px;"></i>
+<i class="guia punteada etiqueta-derecha" data-etiqueta="se ve x 5–1505" style="left: 5px; top: 0; width: 1500px; height: 256px;"></i>
+</body>
+</html>

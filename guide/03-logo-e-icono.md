@@ -157,6 +157,8 @@ Viven en `logo/` y se exportan una sola vez desde los SVG master.
 | `icon-192.png`, `icon-512.png` | Para el manifest de la web. |
 | `icon-maskable-512.png` | Para Android, con la i dentro del círculo seguro. |
 | `icon-1024.png` | Para tiendas y directorios. |
+| `png/` | Para lo que no lee SVG (Canva, Google Docs y Slides, Keynote, Notion, la firma de mail): el logotipo en `color.brand.white` y en `color.brand.black` y los dos lockups, con fondo transparente, a 512, 1024 y 2048 px de ancho; el ícono lleno a 64, 128, 256 y 2048 px. Cuál va dónde, en `logo/README.md`. |
+| `preview.png` | La hoja de contacto de `png/`, sobre oscuro y sobre claro. |
 
 Los archivos todavía se están redibujando. Hasta que estén, una pieza copia el lockup de una
 plantilla de `pieces/redes/plantillas/` tal como está, sin rearmarlo.

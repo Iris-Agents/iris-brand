@@ -17,9 +17,9 @@ Mercado Libre de punta a punta, con la autonomía que el dueño le da.
 | [`css/`](css/) | Escrito a mano y sin un valor propio: `fonts.css` (las caras), `tailwind.css` (el puente a Tailwind v4) y `glass.css` (el vidrio). |
 | [`dist/`](dist/) | Generado y commiteado: `tokens.css` (las variables `--iris-*` de los dos modos) y `design-system.json` (lo que va a leer Claude Design). No se edita a mano. |
 | [`fonts/`](fonts/) | Los WOFF2 de DM Serif Display itálica, IBM Plex Sans 400 y 500 e IBM Plex Mono 400, con sus licencias OFL. Procedencia y sumas en `fonts/README.md`. |
-| [`logo/`](logo/) | El ícono, el logotipo y el lockup en SVG (contornos, sin fuentes), más el favicon y los PNG. Qué va dónde: `logo/README.md`. |
+| [`logo/`](logo/) | El ícono, el logotipo y el lockup en SVG (contornos, sin fuentes), más el favicon y los PNG. En `logo/png/`, el logotipo y el lockup con fondo transparente y el ícono en más tamaños, para lo que no lee SVG (Canva, Google Docs y Slides, Keynote, Notion, la firma de mail); `logo/preview.png` los muestra todos. Qué va dónde: `logo/README.md`. |
 | [`guide/`](guide/README.md) | El manual, en 15 capítulos. |
-| [`pieces/`](pieces/) | Las piezas terminadas, en HTML con su PNG. Hoy, `pieces/redes/`: foto de perfil, portada de Facebook, destacadas de Instagram y plantillas de posts. |
+| [`pieces/`](pieces/) | Las piezas terminadas, en HTML con su PNG. En `pieces/redes/`, la foto de perfil, la portada de Facebook, las destacadas de Instagram y las plantillas de posts; en `pieces/linkedin/`, el banner del perfil y la portada y el logo de la página de empresa. |
 | [`scripts/`](scripts/) | El build: `terrazzo.mjs` (el parseo que comparten el build y el test) y `design-system.mjs` (escribe `dist/design-system.json`). La config de Terrazzo es `terrazzo.config.mjs`, en la raíz. |
 | [`test/`](test/) | La guarda que corre con cada build, con los esquemas oficiales de DTCG en `test/schemas/`. |
 
@@ -74,7 +74,7 @@ Se lee por rol, nunca por gris:
   <article class="bg-surface border border-line-subtle rounded-card">
     <h2 class="text-section">
       Agentes expertos<br>
-      <span class="text-section-signature font-signature italic text-fg-secondary">a cargo de tu cuenta.</span>
+      <span class="text-section-signature font-signature italic text-fg-secondary">a cargo de tu e-commerce.</span>
     </h2>
     <span class="font-mono text-mono text-fg-tertiary">10:40 · id 4418</span>
   </article>
@@ -208,7 +208,7 @@ logró iris: «Contestó 40 preguntas», «Resolvió 3 reclamos», «Generó 3 v
 «Adhirió a una promoción», «Mejoró la reputación». Sin «Cliente ·», «Producto ·» ni «Vendedor ·»:
 los nombres de los agentes quedan para la app. En la tarjeta de aprobación el antetítulo es
 «Propuesta». El titular del banner y de la portada de Facebook es «Agentes expertos / *a cargo de tu
-cuenta.*», y son las dos únicas piezas con un degradé radial (blanco al 4 %).
+e-commerce.*», y son las dos únicas piezas con un degradé radial (blanco al 4 %).
 
 **Mercado Libre.** Se nombra como un hecho («tu cuenta de Mercado Libre», «para vendedores de
 Mercado Libre»), con iris siempre más grande. Nunca su logo, sus colores ni un diseño parecido;
