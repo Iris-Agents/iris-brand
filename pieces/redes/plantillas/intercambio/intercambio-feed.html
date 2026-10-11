@@ -64,7 +64,9 @@
          tiene hasta 5 caracteres y la unidad unos 10 («por venta.»); si no entra, baja sola debajo de la cifra. -->
     <p class="cifra"><b class="cifra-numero" data-slot="cifra">6.100</b><span class="cifra-unidad" data-slot="cifra-unidad">por venta.</span></p>
 
-    <!-- EDITAR: dos filas de contexto de la cifra. Etiqueta máximo 30 caracteres; valor máximo 18 (una cifra, o «antes → después»). -->
+    <!-- EDITAR: dos filas de contexto de la cifra. Etiqueta máximo 30 caracteres; valor máximo 18 (una cifra, o «antes → después»).
+         La flecha nunca se tipea (sale con la fuente del sistema): va el SVG de .flecha en _base/brand.css, con la clase
+         flecha-500 porque el valor va en Plex 500. -->
     <dl class="filas">
       <div><dt data-slot="fila-1-etiqueta">Hoy te quedan</dt><dd data-slot="fila-1-valor">9.200</dd></div>
       <div><dt data-slot="fila-2-etiqueta">Tu mínimo</dt><dd data-slot="fila-2-valor">5.000</dd></div>

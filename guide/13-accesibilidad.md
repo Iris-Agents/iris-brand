@@ -10,26 +10,15 @@ frena el test no se puede romper, y lo demás se revisa antes de entregar una pi
 Lo frena el test: ninguno de los 159 pares baja de su mínimo sobre ninguno de los fondos de su
 modo (canvas, surface, raised, hover y selected en oscuro; canvas, hover y selected en claro).
 
-Los valores son del peor fondo de cada modo (`bg.selected`), truncados a dos decimales como pide
-WCAG. La tabla completa, también sobre el canvas, está en el capítulo 04.
-
-| Qué | Mínimo | Oscuro · peor fondo | Claro · peor fondo |
-|---|---|---|---|
-| Texto principal (`text.primary`) | 4,5:1 | 12,92 | 14,48 |
-| Texto de apoyo (`text.secondary`) | 4,5:1 | 8,14 | 6,97 |
-| Datos sueltos y placeholder (`text.tertiary`) | 4,5:1 | 5,38 | 4,66 |
-| Falló y destructivo, como texto | 4,5:1 | 4,90 | 4,64 |
-| Glifo de te toca | 3:1 | 7,91 | 3,33 |
-| Glifo de trabajando | 3:1 | 4,73 | 5,62 |
-| Glifo de resuelto | 3:1 | 5,38 | 4,66 |
-| Glifo de esperando | 3:1 | 12,92 | 6,97 |
-| Borde de control (`border.control`) | 3:1 | 3,10 | 3,04 |
+Cada par, con su mínimo y su valor sobre el canvas y sobre el peor fondo de cada modo, está en el
+capítulo 04 (4.4).
 
 - [ ] Ningún color fuera de los tokens. Un valor nuevo entra por el archivo de tokens, y el test lo
       mide contra todos los fondos.
 - [ ] Lo que se lee de corrido va en `text.primary`; el apoyo de 13 px para arriba, en
       `text.secondary`; `text.tertiary` sólo para datos sueltos (hora, id, contador, eyebrow), nunca
-      para una oración.
+      para una oración. Una nota fija y corta, como «Datos de ejemplo.», cuenta como dato (capítulo
+      04, 4.5).
 - [ ] En claro, el ámbar de te toca va sólo como glifo lleno: nunca como texto ni en un trazo fino
       (no llega a 4,5:1).
 - [ ] La firma va en su sello y se lee contra el bloque: en la app, `signature.text` sobre
@@ -113,8 +102,8 @@ WCAG. La tabla completa, también sobre el canvas, está en el capítulo 04.
 ## Cómo se verifica
 
 - **Tokens:** `pnpm build` corre el test con la matriz de contraste entera; si un par falla, no hay
-  build (capítulo 14).
+  build (capítulo 14, 14.4).
 - **Una pantalla o una página:** recorrerla con el teclado, mirarla en los dos modos, con
   `prefers-reduced-motion` y con zoom al 200 %.
-- **Una pieza de redes:** renderizarla y repasar la lista de control de
-  `pieces/redes/plantillas.md`.
+- **Una pieza de redes:** renderizarla, medirla y repasar la lista de control de
+  `pieces/redes/plantillas.md` (secciones 6 y 7).

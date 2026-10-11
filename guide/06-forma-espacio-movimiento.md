@@ -21,6 +21,8 @@ que se separan por luz y borde, y movimiento corto que frena suave.
 
 - **1 px** (`border.width.hairline`) en todo: separadores, cards, controles. El color dice el peso:
   `border.subtle`, `border.default` o `border.control` (capítulo 04).
+- **En una pieza de redes de 1080 px**, que se ve a un tercio, una línea de 1 px desaparece: los
+  bordes y los separadores van a 2 px, y los de una pieza propia crecen con ella (capítulo 08).
 - **La regla de la fila activa** es de 2 px (`border.width.rule`), en inset y en `text.primary`, junto
   con `bg.selected`. Es de las listas; nunca es un adorno de card ni un filete de color al costado.
 - **El foco** es un outline de 2 px a 2 px de distancia (`border.focus.width`,
@@ -78,9 +80,9 @@ achica el ritmo, no el contenido.
   principal del hero de la landing) se dibuja con borde de 1 px en `text.primary`, sin relleno y con
   la letra en `text.primary`. En marketing, con el sello petróleo, el foco es la firma y lo que dice
   la pieza: lleno, el botón es lo más claro, y en las piezas viejas «Aprobar» era lo que más se
-  veía. En la app, con el sello de tinta, el sello es el único bloque lleno de tinta. Del ghost lo
-  separa el borde: tinta, no `border.default`. Su hover es `bg.hover`, como el de todo control sin
-  relleno. Sin sello a la vista (casi toda la app, un formulario), el CTA va lleno.
+  veía, y eso era un defecto. En la app, con el sello de tinta, el sello es el único bloque lleno de
+  tinta. Del ghost lo separa el borde: tinta, no `border.default`. Su hover es `bg.hover`, como el
+  de todo control sin relleno. Sin sello a la vista (casi toda la app, un formulario), el CTA va lleno.
 - **El secundario es ghost:** sin relleno, con borde `border.default` y texto `text.primary`. Su hover
   es `bg.hover`.
 - **El destructivo es ghost:** texto y borde en `action.destructive`, nunca relleno. Va con una
@@ -96,7 +98,7 @@ achica el ritmo, no el contenido.
 - Sólo cuando ayudan a operar: nunca decorativos.
 - Ningún ícono de «IA»: ni destellos, ni cerebros, ni robots, ni varitas.
 - Los glifos de estado no son íconos: son los cinco del capítulo 04, de 10 px (en una pieza de
-  redes, el ● y el ◐ hasta 48 px: capítulo 11, 11.13), y no se reemplazan por un ícono de lucide.
+  redes crecen: capítulo 08, 8.1), y no se reemplazan por un ícono de lucide.
 
 ## 6.7 Movimiento
 
@@ -128,9 +130,8 @@ anima es el trabajo de iris, nunca un adorno.
 - **La secuencia** es siempre la misma, una entrada por tiempo: la pregunta que se tipea → la línea
   «tool · estado» con el ◐ de trabajando → la respuesta, con la cifra → el OK, con el ● y su
   palabra. Cuando la tool termina, la línea pasa de ◐ a ✓.
-- **La secuencia va sin titular.** El reel cierra con un cuadro aparte: el titular de dos líneas, con
-  la segunda en el sello petróleo, y el lockup (el SVG, capítulo 03). Es el único cuadro con el
-  sello (capítulo 11, 11.13).
+- **La secuencia va sin titular:** el titular va en el cuadro de cierre del reel (capítulo 11,
+  11.13).
 - **El cursor titila** en tinta (`text.primary`, #EDEDEA), prendido y apagado, y sólo cuando el
   tipeo para: mientras se tipea, va fijo al final del texto.
 - **El ◐ late** como en la app: en opacidad hasta `opacity.pulse` (0,45) y de vuelta, con

@@ -12,7 +12,7 @@ hex al lado para que se lea; en código se usa siempre el token.
 
 | Capítulo | De qué trata |
 |---|---|
-| [00 · Cómo se usa](00-como-se-usa.md) | Dónde vive la marca, cómo se instala, qué cubre y quién aprueba un cambio. |
+| [00 · Cómo se usa](00-como-se-usa.md) | Dónde vive la marca, cómo la consume cada uno, qué cubre y quién aprueba un cambio. |
 | [01 · Esencia](01-esencia.md) | Qué es iris, su personalidad, los siete principios con su consecuencia visual y dónde está la diferencia. |
 | [02 · Nombre](02-nombre.md) | «iris», «iris agents» e «Iris Agents»: cuándo va cada uno, cómo se nombran los agentes y lo que nunca se escribe. |
 | [03 · Logo e ícono](03-logo-e-icono.md) | Las tres piezas y cuándo va cada una, construcción, resguardo, tamaños mínimos, fondos, usos incorrectos y archivos. |
@@ -23,10 +23,10 @@ hex al lado para que se lea; en código se usa siempre el token.
 | [08 · Piezas propias](08-piezas-propias.md) | La tarjeta de aprobación, el feed «Hoy en tu cuenta», los glifos con su leyenda, la línea «tool · estado» y el intercambio. |
 | [09 · Voz y tono](09-voz-y-tono.md) | Cómo habla iris, las reglas de copy, los idiomas y las palabras que no se usan. |
 | [10 · iris adentro de Claude](10-iris-en-claude.md) | Nombres y descripciones de las tools, respuestas y la presencia en el directorio de conectores. |
-| [11 · Aplicaciones](11-aplicaciones.md) | Favicon, ícono de app, perfiles y banners, OG, video, propuestas, mail y los tres registros de redes. |
+| [11 · Aplicaciones](11-aplicaciones.md) | Favicon, ícono de app, perfiles y banners, OG, video, propuestas, mail, los tres registros de redes y cómo se arma una pieza sin plantilla. |
 | [12 · Mercado Libre y otras marcas](12-mercado-libre.md) | Cómo se nombra a Mercado Libre, qué no se usa nunca, el descargo, y Claude, Mercado Pago y los canales futuros. |
 | [13 · Accesibilidad](13-accesibilidad.md) | La lista de control: contraste, foco, tamaño de lo que se toca, estado sin depender del color, movimiento. |
-| [14 · Recursos](14-recursos.md) | Dónde está cada archivo, cómo se instala y se actualiza, qué frena el test y cómo se cambia la marca. |
+| [14 · Recursos](14-recursos.md) | Cómo la instala y la actualiza una app, qué frena el test, cómo se cambia la marca y cómo se regeneran las piezas. |
 
 ## Cómo se lee
 
@@ -34,5 +34,6 @@ hex al lado para que se lea; en código se usa siempre el token.
 - Los nombres de token van en `monoespaciada` y sin el prefijo `color.` cuando son semánticos:
   `text.secondary` es `color.text.secondary` en el archivo de tokens. El capítulo 00 explica cómo
   se lee un nombre en cada formato.
-- Lo que el manual no cubre no se inventa: se le pregunta a Franco, y la respuesta entra al
-  manual.
+- Lo que el manual no cubre no frena: va la opción con más vida que lo respete, y lo que no está
+  prohibido, se puede. El criterio entero, con las tres cosas que esperan a una persona, está en el
+  capítulo 11 (11.14).

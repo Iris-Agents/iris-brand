@@ -112,16 +112,9 @@ El acento es la tinta: el valor de `text.primary` es también el relleno del CTA
 el bloque del sello de la app. Como casi todo comparte tinta, lo que grita no puede ser el color:
 grita la forma. Un solo bloque lleno de tinta por pantalla y el ● de «te toca».
 
-**Con el sello a la vista, el botón principal va con borde.** Si junto al titular con sello
-(capítulo 05, 5.3) hay un botón principal (el «Aprobar» de la tarjeta de aprobación en una pieza, el
-botón principal del hero de la landing), se dibuja con borde de 1 px en `text.primary`, sin relleno
-y con la letra en `text.primary` (capítulo 06, 6.5):
-- **en marketing, con el sello petróleo**, porque el foco es la firma y lo que dice la pieza. Lleno,
-  el botón es lo más claro de la pieza: en las piezas viejas lo que más se veía era «Aprobar», y eso
-  era un defecto;
-- **en la app, con el sello de tinta**, porque el sello es el único bloque lleno de tinta.
-
-Sin sello a la vista (casi toda la app, un formulario), el CTA de tinta lleno sigue como siempre.
+**Con el sello a la vista, el botón principal va con borde**, sin relleno: el «Aprobar» de la
+tarjeta en una pieza, el botón principal del hero de la landing. Cómo se dibuja y por qué, en el
+capítulo 06 (6.5).
 
 **Un acento, en un lugar.** La interfaz no tiene color de marca ni un azul para «novedad»: se probó,
 queda a ΔE 0,091 del cian de Mercado Pago y, al lado del ámbar, arma la pareja de colores de Mercado
@@ -146,8 +139,8 @@ redondeado a dos decimales. El test compara el valor sin redondear.
 | `text.on-action` sobre `action.primary` | 4,5 | 16,89 | — | 16,82 | — |
 | `signature.text` sobre `signature.block` | 4,5 | 16,89 | — | 16,82 | — |
 | `signature.marketing.text` sobre `signature.marketing.block` | **7** | 11,87 | — | 11,87 | — |
-| ● `status.attention` | 3 | 10,34 | 7,91 | 3,87 | **3,33** |
-| ◐ `status.working` | 3 | 6,18 | 4,73 | 6,52 | 5,62 |
+| ● `status.attention` | 3 | 10,34 | 7,92 | 3,87 | **3,33** |
+| ◐ `status.working` | 3 | 6,18 | 4,73 | 6,53 | 5,62 |
 | ✓ `status.done` | 3 | 7,03 | 5,38 | 5,42 | 4,66 |
 | ○ `status.idle` | 3 | 16,89 | 12,92 | 8,10 | 6,98 |
 | `border.control` · `link.underline` | 3 | 4,06 | **3,11** | 3,54 | **3,05** |
@@ -173,15 +166,18 @@ redondeado a dos decimales. El test compara el valor sin redondear.
 - **`text.secondary`** en el apoyo de 13 px para arriba: bajadas y ayudas. La segunda línea del
   titular no va en gris: va en el sello (capítulo 05, 5.3).
 - **`text.tertiary`** sólo en datos sueltos que se leen de un vistazo: «10:40 · id 4418 · 27
-  ventas». Nunca en una oración.
+  ventas». Nunca en una oración. Una nota fija y corta que marca la pieza («Datos de ejemplo.»,
+  «Imagen generada con IA.», «Para vendedores de Mercado Libre.») se lee como un rótulo aunque
+  lleve punto, y va en terciario. Lo que hay que leer para entender la pieza, no.
 - **No se atenúa con opacidad** un texto que significa algo: se elige el token.
 - **El ámbar del claro va sólo como relleno** (el ●): nunca como texto ni en un trazo fino, porque
   apenas pasa 3:1.
 
 ## 4.6 Los cinco estados
 
-Cada estado tiene un glifo de 10 px, un color y una palabra. **Ninguna forma se repite**, y **el
-color nunca va solo**: siempre va glifo más palabra, o glifo más una leyenda.
+Cada estado tiene un glifo (de 10 px en la app; en una pieza de redes, capítulo 08), un color y una
+palabra. **Ninguna forma se repite**, y **el color nunca va solo**: siempre va glifo más palabra, o
+glifo más una leyenda.
 
 | Glifo | Estado | Token | Oscuro | Claro | Qué significa |
 |---|---|---|---|---|---|
@@ -191,15 +187,8 @@ color nunca va solo**: siempre va glifo más palabra, o glifo más una leyenda.
 | ✓ | **Resuelto** | `status.done` = `text.tertiary` | #9B9A96 | #686764 | Hecho. Va en silencio. |
 | ○ | **Esperando o sin declarar** | `status.idle` | #EDEDEA | #4E4D49 | Espera a un tercero (un comprador, Mercado Libre) o nadie lo configuró. |
 
-Los glifos, con `viewBox` de 10 y el color por `currentColor`:
-
-```html
-<symbol id="te-toca" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.25" fill="currentColor"/></symbol>
-<symbol id="trabajando" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5 1a4 4 0 0 1 0 8z" fill="currentColor"/></symbol>
-<symbol id="fallo" viewBox="0 0 10 10"><path d="M1.8 1.8 8.2 8.2M8.2 1.8 1.8 8.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" fill="none"/></symbol>
-<symbol id="resuelto" viewBox="0 0 10 10"><path d="M1.6 5.4 4 7.8 8.6 2.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
-<symbol id="esperando" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
-```
+El SVG de cada glifo, con `viewBox` de 10 y el color por `currentColor`, está en el capítulo 08
+(8.1).
 
 **Reglas de cada uno**
 
@@ -212,9 +201,9 @@ Los glifos, con `viewBox` de 10 y el color por `currentColor`:
 - **Falló (✕).** Es el único estado que también puede ir como texto: en un botón destructivo y en el
   error de un campo, siempre con una oración que dice qué pasó y cómo se arregla. Nunca como acento
   ni como alarma decorativa.
-- **Resuelto (✓).** Es el gris de los datos sueltos, y la fila también baja a gris. Va abajo de la
-  lista. No se usa para festejar un logro. La única excepción es una pieza pública de sólo
-  resultados, como el banner, donde el resultado es el mensaje (capítulo 08).
+- **Resuelto (✓).** Es el gris de los datos sueltos. Va abajo de la lista y no se usa para
+  festejar un logro. En la app la fila también baja a gris; en una pieza pública, no (capítulo 08,
+  8.2).
 - **Esperando o sin declarar (○).** En oscuro es el blanco del sistema; en claro baja a
   `text.secondary` para no pesar más que «te toca». Nunca como viñeta de una lista.
 
@@ -229,7 +218,9 @@ Los glifos, con `viewBox` de 10 y el color por `currentColor`:
 - El color va sólo en el glifo. La palabra va en los tokens de texto; nunca se pintan de estado un
   texto (salvo el rojo, arriba), un fondo, un borde, un titular ni el logotipo.
 - Ningún otro elemento se dibuja como un punto lleno, un círculo hueco o un medio círculo, ni
-  siquiera en otro color.
+  siquiera en otro color. La excepción son los pictogramas de las historias destacadas
+  (`pieces/redes/instagram/destacadas/`): dibujos de trazo en blanco, sin texto ni estados, donde un
+  punto, un círculo o una ✓ es parte del dibujo, también como viñeta.
 - **Con daltonismo** (protanopía y deuteranopía simuladas), el ámbar se separa por luz del verde y del
   rojo. El verde y el rojo tienen casi la misma luz en oscuro: los separa la forma, ◐ contra ✕.
 
@@ -264,10 +255,12 @@ raised) y el borde, un paso. En claro todo es el mismo blanco y el nivel lo dice
 - Un color que no esté en los tokens, o un hex suelto en código.
 - El petróleo fuera del bloque del sello de marketing (4.9): de fondo, en una franja, como texto,
   borde, botón, ícono, glifo o estado, en el logo o en el sello de la app.
-- Gradientes llamativos y glow. Las únicas excepciones son dos luces radiales blancas, que no son
-  token: la del banner de LinkedIn y la portada de Facebook (al 4 %) y la de las piezas de redes, de
-  hasta el 6 % y sólo detrás del punto focal (capítulo 11, 11.13). Nunca a pantalla completa ni de
-  color.
+- Gradientes llamativos y glow. Las únicas excepciones son tres:
+  - las dos luces radiales blancas, que no son token: la del banner de LinkedIn y la portada de
+    Facebook (al 4 %) y la de las piezas de redes, de hasta el 6 % y sólo detrás del punto focal
+    (capítulo 11, 11.13). Nunca a pantalla completa ni de color;
+  - el fundido de la foto de La trastienda con el negro, que la apaga hacia el `bg.canvas` sin otro
+    color (capítulo 11, 11.13).
 - Sombras, o blur fuera del vidrio de la capa flotante.
 - Un color de estado fuera de su glifo, o el color como única señal.
 - Atenuar con opacidad un texto que significa algo.
@@ -314,9 +307,8 @@ naranja de Claude. Lo más cerca son el violeta viejo y el verde de «trabajando
 0,19. El test frena cualquier valor a menos de 0,091, la distancia por la que se descartó el azul de
 «novedad» (4.3).
 
-**El botón principal, con borde.** Con el sello petróleo a la vista, el «Aprobar» de la tarjeta va
-con borde de tinta de 1 px y sin relleno: el foco es la firma y lo que dice la pieza (4.3; capítulo
-06, 6.5).
+**El botón principal, con borde.** Con el sello petróleo a la vista, «Aprobar» va con borde y sin
+relleno (4.3; capítulo 06, 6.5).
 
 **Hay un acento y un lugar.** Un segundo color, o el mismo color en otro lugar, deja de ser una
 firma. Un color nuevo entra como token, con su lugar escrito acá, o no existe.

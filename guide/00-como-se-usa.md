@@ -18,18 +18,12 @@ se decida. Hasta entonces, nada de este manual le exige un cambio.
 
 ## 0.2 Dónde vive
 
-| Qué | Dónde |
-|---|---|
-| La fuente del manual | `iris-brand/guide/`, un archivo por capítulo. |
-| Los tokens | `tokens/`: `foundation`, `themes/dark`, `themes/light` y el resolver de modos. |
-| El CSS que usan las apps | `dist/tokens.css` (generado) más `css/fonts.css`, `css/tailwind.css`, `css/glass.css` y `css/signature.css`, escritos a mano y sin valores propios. |
-| El logo | `logo/`: los SVG master y sus exportaciones (capítulo 03). |
-| Las fuentes | `fonts/`: WOFF2 de las tres familias, con su licencia. |
-| Las piezas terminadas | `pieces/`: las de LinkedIn (`pieces/linkedin/`) y las de redes, con la foto de perfil y la portada de Facebook (`pieces/redes/`). |
-| Cómo se llegó a cada decisión | En el registro de decisiones, que es privado y no está en este repo. Si dice otra cosa que este manual, manda el manual. |
+Todo vive en el repo `iris-brand`, y este manual es su carpeta `guide/`, un archivo por capítulo.
+Qué hay en cada carpeta, y lo que va a vivir fuera del repo, está en el [README](../README.md) de
+la raíz («Qué hay adentro»).
 
-Fuera del repo va a haber un solo lugar más: **una página /brand pública** con el ícono, el
-logotipo, los colores base y las reglas principales, cuando exista la landing nueva.
+Cómo se llegó a cada decisión está en el registro de decisiones, que es privado y no está en este
+repo. Si dice otra cosa que este manual, manda el manual.
 
 ## 0.3 Manda el token
 
@@ -66,37 +60,17 @@ Hay dos capas. Los **primitivos** son la paleta cruda; los **semánticos** dicen
 
 ## 0.5 Cómo lo consume cada uno
 
-**Una app o la landing** lo instala como dependencia de git, no como submódulo (el porqué, en el
-capítulo 14, 14.2). Como el repo es público, no hace falta un token en ninguna máquina. `dist/` está
-commiteado, así que la app no compila nada.
-
-```sh
-pnpm add github:Iris-Agents/iris-brand
-```
-
-No hay versiones: la marca es lo que está en `main`. pnpm toma su último commit y el lockfile de la
-app lo fija; `pnpm update iris-brand` trae lo último.
-
-En el CSS principal, después de `@import "tailwindcss"`, cuatro líneas y una regla:
-
-```css
-@import "iris-brand/fonts.css";     /* DM Serif Display, IBM Plex Sans y Plex Mono */
-@import "iris-brand/tokens.css";    /* colores y medidas, oscuro y claro */
-@import "iris-brand/tailwind.css";  /* bg-canvas, text-fg, rounded-card… */
-@import "iris-brand/signature.css"; /* el sello del titular de dos líneas */
-
-html { font-synthesis: none; }      /* que el navegador no invente negritas */
-```
-
-El vidrio, sólo si la app tiene una capa que flota: `@import "iris-brand/glass.css";`.
-
-Para el modo, `tokens.css` responde a `data-theme="dark"` o `data-theme="light"` en el `<html>`.
-Sin atributo sigue al sistema, y el oscuro es el default. La landing va siempre en oscuro.
-
-**Claude Design** no instala nada: quien diseña ahí lee este repo.
-
-**Figma, Penpot o un tercero** toman el archivo de tokens o los SVG del logo, del repo o de la
-página /brand. Cada color lleva su hex para las herramientas que no leen OKLCH.
+- **Una app o la landing** lo instala como dependencia de git, sin versiones: cómo se instala, qué
+  se importa y cómo se usa en el markup, en el capítulo 14 (14.2); cómo se actualiza, en 14.3.
+- **Quien arma piezas sin instalar el paquete** (quien opera las redes, quien diseña) clona el repo
+  (14.3).
+- **Claude Design** no instala nada: quien diseña ahí lee este repo (el manual, los tokens, los SVG
+  de `logo/` y las plantillas de `pieces/`).
+- **Figma, Penpot o cualquier otra herramienta** toman `tokens/` con un importador de DTCG; si no
+  lee el resolver, se importa `foundation.tokens.json` más el tema que haga falta. Cada color trae
+  su `hex` para las que no leen OKLCH. El logo sale de los SVG de `logo/` y las fuentes, de
+  `fonts/`. Cuando exista la página /brand de la landing, lo mismo se baja de ahí.
+- Lo que se diseña afuera no define valores: un valor nuevo entra como token acá (0.3).
 
 ## 0.6 Qué cubre
 
@@ -108,13 +82,6 @@ página /brand. Cada color lleva su hex para las herramientas que no leen OKLCH.
 
 ## 0.7 Quién aprueba y cómo se cambia
 
-Aprueba Franco. Un cambio sigue siempre el mismo camino:
-
-1. Se cambia el token, el manual o el archivo de logo en el repo `iris-brand`.
-2. `pnpm build` genera el CSS y corre el test. **Si el test falla, el comando sale con error y ese
-   `dist/` no se commitea.** El test frena, entre otras cosas, un par de colores que baje del
-   contraste mínimo y una firma fuera de sus tres usos (capítulo 14).
-3. Con el build verde, el cambio entra a `main` en un commit. Si rompe a quien consume (renombra o
-   borra un token, una variable o una clase), en el mismo momento se cambian los consumidores
-   conocidos, y el mensaje del commit lo dice. No hay alias ni período de gracia.
-4. Cada app toma el cambio cuando quiere, con `pnpm update iris-brand`. Ninguna cambia sola.
+Aprueba Franco. El camino de un cambio (el build con el test, el commit a `main` y lo que pasa
+cuando rompe a quien consume) está en el capítulo 14 (14.5); qué frena el test, en 14.4, y cómo
+toma el cambio cada app, en 14.3.

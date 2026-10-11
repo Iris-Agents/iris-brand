@@ -85,7 +85,8 @@ Lo que necesita al dueño va arriba. Lo que iris resolvió va abajo y en silenci
 
 **Se ve así:** monocromo. La jerarquía sale de la luz y la tinta es el acento. Lo que grita es poco
 y siempre lo mismo: un solo bloque lleno por pantalla (el CTA o, con un titular de dos líneas, el
-sello de la firma) y el ● ámbar de «te toca», el único ● del sistema, agrupado arriba. Lo resuelto lleva una ✓ gris y su texto baja a `text.tertiary`. El movimiento dura
+sello de la firma) y el ● ámbar de «te toca», el único ● del sistema, agrupado arriba. Lo resuelto
+lleva una ✓ gris y, en la app, su texto baja a gris (capítulo 08, 8.2). El movimiento dura
 de 120 a 280 ms, frena suave y no rebota. Lo que se anima en un estado late dos veces y queda quieto.
 
 ### 5. El dueño decide, y la aprobación es parte del producto

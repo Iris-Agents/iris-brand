@@ -7,7 +7,9 @@ llevado a los números.
 ## 7.1 Cifras
 
 - **Cada cifra va con su fecha y su fuente:** «Vendió 27 en 7 días · leído hoy a las 10:40». En una
-  pieza pública, además, contra qué se midió.
+  pieza pública, además, contra qué se midió. Eso es de una cifra real, como la de un testimonio
+  (capítulo 09, 9.10). Una cifra de ejemplo lleva el cuándo que da la pieza (el «hoy» del feed, la
+  hora de la tool) y se marca como ejemplo (capítulo 11).
 - **Cada número sale de una sola fuente.** Si no suma, no se publica.
 - **El cero también se muestra.** Un resultado en cero no se esconde.
 - **No leído no es cero.** Si un dato no se pudo leer, se dice («sin leer»); nunca se muestra un 0

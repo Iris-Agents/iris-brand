@@ -140,10 +140,18 @@ porque no lo nombra.
 
 ---
 
+## 9.9 A revalidar
+
+- La metáfora de «empleado» y «sueldo» de la primera versión. «El primer empleado de IA» está
+  rechazado; el ancla de precio contra un sueldo se revisa cuando se fije el precio por uso.
+
+---
+
 ## 9.10 Testimonios
 
 Un usuario real puede aparecer en una pieza **sólo si firmó su consentimiento por escrito**. Es la
-única excepción a «ningún cliente ni dato real» (1.7): todo lo demás sigue con datos de ejemplo.
+única excepción a «ningún cliente ni dato real» (capítulo 01, 1.5, principio 7): todo lo demás
+sigue con datos de ejemplo.
 
 - **El consentimiento se guarda.** Por escrito (un mail o un documento firmado), con la fecha, el
   uso que autoriza y el texto exacto que aprobó. Se guarda fuera de este repo, en el registro
@@ -172,14 +180,11 @@ Un usuario real puede aparecer en una pieza **sólo si firmó su consentimiento 
   inicial. «si bajo 15 % la mochila, ¿cuánto me queda?». No es un titular: no lleva la firma.
 - **La respuesta es una cifra con su unidad**, con la voz de siempre: «6.100 por venta.». El OK es
   una pregunta corta con su palabra: «¿La bajo? Espera tu OK.».
-- **La línea de contexto**, la de arriba de todo en una pieza de redes, va en `text.primary` y no en
-  `text.tertiary`: dice para quién es o cuándo («Faltan 2 semanas») y se tiene que leer en el primer
-  segundo. Conserva el resto del eyebrow (la sans 500, las mayúsculas por CSS, nunca «iris»). Si
-  nombra a Mercado Libre, sigue el capítulo 12.
-
----
-
-## 9.9 A revalidar
-
-- La metáfora de «empleado» y «sueldo» de la primera versión. «El primer empleado de IA» está
-  rechazado; el ancla de precio contra un sueldo se revisa cuando se fije el precio por uso.
+- **La línea de contexto**, la de arriba de todo en una pieza de redes, dice el tema, la campaña o
+  la fecha en una a tres palabras y sin punto («Precios», «Aprobaciones»), o para quién es («Para
+  vendedores de Mercado Libre»). A la derecha, si hay una fecha real, va cuándo («Faltan 2
+  semanas»). Va en `text.primary` y no en `text.tertiary`, porque se tiene que leer en el primer
+  segundo, y conserva el resto del eyebrow (la sans 500, las mayúsculas por CSS, nunca «iris»).
+  La lleva la lámina que abre: un post, una story, la portada de un carrusel. Puede faltar donde
+  el tema ya está a la vista, como en un titular con una pieza propia o en el interior y el cierre
+  de un carrusel. Si nombra a Mercado Libre, sigue el capítulo 12.

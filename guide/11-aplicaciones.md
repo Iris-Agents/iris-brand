@@ -7,9 +7,8 @@ lo que la plataforma tapa.
 Reglas que valen para todas:
 - **Oscuro.** El fondo es `color.brand.black` (#0A0A09). El claro existe para la app; las piezas no
   lo usan, salvo el email (11.10).
-- **Sin efectos.** Sin glow, sombras, vidrio ni gradientes. Las únicas excepciones son dos luces
-  radiales blancas: la del banner de LinkedIn y la portada de Facebook (al 4 %) y la de las piezas
-  de redes (hasta el 6 %, sólo detrás del punto focal: 11.13).
+- **Sin efectos.** Sin glow, sombras, vidrio ni gradientes. Las excepciones son las dos luces
+  radiales blancas y el fundido de la foto de La trastienda con el negro (capítulo 04, 4.8).
 - **El titular de dos líneas, con el sello petróleo.** La segunda línea va en el sello de
   marketing: la firma en tinta sobre el bloque petróleo, sobre el negro (capítulo 04, 4.9; capítulo
   05, 5.3). Es el mismo en todas las piezas de este capítulo y en el titular de la landing, que usa
@@ -19,8 +18,8 @@ Reglas que valen para todas:
 - **En lo público, el resultado.** Las filas dicen qué logró iris, sin el nombre del agente
   (capítulo 09).
 - **Las cifras de una pieza son de ejemplo**, y se marcan: «Datos de ejemplo.» en la pieza cuando
-  tiene lugar para una nota, y siempre en el HTML. Un dato real de un cliente no va nunca, salvo
-  en un testimonio con consentimiento escrito (9.10).
+  tiene lugar para una nota (en `text.tertiary`: capítulo 04, 4.5), y siempre en el HTML. Un dato
+  real de un cliente no va nunca, salvo en un testimonio con consentimiento escrito (9.10).
 - **Mercado Libre se nombra como un hecho**, chico y en texto, nunca en un titular, en pauta ni con
   su logo o sus colores. En una pieza orgánica de redes puede ir arriba, en la línea de contexto, en
   `text.primary`; en los banners y las portadas de LinkedIn y Facebook, no (capítulo 12, 12.1).
@@ -105,8 +104,9 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
 - **Mercado Libre** no va en la portada, ni en el titular ni arriba: va en el «Acerca de» de la
   página, como un hecho.
 - La foto de perfil tapa la esquina de abajo a la izquierda y el celular recorta los costados: las
-  zonas seguras y los largos de cada texto están en `pieces/redes/plantillas.md`, y hay que
-  mirarla subida en la computadora y en un celular.
+  zonas seguras están en `pieces/redes/_base/formatos.json` («portada-facebook») y los largos de
+  cada texto, en `pieces/redes/plantillas.md`, y hay que mirarla subida en la computadora y en un
+  celular.
 - Sus filas siguen la regla de lo público: resultados, sin el nombre del agente.
 
 ## 11.7 OG (1200 × 630)
@@ -131,9 +131,9 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
 
 - **Las demos:** 1920 × 1080 a 30 fps, fondo `color.brand.black`.
 - **Los reels y las stories de video:** vertical, 1080 × 1920 a 30 fps. Lo esencial va dentro de la
-  zona segura de la story (`pieces/redes/plantillas.md`), porque la interfaz de la red tapa arriba y
-  abajo. Es el registro En vivo (11.13), con el movimiento del capítulo 06 («Movimiento en piezas
-  de video»).
+  zona segura del reel (`pieces/redes/_base/formatos.json`, «reel»), porque la interfaz de la red
+  tapa arriba y abajo. Es el registro En vivo (11.13), con el movimiento del capítulo 06
+  («Movimiento en piezas de video»).
 - Clips de 15 a 25 s donde se vean las llamadas, con la línea «tool · estado» (capítulo 08,
   sección 8.4).
 - Si la demo está acelerada, se dice cuánto. Lo que es de una cuenta real va con la censura con
@@ -182,25 +182,13 @@ Viven en `pieces/redes/`. Cada pieza es un HTML editable; la PNG que se sube sal
 Al lado de cada HTML está su PNG limpia y su `-guias.png`, la misma pieza con las zonas seguras en
 magenta, que **nunca se publica**.
 
-| Carpeta | Qué hay | Para qué red |
-|---|---|---|
-| `pieces/redes/_base/` | `brand.css` (colores, también los del sello petróleo, fuentes y las clases `.signature` y `.sello`), `render.sh`, `render-all.sh` y `piezas.tsv` | Todas |
-| `pieces/redes/perfil/` | La foto de perfil y una hoja de control con la foto en chico | Instagram, Facebook y WhatsApp |
-| `pieces/redes/facebook/` | La portada | Facebook |
-| `pieces/redes/instagram/destacadas/` | Las portadas de las historias destacadas: un pictograma de trazo, sin texto | Instagram |
-| `pieces/redes/plantillas/` | `feed-4x5/`, `cuadrado/`, `story/` (también portada de reel) y `carrusel/`, con lo común en `_comun/`; y las de los registros (11.13): `intercambio/` (feed y story) y `trastienda/` (feed y portada de carrusel) | Instagram y Facebook |
-
 - **Qué hay en cada carpeta:** `pieces/redes/README.md`.
-- **El sello** ya viene armado en cada plantilla con titular de dos líneas: el texto de la segunda
-  línea va adentro del `<span class="sello">`, que en `brand.css` es el sello petróleo de
-  marketing. Donde hay tarjeta de aprobación, «Aprobar» va con borde (`.boton-borde`).
-- **LinkedIn** va aparte, en `pieces/linkedin/` (11.4 y 11.5), y sus PNG salen con el mismo
-  `render-all.sh`.
-- **La especificación de las plantillas** (formatos, zonas seguras, slots y largos máximos, cómo
-  se renderiza y la lista de control): `pieces/redes/plantillas.md`. En Instagram va el 4:5; el
-  cuadrado queda para Facebook.
-- **Datos fijos:** Instagram `@iris_agents`, la página de Facebook «Iris Agents», la web
-  `iris-agents.com`.
+- **Cómo están hechas las plantillas** (el sello ya armado, los slots y sus largos máximos, cómo se
+  renderiza y la lista de control): `pieces/redes/plantillas.md`. **Las medidas de cada formato**:
+  `pieces/redes/_base/formatos.json`. En Instagram va el 4:5; el cuadrado queda para Facebook.
+- **LinkedIn** va aparte, en `pieces/linkedin/` (11.4 y 11.5).
+- **Los datos fijos** (el usuario de Instagram, la página de Facebook, la web), en el capítulo 02
+  (2.3).
 - **La bio** puede decir «tu cuenta de Mercado Libre», sin logo ni colores. El nombre de la cuenta
   nunca lleva Mercado Libre.
 
@@ -208,12 +196,15 @@ Cómo se regeneran las PNG: capítulo 14.
 
 ## 11.13 Los tres registros de redes
 
-Los posts de redes se arman sobre el mismo sistema en tres registros. **Cada post usa uno solo.** El
+Los posts de redes se arman sobre el mismo sistema en tres registros. **Cada post usa uno solo**, y
+lo fija su primera lámina. Un carrusel es un post: su portada fija el registro, y las láminas que
+siguen (el interior y el cierre) son las del carrusel de siempre, sobre el negro, y pueden llevar
+una pieza propia. Cada lámina lleva una sola imagen: la foto, el intercambio o una pieza propia. El
 sello es el mismo en los tres: el petróleo de marketing, con la firma en tinta (capítulo 04, 4.9).
 
 | Registro | Cuándo va | La imagen | El sello |
 |---|---|---|---|
-| **Pregunta y cifra** | La base: los posts y los carruseles | El intercambio (capítulo 08, 8.9): la pregunta con cursor, la línea «tool · estado» y la cifra grande | Petróleo, en el titular de otra lámina (la portada o el cierre): el intercambio va sin titular |
+| **Pregunta y cifra** | La base: los posts y los carruseles | El intercambio (capítulo 08, 8.9): la pregunta con cursor, la línea «tool · estado» y la cifra grande. O una pieza propia (la tarjeta, el feed) debajo de su titular | Petróleo, en el titular: el de la pieza propia, o el de otra lámina (la portada o el cierre), porque el intercambio va sin titular |
 | **En vivo** | Los reels | La secuencia del intercambio en el tiempo: pregunta → ◐ trabajando → respuesta → OK, con el cursor en tinta (#EDEDEA) | Petróleo, en el cuadro de cierre: el titular de dos líneas con el lockup, después de la secuencia, que va sin titular |
 | **La trastienda** | Campañas y fechas | Una foto oscura y quieta del mundo del vendedor | Petróleo, en el titular |
 
@@ -222,9 +213,9 @@ sello es el mismo en los tres: el petróleo de marketing, con la firma en tinta 
 - La imagen es la conversación: arriba la línea de contexto, después la pregunta con su cursor, la
   línea «tool · estado», la cifra grande con su unidad y, si la respuesta propone algo, el OK con
   el ●.
-- **El intercambio va sin titular:** el sello nunca comparte la imagen con la pregunta y la cifra.
-  Si el post lleva titular, va en otra lámina (la portada o el cierre de un carrusel), con la
-  segunda línea en el sello petróleo. La plantilla es `pieces/redes/plantillas/intercambio/`.
+- O es una pieza propia, la tarjeta de aprobación o el feed, debajo de un titular de dos líneas.
+- **El intercambio va sin titular** (capítulo 08, 8.9): si el post lo lleva, va en otra lámina, la
+  portada o el cierre de un carrusel. La plantilla es `pieces/redes/plantillas/intercambio/`.
 - El fondo es el negro de siempre.
 
 ### En vivo
@@ -233,7 +224,9 @@ sello es el mismo en los tres: el petróleo de marketing, con la firma en tinta 
   de trabajando en la línea de la tool, la respuesta con su cifra y el OK con su ●.
 - **La secuencia va sin titular**, como el intercambio quieto.
 - **El reel cierra con un cuadro aparte:** el titular de dos líneas, con la segunda en el sello
-  petróleo, y el lockup (el SVG, capítulo 03). Es el único cuadro del reel con el sello.
+  petróleo, y el lockup (el SVG, capítulo 03). Es el único cuadro del reel con el sello. Va entero
+  dentro de la zona segura del reel, el lockup también (`pieces/redes/_base/formatos.json`,
+  «reel»): abajo lo tapa la leyenda, así que este cuadro no lleva pie.
 - El cursor va en tinta (`text.primary`). El movimiento sigue el capítulo 06 («Movimiento en
   piezas de video»).
 
@@ -241,6 +234,10 @@ sello es el mismo en los tres: el petróleo de marketing, con la firma en tinta 
 
 - **La foto:** oscura y quieta, del mundo del vendedor: cajas, kraft, una persiana. Va sin personas,
   sin logos ni marcas, sin el packaging de Mercado Libre y sin productos de clientes reales.
+- **La foto se funde con el negro** donde se encuentra con él: se apaga hacia el `bg.canvas`, sin
+  otro color, para que no quede un corte recto debajo del texto. Es una de las excepciones a «sin
+  gradientes» (capítulo 04, 4.8); cuánto ocupa el fundido en cada formato, en
+  `pieces/redes/plantillas.md`.
 - **Si es generada con IA, lo dice**, en chico y en `text.tertiary`: «Imagen generada con IA.».
 - **El texto que cae sobre la foto** pasa 4,5:1 contra lo que tiene detrás, medido en la PNG. Lo
   demás va sobre el negro liso.
@@ -257,6 +254,54 @@ sello es el mismo en los tres: el petróleo de marketing, con la firma en tinta 
 | Los glifos ● y ◐ | Como objeto, de hasta 48 px, siempre con su palabra (capítulo 08, 8.1). |
 | La línea «tool · estado» | 26–30 px en una pieza de 1080, en la mono y `text.tertiary` (capítulo 08, 8.4). |
 | La línea de contexto | El eyebrow de arriba de todo, en `text.primary` (capítulo 09, 9.11). En una pieza orgánica puede decir «Para vendedores de Mercado Libre» (capítulo 12, 12.1). |
-| El botón principal | «Aprobar», con borde de tinta de 1 px y sin relleno (capítulo 06, 6.5). |
+| El botón principal | «Aprobar», con borde de tinta y sin relleno (capítulo 06, 6.5). El borde crece con la pieza (capítulo 08). |
 | La burbuja | No va: la persona se marca con el cursor (capítulo 09, 9.11). |
 | El video | Vertical, 1080 × 1920 a 30 fps (11.8). |
+
+## 11.14 Una pieza sin plantilla
+
+Las plantillas de `pieces/redes/plantillas/` son ejemplos, no el límite. Una pieza nueva carga
+`pieces/redes/_base/brand.css`, que trae los colores, las fuentes, el sello y la flecha, y se arma
+con lo mismo que las plantillas (el negro, el titular con su sello, las piezas propias, el
+intercambio, la foto de La trastienda) y con las medidas de su formato: los márgenes, las zonas
+seguras y los tamaños mínimos están en `pieces/redes/_base/formatos.json` y valen igual sin
+plantilla. Cómo se renderiza, se mide y se revisa la pieza terminada: `pieces/redes/plantillas.md`,
+secciones 6 y 7.
+
+**Qué hace buena una pieza.**
+- **Tiene vida.** La calma es de la voz, no quietud visual. Las primeras piezas, armadas con las
+  plantillas de entonces tal cual, salieron correctas y muertas: se rechazaron por «sin vida,
+  demasiado sobrias». Entre dos opciones correctas va la que tiene más contraste, más escala o más
+  movimiento.
+- **Un solo foco.** Una cosa se lee en el primer segundo (la cifra, el titular, la pregunta) y todo
+  lo demás la acompaña.
+- **Una cifra protagonista por lámina.** Las demás van chicas, en filas: dos cifras grandes compiten
+  y ninguna gana.
+- **Aire parejo.** Los bloques que van juntos van a la misma distancia. Lo que sobra se junta en un
+  solo vacío a propósito, como el de arriba del titular en las plantillas que lo anclan abajo, y no
+  en huecos sueltos. Los bloques de texto se separan con aire, no con un fondo: `bg.raised` es el
+  nivel de la tarjeta de aprobación.
+- **Movimiento donde hay trabajo.** En un reel se mueve lo que hace iris: el tipeo, la tool, la
+  cifra que llega. Nada se anima de adorno (capítulo 06, 6.7).
+
+**Lo que sale por costumbre y en iris no va.** Son reflejos de un modelo que diseña, y cada uno
+tiene su reemplazo:
+- palabras en itálica para acentuar un titular: la itálica es sólo la firma, en el sello (capítulo
+  05, 5.2), y lo que remarca un titular es su segunda línea (capítulo 09, 9.8);
+- rótulos en mono de adorno: la mono es sólo para datos, como horas, tools e ids (capítulo 05,
+  5.1);
+- la numeración 01, 02, 03 delante de cada punto: el orden lo dan la posición y, en un carrusel, el
+  contador;
+- fondos crema o cálidos: el fondo es el negro de marca;
+- botones en píldora: los controles son de radio chico (`radius.control`), y la píldora es sólo
+  «Espera tu OK».
+
+**Los avisos.** Cuando iris dice algo y no hace nada («se te va a quedar sin stock»), se cuenta con
+el intercambio, sin el OK, o con una fila del feed. La tarjeta de aprobación es sólo para una
+acción que iris hace con el OK: un aviso vestido de propuesta muestra un cambio que iris no va a
+hacer.
+
+**Ante la duda**, va la opción con más vida que respete este manual: lo que no está prohibido, se
+puede. Sólo tres cosas no salen sin una persona: un testimonio sin consentimiento escrito, un dato
+real de un cliente y una foto con personas reales (capítulo 09, 9.10). En La trastienda no van
+personas nunca (11.13).

@@ -32,8 +32,7 @@
   </header>
 
   <section class="cuerpo">
-    <!-- EDITAR: número del punto o del paso, dos dígitos en mono: 01, 02, 03. -->
-    <p class="marcador" data-slot="marcador">01</p>
+    <!-- Sin número delante (01, 02, 03): el orden lo dan la posición y el contador del pie. -->
     <!-- EDITAR: título corto, una idea, en IBM Plex. Máximo 36 caracteres (hasta 2 renglones). Sin firma: la firma es sólo de la portada y el cierre. -->
     <h2 class="titulo" data-slot="titulo">Cada acción tiene su permiso.</h2>
     <!-- EDITAR: texto, una idea por oración. Máximo 140 caracteres (3 renglones). Con número, fecha o contra qué se midió cuando haya. -->
@@ -56,8 +55,9 @@
         <div>
           <!-- EDITAR: lo que va a hacer, fila 1: el concepto. Máximo 24 caracteres. -->
           <dt data-slot="aprobacion-concepto-1">Stock publicado</dt>
-          <!-- EDITAR: la cifra de la fila 1, antes → después si cambia algo. Máximo 12 caracteres. CIFRA DE EJEMPLO. -->
-          <dd data-slot="aprobacion-cifra-1" data-ejemplo>3 → 43</dd>
+          <!-- EDITAR: la cifra de la fila 1, antes → después si cambia algo, con la flecha como este <svg class="flecha">:
+               tipeada, sale con la fuente del sistema. Máximo 12 caracteres. CIFRA DE EJEMPLO. -->
+          <dd data-slot="aprobacion-cifra-1" data-ejemplo>3 <svg class="flecha" viewBox="0 0 820 516" role="img" aria-label="a"><path d="M55 258H717M483 24 717 258 483 492"/></svg> 43</dd>
         </div>
         <div>
           <!-- EDITAR: fila 2: el dato que justifica la acción. Máximo 24 caracteres. -->

@@ -41,10 +41,8 @@ La medida es la de la ayuda de LinkedIn.
 Cómo quedó:
 - El lockup y el titular empiezan en x 718, 16 px a la derecha de todas las fotos. Ninguna zona de
   foto tiene un píxel de tinta.
-- El sello de la segunda línea del titular es el de todas las piezas de redes: el bloque petróleo
-  con la firma en tinta (`.sello` de `pieces/redes/_base/brand.css`, con `--signature-marketing-block`
-  y `--signature-marketing-text`). Termina en x 1167: entra entero
-  aun con el recorte del 20 %. El color no cambia sus medidas.
+- El sello de la segunda línea del titular (el `.sello` de `pieces/redes/_base/brand.css`) termina
+  en x 1167: entra entero aun con el recorte del 20 %.
 - El panel mide 340 px y va en x 1208–1547, a 36 px del borde derecho, con 40 px de aire después
   del sello. Con el titular a 40 px no entra uno más ancho: el sello sumó 14 px al ancho de la
   línea, y el panel se corrió 4 px a la derecha para no perder el aire.
@@ -76,13 +74,9 @@ la g de «cargo» adentro).
 
 ## Cómo se regenera
 
-Las seis PNG están en `pieces/redes/_base/piezas.tsv`, así que salen con el resto:
-
-```sh
-pieces/redes/_base/render-all.sh   # desde la raíz de iris-brand
-```
-
-Una sola, desde esta carpeta (con `?guias`, entre comillas, sale la versión con las zonas):
+Las seis PNG están en `pieces/redes/_base/piezas.tsv`, así que salen con el resto
+(`guide/14-recursos.md`, 14.6). Una sola, desde esta carpeta, con el tamaño de la tabla de arriba
+(cómo se usa `render.sh`: `pieces/redes/plantillas.md`, sección 6):
 
 ```sh
 ../redes/_base/render.sh banner-perfil.html 1584 396 "$PWD/banner-perfil.png"
@@ -95,5 +89,5 @@ Una sola, desde esta carpeta (con `?guias`, entre comillas, sale la versión con
 
 - Subirlas y mirarlas en la computadora y en un celular, al lado de su `-guias.png`: los recortes
   de terceros no están medidos.
-- Mercado Libre no va en el titular: va en el «Acerca de» del perfil y de la página, como un hecho
-  («para vendedores de Mercado Libre»). Ver `guide/12-mercado-libre.md`.
+- Mercado Libre va en el «Acerca de» del perfil y de la página, no en las piezas
+  (`guide/12-mercado-libre.md`, 12.1).

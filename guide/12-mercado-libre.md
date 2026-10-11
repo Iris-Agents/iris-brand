@@ -13,8 +13,9 @@ decir un hecho, nunca su identidad.
 - **iris siempre es más grande.** Mercado Libre nunca es el elemento principal de una pieza ni el
   sujeto de la frase.
 - **No va en un titular.** El del banner y el de la portada de Facebook es «Agentes expertos / a
-  cargo de tu e-commerce.». Mercado Libre va en la bajada, en un dato chico (en `text.tertiary` y
-  Plex 400), en el «Acerca de», en la bio o, en una pieza orgánica de redes, arriba.
+  cargo de tu e-commerce.», no «a cargo de tu Mercado Libre.». Mercado Libre va en la bajada, en un
+  dato chico (en `text.tertiary` y Plex 400), en el «Acerca de», en la bio o, en una pieza orgánica
+  de redes, arriba.
 - **Arriba, en una pieza orgánica de redes.** «Para vendedores de Mercado Libre» puede ir como la
   línea de contexto, el eyebrow de arriba de todo: Plex Sans 500, mayúsculas por CSS, +0,08em y
   `text.primary` (capítulo 05, 5.5; capítulo 09, 9.11). Si hay una cuenta regresiva, va a la

@@ -13,6 +13,11 @@ Los valores salen de los tokens: el capítulo 04 para color, el 05 para tipograf
 forma. Este capítulo dice cómo se arma cada pieza y qué no se le cambia. Las plantillas de
 `pieces/redes/plantillas/` traen el markup del glifo, del feed y de la tarjeta de aprobación.
 
+**En una pieza de redes**, una pieza propia se dibuja como en la app y se agranda entera: el texto,
+los glifos, los bordes y los radios crecen juntos y conservan la proporción de la app. Por eso un
+glifo de 10 px o un borde de 1 px miden más en una pieza de 1080. Cuánto se agranda en cada formato
+está en `pieces/redes/plantillas.md`.
+
 ---
 
 ## 8.1 El glifo de estado
@@ -28,8 +33,8 @@ forma: nunca la reemplaza.
 | ○ hueco | esperando o sin declarar | `status.idle` | #EDEDEA · #4E4D49 | Espera a un tercero (un comprador, el canal) o nadie lo configuró. |
 | ✓ | resuelto | `status.done` | #9B9A96 · #686764 | Terminó. Va en silencio: es el gris de los datos sueltos. |
 
-Los glifos, para copiar. El cuadro es de 10 × 10, el color sale de `currentColor` y se dibujan a
-10 px:
+Los glifos, para copiar. El cuadro es de 10 × 10, el color sale de `currentColor` y en la app se
+dibujan a 10 px:
 
 ```html
 <symbol id="te-toca" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.25" fill="currentColor"/></symbol>
@@ -55,7 +60,8 @@ Reglas:
   3:1 como glifo y no llega a 4,5:1).
 - **En una pieza de redes**, el ● y el ◐ pueden ir como objeto, de hasta 48 px, siempre con su
   palabra al lado: «● ¿La bajo? Espera tu OK.». Adentro de la línea «tool · estado», el glifo va al
-  tamaño de la línea. Los demás glifos no crecen, y ninguno pinta un texto, un fondo ni un borde.
+  tamaño de la línea, y adentro de una pieza propia crece con ella (arriba, en la intro). Ningún
+  otro glifo va como objeto, y ninguno pinta un texto, un fondo ni un borde.
 
 No existe un sexto color. Se probó un azul para «novedad» y quedó pegado al cian de Mercado Pago;
 ningún estado lo necesita.
@@ -74,14 +80,19 @@ resolvió va abajo y en silencio.
 - Cada fila: glifo · acción · dato a la derecha, separadas por `border.subtle`.
 - La acción es verbo + objeto. El verbo va en `text.secondary` y el objeto en `text.primary` 500:
   «Contestó **40 preguntas**», «Reponer **Mochila urbana 22 L**».
+- La acción empieza con mayúscula y no lleva punto. El verbo dice el estado: «Reponer Mochila
+  urbana 22 L» (te toca: lo que propone), «Revisa el precio del ganador» (trabajando), «Contestó 40
+  preguntas» (resuelto), «No pudo activar una promoción» (falló).
 - A la derecha va una sola cosa:
   - la píldora «Espera tu OK» (borde `border.control`, `radius.pill`), sólo en te toca;
   - «en curso», en la sans, sólo en trabajando;
-  - la hora HH:MM, en la mono de 12 px y `text.tertiary`, en el resto.
+  - en la app, la hora HH:MM, en la mono de 12 px y `text.tertiary`, en el resto.
 - Al pie, la leyenda.
 
-**Orden:** te toca, falló, trabajando, esperando, resuelto. Lo resuelto baja a gris: la acción a
-`text.tertiary` y el objeto a `text.secondary`.
+**Orden:** te toca, falló, trabajando, esperando, resuelto. En la app, lo resuelto baja a gris: la
+acción a `text.tertiary` y el objeto a `text.secondary`.
+
+Así se ve en la app:
 
 ```
 HOY EN TU CUENTA
@@ -102,9 +113,14 @@ HOY EN TU CUENTA
   agente: quien ve la pieza todavía no usó la app. Los cinco resultados de referencia son
   «Contestó 40 preguntas», «Resolvió 3 reclamos», «Generó 3 ventas adicionales», «Adhirió a una
   promoción» y «Mejoró la reputación».
-- **Una pieza de sólo resultados** (el banner) lleva todas las filas con ✓ y no las baja a gris: el
-  resultado es el mensaje. El verbo en pasado ya dice que terminó, así que la leyenda puede faltar.
-  Si en la pieza hay estados mezclados, la leyenda va.
+- **En lo público, el texto de la fila es el mismo en todos los estados:** el verbo en
+  `text.secondary` y lo que cambió en `text.primary` 500. Lo resuelto no baja a gris, porque quien
+  ve la pieza tiene que poder leer cada fila; el estado lo dicen el glifo, el verbo y lo que va a la
+  derecha.
+- **En lo público, a la derecha va sólo la píldora o «en curso».** Las demás filas no llevan nada,
+  ni hora: el «hoy» lo da el eyebrow del panel.
+- **Si todas las filas son resultados** (el banner, la portada de Facebook), la leyenda puede
+  faltar: la ✓ y el verbo en pasado ya dicen que terminó. Si hay estados mezclados, la leyenda va.
 - Las cifras de una pieza pública son de ejemplo y se marcan como tales (capítulo 11).
 
 ---
@@ -129,11 +145,9 @@ solo donde vos lo dejás; si no decidiste, te espera.
   - **«Aprobar»**: el CTA de tinta (`action.primary` con `text.on-action`). Es el único botón
     lleno de la pantalla.
   - **En una pieza con sello** (un post, una OG, un carrusel: la segunda línea del titular va en
-    el sello petróleo, capítulo 05, 5.3), «Aprobar» va con borde de 1 px en `text.primary`, sin
-    relleno y con la letra en `text.primary` (capítulo 06, 6.5): el foco es la firma y lo que dice
-    la pieza. En las piezas viejas, «Aprobar» lleno era lo que más se veía, y eso era un defecto.
-    Sigue siendo el principal: el borde de tinta lo separa del ghost. En la app pasa lo mismo con
-    el sello de tinta a la vista.
+    el sello petróleo, capítulo 05, 5.3), «Aprobar» va con borde y sin relleno, y sigue siendo el
+    principal: cómo se dibuja y por qué, en el capítulo 06 (6.5). En la app pasa lo mismo con el
+    sello de tinta a la vista.
   - **«Rechazar con motivo»**: ghost, con `border.default`.
 
 **En la app** la tarjeta además dice cuánto arriesga (en mono) y deja abrir lo que va a mandar
@@ -145,7 +159,9 @@ corregir; el botón pasa a «Confirmar rechazo».
 botón de tinta y el ghost. Dentro del hilo o del feed, y en cualquier pieza estática, va lisa.
 
 **No se hace:** cambiar los textos de los botones, poner dos botones llenos, dejar «Aprobar» lleno
-al lado del sello, sacar la fecha de lectura, mostrar una cifra sin antes → después, o usar el ámbar fuera de la píldora y el glifo.
+al lado del sello, sacar la fecha de lectura, mostrar una cifra sin antes → después, o pintar algo
+de ámbar: la píldora es neutra, y el ámbar va sólo en el ● (capítulo 04, 4.6). Tampoco se cuenta
+con ella un aviso, que no propone nada (capítulo 11, 11.14).
 
 ---
 
@@ -162,9 +178,10 @@ entrada y la salida quedan a un clic.
   mientras trabaja o si adentro algo espera a la persona; plegado cuando terminó.
 - Al abrirla, los bloques se rotulan «Entrada», «Salida» o «Error».
 
-En una pieza (una OG, un video, un post) la línea puede llevar la hora: `price_update · listo ·
-10:40`. Es la prueba de que iris trabaja con herramientas reales, no una animación. En una pieza
-de 1080 px va a 26–30 px, en la mono y `text.tertiary`: la mono de 12 px es la de la app.
+En una pieza (una OG, un video, un post) la línea puede llevar la hora:
+`items_price_bulk_update · listo · 10:40`. Es la prueba de que iris trabaja con herramientas
+reales, no una animación. En una pieza de 1080 px va a 26–30 px, en la mono y `text.tertiary`: la
+mono de 12 px es la de la app.
 
 ---
 

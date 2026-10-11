@@ -33,7 +33,8 @@ escasea.
 - **Se carga como una familia propia con una sola cara**, «DM Serif Display Italic»: la itálica 400,
   en dos archivos (latin y latin-ext). Como la única cara es la itálica, no puede salir recta aunque
   algo fuerce `font-style: normal`. Para que nadie le invente un bold, la app pone
-  `html { font-synthesis: none; }` (capítulo 00): `fonts.css` sólo declara caras y no puede ponerlo.
+  `html { font-synthesis: none; }` (capítulo 14, 14.2): `fonts.css` sólo declara caras y no puede
+  ponerlo.
 - **Afuera se llama distinto.** «DM Serif Display Italic» existe sólo donde se carga `fonts.css`. En
   Google Fonts, en las piezas de redes y en cualquier pieza que no carga `fonts.css`, la familia es
   «DM Serif Display» y la itálica sale de `font-style: italic` (`family=DM+Serif+Display:ital@1`).
@@ -84,9 +85,7 @@ Hay dos sellos, con las mismas medidas y distintos colores:
   - el bloque y la letra, los de su sello.
 - **Las medidas van en em:** el sello sigue al tamaño del titular, en los dos pares y en las piezas.
 - **Con el sello a la vista, el botón principal va con borde** (el «Aprobar» de la tarjeta en una
-  pieza, el botón principal del hero de la landing; capítulo 06, 6.5). En marketing, porque el foco
-  es la firma y lo que dice la pieza; en la app, porque el sello de tinta es el único bloque lleno
-  de tinta.
+  pieza, el botón principal del hero de la landing; capítulo 06, 6.5).
 - **En dos renglones**, el sello es un solo bloque del ancho del titular.
 - **El petróleo va sólo en el sello de marketing**, y es la única variante del sello (capítulo 04,
   4.9). El bloque casi no se despega del negro (1,42:1), a propósito: lo que se lee es la firma.
@@ -104,12 +103,14 @@ Hay dos pares, sin tipografía fluida: `headline.hero` (64/1,05) para el hero y 
 (`layout.breakpoint.narrow`) el hero usa el par de sección, y en un teléfono de 390 px ocupa de 3 a
 4 líneas.
 
-Las piezas de redes de 1080 px se ven a un tercio de su tamaño y tienen su propia tabla de mínimos en
-`pieces/redes/plantillas.md`.
-
 ## 5.4 La escala
 
-Doce estilos. El tracking se calcula una vez con la regla de su familia y vive en cada estilo, en px.
+Doce estilos, los de la pantalla: la app, la landing y los documentos. El tracking se calcula una vez
+con la regla de su familia y vive en cada estilo, en px.
+
+**Una pieza de redes de 1080 px no usa esta escala.** Se ve a un tercio de su tamaño, así que elige
+sus propios tamaños, con las mismas tres familias y los mismos dos pesos, sin bajar de los mínimos
+de `pieces/redes/_base/formatos.json` y con el tracking por tamaño de `pieces/redes/plantillas.md`.
 
 | Token | Para qué | Familia | Tamaño / interlineado | Peso | Tracking |
 |---|---|---|---|---|---|
@@ -158,7 +159,12 @@ El largo de línea está en `layout.measure.lede` (60), `layout.measure.prose` (
 - **Los ids y las horas van en mono:** «id 4418», «10:40».
 - **La firma nunca lleva números.**
 - **El separador decimal sigue al idioma:** coma en castellano y portugués («0,29»), punto en inglés.
-- Un cambio se escribe antes y después, con una flecha: «3 → 43».
+- **Un cambio se escribe antes y después, con una flecha en el medio:** «3 → 43». La flecha se ve
+  como una letra más: del color, del peso y del cuerpo del texto que la rodea, con el trazo de Plex
+  y un espacio de cada lado. Vale para toda flecha de una pieza, también la de «deslizá →». Nunca
+  una flecha de otra fuente, un emoji, «->» ni «>». Si la fuente cargada no la trae, el navegador
+  la toma de la del sistema sin avisar, y eso ya es una pieza que cayó a otra fuente (5.8). Cómo se
+  dibuja en una pieza: `pieces/redes/plantillas.md`.
 
 ## 5.7 Links en texto corrido
 
@@ -176,7 +182,8 @@ El largo de línea está en `layout.measure.lede` (60), `layout.measure.prose` (
   ajustadas (Georgia Italic para la firma, Arial para la sans) para que la página no salte cuando
   llega la fuente.
 - Se precargan sólo los dos archivos del hero: Plex Sans 500 y la firma.
-- Una pieza que se renderiza sin las fuentes (cae a Georgia o a la del sistema) no se entrega.
+- Una pieza que se renderiza sin las fuentes (cae a Georgia o a la del sistema) no se entrega,
+  tampoco si es un solo carácter que la fuente no trae, como la flecha (5.6).
 
 ## 5.9 Prohibido
 
@@ -188,7 +195,8 @@ El largo de línea está en `layout.measure.lede` (60), `layout.measure.prose` (
   marketing.
 - Plex Sans en itálica: no se carga y el navegador la falsearía. La única itálica es la firma.
 - La mono en eyebrows, etiquetas, botones o palabras («en curso» y «hoy» van en sans).
-- Un texto de menos de 12 px.
+- Un texto de menos de 12 px; en una pieza de redes, de menos de su mínimo (5.4).
 - Mayúsculas sostenidas fuera del eyebrow.
-- Un tracking distinto del de su estilo, o tipografía fluida.
+- Un tracking distinto del de su estilo (en una pieza de redes, del de su tamaño), o tipografía
+  fluida.
 - Cualquier familia fuera de las tres: ni Playfair, ni Inter, ni la del sistema como elección.

@@ -2,7 +2,7 @@
 // Instagram, la zona segura y la caja real del pictograma. Sin ?guias no se dibuja nada.
 if (new URLSearchParams(location.search).has('guias')) {
   const box = document.querySelector('[data-slot="pictograma"]').getBoundingClientRect();
-  const boxLabel = `pictograma · ${Math.round(box.width)} × ${Math.round(box.height)} · trazo 30 → 1,8 px a 64`;
+  const boxLabel = `pictograma · ${Math.round(box.width)} × ${Math.round(box.height)} · trazo 30, 1,8 px a 64`;
   document.body.insertAdjacentHTML('beforeend', `
     <svg class="guides" viewBox="0 0 1080 1920" aria-hidden="true">
       <rect x="2" y="420" width="1076" height="1080"/>

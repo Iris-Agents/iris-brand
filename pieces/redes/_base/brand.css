@@ -51,3 +51,13 @@ body { font-family: var(--font-sans); }
 /* El sello: va adentro de la segunda línea del titular, que lleva margin-top 0.16em y line-height 1
    (lo pone el CSS de cada pieza). Esquinas rectas; las medidas en em siguen al tamaño del titular. */
 .sello { display: inline-block; padding: 0.14em 0.16em 0.18em 0.13em; line-height: 0.86; background: var(--signature-marketing-block); color: var(--signature-marketing-text); }
+
+/* La flecha «→» («3 → 43», «deslizá →»): las Plex que carga este archivo no traen U+2192, y tipeada
+   sale con la fuente del sistema. Va siempre como este SVG en línea, nunca tipeada:
+   <svg class="flecha" viewBox="0 0 820 516" role="img" aria-label="a"><path d="M55 258H717M483 24 717 258 483 492"/></svg>
+   Las medidas son en milésimas de em: el alto de la x de Plex (516), centrada a media altura de las
+   cifras como la flecha de Plex (sube 91 desde la línea de base), el ancho de esa flecha (820) y el
+   trazo de su menos (68 en 400). En un texto en Plex 500 lleva además la clase flecha-500. El color
+   es el del texto que la rodea. */
+.flecha { display: inline-block; width: 0.82em; height: 0.516em; vertical-align: 0.091em; overflow: visible; fill: none; stroke: currentColor; stroke-width: 68; stroke-linejoin: miter; }
+.flecha-500 { stroke-width: 92; }

@@ -1,0 +1,112 @@
+{
+  "$comment": "Los formatos de las piezas de redes: el lienzo, lo que cada red tapa o recorta y el tamaño mínimo de la letra. Es la única fuente de estos números: plantillas.md y el manual remiten acá, y medir/ los usa para medir una pieza. Todo va en px de la pieza; x e y se cuentan desde arriba a la izquierda. De dónde sale cada medida está en plantillas.md («De dónde salen las medidas»).",
+  "minimumSizes": {
+    "1080": {
+      "note": "Las piezas de 1080 px de ancho. En el teléfono se ven a unos 390 px, o sea a 0,36 de su tamaño.",
+      "phoneScale": 0.36,
+      "roles": {
+        "headline": { "px": 64, "note": "El titular, las dos líneas. Las plantillas van de 64 a 120." },
+        "reading": { "px": 34, "note": "La bajada y el texto de lectura. Las plantillas van de 34 a 42." },
+        "productRows": { "px": 28, "note": "Las filas, los datos y los botones de las piezas de producto (la tarjeta, el feed). Las plantillas van de 28 a 34." },
+        "toolLine": { "px": 26, "maxPx": 30, "note": "La línea «tool · estado» del intercambio, de 26 a 30. Las plantillas usan 28." },
+        "labels": { "px": 22, "betterPx": 24, "note": "Los rótulos de una a tres palabras: eyebrow, nota, @, hora, contador, leyenda. Es el piso de cualquier texto de la pieza; mejor 24. Las plantillas van de 22 a 30." },
+        "wordmarkInLockup": { "px": 40, "note": "El cuerpo del logotipo dentro del lockup. Las plantillas van de 40 a 92." }
+      }
+    },
+    "facebook-cover": {
+      "note": "La portada de Facebook tiene otra escala: el celular la muestra a 0,577 y la computadora a 0,5. La tabla de 1080 no le aplica.",
+      "phoneScale": 0.577,
+      "roles": {
+        "headline": { "px": 38, "note": "El titular, las dos líneas." },
+        "labels": { "px": 22, "note": "El piso de cualquier texto: 22 px acá son 12,7 en el celular." }
+      }
+    }
+  },
+  "formats": {
+    "perfil": {
+      "use": "La foto de perfil de Instagram, Facebook y WhatsApp: el ícono a sangre. No lleva texto.",
+      "width": 1080,
+      "height": 1080,
+      "minimumSizes": "1080",
+      "safeArea": { "circle": { "cx": 540, "cy": 540, "r": 432 }, "note": "La i entra en el círculo de radio 432, el 80 % del recorte. Es una regla de marca, no de las redes." },
+      "reserved": [],
+      "crops": [{ "circle": { "cx": 540, "cy": 540, "r": 540 }, "note": "Las tres redes recortan el círculo inscripto." }]
+    },
+    "portada-facebook": {
+      "use": "La portada de la página de Facebook, en una sola versión.",
+      "width": 1640,
+      "height": 624,
+      "minimumSizes": "facebook-cover",
+      "safeArea": { "top": 40, "right": 294, "bottom": 0, "left": 294, "note": "El contenido va en x 294–1346, 28 px adentro de la franja que se ve en el celular, y empieza a 40 px de arriba. Abajo no recorta: las dos vistas muestran el alto entero." },
+      "reserved": [
+        { "name": "la foto de perfil", "x": 0, "y": 420, "width": 660, "height": 204, "note": "La foto de perfil tapa la esquina de abajo a la izquierda, x 0–660 e y 420–624: une la de la computadora y la del celular, con 24 px de margen." }
+      ],
+      "crops": [
+        { "left": 266, "right": 266, "note": "En el celular se ve sólo la franja x 266–1374, a 640 × 360 de pantalla." },
+        { "note": "En la computadora se ve entera, a 820 × 312 de pantalla." }
+      ]
+    },
+    "feed-4x5": {
+      "use": "El post de feed 4:5, el formato de Instagram: las plantillas de feed-4x5, el feed del intercambio y el de La trastienda.",
+      "width": 1080,
+      "height": 1350,
+      "minimumSizes": "1080",
+      "safeArea": { "top": 72, "right": 72, "bottom": 72, "left": 72, "note": "Es el margen de 72 px, un pedido de marca: ningún texto pasa de ahí. La foto de La trastienda sí va a sangre." },
+      "reserved": [],
+      "crops": [{ "left": 34, "right": 34, "note": "La grilla 3:4 del perfil de Instagram (desde enero de 2025) muestra el 4:5 recortado 34 px por lado." }]
+    },
+    "cuadrado": {
+      "use": "El post cuadrado, para Facebook: en Instagram la grilla lo recorta.",
+      "width": 1080,
+      "height": 1080,
+      "minimumSizes": "1080",
+      "safeArea": { "top": 72, "right": 72, "bottom": 72, "left": 72, "note": "Es el margen de 72 px, un pedido de marca." },
+      "reserved": [],
+      "crops": [{ "left": 135, "right": 135, "note": "La grilla 3:4 de Instagram lo recorta 135 px por lado y corta el titular en la vista previa: por eso el cuadrado es para Facebook." }]
+    },
+    "carrusel": {
+      "use": "Cada lámina de un carrusel 4:5: la portada, las interiores y el cierre, también la portada de La trastienda.",
+      "width": 1080,
+      "height": 1350,
+      "minimumSizes": "1080",
+      "safeArea": { "top": 72, "right": 72, "bottom": 72, "left": 72, "note": "El margen mínimo es de 72 px. Las plantillas del carrusel usan 88, para que el texto respire." },
+      "reserved": [
+        { "name": "el contador de fotos de Instagram", "x": 880, "y": 0, "width": 200, "height": 150, "note": "Arriba a la derecha Instagram pone su propio «1/3» y tapa lo que haya debajo: esos 200 × 150 px quedan vacíos. Es una medida estimada, sin fuente oficial." }
+      ],
+      "crops": [{ "left": 34, "right": 34, "note": "La grilla 3:4 del perfil recorta la portada 34 px por lado." }]
+    },
+    "story": {
+      "use": "La story, quieta: las plantillas de story y la story del intercambio. Si además va de portada de reel, se mide también como reel.",
+      "width": 1080,
+      "height": 1920,
+      "minimumSizes": "1080",
+      "safeArea": { "top": 250, "right": 64, "bottom": 340, "left": 64, "note": "Deja 250 px arriba, 340 abajo y 64 por lado, un pedido de marca." },
+      "reserved": [],
+      "crops": []
+    },
+    "reel": {
+      "use": "La portada de un reel y sus cuadros, como el cuadro de cierre con el titular y el lockup.",
+      "width": 1080,
+      "height": 1920,
+      "minimumSizes": "1080",
+      "safeArea": { "top": 285, "right": 65, "bottom": 672, "left": 65, "note": "Lo importante va entre y = 285 e y = 1248. Meta pide dejar libre el 14 % de arriba (269 px), el 35 % de abajo (672) y el 6 % por lado (65); arriba son 285 porque el feed recorta el reel a 4:5." },
+      "footer": { "bottom": 340, "note": "En la portada del reel, que es también una story, el pie (el lockup y @iris_agents) puede bajar hasta y = 1580, como en la story, aunque en el reel lo tape la leyenda. Se reconoce por el elemento <footer>. El cuadro de cierre no lleva pie: su lockup va dentro de la zona segura." },
+      "reserved": [
+        { "name": "la columna de botones del reel", "x": 950, "y": 1152, "width": 130, "height": 768, "note": "Los botones (me gusta, comentar) suben por la derecha hasta el 40 % de abajo: por eso la bajada termina en x = 950." }
+      ],
+      "crops": [
+        { "top": 285, "bottom": 285, "note": "En el feed, el reel se recorta a 4:5: se ven los 1350 px del centro, y 285–1635." },
+        { "top": 240, "bottom": 240, "note": "La grilla 3:4 del perfil muestra los 1440 px del centro, y 240–1680." }
+      ]
+    },
+    "destacada": {
+      "use": "La portada de una historia destacada de Instagram: un pictograma de trazo, sin texto.",
+      "width": 1080,
+      "height": 1920,
+      "minimumSizes": "1080",
+      "safeArea": { "circle": { "cx": 540, "cy": 960, "r": 360 }, "note": "La zona segura es el círculo de Ø720 del centro. La caja del pictograma mide 528 px (492 en Demo, para que pese como las otras), con un máximo de 560." },
+      "reserved": [],
+      "crops": [{ "circle": { "cx": 540, "cy": 960, "r": 540 }, "note": "Instagram recorta un círculo de Ø1080 centrado en (540, 960). No publica cuánto: es la medida más estricta de las que se leyeron." }]
+    }
+  }
+}
