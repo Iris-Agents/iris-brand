@@ -21,7 +21,9 @@ Reglas que valen para todas:
 - **Las cifras de una pieza son de ejemplo**, y se marcan: «Datos de ejemplo.» en la pieza cuando
   tiene lugar para una nota, y siempre en el HTML. Un dato real de un cliente no va nunca, salvo
   en un testimonio con consentimiento escrito (9.10).
-- **Mercado Libre se nombra como un hecho**, chico y en texto, nunca en un titular (capítulo 12).
+- **Mercado Libre se nombra como un hecho**, chico y en texto, nunca en un titular, en pauta ni con
+  su logo o sus colores. En una pieza orgánica de redes puede ir arriba, en la línea de contexto, en
+  `text.primary`; en los banners y las portadas de LinkedIn y Facebook, no (capítulo 12, 12.1).
 
 ---
 
@@ -77,8 +79,8 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
   «Mejoró la reputación», «Contestó 40 preguntas», «Resolvió 3 reclamos», «Generó 3 ventas
   adicionales» y «Adhirió a una promoción». Cada fila con ✓, el verbo en `text.secondary` y el
   objeto en `text.primary` 500 (capítulo 08, sección 8.2).
-- **Mercado Libre** va en el «Acerca de» del perfil, como un hecho: «para vendedores de Mercado
-  Libre».
+- **Mercado Libre** no va en el banner, tampoco arriba como en un post: va en el «Acerca de» del
+  perfil, como un hecho: «para vendedores de Mercado Libre».
 - **Antes de darlo por bueno,** mirarlo subido en la computadora y en un celular: cuánto recorta
   la app del celular a los costados no está medido.
 - El diseño salió del canvas del banner en Claude Design; lo que se edita es el HTML.
@@ -100,7 +102,8 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
 - El archivo es `pieces/redes/facebook/portada.html` → `portada.png`, y es la única versión. Lleva
   el mismo titular que el banner, «Agentes expertos / a cargo de tu e-commerce.», con la segunda
   línea en el sello, y el mismo degradé radial; es su hermana.
-- **Mercado Libre** no va en el titular: va en el «Acerca de» de la página, como un hecho.
+- **Mercado Libre** no va en la portada, ni en el titular ni arriba: va en el «Acerca de» de la
+  página, como un hecho.
 - La foto de perfil tapa la esquina de abajo a la izquierda y el celular recorta los costados: las
   zonas seguras y los largos de cada texto están en `pieces/redes/plantillas.md`, y hay que
   mirarla subida en la computadora y en un celular.
@@ -201,19 +204,6 @@ magenta, que **nunca se publica**.
 - **La bio** puede decir «tu cuenta de Mercado Libre», sin logo ni colores. El nombre de la cuenta
   nunca lleva Mercado Libre.
 
-**Manda este manual.** La especificación de las plantillas se escribió antes de algunas decisiones
-del 2026-10-10. Si todavía dice otra cosa, valen estas:
-- Las filas del feed en una pieza pública dicen el resultado, sin «Cliente ·», «Producto ·» ni
-  «Vendedor ·».
-- La tarjeta de aprobación lleva el antetítulo «Propuesta», no el nombre del agente.
-- La bio puede nombrar a Mercado Libre como un hecho.
-- Las piezas de redes pueden llevar la luz radial de hasta el 6 %, y la línea de contexto va en
-  `text.primary` (11.13).
-- El sello de la firma es el petróleo de marketing: la firma en tinta sobre el bloque #03313C
-  (capítulo 04, 4.9).
-- La línea «tool · estado» va a 26–30 px en una pieza de 1080, en la mono y `text.tertiary`
-  (11.13).
-
 Cómo se regeneran las PNG: capítulo 14.
 
 ## 11.13 Los tres registros de redes
@@ -223,23 +213,27 @@ sello es el mismo en los tres: el petróleo de marketing, con la firma en tinta 
 
 | Registro | Cuándo va | La imagen | El sello |
 |---|---|---|---|
-| **Pregunta y cifra** | La base: los posts y los carruseles | El intercambio (capítulo 08, 8.9): la pregunta con cursor, la línea «tool · estado» y la cifra grande | Petróleo, en el titular |
-| **En vivo** | Los reels | La secuencia del intercambio en el tiempo: pregunta → ◐ trabajando → respuesta → OK, con el cursor en tinta (#EDEDEA) | Petróleo, en el titular |
+| **Pregunta y cifra** | La base: los posts y los carruseles | El intercambio (capítulo 08, 8.9): la pregunta con cursor, la línea «tool · estado» y la cifra grande | Petróleo, en el titular de otra lámina (la portada o el cierre): el intercambio va sin titular |
+| **En vivo** | Los reels | La secuencia del intercambio en el tiempo: pregunta → ◐ trabajando → respuesta → OK, con el cursor en tinta (#EDEDEA) | Petróleo, en el cuadro de cierre: el titular de dos líneas con el lockup, después de la secuencia, que va sin titular |
 | **La trastienda** | Campañas y fechas | Una foto oscura y quieta del mundo del vendedor | Petróleo, en el titular |
 
 ### Pregunta y cifra
 
 - La imagen es la conversación: arriba la línea de contexto, después la pregunta con su cursor, la
   línea «tool · estado», la cifra grande con su unidad y, si la respuesta propone algo, el OK con
-  el ●. El titular de dos líneas lleva la segunda línea en el sello petróleo. La plantilla del
-  intercambio (`pieces/redes/plantillas/intercambio/`) va sin titular: si el post lo lleva, va en
-  otra lámina (la portada o el cierre de un carrusel), con el sello.
+  el ●.
+- **El intercambio va sin titular:** el sello nunca comparte la imagen con la pregunta y la cifra.
+  Si el post lleva titular, va en otra lámina (la portada o el cierre de un carrusel), con la
+  segunda línea en el sello petróleo. La plantilla es `pieces/redes/plantillas/intercambio/`.
 - El fondo es el negro de siempre.
 
 ### En vivo
 
 - Un reel vertical de 1080 × 1920 (11.8). El primer tiempo es la pregunta que se tipea; después el ◐
   de trabajando en la línea de la tool, la respuesta con su cifra y el OK con su ●.
+- **La secuencia va sin titular**, como el intercambio quieto.
+- **El reel cierra con un cuadro aparte:** el titular de dos líneas, con la segunda en el sello
+  petróleo, y el lockup (el SVG, capítulo 03). Es el único cuadro del reel con el sello.
 - El cursor va en tinta (`text.primary`). El movimiento sigue el capítulo 06 («Movimiento en
   piezas de video»).
 
@@ -258,11 +252,11 @@ sello es el mismo en los tres: el petróleo de marketing, con la firma en tinta 
 
 | Qué | Regla |
 |---|---|
-| El sello | El de marketing: la firma en `signature.marketing.text` (#EDEDEA) sobre `signature.marketing.block` (#03313C), 11,87:1, con las medidas de siempre (capítulo 05, 5.3). En `brand.css`, `--signature-block` y `--signature-text`. |
+| El sello | El de marketing: la firma en `signature.marketing.text` (#EDEDEA) sobre `signature.marketing.block` (#03313C), 11,87:1, con las medidas de siempre (capítulo 05, 5.3). En `brand.css`, `--signature-marketing-block` y `--signature-marketing-text`. |
 | La luz radial | Blanca, de hasta el 6 %, una sola, detrás del punto focal (la cifra o el titular). Nunca a pantalla completa ni de color. En su centro, todo el texto sigue pasando (el terciario da 6,25:1, medido en la PNG). |
 | Los glifos ● y ◐ | Como objeto, de hasta 48 px, siempre con su palabra (capítulo 08, 8.1). |
 | La línea «tool · estado» | 26–30 px en una pieza de 1080, en la mono y `text.tertiary` (capítulo 08, 8.4). |
-| La línea de contexto | El eyebrow de arriba de todo, en `text.primary` (capítulo 09, 9.11). |
+| La línea de contexto | El eyebrow de arriba de todo, en `text.primary` (capítulo 09, 9.11). En una pieza orgánica puede decir «Para vendedores de Mercado Libre» (capítulo 12, 12.1). |
 | El botón principal | «Aprobar», con borde de tinta de 1 px y sin relleno (capítulo 06, 6.5). |
 | La burbuja | No va: la persona se marca con el cursor (capítulo 09, 9.11). |
 | El video | Vertical, 1080 × 1920 a 30 fps (11.8). |

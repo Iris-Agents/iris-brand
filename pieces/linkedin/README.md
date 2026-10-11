@@ -42,7 +42,8 @@ Cómo quedó:
 - El lockup y el titular empiezan en x 718, 16 px a la derecha de todas las fotos. Ninguna zona de
   foto tiene un píxel de tinta.
 - El sello de la segunda línea del titular es el de todas las piezas de redes: el bloque petróleo
-  con la firma en tinta (`.sello` de `pieces/redes/_base/brand.css`). Termina en x 1167: entra entero
+  con la firma en tinta (`.sello` de `pieces/redes/_base/brand.css`, con `--signature-marketing-block`
+  y `--signature-marketing-text`). Termina en x 1167: entra entero
   aun con el recorte del 20 %. El color no cambia sus medidas.
 - El panel mide 340 px y va en x 1208–1547, a 36 px del borde derecho, con 40 px de aire después
   del sello. Con el titular a 40 px no entra uno más ancho: el sello sumó 14 px al ancho de la

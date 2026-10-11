@@ -43,17 +43,10 @@ html, body { width: var(--cover-width); height: var(--cover-height); overflow: h
 
 /* Lockup y titular */
 .lead { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 32px; }
-/* Proporciones del lockup (guide/03-logo-e-icono.md, 3.4), las mismas de las plantillas: ícono 52, radio 12,
-   i 42, palabra 40, separación 14. Esta imagen es el doble de la pantalla: los bordes van de 2 px. */
-.lockup { display: flex; align-items: center; gap: 14px; }
-.tile {
-  width: 52px; height: 52px; flex: none;
-  display: flex; align-items: center; justify-content: center; padding-bottom: 4px;
-  background: var(--brand-black); color: var(--brand-white);
-  border: 2px solid var(--border-default); border-radius: 12px;
-  font-size: 42px; line-height: 1;
-}
-.wordmark { font-size: 40px; line-height: 1; letter-spacing: -0.01em; color: var(--brand-white); white-space: nowrap; }
+/* El lockup es logo/lockup.svg en línea, nunca tipeado, a 52 px de alto. Esta imagen es el doble de la
+   pantalla: el borde del cuadrado va de 2 px, como en las plantillas (la cuenta está en
+   plantillas/_comun/plantilla.css). */
+.lockup { display: block; flex: none; }
 .headline { margin: 0; font-size: 38px; line-height: 1.14; font-weight: 500; letter-spacing: -0.015em; color: var(--text-primary); }
 .headline > span { display: block; white-space: nowrap; }
 /* La 2 va en el sello (.sello, en brand.css): la línea lleva 0,16em de aire arriba e interlineado 1. */

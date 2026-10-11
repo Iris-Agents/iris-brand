@@ -63,7 +63,8 @@ A es el lado del ícono. Son las medidas que usan las plantillas de `pieces/rede
 - El ícono y la palabra van centrados en vertical.
 - En el lockup la i del ícono va más chica que en el ícono solo (0,58 A contra 0,64): así mide casi
   lo mismo que la i de «iris» (0,55 A) y las dos se leen del mismo cuerpo.
-- El radio del cuadrado existe sólo cuando el ícono se dibuja adentro de una pieza, y lo da el CSS.
+- El radio del cuadrado existe sólo cuando el ícono se dibuja adentro de una pieza: `lockup.svg` ya
+  lo trae, y un ícono suelto que va como tile lo recibe del CSS de la pieza.
 - **Sobre un fondo del mismo negro**, el cuadrado lleva un borde `border.default` (#3A3937): 1 px en
   pantalla, 2 px en una pieza de 1080. Sin el borde, el cuadrado se pierde.
 
@@ -129,7 +130,8 @@ portada de Facebook: ahí el lockup va encima, en `color.brand.white`.
 
 **Tipografía**
 - Playfair, la DM Serif Display recta, Plex o cualquier otra fuente; una itálica o un bold falsos.
-- Tipear el logotipo cuando existe el SVG.
+- Tipear el logo: el ícono, el logotipo o el lockup. Tampoco en una plantilla, un banner, una portada
+  o una mesa de trabajo de Claude Design: va el SVG (3.10).
 - «Iris», «IRIS» o «Iris Agents» en el logotipo, o un sufijo: «AI», «.ai».
 - El logotipo como palabra adentro de una oración: en un texto se escribe «iris», en la tipografía
   del texto.
@@ -160,5 +162,8 @@ Viven en `logo/` y se exportan una sola vez desde los SVG master.
 | `png/` | Para lo que no lee SVG (Canva, Google Docs y Slides, Keynote, Notion, la firma de mail): el logotipo en `color.brand.white` y en `color.brand.black` y los dos lockups, con fondo transparente, a 512, 1024 y 2048 px de ancho; el ícono lleno a 64, 128, 256 y 2048 px. Cuál va dónde, en `logo/README.md`. |
 | `preview.png` | La hoja de contacto de `png/`, sobre oscuro y sobre claro. |
 
-Los archivos todavía se están redibujando. Hasta que estén, una pieza copia el lockup de una
-plantilla de `pieces/redes/plantillas/` tal como está, sin rearmarlo.
+**El logo nunca se tipea**: ni en una plantilla, ni en un banner, ni en una portada, ni en una mesa
+de trabajo de Claude Design. No hay excepción: ni la i del ícono en un recuadro, ni «iris agents»
+como texto en la firma, aunque la fuente esté cargada. Va el SVG en línea, del tamaño y en el
+lugar que tendría: `lockup.svg`, `icon.svg` o `wordmark-white.svg` según 3.1, de `logo/`. Lo que
+no lee SVG usa un PNG de `png/`.

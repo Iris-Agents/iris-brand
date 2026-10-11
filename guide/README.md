@@ -12,7 +12,7 @@ hex al lado para que se lea; en código se usa siempre el token.
 
 | Capítulo | De qué trata |
 |---|---|
-| [00 · Cómo se usa](00-como-se-usa.md) | Dónde vive la marca, cómo se instala, quién aprueba un cambio, qué cubre y cómo se versiona. |
+| [00 · Cómo se usa](00-como-se-usa.md) | Dónde vive la marca, cómo se instala, qué cubre y quién aprueba un cambio. |
 | [01 · Esencia](01-esencia.md) | Qué es iris, su personalidad, los siete principios con su consecuencia visual y dónde está la diferencia. |
 | [02 · Nombre](02-nombre.md) | «iris», «iris agents» e «Iris Agents»: cuándo va cada uno, cómo se nombran los agentes y lo que nunca se escribe. |
 | [03 · Logo e ícono](03-logo-e-icono.md) | Las tres piezas y cuándo va cada una, construcción, resguardo, tamaños mínimos, fondos, usos incorrectos y archivos. |
@@ -26,7 +26,7 @@ hex al lado para que se lea; en código se usa siempre el token.
 | [11 · Aplicaciones](11-aplicaciones.md) | Favicon, ícono de app, perfiles y banners, OG, video, propuestas, mail y los tres registros de redes. |
 | [12 · Mercado Libre y otras marcas](12-mercado-libre.md) | Cómo se nombra a Mercado Libre, qué no se usa nunca, el descargo, y Claude, Mercado Pago y los canales futuros. |
 | [13 · Accesibilidad](13-accesibilidad.md) | La lista de control: contraste, foco, tamaño de lo que se toca, estado sin depender del color, movimiento. |
-| [14 · Recursos y versionado](14-recursos-y-versionado.md) | Dónde está cada archivo, cómo se publica una versión y qué frena el test. |
+| [14 · Recursos](14-recursos.md) | Dónde está cada archivo, cómo se instala y se actualiza, qué frena el test y cómo se cambia la marca. |
 
 ## Cómo se lee
 

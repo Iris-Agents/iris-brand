@@ -34,6 +34,12 @@ escasea.
   en dos archivos (latin y latin-ext). Como la única cara es la itálica, no puede salir recta aunque
   algo fuerce `font-style: normal`. Para que nadie le invente un bold, la app pone
   `html { font-synthesis: none; }` (capítulo 00): `fonts.css` sólo declara caras y no puede ponerlo.
+- **Afuera se llama distinto.** «DM Serif Display Italic» existe sólo donde se carga `fonts.css`. En
+  Google Fonts, en las piezas de redes y en cualquier pieza que no carga `fonts.css`, la familia es
+  «DM Serif Display» y la itálica sale de `font-style: italic` (`family=DM+Serif+Display:ital@1`).
+  Por eso la pila de `font.family.signature` trae los dos nombres: «DM Serif Display Italic», «DM
+  Serif Display», «DM Serif Display Italic Fallback», serif. Se escribe entera, siempre con
+  `font-style: italic` y `font-synthesis: none`.
 - El test frena la firma por debajo de 32 px, fuera del peso 400 o fuera de sus usos.
 
 ## 5.3 El titular de dos líneas

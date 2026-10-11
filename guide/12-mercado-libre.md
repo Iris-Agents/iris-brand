@@ -13,8 +13,18 @@ decir un hecho, nunca su identidad.
 - **iris siempre es más grande.** Mercado Libre nunca es el elemento principal de una pieza ni el
   sujeto de la frase.
 - **No va en un titular.** El del banner y el de la portada de Facebook es «Agentes expertos / a
-  cargo de tu e-commerce.». Mercado Libre va en la bajada, en un dato chico, en el «Acerca de» o en la
-  bio.
+  cargo de tu e-commerce.». Mercado Libre va en la bajada, en un dato chico (en `text.tertiary` y
+  Plex 400), en el «Acerca de», en la bio o, en una pieza orgánica de redes, arriba.
+- **Arriba, en una pieza orgánica de redes.** «Para vendedores de Mercado Libre» puede ir como la
+  línea de contexto, el eyebrow de arriba de todo: Plex Sans 500, mayúsculas por CSS, +0,08em y
+  `text.primary` (capítulo 05, 5.5; capítulo 09, 9.11). Si hay una cuenta regresiva, va a la
+  derecha («Faltan 3 semanas»). Con estos límites:
+  - nunca en el titular;
+  - nunca con su logo, su amarillo ni su azul (12.2);
+  - nunca en pauta: un aviso pago no lo nombra (12.2);
+  - iris siempre se ve más: la línea de contexto es un rótulo, y el lockup y lo que dice la pieza
+    pesan más;
+  - los banners y las portadas (LinkedIn, Facebook) siguen sin Mercado Libre: va en el «Acerca de».
 - **«Mercado Libre»** en castellano y en inglés; **«Mercado Livre»** en portugués de Brasil.
   Siempre en dos palabras y con mayúsculas.
 - **«tu cuenta de Mercado Libre», no «tu Mercado Libre».** La segunda se puede leer como que iris

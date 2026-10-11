@@ -42,8 +42,11 @@ La marca es monocroma y oscura. La jerarquía sale de la luz: más claro es más
 | `--text-tertiary` | #9B9A96 | 7,03 | Datos sueltos: el eyebrow de adentro de una pieza de producto («Propuesta», «Hoy en tu cuenta»), horas, contador, nota, `@iris_agents`, leyenda. | Para un párrafo que se lee de corrido, o para la línea de contexto de arriba de todo, que va en `--text-primary`. |
 | `--text-secondary` | #BFBEB9 | 10,64 | Bajada, texto de apoyo, el texto de cada fila del feed menos lo que cambió. | Para el titular: la línea 1 va en `--text-primary` y la 2, en el sello. |
 | `--text-primary` | #EDEDEA | 16,89 | La línea de contexto de arriba de todo, la primera línea del titular, lo que cambió en cada fila del feed (la cifra o el objeto, en `<b>` y Plex 500), cifras, título de la tarjeta, el borde y la letra de «Aprobar». | Para el logotipo: va en `--brand-white`. |
-| `--signature-block` | #03313C | 1,42, a propósito: casi no se despega del negro | El sello: el bloque petróleo detrás de la segunda línea del titular. Es el único acento de color de la pieza. | En cualquier otro lugar (ver «El sello»). Tampoco para un botón: «Aprobar» va con borde de 1 px (2 px en el carrusel) en `--text-primary`, sin relleno. |
-| `--signature-text` | #EDEDEA | 11,87 sobre `--signature-block` | La letra de la firma en el sello: la tinta. | Fuera del sello: ahí la tinta es `--text-primary`, que tiene el mismo valor. |
+| `--signature-marketing-block` | #03313C | 1,42, a propósito: casi no se despega del negro | El sello: el bloque petróleo detrás de la segunda línea del titular. Es el único acento de color de la pieza. | En cualquier otro lugar (ver «El sello»). Tampoco para un botón: «Aprobar» va con borde de 1 px (2 px en el carrusel) en `--text-primary`, sin relleno. |
+| `--signature-marketing-text` | #EDEDEA | 11,87 sobre `--signature-marketing-block` | La letra de la firma en el sello: la tinta. | Fuera del sello: ahí la tinta es `--text-primary`, que tiene el mismo valor. |
+
+Las dos del sello se llaman como `signature.marketing` de los tokens. En los tokens,
+`signature-block` y `signature-text` son el sello de tinta de la app, que estas piezas no usan.
 
 ### El sello
 
@@ -135,7 +138,7 @@ falta internet al renderizar, el navegador pone Georgia o la del sistema: esa pi
 
 | Familia | Para qué | Pesos | Nunca |
 |---|---|---|---|
-| **DM Serif Display itálica**: la firma (`.signature`) | Sólo tres cosas: el logotipo, la i del ícono y la segunda línea de un titular de dos líneas. | 400 itálica, el único que existe | Como palabra suelta, en números, en botones, en el eyebrow, en el cuerpo, en un título de una línea. |
+| **DM Serif Display itálica**: la firma (`.signature`) | Sólo tres cosas: el logotipo y la i del ícono, que están dibujados en los SVG de `logo/` y nunca se tipean, y la segunda línea de un titular de dos líneas. | 400 itálica, el único que existe | Como palabra suelta, en números, en botones, en el eyebrow, en el cuerpo, en un título de una línea. |
 | **IBM Plex Sans** | Todo lo que se lee: titular (línea 1), bajada, filas, etiquetas, botones, píldora, `@`. | 400 para leer, 500 para titulares, eyebrow, botones, píldora y título de la tarjeta | En 600 o 700: el bold no existe. Tampoco en itálica: `brand.css` no la carga y el navegador la falsearía. |
 | **IBM Plex Mono** | Sólo datos: horas (`09:12`), ids, nombres de tools, el contador del carrusel (`1/3`), el marcador (`01`). | 400 (`brand.css` carga también el 500; las plantillas no lo usan) | En palabras: «en curso» o «hoy» van en Plex Sans. Tampoco en etiquetas. |
 
@@ -150,11 +153,15 @@ La firma se reconoce porque escasea, y por eso va sólo en tres lugares:
 No hay un cuarto uso. Un titular de una sola línea va entero en Plex. El título de una lámina
 interior del carrusel también va sin firma.
 
+Los dos primeros son dibujos: van como SVG de `logo/` (sección 3). En una pieza, la clase
+`.signature` va sólo en la segunda línea del titular.
+
 ### El titular de dos líneas
 
 - **Línea 1:** IBM Plex Sans 500, en `--text-primary`.
 - **Línea 2:** la firma (DM Serif Display 400 itálica), en el sello: la letra en
-  `--signature-text` (la tinta) sobre el bloque `--signature-block` (el petróleo). No va en gris.
+  `--signature-marketing-text` (la tinta) sobre el bloque `--signature-marketing-block` (el
+  petróleo). No va en gris.
 - **Las dos al mismo tamaño.** El interlineado de la línea 1 es de 1,04 a 1,14; la línea 2 lleva el
   del sello: 1, con 0,16em de aire arriba.
 - **El sello** es la clase `.sello` de `brand.css`: `inline-block`, padding de 0,14em 0,16em
@@ -207,6 +214,9 @@ el piso es 22 px y el titular va a 38 px: no le apliques esta tabla.
   `.eyebrow` de arriba (slot `eyebrow`), que cada HTML pasa a tinta; en las de los registros (el
   intercambio y La trastienda) es `.contexto`, con el tema a la izquierda y, si hay una fecha real,
   cuándo a la derecha («Faltan 3 semanas»).
+- **En un post orgánico, la línea de contexto puede ser «Para vendedores de Mercado Libre»**, con la
+  cuenta regresiva a la derecha si la hay. Es el único lugar de arriba donde va Mercado Libre, y
+  tiene sus límites (sección 4).
 - El eyebrow de adentro de una pieza de producto («Propuesta», «Hoy en tu cuenta») sigue en
   `--text-tertiary`, como en la app.
 
@@ -242,11 +252,36 @@ Las plantillas no necesitan nada instalado: `brand.css` carga las tres familias 
 - **En una pieza de 1080:** el ícono del lockup va de 52 px de lado o más, y el logotipo de 40 px
   de cuerpo o más.
 
+### El logo va siempre como SVG
+
+El logo nunca se tipea (`guide/03-logo-e-icono.md`, 3.9 y 3.10): ni en una plantilla, ni en un
+banner, ni en una portada, ni en una mesa de trabajo de Claude Design. No hay excepción. Cada
+pieza lleva en línea el SVG de `logo/`, copiado con sus trazados tal cual:
+
+| Qué va | Archivo | Dónde ya está |
+|---|---|---|
+| El lockup, sobre el negro | `logo/lockup.svg` | El pie de los posts y de las stories, la cabecera y el cierre del carrusel, la portada de La trastienda, el banner del perfil de LinkedIn y la portada de Facebook. |
+| La marca sola, sobre el negro | `logo/wordmark-white.svg` | La portada de la página de LinkedIn, donde el ícono ya se ve en el logo de la página. |
+| El ícono a sangre, para un recorte en círculo | `logo/icon-profile.svg` | La foto de perfil (`perfil/perfil.html`). |
+| El ícono a sangre, cuadrado | `logo/icon.svg` | El logo de la página de LinkedIn (`pieces/linkedin/logo-empresa.html`, como `<img>`). |
+
+Cómo va en una pieza:
+
+- Se copia el `<svg>` de una plantilla, que ya lo trae, o el del archivo. De sus atributos cambian
+  sólo el alto y el ancho: en el lockup, el lado del ícono A y 4,594 A (`width="257.27"
+  height="56"` a 56 px); en la marca sola, 0,936 y 4,264 veces el cuerpo (`width="170.56"
+  height="37.44"` a 40 px).
+- En una pieza de 1080, el borde del cuadrado del lockup mide 2 px (`guide/03`, 3.4). El archivo lo
+  trae a 1/52 A, que es 1 px en pantalla, así que en la copia cambia el `<rect>` del borde:
+  `stroke-width` 2000 / A, `x` e `y` la mitad del trazo, el lado 1000 menos el trazo y `rx` 230
+  menos medio trazo. Las plantillas ya lo traen a 52, 56 y 120 px.
+- Nunca se rearma con CSS (la i en un recuadro y «iris agents» en DM Serif como texto) ni se tocan
+  sus trazados.
+
 ### Construcción del lockup
 
-Las medidas son las del capítulo 03 del manual (`guide/03-logo-e-icono.md`, 3.4) y están en
-`plantillas/_comun/plantilla.css`; el carrusel (`carrusel.css`) y la portada de Facebook
-(`portada.css`) usan las mismas. A es el lado del ícono:
+Las medidas son las del capítulo 03 del manual (`guide/03-logo-e-icono.md`, 3.4) y ya están
+dibujadas en `logo/lockup.svg`. A es el lado del ícono:
 
 | Medida | Valor |
 |---|---|
@@ -259,16 +294,18 @@ Las medidas son las del capítulo 03 del manual (`guide/03-logo-e-icono.md`, 3.4
 **Sobre fondo negro**, el cuadrado lleva un borde en `--border-default` (1 px en pantalla, 2 px en
 una pieza de 1080), porque si no se pierde contra un fondo del mismo negro.
 
-**No lo armes de cero:** copiá el markup del lockup de cualquier plantilla tal cual está.
-
 ### Área de resguardo
 
-- **Alrededor del ícono o del lockup:** como mínimo, la mitad del lado del ícono (A/2). En un
-  lockup de 56 px son 28 px.
-- **Alrededor del logotipo solo:** la mitad de su cuerpo.
+Es la del capítulo 03 del manual (`guide/03-logo-e-icono.md`, 3.5):
 
-En esa franja no entra texto, ninguna otra pieza ni el borde de la imagen. Todas las plantillas la
-cumplen. El manual todavía no fija un número: esta regla es de esta especificación.
+- **Alrededor del ícono o del lockup:** A/2 de cada lado. En un lockup de 56 px son 28 px; en el
+  de 120 del cierre del carrusel, 60.
+- **Alrededor de la marca sola:** 1x de cada lado, con x el alto de la x itálica, 0,496 del cuerpo
+  (casi medio cuerpo): a 40 px de cuerpo, 20 px.
+- No aplica al ícono como archivo a sangre, como la foto de perfil: ahí el ícono es todo el espacio.
+
+En esa franja no entra nada: ni texto, ni otro logo, ni el borde de la pieza. Todas las plantillas
+la cumplen.
 
 ### Fondos
 
@@ -288,17 +325,17 @@ cumplen. El manual todavía no fija un número: esta regla es de esta especifica
 ### Qué no hacer
 
 - Subrayar el logotipo o agregarle cualquier trazo o adorno.
-- Usar violeta, el amarillo de Mercado Libre, su logo o el cian de Mercado Pago, en el logo o a su lado.
+- Usar violeta, el amarillo o el azul de Mercado Libre, su logo o el cian de Mercado Pago, en el logo o a su lado.
 - Hacer juegos con el ojo: pupilas, círculos concéntricos, la i o la palabra «iris» como ojo.
 - Escribir «Iris» con mayúscula, «IRIS» o «Iris Agents» en el logotipo.
 - Agregarle un sufijo: «iris AI», «iris agents AI», «iris.ai».
 - Cambiarle la fuente, el peso o el espaciado, poner el logotipo en Plex o usar una itálica falsa.
-- Tipear el logotipo fuera de las plantillas. En otra pieza va el SVG de `logo/` (`wordmark.svg`,
-  `lockup.svg`); dentro de una plantilla, el lockup que ya trae.
+- Tipear el logotipo o la i del ícono, también en una plantilla, un banner o una portada: va el SVG
+  de `logo/` (ver «El logo va siempre como SVG»).
 - Ponerle sombras, glow, glass o contorno.
 - Deformarlo: estirarlo, comprimirlo, rotarlo, inclinarlo más o separar el ícono de la palabra.
 - Hornear esquinas redondeadas en el archivo del ícono o del avatar: va cuadrado, a sangre, y la red
-  pone su máscara. El radio existe sólo cuando el ícono se dibuja dentro de una pieza, y lo da el CSS.
+  pone su máscara. El radio existe sólo en el cuadrado del lockup, y ya viene en `logo/lockup.svg`.
 - Cambiarle el color: el logotipo nunca va en gris, en un color de estado, en petróleo ni en degradé.
 - Ponerle al lado robots, cerebros, destellos ✨, chispas o emojis.
 
@@ -314,14 +351,29 @@ cumplen. El manual todavía no fija un número: esta regla es de esta especifica
   «Experto Certificado».
 - **En la bio y en el «Acerca de» sí, como un hecho:** «tu cuenta de Mercado Libre», «para vendedores
   de Mercado Libre». iris siempre se ve más que Mercado Libre. El nombre de la cuenta nunca lo lleva.
-- **Puede ir como dato chico**, si hace falta, en texto `--text-tertiary` y en Plex 400. Sí: «Para
-  vendedores de Mercado Libre.» Va, por ejemplo, en el slot `dato` del cierre del carrusel.
+- **En una pieza orgánica puede ir arriba, como la línea de contexto:** «Para vendedores de Mercado
+  Libre», con la letra del eyebrow de arriba (Plex Sans 500, mayúsculas por CSS, tracking +0,08em,
+  en `--text-primary`) y, si la hay, la cuenta regresiva a la derecha («Faltan 3 semanas»). Entra
+  en todas las plantillas que tienen línea de contexto (medido el 2026-10-11, con Chrome):
+  - En el intercambio y en el feed de La trastienda (28 px, caja de 936): ocupa 598 px, y con
+    «Faltan 3 semanas» al lado, 915. A su lado el cuándo va hasta 15 caracteres de texto ancho: con
+    16, la línea pasa 18 px el margen. Sobre la foto de ejemplo de La trastienda da 15,16:1.
+  - En la portada de La trastienda (24 px, caja de 904) entra aun con el cuándo al máximo: 821 px.
+  - En el eyebrow de las plantillas de siempre entra en un renglón: 598 px a 28 en el feed 4:5,
+    555 a 26 en el cuadrado, 640 a 30 en la story y 512 a 24 en la portada del carrusel. Pasa los
+    30 (24 en el carrusel) caracteres del slot: es la única excepción a ese máximo.
+- **Sus límites:** nunca en el titular, nunca con el logo de Mercado Libre, su amarillo ni su azul,
+  nunca en pauta (los avisos pagos) y siempre con iris más visible: el lockup de la pieza pesa más
+  que la línea de contexto. Los banners y las portadas (LinkedIn, Facebook) siguen sin Mercado
+  Libre: ahí va en el «Acerca de».
+- **También puede ir como dato chico**, si hace falta, en texto `--text-tertiary` y en Plex 400. Sí:
+  «Para vendedores de Mercado Libre.» Va, por ejemplo, en el slot `dato` del cierre del carrusel.
 - **Se escribe «Mercado Libre»**, en dos palabras y con mayúsculas. En público nunca va
   «MercadoLibre», «MeLi», «ML» ni «Mercadolibre».
 - **Nunca digas que iris es «partner», «oficial», «certificado», «aliado» o «integración oficial»**
   de Mercado Libre.
-- **Nunca uses su logo, su amarillo** (#FFE600 y parecidos), **el cian de Mercado Pago** ni capturas
-  de su interfaz.
+- **Nunca uses su logo, su amarillo** (#FFE600 y parecidos), **su azul** (#3483FA), **el cian de
+  Mercado Pago** ni capturas de su interfaz.
 
 ---
 
@@ -334,12 +386,18 @@ mezcla el intercambio con la foto, ni la foto con las piezas de producto.
 
 | Registro | Cuándo va | La imagen | Plantillas | El sello |
 |---|---|---|---|---|
-| **Pregunta y cifra** | La base: los posts, las stories y los carruseles. | El intercambio: la pregunta con su cursor, la línea «tool · estado» y la cifra grande. También las piezas de producto (la tarjeta, el feed). | `intercambio/`, y las de siempre: `feed-4x5/`, `cuadrado/`, `story/` y `carrusel/` | Petróleo, en el titular cuando la pieza lo lleva (una portada, un cierre). El intercambio va sin titular. |
-| **En vivo** | Los reels. | La secuencia del intercambio en el tiempo: la pregunta que se tipea → ◐ trabajando → la respuesta → el OK. | No hay plantilla de video en este repo. `intercambio/intercambio-story.html` sirve de portada y muestra el intercambio completo, que es como termina la secuencia; los tiempos y el movimiento están en el manual (capítulo 06, «Movimiento en piezas de video»). | Petróleo, cuando el reel cierra con un titular. El cursor va en tinta. |
+| **Pregunta y cifra** | La base: los posts, las stories y los carruseles. | El intercambio: la pregunta con su cursor, la línea «tool · estado» y la cifra grande. También las piezas de producto (la tarjeta, el feed). | `intercambio/`, y las de siempre: `feed-4x5/`, `cuadrado/`, `story/` y `carrusel/` | Petróleo, en el titular cuando la pieza lo lleva (una portada, un cierre). El intercambio va sin titular: si el post lleva titular, va en otra lámina. |
+| **En vivo** | Los reels. | La secuencia del intercambio en el tiempo: la pregunta que se tipea → ◐ trabajando → la respuesta → el OK, sin titular. El reel cierra con un cuadro aparte: el titular de dos líneas con el sello y el lockup. | No hay plantilla de video en este repo, ni del cuadro de cierre. `intercambio/intercambio-story.html` sirve de portada y muestra el intercambio completo, que es como termina la secuencia antes del cierre; los tiempos y el movimiento están en el manual (capítulo 06, «Movimiento en piezas de video»). | Petróleo, en el cuadro de cierre, con el lockup. El cursor va en tinta. |
 | **La trastienda** | Campañas y fechas. | Una foto oscura y quieta del mundo del vendedor. | `trastienda/` (feed y portada de carrusel; las láminas que siguen son las del carrusel de siempre) | Petróleo, el mismo de los otros dos, sin textura. |
 
 **El video** de En vivo es vertical, de 1080 × 1920 (además del 1920 × 1080 de las demos). Una pieza
 animada en HTML, con `prefers-reduced-motion`, queda quieta en su cuadro final.
+
+**El intercambio va sin titular.** El sello nunca comparte la imagen con la pregunta y la cifra: si
+el post lleva titular, va en otra lámina (la portada o el cierre de un carrusel). En un reel de En
+vivo la secuencia del intercambio va sin titular, y el reel cierra con un cuadro aparte que lleva el
+titular de dos líneas, con el sello petróleo, y el lockup. Ese cuadro sigue las zonas de la story: el
+titular y el lockup van entre y = 285 e y = 1248, porque en un reel lo de abajo lo tapa la leyenda.
 
 ### Qué imagen lleva una pieza
 
@@ -365,8 +423,9 @@ La imagen de iris son sus **piezas propias**, dibujadas como en la app:
     la pieza), y «Rechazar con motivo», en ghost. Esos dos textos no se cambian.
 - **El intercambio** (registro Pregunta y cifra). La conversación con iris, sin burbuja de chat: lo
   que escribe el dueño termina en un cursor y lo que contesta iris empieza con la línea «tool ·
-  estado». De arriba abajo:
-  - La línea de contexto, en tinta.
+  estado». Va sin titular. De arriba abajo:
+  - La línea de contexto, en tinta. En un post orgánico puede ser «Para vendedores de Mercado
+    Libre» (sección 4).
   - La pregunta del dueño, en sus palabras y con minúscula inicial, como se tipea: Plex 500 al tamaño
     de un titular, terminada en el cursor (una barra fina en tinta, que no se borra).
   - La línea «tool · estado»: la ✓ gris, el nombre real de la tool en mono, «listo» y la hora, en
@@ -420,21 +479,21 @@ cada ruta va completa.
 
 | Archivo | Formato y uso | Tamaño (px) | Zonas seguras | Slots editables (máximo de caracteres) |
 |---|---|---|---|---|
-| `pieces/redes/perfil/perfil.html` → `perfil-1080.png`, `perfil-guias.png`; la vista en chico sale de `perfil-preview.html` → `perfil-preview-circulos.png` | Foto de perfil de Instagram, Facebook y WhatsApp: el ícono a sangre. | 1080 × 1080 | Las redes recortan el círculo inscripto (radio 540). La i entra en el círculo de radio 432 (el 80 %). | Ninguno: **no se edita**. El tamaño y la posición de la i están medidos. |
+| `pieces/redes/perfil/perfil.html` → `perfil-1080.png`, `perfil-guias.png`; la vista en chico sale de `perfil-preview.html` → `perfil-preview-circulos.png` | Foto de perfil de Instagram, Facebook y WhatsApp: el ícono a sangre. | 1080 × 1080 | Las redes recortan el círculo inscripto (radio 540). La i entra en el círculo de radio 432 (el 80 %). | Ninguno: **no se edita**. La i es `logo/icon-profile.svg` en línea: su tamaño y su posición están medidos. |
 | `pieces/redes/facebook/portada.html` → `portada.png`, `portada-guias.png` | Portada de la página de Facebook, en una sola versión. | 1640 × 624 | En escritorio se ve entera (a 820 × 312). En el celular, sólo la franja x 266–1374. La foto de perfil tapa x 0–660, y 420–624. El contenido va en x 294–1346 y empieza a 40 px de arriba. Texto de 22 px o más. | `titular-linea-1` 18 · `titular-linea-2` 23 de texto ancho (el sello termina antes de x 763 y quedan 40 px hasta el panel) · `panel-titulo` 22 · `fila-1..5-accion` 36. Las cinco filas van resueltas (✓), sin hora y sin leyenda, como el banner de LinkedIn. |
-| `pieces/redes/plantillas/feed-4x5/feed-4x5-titular.html` | Post de feed 4:5 con titular grande y bajada. **El formato de Instagram.** | 1080 × 1350 | Margen de 72 px. La grilla 3:4 del perfil recorta 34 px por lado. | `eyebrow` 30 · `titular-linea-1` 28 (hasta 2 renglones) · `titular-linea-2` 28 (hasta 2 renglones, sin números) · `bajada` 110 (hasta 3 renglones) |
+| `pieces/redes/plantillas/feed-4x5/feed-4x5-titular.html` | Post de feed 4:5 con titular grande y bajada. **El formato de Instagram.** | 1080 × 1350 | Margen de 72 px. La grilla 3:4 del perfil recorta 34 px por lado. | `eyebrow` 30 (o «Para vendedores de Mercado Libre», 32, en un renglón) · `titular-linea-1` 28 (hasta 2 renglones) · `titular-linea-2` 28 (hasta 2 renglones, sin números) · `bajada` 110 (hasta 3 renglones) |
 | `pieces/redes/plantillas/feed-4x5/feed-4x5-pieza.html` | Post de feed 4:5 con titular corto y la tarjeta de aprobación. | 1080 × 1350 | Margen de 72 px. La grilla 3:4 recorta 34 px por lado. | `titular-linea-1` 22 (1 renglón) · `titular-linea-2` 22 (sin números) · `aprobacion-antetitulo` 28 («Propuesta») · `aprobacion-titulo` 30 · `dato-1-etiqueta` 24 · `dato-1-valor` 13 · `dato-2-etiqueta` 24 · `dato-2-valor` 13 · `dato-3-dia` («hoy» o «ayer», en Plex) · `dato-3-hora` (HH:MM, en mono) · `nota` 40 |
-| `pieces/redes/plantillas/cuadrado/cuadrado-titular.html` | Post cuadrado con titular y bajada. **Para Facebook**: en Instagram la grilla lo recorta. | 1080 × 1080 | Margen de 72 px. La grilla 3:4 de Instagram recorta 135 px por lado y corta el titular en la vista previa. | `eyebrow` 30 · `titular-linea-1` 28 (hasta 2 renglones) · `titular-linea-2` 28 (hasta 2 renglones, sin números) · `bajada` 110 (hasta 3 renglones) |
+| `pieces/redes/plantillas/cuadrado/cuadrado-titular.html` | Post cuadrado con titular y bajada. **Para Facebook**: en Instagram la grilla lo recorta. | 1080 × 1080 | Margen de 72 px. La grilla 3:4 de Instagram recorta 135 px por lado y corta el titular en la vista previa. | `eyebrow` 30 (o «Para vendedores de Mercado Libre», 32, en un renglón) · `titular-linea-1` 28 (hasta 2 renglones) · `titular-linea-2` 28 (hasta 2 renglones, sin números) · `bajada` 110 (hasta 3 renglones) |
 | `pieces/redes/plantillas/cuadrado/cuadrado-pieza.html` | Post cuadrado con el feed «Hoy en tu cuenta», de 2 a 3 filas. **Para Facebook.** | 1080 × 1080 | Igual que el cuadrado con titular. | `titular-linea-1` 24 (1 renglón) · `titular-linea-2` 24 (sin números) · `fila-1-accion` 29 (lleva la píldora) · `fila-2..3-accion` 41 (sin nada a la derecha; 35 si llevan «en curso») · `nota` 40 |
-| `pieces/redes/plantillas/story/story-titular.html` | Story y portada de reel, con titular y bajada. | 1080 × 1920 | Story: 250 px arriba, 340 abajo y 64 por lado. Lo importante va entre y = 285 e y = 1248 (en un reel, Meta pide dejar libre el 14 % de arriba, el 35 % de abajo y el 6 % por lado). La bajada termina en x = 950. El pie va hasta y = 1580; en un reel lo tapa la leyenda. | `eyebrow` 30 · `titular-linea-1` 28 (hasta 2 renglones) · `titular-linea-2` 28 (hasta 2 renglones, sin números) · `bajada` 110 (hasta 3 renglones) |
+| `pieces/redes/plantillas/story/story-titular.html` | Story y portada de reel, con titular y bajada. | 1080 × 1920 | Story: 250 px arriba, 340 abajo y 64 por lado. Lo importante va entre y = 285 e y = 1248 (en un reel, Meta pide dejar libre el 14 % de arriba, el 35 % de abajo y el 6 % por lado). La bajada termina en x = 950. El pie va hasta y = 1580; en un reel lo tapa la leyenda. | `eyebrow` 30 (o «Para vendedores de Mercado Libre», 32, en un renglón) · `titular-linea-1` 28 (hasta 2 renglones) · `titular-linea-2` 28 (hasta 2 renglones, sin números) · `bajada` 110 (hasta 3 renglones) |
 | `pieces/redes/plantillas/story/story-pieza.html` | Story y portada de reel con el feed, de 3 a 4 filas. | 1080 × 1920 | Las mismas que la story con titular. | `titular-linea-1` 22 (1 renglón) · `titular-linea-2` 22 (sin números) · `fila-1-accion` 29 (lleva la píldora) · `fila-2-accion` 41 · `fila-3-accion` 35 (lleva «en curso») · `fila-4-accion` 41 · `nota` 40 |
-| `pieces/redes/plantillas/carrusel/carrusel-1-portada.html` | Carrusel 4:5, lámina 1: la portada. | 1080 × 1350 | Margen de 88 px (el mínimo es 72). La grilla 3:4 recorta 34 px por lado. Arriba a la derecha quedan 200 × 150 px vacíos para el contador de fotos de Instagram (medida estimada). | `eyebrow` 24 · `titular-linea-1` 30 (hasta 2 renglones) · `titular-linea-2` 28 (hasta 2 renglones; con 16 entra en 1; termina en punto) · `contador` («1/3») |
+| `pieces/redes/plantillas/carrusel/carrusel-1-portada.html` | Carrusel 4:5, lámina 1: la portada. | 1080 × 1350 | Margen de 88 px (el mínimo es 72). La grilla 3:4 recorta 34 px por lado. Arriba a la derecha quedan 200 × 150 px vacíos para el contador de fotos de Instagram (medida estimada). | `eyebrow` 24 (o «Para vendedores de Mercado Libre», 32, en un renglón) · `titular-linea-1` 30 (hasta 2 renglones) · `titular-linea-2` 28 (hasta 2 renglones; con 16 entra en 1; termina en punto) · `contador` («1/3») |
 | `pieces/redes/plantillas/carrusel/carrusel-2-interior.html` | Carrusel, lámina interior: una por punto o paso, y se repite. | 1080 × 1350 | Margen de 88 px. Arriba a la derecha, 200 × 150 px vacíos. | `marcador` («01») · `titulo` 36 (hasta 2 renglones, sin firma) · `texto` 140 (3 renglones) · `pieza`: la tarjeta, el feed del `<template id="pieza-feed">` (sus filas no son slots: 37 caracteres con píldora, 43 con «en curso» y 51 sin nada) o nada · `aprobacion-antetitulo` 38 («Propuesta») · `aprobacion-titulo` 30 · `aprobacion-concepto-1` 24 · `aprobacion-cifra-1` 12 · `aprobacion-concepto-2` 24 · `aprobacion-cifra-2` 12 · `aprobacion-leido` 14 · `nota` 40 (en el pie; vacía si la lámina va sin pieza) · `contador` |
 | `pieces/redes/plantillas/carrusel/carrusel-3-cierre.html` | Carrusel, última lámina: el cierre con el llamado. | 1080 × 1350 | Margen de 88 px. Arriba a la derecha, 200 × 150 px vacíos. | `cta-linea-1` 28 (hasta 2 renglones; una dirección o un @ van dentro de `<span class="sin-corte">`) · `cta-linea-2` 22 (1 renglón) · `dato` 44 (acá sí puede ir «Mercado Libre») · `contador` |
-| `pieces/redes/plantillas/intercambio/intercambio-feed.html` | Post de feed 4:5 del registro Pregunta y cifra: el intercambio como imagen, sin titular. Siempre sobre el negro. | 1080 × 1350 | Margen de 72 px. La grilla 3:4 del perfil recorta 34 px por lado. | `contexto` 26 · `contexto-cuando` 16 (vacío si no hay una fecha real) · `pregunta` 60 (hasta 3 renglones; minúscula inicial; el cursor va pegado y no se borra) · `tool` 36 (en mono, el nombre real) · `tool-hora` (HH:MM) · `cifra` 6 (con el punto de miles y el signo) · `cifra-unidad` 34 (termina en punto; va al lado de la cifra si la cifra tiene hasta 5 caracteres y la unidad unos 10, si no baja sola) · `fila-1..2-etiqueta` 30 · `fila-1..2-valor` 18 · `ok-pregunta` 26 (sólo si hay una decisión; si no, se borra el `<p class="ok">` entero) · `nota` 40 |
-| `pieces/redes/plantillas/intercambio/intercambio-story.html` | Story y portada de reel con el intercambio. También es el cuadro final, quieto, de un reel de En vivo. | 1080 × 1920 | Las mismas que la story con titular: lo importante entre y = 285 e y = 1248; el pie, hasta y = 1580. | Los mismos que el feed, con los mismos largos: con todos al máximo, la nota termina justo en y = 1248. |
-| `pieces/redes/plantillas/trastienda/trastienda-feed.html` | Post de feed 4:5 del registro La trastienda, para campañas y fechas: la foto arriba, el titular con el sello y una bajada. | 1080 × 1350 | Margen de 72 px. La grilla 3:4 recorta 34 px por lado. La foto ocupa y 0–820 a sangre y se funde con el negro en sus 300 px de abajo: el contexto y el titular caen sobre ella y pasan 4,5:1. La nota de la foto y el pie van en el negro liso. | `foto` (1080 × 820 o más grande en la misma proporción; se recorta al centro) · `contexto` 26 · `contexto-cuando` 16 · `titular-linea-1` 19 (1 renglón) · `titular-linea-2` 38 (hasta 2 renglones; con 19 entra en 1, y mejor en 1) · `bajada` 86 (hasta 2 renglones) · `foto-nota` 40 («Imagen generada con IA.» si lo es; si es una foto propia, se borra) |
-| `pieces/redes/plantillas/trastienda/trastienda-portada.html` | Carrusel 4:5 del registro La trastienda, lámina 1: la portada con la foto. Las láminas que siguen son `carrusel-2-interior` y `carrusel-3-cierre`, sobre el negro. Usa `carrusel.css`. | 1080 × 1350 | Margen de 88 px. La grilla 3:4 recorta 34 px por lado. Arriba a la derecha, 200 × 150 px vacíos. La foto va en y 172–892, debajo del lockup y de su resguardo, y se funde con el negro 120 px arriba y 280 abajo: de y 0 a 172 no hay nada de la foto. | `foto` (caja de 1080 × 720; sirve la misma del feed) · `contexto` 26 · `contexto-cuando` 16 · `titular-linea-1` 17 (1 renglón) · `titular-linea-2` 30 (hasta 2 renglones; con 18 entra en 1, y mejor en 1) · `foto-nota` 40 · `contador` («1/3») |
+| `pieces/redes/plantillas/intercambio/intercambio-feed.html` | Post de feed 4:5 del registro Pregunta y cifra: el intercambio como imagen, sin titular. Siempre sobre el negro. | 1080 × 1350 | Margen de 72 px. La grilla 3:4 del perfil recorta 34 px por lado. | `contexto` 26 de texto ancho, o «Para vendedores de Mercado Libre» (32) · `contexto-cuando` 16 (15 de texto ancho al lado de «Para vendedores de Mercado Libre»; vacío si no hay una fecha real) · `pregunta` 60 (hasta 3 renglones; minúscula inicial; el cursor va pegado y no se borra) · `tool` 36 (en mono, el nombre real) · `tool-hora` (HH:MM) · `cifra` 6 (con el punto de miles y el signo) · `cifra-unidad` 34 (termina en punto; va al lado de la cifra si la cifra tiene hasta 5 caracteres y la unidad unos 10, si no baja sola) · `fila-1..2-etiqueta` 30 · `fila-1..2-valor` 18 · `ok-pregunta` 26 (sólo si hay una decisión; si no, se borra el `<p class="ok">` entero) · `nota` 40 |
+| `pieces/redes/plantillas/intercambio/intercambio-story.html` | Story y portada de reel con el intercambio. También es el último cuadro, quieto, de la secuencia de un reel de En vivo; el reel cierra después con el cuadro del titular. | 1080 × 1920 | Las mismas que la story con titular: lo importante entre y = 285 e y = 1248; el pie, hasta y = 1580. | Los mismos que el feed, con los mismos largos: con todos al máximo, la nota termina justo en y = 1248. |
+| `pieces/redes/plantillas/trastienda/trastienda-feed.html` | Post de feed 4:5 del registro La trastienda, para campañas y fechas: la foto arriba, el titular con el sello y una bajada. | 1080 × 1350 | Margen de 72 px. La grilla 3:4 recorta 34 px por lado. La foto ocupa y 0–820 a sangre y se funde con el negro en sus 300 px de abajo: el contexto y el titular caen sobre ella y pasan 4,5:1. La nota de la foto y el pie van en el negro liso. | `foto` (1080 × 820 o más grande en la misma proporción; se recorta al centro) · `contexto` 26 de texto ancho, o «Para vendedores de Mercado Libre» (32) · `contexto-cuando` 16 (15 de texto ancho al lado de «Para vendedores de Mercado Libre») · `titular-linea-1` 19 (1 renglón) · `titular-linea-2` 38 (hasta 2 renglones; con 19 entra en 1, y mejor en 1) · `bajada` 86 (hasta 2 renglones) · `foto-nota` 40 («Imagen generada con IA.» si lo es; si es una foto propia, se borra) |
+| `pieces/redes/plantillas/trastienda/trastienda-portada.html` | Carrusel 4:5 del registro La trastienda, lámina 1: la portada con la foto. Las láminas que siguen son `carrusel-2-interior` y `carrusel-3-cierre`, sobre el negro. Usa `carrusel.css`. | 1080 × 1350 | Margen de 88 px. La grilla 3:4 recorta 34 px por lado. Arriba a la derecha, 200 × 150 px vacíos. La foto va en y 172–892, debajo del lockup y de su resguardo, y se funde con el negro 120 px arriba y 280 abajo: de y 0 a 172 no hay nada de la foto. | `foto` (caja de 1080 × 720; sirve la misma del feed) · `contexto` 26 de texto ancho, o «Para vendedores de Mercado Libre» (32), que entra aun con el cuándo al máximo · `contexto-cuando` 16 · `titular-linea-1` 17 (1 renglón) · `titular-linea-2` 30 (hasta 2 renglones; con 18 entra en 1, y mejor en 1) · `foto-nota` 40 · `contador` («1/3») |
 | `pieces/redes/instagram/destacadas/destacada-{demo,casos,precios,ayuda,como-funciona,novedades,permisos}.html` → la vista de las siete juntas en `destacadas-preview.html` y `.png` | Portadas de historias destacadas de Instagram: un pictograma de trazo sobre negro, sin texto. | 1080 × 1920 | Instagram recorta un círculo de Ø1080 centrado en (540, 960). La zona segura es un círculo de Ø720. La caja del pictograma mide 528 px (492 en Demo, para que pese lo mismo que las otras), con un máximo de 560. | `pictograma`: un SVG de trazo en grilla de 24 × 24, dibujado entre 2 y 22. Sin `stroke-width` (el trazo de 30 px lo fija `destacada.css`). Los puntos llenos llevan `class="dot"`. |
 
 ### Avisos de cada formato
@@ -600,7 +659,10 @@ la derecha, donde la foto tiene su luz: 13,91:1. El resto del texto sobre la fot
 ### Lista de control
 
 - [ ] El post usa un solo registro: Pregunta y cifra, En vivo o La trastienda.
-- [ ] La firma va sólo en la segunda línea del titular, y el logotipo no se tocó.
+- [ ] El intercambio va sin titular: si el post lo lleva, va en otra lámina, y en un reel, en el
+  cuadro de cierre, con el sello y el lockup.
+- [ ] La firma va sólo en la segunda línea del titular, y el logo es el SVG de `logo/` en línea:
+  no está tipeado ni rearmado, y sus trazados no se tocaron.
 - [ ] La segunda línea va en el sello petróleo (`.sello`, la letra en tinta), y el petróleo no
   aparece en ningún otro lugar: ni de fondo, ni en una franja, un texto, un borde o un botón.
   «Aprobar» va con borde, sin relleno.
@@ -613,7 +675,10 @@ la derecha, donde la foto tiene su luz: 13,91:1. El resto del texto sobre la fot
 - [ ] En La trastienda: la foto no tiene personas, marcas, el packaging de Mercado Libre ni
   productos de clientes; si es de IA lo dice («Imagen generada con IA.»); el texto encima pasa
   4,5:1 medido en la PNG, y el logo va en el negro.
-- [ ] No hay «Mercado Libre» en el titular, el eyebrow ni el texto principal.
+- [ ] «Mercado Libre» no va en el titular, junto al logo ni en una pieza de pauta. Arriba va sólo
+  en la línea de contexto de un post orgánico («Para vendedores de Mercado Libre», en dos palabras),
+  en tinta, sin su logo, su amarillo ni su azul, y con iris más visible. En los banners y las
+  portadas de LinkedIn y Facebook no va.
 - [ ] Cada glifo tiene su palabra o su leyenda, y la leyenda nombra sólo los estados que
   aparecen (un panel con todas las filas resueltas va sin leyenda). Un ● o un ◐ como objeto mide
   hasta 48 px, y el ● va sólo si hay una decisión del dueño.

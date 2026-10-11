@@ -30,10 +30,12 @@ body { position: relative; font-weight: 400; }
 /* ---------- Pie: lockup chico + @ ---------- */
 
 .pie { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.lockup { display: inline-flex; align-items: center; gap: calc(var(--logo-alto) * 0.27); }
-/* Proporciones del lockup (guide/03-logo-e-icono.md, 3.4): ícono 52, radio 12, i 42, palabra 40, separación 14. */
-.icono { display: inline-flex; align-items: center; justify-content: center; flex: none; width: var(--logo-alto); height: var(--logo-alto); padding-bottom: calc(var(--logo-alto) * 0.077); border: 2px solid var(--border-default); border-radius: calc(var(--logo-alto) * 0.23); background: var(--brand-black); color: var(--brand-white); font-size: calc(var(--logo-alto) * 0.81); line-height: 1; }
-.wordmark { font-size: calc(var(--logo-alto) * 0.77); line-height: 1; letter-spacing: -0.01em; color: var(--brand-white); white-space: nowrap; }
+/* El logo nunca se tipea (guide/03-logo-e-icono.md): es logo/lockup.svg en línea, con sus trazados
+   tal cual. Cada pieza le pone en los atributos el alto A (el lado del ícono) y el ancho 4,594 A, y
+   el borde del cuadrado a 2 px, la medida de guide/03 (3.4) en una pieza de 1080: stroke-width
+   2000 / A, x e y la mitad del trazo, lado 1000 menos el trazo y rx 230 menos medio trazo. El archivo
+   lo trae a 1/52 A, que es 1 px en pantalla. */
+.lockup { display: block; flex: none; }
 .handle { line-height: 1; letter-spacing: -0.015em; color: var(--text-tertiary); white-space: nowrap; }
 
 /* ---------- Piezas de producto ----------

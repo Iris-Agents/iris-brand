@@ -267,6 +267,8 @@ Tu mínimo                             5.000
   «escribiendo» (capítulo 09, 9.11). En la app la persona sigue en burbuja.
 - **La respuesta va en la sans**, nunca en la firma: la firma no lleva números y queda para el
   titular.
+- **Sin titular.** El sello nunca comparte la imagen con la pregunta y la cifra: si el post lleva
+  titular, va en otra lámina, y el reel lo lleva en su cuadro de cierre (capítulo 11, 11.13).
 - **El ● es el único color de estado** mientras la pieza espera el OK. En la línea, el glifo dice
   cómo terminó la tool: ✓ en gris; el ◐ verde sólo en video, mientras trabaja.
 - **La cifra es de ejemplo** y se marca (capítulo 11), con su unidad; el cero también se muestra.

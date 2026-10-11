@@ -21,27 +21,10 @@ body { position: relative; }
   background: var(--bg-canvas);
 }
 
-/* Lockup: ícono + logotipo. El ícono es un cuadrado brand-black; el borde lo separa del fondo, que es del mismo negro. */
+/* Lockup: logo/lockup.svg en línea, nunca tipeado; a 56 px de alto en la cabecera y a 120 en el cierre.
+   El borde del cuadrado va a 2 px, como en plantillas/_comun/plantilla.css, que explica la cuenta. */
 .cabecera { display: flex; align-items: center; height: 56px; flex: none; }
-.lockup { display: inline-flex; align-items: center; color: var(--brand-white); }
-.icono {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: none;
-  background: var(--brand-black);
-  border: 2px solid var(--border-default);
-  color: var(--brand-white);
-  line-height: 1;
-}
-.logotipo { line-height: 1; letter-spacing: -0.01em; white-space: nowrap; color: var(--brand-white); }
-/* Proporciones del lockup (guide/03-logo-e-icono.md, 3.4), las mismas de plantillas/_comun/plantilla.css:
-   ícono A, radio 0,23 A, i 0,81 A, palabra 0,77 A, separación 0,27 A. */
-.lockup { gap: calc(var(--logo-alto) * 0.27); }
-.lockup .icono { width: var(--logo-alto); height: var(--logo-alto); border-radius: calc(var(--logo-alto) * 0.23); font-size: calc(var(--logo-alto) * 0.81); padding-bottom: calc(var(--logo-alto) * 0.077); }
-.lockup .logotipo { font-size: calc(var(--logo-alto) * 0.77); }
-.lockup-chico { --logo-alto: 56px; }
-.lockup-grande { --logo-alto: 120px; }
+.lockup { display: block; flex: none; }
 
 .eyebrow {
   margin: 0;

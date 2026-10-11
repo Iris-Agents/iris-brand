@@ -15,26 +15,27 @@ Mercado Libre de punta a punta, con la autonomía que el dueño le da.
 |---|---|
 | [`tokens/`](tokens/) | La fuente de todo, en DTCG 2025.10: `foundation.tokens.json` (primitivos, tipografía, espacio, forma, vidrio y movimiento), `themes/dark.tokens.json` y `themes/light.tokens.json` (los roles de color de cada modo) e `iris.resolver.json` (los dos modos, con el oscuro por default). |
 | [`css/`](css/) | Escrito a mano y sin un valor propio: `fonts.css` (las caras), `tailwind.css` (el puente a Tailwind v4), `glass.css` (el vidrio) y `signature.css` (el sello de la firma). |
-| [`dist/`](dist/) | Generado y commiteado: `tokens.css` (las variables `--iris-*` de los dos modos) y `design-system.json` (lo que va a leer Claude Design). No se edita a mano. |
+| [`dist/`](dist/) | Generado y commiteado: `tokens.css`, las variables `--iris-*` de los dos modos. No se edita a mano. |
 | [`fonts/`](fonts/) | Los WOFF2 de DM Serif Display itálica, IBM Plex Sans 400 y 500 e IBM Plex Mono 400, con sus licencias OFL. Procedencia y sumas en `fonts/README.md`. |
 | [`logo/`](logo/) | El ícono, el logotipo y el lockup en SVG (contornos, sin fuentes), más el favicon y los PNG. En `logo/png/`, el logotipo y el lockup con fondo transparente y el ícono en más tamaños, para lo que no lee SVG (Canva, Google Docs y Slides, Keynote, Notion, la firma de mail); `logo/preview.png` los muestra todos. Qué va dónde: `logo/README.md`. |
 | [`guide/`](guide/README.md) | El manual, en 15 capítulos. |
-| [`design-system/`](design-system/) | La fuente del Design System «iris» de claude.ai, tal como se publica: su manual (`README.md` y seis secciones), los componentes con su preview y la portada, el índice (`design-system.json`) y los textos de los tokens (`tokens.notes.json`). `tokens.json` y `fonts/` los genera el build. Cómo se publica: capítulo 14 (14.6). |
 | [`pieces/`](pieces/) | Las piezas terminadas, en HTML con su PNG. En `pieces/redes/`, la foto de perfil, la portada de Facebook, las destacadas de Instagram y las plantillas de posts; en `pieces/linkedin/`, el banner del perfil y la portada y el logo de la página de empresa. |
-| [`scripts/`](scripts/) | El build: `terrazzo.mjs` (el parseo que comparten el build y el test), `design-system.mjs` (escribe `dist/design-system.json`) y `design-system-claude.mjs` (escribe `design-system/tokens.json` y copia las fuentes). La config de Terrazzo es `terrazzo.config.mjs`, en la raíz. |
+| [`scripts/`](scripts/) | `terrazzo.mjs`: el parseo de `tz build`, en memoria, con el que el test compara `dist/tokens.css`. La config de Terrazzo es `terrazzo.config.mjs`, en la raíz. |
 | [`test/`](test/) | La guarda que corre con cada build, con los esquemas oficiales de DTCG en `test/schemas/`. |
 
 ## Usarlo en una app
 
 ### Instalar
 
-Como dependencia de git, no como submódulo. El repo vive en la organización `Iris-Agents` de GitHub.
+Como dependencia de git, no como submódulo (el porqué, más abajo). El repo vive en la organización
+`Iris-Agents` de GitHub.
 
 ```sh
-pnpm add github:Iris-Agents/iris-brand#semver:^1
+pnpm add github:Iris-Agents/iris-brand
 ```
 
-- pnpm elige el tag más nuevo de la versión 1, y el lockfile fija su commit.
+- La marca es lo que está en `main`: no hay versiones. pnpm toma el último commit de `main` y el
+  lockfile lo fija.
 - El repo es público y `dist/` está commiteado: no hace falta un token ni compilar nada.
 - Terrazzo y colorjs.io son dependencias de desarrollo de este repo: nunca entran a una app ni al
   Worker.
@@ -64,7 +65,6 @@ html {
   05, 5.3): `.signature-seal` es el de la app, la firma calada en un bloque de tinta;
   `.signature-seal-marketing` es el del titular de la landing y sus OG, la firma en tinta sobre un
   bloque petróleo. Hace falta en toda página con un titular de dos líneas.
-- El paquete también exporta `iris-brand/design-system.json`. Una app no lo necesita.
 - El logo y las fuentes se importan por su ruta: `import icono from "iris-brand/logo/icon.svg"`,
   `iris-brand/logo/favicon.ico`, `iris-brand/fonts/…`. Nunca se copian a mano a la app.
 - Las plantillas de redes vienen en `iris-brand/pieces/…`. Un post armado en otro proyecto se
@@ -128,34 +128,23 @@ Sólo si la app tiene una capa que flota, después de `tokens.css`:
 
 ### Por qué no un submódulo
 
-Un submódulo hay que clonarlo con `--recursive` o la carpeta queda vacía, apunta a un commit suelto
-y no a una versión, y es fácil commitear uno desactualizado sin darse cuenta. Con la dependencia, la
-versión queda escrita en el `package.json` y en el lockfile, y `pnpm install` deja todo listo. Más
-adelante el paquete se puede publicar en npm (por ejemplo `@iris-agents/brand`, si está libre).
+Los dos fijan un commit, pero un submódulo hay que clonarlo con `--recursive` o la carpeta queda
+vacía, después de cada `pull` hay que correr `git submodule update`, es fácil commitear uno
+desactualizado sin darse cuenta y la app lo importa por la ruta de la carpeta, no por los `exports`
+del paquete. Con la dependencia, el commit queda escrito en el lockfile y `pnpm install` deja todo
+listo, en cualquier máquina y en el CI.
 
-## Tomar una versión nueva
+## Actualizar
 
 En la app:
 
 ```sh
-pnpm update iris-brand                              # la 1.x más nueva
-pnpm add github:Iris-Agents/iris-brand#semver:^2      # pasar a una major, a mano
+pnpm update iris-brand   # el último commit de main, fijado en el lockfile
 ```
 
-Ninguna app cambia sola: `pnpm install` respeta el lockfile, y una app en `^1` nunca recibe un 2.0.
-
-| Cambio | Versión |
-|---|---|
-| Cambiar el valor de un token, o agregar uno | minor: 1.2.0 → 1.3.0 |
-| Renombrar o borrar un token | major: 1.x → 2.0.0 |
-| Algo que no toca ningún token (el manual, una pieza, un informe) | patch: 1.3.0 → 1.3.1 |
-
-Un token que va a desaparecer lleva `$deprecated` una versión antes, con su reemplazo, y se borra
-en la major siguiente:
-
-```json
-"muted": { "$type": "color", "$value": "{color.neutral-dark.10}", "$deprecated": "Usar color.text.secondary." }
-```
+Ninguna app cambia sola: `pnpm install` respeta el lockfile. Si un commit renombra o borra un
+token, una variable o una clase, su mensaje lo dice, y las apps conocidas que lo usaban se cambian
+en el mismo momento (ver «Cambiar la marca»).
 
 ## La marca en una pantalla
 
@@ -241,13 +230,17 @@ el titular: **Pregunta y cifra** (la base: la imagen es el intercambio, la pregu
 la línea «tool · estado» y la cifra grande), **En vivo** (los reels: pregunta → ◐ trabajando →
 respuesta → OK, en video vertical de 1080 × 1920, con el cursor en tinta) y **La trastienda**
 (campañas y fechas: una foto oscura y quieta del mundo del vendedor, sin personas ni marcas, y si es
-generada con IA, lo dice). «Aprobar» va con borde, sin relleno. Sin burbuja de chat:
-la persona se marca con el cursor. La luz radial, blanca y de hasta el 6 %, va sólo detrás del punto
-focal; el ● y el ◐ crecen hasta 48 px con su palabra; la línea «tool · estado» va a 26–30 px y la
-línea de contexto de arriba, en `text.primary`. El detalle, en el capítulo 11 (11.13).
+generada con IA, lo dice). El intercambio va sin titular: si el post lo lleva, va en otra lámina, y
+el reel cierra con un cuadro aparte, el titular con el sello y el lockup. «Aprobar» va con borde,
+sin relleno. Sin burbuja de chat: la persona se marca con el cursor. La luz radial, blanca y de
+hasta el 6 %, va sólo detrás del punto focal; el ● y el ◐ crecen hasta 48 px con su palabra; la
+línea «tool · estado» va a 26–30 px y la línea de contexto de arriba, en `text.primary`. El
+detalle, en el capítulo 11 (11.13).
 
 **Mercado Libre.** Se nombra como un hecho («tu cuenta de Mercado Libre», «para vendedores de
-Mercado Libre»), con iris siempre más grande. Nunca su logo, sus colores ni un diseño parecido;
+Mercado Libre»), con iris siempre más grande. Nunca en un titular ni en pauta; en una pieza orgánica
+de redes puede ir arriba, en la línea de contexto, pero no en los banners ni en las portadas de
+LinkedIn y Facebook. Nunca su logo, sus colores ni un diseño parecido;
 nunca «partner», «oficial», «certificado», «aliado» ni «powered by»; nunca en el nombre de la app,
 de un módulo ni de una cuenta; «expertos» no va pegado a «Mercado Libre». En portugués es «Mercado
 Livre»; en público nunca «MercadoLibre» ni «MeLi». El descargo va en el pie de la landing. El
@@ -266,7 +259,7 @@ llamativos, la burbuja de chat en una pieza, «piloto automático», «24/7», �
 [07 Datos y gráficos](guide/07-datos-y-graficos.md) · [08 Piezas propias](guide/08-piezas-propias.md) ·
 [09 Voz y tono](guide/09-voz-y-tono.md) · [10 iris adentro de Claude](guide/10-iris-en-claude.md) ·
 [11 Aplicaciones](guide/11-aplicaciones.md) · [12 Mercado Libre y otras marcas](guide/12-mercado-libre.md) ·
-[13 Accesibilidad](guide/13-accesibilidad.md) · [14 Recursos y versionado](guide/14-recursos-y-versionado.md).
+[13 Accesibilidad](guide/13-accesibilidad.md) · [14 Recursos](guide/14-recursos.md).
 Lo que el manual no cubre no se inventa: se le pregunta a Franco, y la respuesta entra al manual.
 
 ## Para quien mantiene el repo
@@ -278,7 +271,7 @@ Google Chrome en `/Applications` (macOS) e internet: las piezas cargan sus fuent
 
 ```sh
 pnpm install   # Terrazzo y colorjs.io
-pnpm build     # tz build → dist/tokens.css; scripts/design-system.mjs → dist/design-system.json; el test
+pnpm build     # tz build → dist/tokens.css, y el test
 pnpm test      # sólo el test: node --test test/*.test.mjs
 ```
 
@@ -317,14 +310,15 @@ de desarrollo y compilaría en cada instalación de cada app.
   escriben un valor propio; cada sello de `signature.css` lee los colores de su lugar (la app o
   marketing); ningún nombre de `tailwind.css` choca con shadcn ni con la paleta de
   Tailwind, salvo `font-sans` y `font-mono`, a propósito; están todos los roles de color menos el
-  vidrio, que va por `glass.css`; cada familia de los tokens está en `fonts.css` y cada archivo que
-  nombra existe.
+  vidrio, que va por `glass.css`; cada familia de los tokens está en `fonts.css` (salvo «DM Serif
+  Display», el nombre de afuera de la firma, que las piezas cargan de Google Fonts) y cada archivo
+  que nombra existe.
 - **Piezas:** cada variable de `pieces/redes/_base/brand.css` tiene su token, con el mismo valor, y
-  el sello de las piezas es el de marketing.
-- **El sello:** las tres copias (`css/signature.css`, `brand.css` y el preview del Headline) tienen
-  el mismo relleno y el mismo interlineado.
-- **Lo descartado:** ningún token, nombre del Design System ni variable de CSS se llama `piece`,
-  `cardboard` o cartón.
+  el sello de las piezas es el de marketing (`--signature-marketing-block` y
+  `--signature-marketing-text`).
+- **El sello:** las dos copias (`css/signature.css` y `brand.css`) tienen el mismo relleno y el
+  mismo interlineado.
+- **Lo descartado:** ningún token ni variable de CSS se llama `piece`, `cardboard` o cartón.
 
 ### Cambiar un token
 
@@ -339,20 +333,16 @@ de desarrollo y compilaría en cada instalación de cada app.
    ahí y se regeneran las piezas.
 6. Se actualiza el capítulo del manual que nombra ese valor.
 
-### Publicar una versión
+### Cambiar la marca
 
-1. En una rama: el cambio y el `version` del `package.json`, según la tabla de semver.
-2. `pnpm build` después de subir la versión: `dist/design-system.json` la lleva adentro
-   (`meta.source`) y el test falla si quedó la vieja.
+La marca es lo que está en `main`, y un cambio es un commit a `main` con el build pasando:
+
+1. El cambio y `pnpm build`. Si el test falla, no se commitea.
+2. Se regeneran las piezas que usan lo que cambió.
 3. Se commitea todo, `dist/` incluido. Aprueba Franco.
-4. El tag, anotado, con qué tokens cambiaron y por qué:
-   ```sh
-   git tag -a v1.3.0 -m "v1.3.0: qué tokens cambiaron y por qué"
-   git push --follow-tags
-   ```
-   Un tag publicado no se mueve ni se borra: si salió mal, sale otra versión.
-5. Se re-sincroniza el Design System de claude.ai y se regeneran las piezas que usan
-   lo que cambió.
+4. Si el cambio rompe a quien consume (renombra o borra un token, una variable o una clase), en el
+   mismo momento se cambian los consumidores conocidos (las piezas de `pieces/` y cada app que lo
+   usa), y el mensaje del commit lo dice. No hay alias ni período de gracia.
 
 ### Regenerar las piezas
 
@@ -372,20 +362,10 @@ Después se miran las PNG con glifos y se repasa la lista de control de
 `pieces/redes/plantillas.md`. Los PNG y el `.ico` de `logo/` se exportan desde sus SVG sólo
 cuando cambia un SVG; el cómo está en `logo/README.md`.
 
-### El Design System de claude.ai
-
-El Design System «iris» está publicado en claude.ai (privado de la cuenta de iris; se comparte desde
-su menú) y su fuente vive en [`design-system/`](design-system/): lo que se publica es esa carpeta.
-Los valores salen de los tokens (el build escribe `design-system/tokens.json`); el manual condensado,
-los seis componentes estáticos (StatusGlyph, Feed, ApprovalCard, Button, Headline y Glass) y la
-portada se editan ahí, con el resto de la marca. Después de cada versión se publica la carpeta con
-una sesión de Claude: «sincronizá el Design System desde iris-brand» (capítulo 14, 14.6). Nunca se
-edita primero en la página de claude.ai: lo que no está en el repo, la próxima publicación lo pisa.
-
 ## Claude Design y Figma
 
-- **Claude Design** no instala nada: lee el Design System «iris» publicado en claude.ai. Los
-  canvases del banner, de las OG y de las piezas lo eligen como design system.
+- **Claude Design** no instala nada: quien diseña ahí lee este repo (el manual, los tokens, los SVG
+  de `logo/` y las plantillas de `pieces/`).
 - **Figma, Penpot o cualquier otra herramienta** toman `tokens/` con un importador de DTCG; si no
   lee el resolver, se importa `foundation.tokens.json` más el tema que haga falta. Cada color trae
   su `hex` para las que no leen OKLCH. El logo sale de los SVG de `logo/` y las fuentes, de `fonts/`.

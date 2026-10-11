@@ -4,9 +4,9 @@
 import assert from "node:assert/strict";
 import { existsSync, readdirSync } from "node:fs";
 import { describe, test } from "node:test";
-import { renderDesignSystem } from "../scripts/design-system.mjs";
 import { buildTokensCSS } from "../scripts/terrazzo.mjs";
 import { hexOf } from "./lib/color.mjs";
+import { googleFamilies } from "./lib/fonts.mjs";
 import { foundation, modes, readText, repoUrl, resolved, semantics } from "./lib/tokens.mjs";
 
 const tokensCSS = readText("dist/tokens.css");
@@ -27,7 +27,6 @@ const cssName = (id) => `--iris-${id.replaceAll(".", "-")}`;
 
 describe("dist/ es lo que genera el build", () => {
 	test("dist/tokens.css coincide con el build en memoria", async () => assert.equal(tokensCSS, await buildTokensCSS()));
-	test("dist/design-system.json coincide con scripts/design-system.mjs", async () => assert.equal(readText("dist/design-system.json"), await renderDesignSystem()));
 });
 
 describe("dist/tokens.css", () => {
@@ -63,8 +62,8 @@ describe("el acento de color", () => {
 			assert.deepEqual(declared.filter(([, value]) => value.toLowerCase() === petrol).map(([name]) => name), ["--iris-color-signature-marketing-block"], blockName);
 		}
 	});
-	// Lo que quedó afuera (el cartón y los colores de pieza) no vuelve como token: ni un id, ni un nombre
-	// del Design System, ni una variable de CSS declarada o leída, en las piezas tampoco.
+	// Lo que quedó afuera (el cartón y los colores de pieza) no vuelve como token: ni un id, ni una
+	// variable de CSS declarada o leída, en las piezas tampoco.
 	test("ningún token se llama piece, cardboard ni cartón, en ningún archivo", () => {
 		const outlawed = /piece|cardboard|cart[oó]n/i;
 		const filesUnder = (folder, extensions) =>
@@ -72,13 +71,9 @@ describe("el acento de color", () => {
 				.filter((name) => extensions.some((extension) => name.endsWith(extension)))
 				.map((name) => `${folder}${name}`);
 		const withoutComments = (source) => source.replaceAll(/\/\*[\s\S]*?\*\/|<!--[\s\S]*?-->/g, "");
-		const cssFiles = ["dist/tokens.css", ...filesUnder("css/", [".css"]), ...filesUnder("pieces/", [".css", ".html"]), ...filesUnder("design-system/components/", [".html", ".css"])];
-		const designSystemNames = (path) => ["color", "spacing", "radius"].flatMap((family) => JSON.parse(readText(path))[family].tokens.map(({ name }) => `${path}: ${name}`));
+		const cssFiles = ["dist/tokens.css", ...filesUnder("css/", [".css"]), ...filesUnder("pieces/", [".css", ".html"])];
 		const names = [
 			...[foundation, ...modes.map((mode) => semantics[mode])].flatMap((tokens) => [...tokens.keys()].map((id) => `tokens/: ${id}`)),
-			...designSystemNames("dist/design-system.json"),
-			...designSystemNames("design-system/tokens.json"),
-			...Object.keys(JSON.parse(readText("design-system/tokens.notes.json")).tokens).map((name) => `design-system/tokens.notes.json: ${name}`),
 			...cssFiles.flatMap((path) => [...withoutComments(readText(path)).matchAll(/--[\w-]+/g)].map(([name]) => `${path}: ${name}`)),
 		];
 		assert.deepEqual(names.filter((entry) => outlawed.test(entry.slice(entry.indexOf(": ") + 2))), []);
@@ -134,9 +129,13 @@ describe("css/fonts.css", () => {
 	const source = readText("css/fonts.css");
 	const declared = new Set([...source.matchAll(/font-family:\s*"([^"]+)"/g)].map(([, family]) => family));
 	const systemFamilies = ["serif", "sans-serif", "monospace", "ui-monospace", "system-ui", "SFMono-Regular", "Menlo"];
-	test("cada familia de los tokens que no es del sistema está declarada con @font-face", () => {
-		const families = [...foundation].filter(([id]) => id.startsWith("font.family.")).flatMap(([, token]) => token.value);
-		assert.deepEqual(families.filter((family) => !systemFamilies.includes(family) && !declared.has(family)), []);
+	// La pila empieza por la familia de este archivo. La firma trae además su nombre de afuera, el de
+	// Google Fonts ("DM Serif Display"): es la única que puede faltar acá, y sólo si brand.css la carga.
+	test("la primera familia de cada pila y las demás que no son del sistema ni de Google Fonts están declaradas con @font-face", () => {
+		const stacks = [...foundation].filter(([id]) => id.startsWith("font.family.")).map(([, token]) => token.value);
+		assert.deepEqual(stacks.map((families) => families[0]).filter((family) => !declared.has(family)), [], "primeras sin @font-face");
+		const rest = stacks.flatMap((families) => families.slice(1));
+		assert.deepEqual(rest.filter((family) => !systemFamilies.includes(family) && !declared.has(family) && !googleFamilies.has(family)), []);
 	});
 	test("cada archivo que nombra existe", () => {
 		const files = [...source.matchAll(/url\("\.\.\/(fonts\/[^"]+)"\)/g)].map(([, path]) => path);

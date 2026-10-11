@@ -22,20 +22,21 @@ const colorTokens = {
 	"--text-tertiary": "color.text.tertiary",
 	"--text-secondary": "color.text.secondary",
 	"--text-primary": "color.text.primary",
-	"--signature-block": "color.signature.marketing.block",
-	"--signature-text": "color.signature.marketing.text",
+	"--signature-marketing-block": "color.signature.marketing.block",
+	"--signature-marketing-text": "color.signature.marketing.text",
 	"--status-attention": "color.status.attention",
 	"--status-working": "color.status.working",
 	"--status-done": "color.status.done",
 	"--status-failed": "color.status.failed",
 	"--status-idle": "color.status.idle",
 };
-// Familia: se compara la primera de la lista. Las piezas cargan la firma de Google Fonts, que la
-// llama "DM Serif Display" (itálica por font-style); fonts.css la declara como familia propia.
+// Familia: la primera de brand.css contra la de la pila del token que carga afuera. Las piezas traen
+// la firma de Google Fonts, que la llama "DM Serif Display" (itálica por font-style): es el segundo
+// nombre de la pila; el primero es la familia propia de fonts.css.
 const fontTokens = {
 	"--font-sans": { id: "font.family.sans", family: (families) => families[0] },
 	"--font-mono": { id: "font.family.mono", family: (families) => families[0] },
-	"--font-signature": { id: "font.family.signature", family: (families) => families[0].replace(/ Italic$/, "") },
+	"--font-signature": { id: "font.family.signature", family: (families) => families[1] },
 };
 
 const brandCSS = readText("pieces/redes/_base/brand.css").replaceAll(/\/\*[\s\S]*?\*\//g, "");
@@ -58,8 +59,8 @@ test("los colores de brand.css son los del oscuro", () => {
 
 // El test de arriba compara sólo lo que brand.css declara: sin estas dos, la clase .sello se quedaría
 // sin color y nadie se enteraría.
-test("brand.css trae el sello de marketing: --signature-block y --signature-text", () => {
-	for (const [name, id] of [["--signature-block", "color.signature.marketing.block"], ["--signature-text", "color.signature.marketing.text"]]) {
+test("brand.css trae el sello de marketing: --signature-marketing-block y --signature-marketing-text", () => {
+	for (const [name, id] of [["--signature-marketing-block", "color.signature.marketing.block"], ["--signature-marketing-text", "color.signature.marketing.text"]]) {
 		assert.equal(pieceVariables.get(name)?.toLowerCase(), hexOf(resolved.dark.get(id).value), name);
 	}
 });
@@ -72,9 +73,9 @@ test("las familias de brand.css son las de los tokens", () => {
 	}
 });
 
-// El sello se escribe en tres lugares: css/signature.css (la app y la landing), brand.css (las piezas)
-// y el preview del Headline del Design System. La geometría es una sola: si una copia cambia el
-// relleno o el interlineado, las letras que bajan (p, g, y, f) se salen del bloque en esa copia.
+// El sello se escribe en dos lugares: css/signature.css (la app y la landing) y brand.css (las
+// piezas). La geometría es una sola: si una copia cambia el relleno o el interlineado, las letras que
+// bajan (p, g, y, f) se salen del bloque en esa copia.
 const declarationsOf = (css, selector) => {
 	const withoutComments = css.replaceAll(/\/\*[\s\S]*?\*\//g, "");
 	const rule = [...withoutComments.matchAll(/([^{}]+)\{([^}]*)\}/g)].find(([, selectors]) => selectors.split(",").map((name) => name.trim()).includes(selector));
@@ -83,12 +84,15 @@ const declarationsOf = (css, selector) => {
 };
 const sealGeometry = (declarations) => ({ padding: declarations.padding, "line-height": declarations["line-height"] });
 
-test("los sellos tienen la misma geometría en signature.css, brand.css y el preview del Headline", () => {
+test("los sellos tienen la misma geometría en signature.css y brand.css", () => {
 	const appSeal = sealGeometry(declarationsOf(readText("css/signature.css"), ".signature-seal"));
 	const marketingSeal = sealGeometry(declarationsOf(readText("css/signature.css"), ".signature-seal-marketing"));
 	const pieceSeal = sealGeometry(declarationsOf(readText("pieces/redes/_base/brand.css"), ".sello"));
-	const previewSeal = sealGeometry(declarationsOf(readText("design-system/components/Headline/preview.html").match(/<style>([\s\S]*?)<\/style>/)[1], ".sello"));
 	assert.deepEqual(marketingSeal, appSeal);
 	assert.deepEqual(pieceSeal, appSeal);
-	assert.deepEqual(previewSeal, appSeal);
+});
+
+test(".sello lee el sello de marketing: --signature-marketing-block y --signature-marketing-text", () => {
+	const seal = declarationsOf(readText("pieces/redes/_base/brand.css"), ".sello");
+	assert.deepEqual([seal.background, seal.color], ["var(--signature-marketing-block)", "var(--signature-marketing-text)"]);
 });

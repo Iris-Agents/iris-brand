@@ -3,12 +3,15 @@
  * Subconjuntos latin y latin-ext; las rutas son relativas a este archivo.
  *
  * Pilas que corresponden:
- *   firma  "DM Serif Display Italic", "DM Serif Display Italic Fallback", serif
+ *   firma  "DM Serif Display Italic", "DM Serif Display", "DM Serif Display Italic Fallback", serif
  *   sans   "IBM Plex Sans", "IBM Plex Sans Fallback", sans-serif
  *   mono   "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace
  *
  * La firma es una familia propia con una sola cara, la itálica: aunque el elemento pida
- * font-style: normal, el navegador no tiene una recta para elegir. La sans tiene 400 y 500,
+ * font-style: normal, el navegador no tiene una recta para elegir. Ese nombre existe sólo acá;
+ * afuera (Google Fonts, las piezas de redes) la misma fuente se llama "DM Serif Display" y la
+ * itálica sale de font-style: italic. Por eso la pila de la firma
+ * trae los dos nombres, y carga en los dos lados. La sans tiene 400 y 500,
  * y nada más. Para que el navegador no invente negritas, el que consume pone
  * font-synthesis: none.
  */

@@ -27,7 +27,7 @@
      centroide de tinta cae 28 u más abajo (la caña pesa más que el punto), pero el punto, chico
      y aislado, pesa a la vista más que su área: con el punto contado 1,5 veces el centro de masa
      coincide con el de la caja. Centrar por tinta pura subía la i y apretaba el punto contra el borde.
-  x = −(174,5 + 10) / 1000 em; y = 342,5 / 1000 em (el origen del texto es la línea de base).
+  Todo esto está dibujado en logo/icon-profile.svg, que va acá en línea: la i nunca se tipea.
 -->
 <link rel="stylesheet" href="../_base/brand.css">
 <script>
@@ -35,22 +35,23 @@
 </script>
 <style>
   :root {
-    --icon-size: 1170px;
     /* Sólo para la versión con guías: no es un color de marca. */
     --guide-color: #ff2d95;
   }
   html, body { width: 1080px; height: 1080px; overflow: hidden; background: var(--brand-black); }
   .avatar { display: block; width: 1080px; height: 1080px; background: var(--brand-black); }
-  .avatar-glyph { font-size: var(--icon-size); fill: var(--brand-white); }
   .guides { display: none; fill: none; stroke: var(--guide-color); stroke-width: 3; stroke-dasharray: 14 10; }
   .show-guides .guides { display: inline; }
 </style>
 </head>
 <body>
 <svg class="avatar" viewBox="0 0 1080 1080" width="1080" height="1080" role="img" aria-label="iris agents">
-  <g transform="translate(540 540)">
-    <text class="avatar-glyph signature" x="-0.1845em" y="0.3425em">i</text>
-  </g>
+  <!-- La i es logo/icon-profile.svg en línea, a sangre: no se tipea ni se toca. -->
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1080" height="1080" role="img" aria-label="iris agents">
+  <title>iris agents</title>
+  <rect width="1000" height="1000" fill="#0a0a09"/>
+  <path fill="#fafaf9" d="M535.21 273.04Q504.88 273.04 482.67 253Q460.46 232.96 460.46 199.38Q460.46 161.46 487 137.08Q513.54 112.71 547.12 112.71Q579.62 112.71 600.21 133.29Q620.79 153.88 620.79 186.38Q620.79 223.21 594.79 248.12Q568.79 273.04 535.21 273.04ZM434.46 887.29Q400.88 887.29 379.21 869.96Q357.54 852.63 357.54 819.04Q357.54 799.54 361.88 772.46Q366.21 745.38 371.62 718.29L422.54 474.54Q432.29 430.12 391.12 411.71L373.79 403.04L374.88 391.12L578.54 332.62L589.38 342.38L504.88 734.54Q500.54 754.04 498.38 767.58Q496.21 781.12 496.21 794.13Q496.21 817.96 517.88 817.96Q534.12 817.96 550.38 807.67Q566.62 797.38 591.54 773.54L601.29 783.29Q574.21 823.38 532.5 855.33Q490.79 887.29 434.46 887.29Z"/>
+  </svg>
   <g class="guides" transform="translate(540 540)">
     <!-- Círculo inscripto (el recorte de las redes) y círculo del 80% (radio 432, límite de la i). -->
     <circle r="538.5"/>

@@ -3,12 +3,12 @@ import css from "@terrazzo/plugin-css";
 import Color from "colorjs.io";
 
 // Los primitivos no salen al CSS: un componente sólo lee semánticos, tipografía, forma y movimiento.
-export const primitiveColors = ["color.brand.**", "color.neutral-dark.**", "color.neutral-light.**", "color.signal.**", "color.alpha.**"];
+const primitiveColors = ["color.brand.**", "color.neutral-dark.**", "color.neutral-light.**", "color.signal.**", "color.alpha.**"];
 
 export const cssVariableName = (tokenId) => `--iris-${tokenId.replaceAll(".", "-")}`;
 
 // Un semántico apunta a un primitivo que no sale al CSS: se escribe con su valor (hex), no con var().
-export function colorToHex({ colorSpace, components, alpha = 1 }) {
+function colorToHex({ colorSpace, components, alpha = 1 }) {
 	return new Color(colorSpace, components, alpha).to("srgb").toString({ format: "hex", collapse: false });
 }
 

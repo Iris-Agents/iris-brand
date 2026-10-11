@@ -119,7 +119,6 @@ achica el ritmo, no el contenido.
   latido, hasta 0,45 y de vuelta) y queda quieto. Son 2,4 s, debajo de los 5 s que WCAG permite sin
   control para pausar. Nunca gira.
 - **Con `prefers-reduced-motion`** todo queda quieto y visible.
-- Claude Design no lee el movimiento de los tokens: va escrito en el README de su Design System.
 
 ### Movimiento en piezas de video
 
@@ -129,6 +128,9 @@ anima es el trabajo de iris, nunca un adorno.
 - **La secuencia** es siempre la misma, una entrada por tiempo: la pregunta que se tipea → la línea
   «tool · estado» con el ◐ de trabajando → la respuesta, con la cifra → el OK, con el ● y su
   palabra. Cuando la tool termina, la línea pasa de ◐ a ✓.
+- **La secuencia va sin titular.** El reel cierra con un cuadro aparte: el titular de dos líneas, con
+  la segunda en el sello petróleo, y el lockup (el SVG, capítulo 03). Es el único cuadro con el
+  sello (capítulo 11, 11.13).
 - **El cursor titila** en tinta (`text.primary`, #EDEDEA), prendido y apagado, y sólo cuando el
   tipeo para: mientras se tipea, va fijo al final del texto.
 - **El ◐ late** como en la app: en opacidad hasta `opacity.pulse` (0,45) y de vuelta, con

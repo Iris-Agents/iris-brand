@@ -25,14 +25,21 @@ dibujadas en magenta. La de guías es para revisar: **nunca se publica**.
 
 La marca es monocroma, con un solo acento de color: el **petróleo** (#03313C) del sello, el bloque
 detrás de la segunda línea del titular, con la firma en tinta (#EDEDEA) encima, a 11,87:1. Va en
-todas las piezas de redes, sale de `.sello` en `_base/brand.css` y no va en ningún otro lugar: ni de
+todas las piezas de redes, sale de `.sello` en `_base/brand.css`, con sus colores en
+`--signature-marketing-block` y `--signature-marketing-text`, y no va en ningún otro lugar: ni de
 fondo, ni en una franja, un texto, un borde o un botón. «Aprobar» va con borde de tinta y sin relleno.
+
+El logo va siempre como el SVG de `logo/` en línea, nunca tipeado: el lockup en los posts, el
+carrusel y las portadas; la marca sola en la portada de la página de LinkedIn; la i de
+`logo/icon-profile.svg` en la foto de perfil. Cómo se copia, en la sección 3 de
+[`plantillas.md`](plantillas.md).
 
 Cada post usa uno solo de tres registros: **Pregunta y cifra** (la base: el intercambio, con la
 pregunta con su cursor, la línea «tool · estado» y la cifra grande, y las plantillas de siempre),
 **En vivo** (los reels: la secuencia del intercambio en video vertical) y **La trastienda** (campañas
-y fechas: una foto oscura y quieta del mundo del vendedor, con el mismo sello). Qué lleva cada uno
-está en la sección 5 de [`plantillas.md`](plantillas.md).
+y fechas: una foto oscura y quieta del mundo del vendedor, con el mismo sello). El intercambio va
+sin titular: si el post lo lleva, va en otra lámina, y el reel cierra con un cuadro aparte con el
+titular, el sello y el lockup. Qué lleva cada uno está en la sección 5 de [`plantillas.md`](plantillas.md).
 
 ## Cómo regenerar
 
