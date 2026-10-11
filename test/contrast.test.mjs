@@ -1,5 +1,6 @@
 // La matriz de contraste WCAG 2.2 AA, completa: cada texto y cada gráfico sobre los cinco fondos
-// de cada modo. Texto 4,5:1; bordes de control, glifos de estado, foco, series y subrayado 3:1.
+// de cada modo. Texto 4,5:1; bordes de control, glifos de estado, foco, series y subrayado 3:1; la
+// firma sobre el sello de marketing, 7:1 (va sobre el petróleo, que casi no se despega del negro).
 // APCA se imprime al lado, como dato: no frena nada.
 import assert from "node:assert/strict";
 import { test } from "node:test";
@@ -22,6 +23,7 @@ function buildPairs() {
 		}
 		pair("text.on-action", "action.primary", 4.5);
 		pair("signature.text", "signature.block", 4.5);
+		pair("signature.marketing.text", "signature.marketing.block", 7);
 		pair("text.primary", "selection", 4.5);
 	}
 	const brand = (id) => hexOf(resolved.dark.get(id).value);
@@ -32,8 +34,8 @@ function buildPairs() {
 const pairs = buildPairs();
 const formatRatio = (ratio) => ratio.toFixed(2).replace(".", ",");
 
-test("son 157 pares con umbral, y todos llegan a AA", (context) => {
-	assert.equal(pairs.length, 157);
+test("son 159 pares con umbral, y todos llegan a su mínimo", (context) => {
+	assert.equal(pairs.length, 159);
 	const failing = pairs.filter((pair) => pair.ratio < pair.minimum);
 	for (const mode of [...modes, "logo"]) {
 		const worstByForeground = new Map();

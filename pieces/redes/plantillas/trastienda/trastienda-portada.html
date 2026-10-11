@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es" data-lamina="portada">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>La trastienda · portada de carrusel</title>
+<link rel="stylesheet" href="../../_base/brand.css">
+<link rel="stylesheet" href="../carrusel/carrusel.css">
+<link rel="stylesheet" href="trastienda.css">
+<script src="../carrusel/carrusel-guias.js" defer></script>
+<style>
+  :root { --foto-arriba: 172px; --foto-alto: 720px; --fundido-arriba: 120px; --fundido-abajo: 280px; }
+  /* El titular baja a 96 px: la foto es la imagen y el titular entra en un renglón por línea. */
+  .titular-portada { font-size: 96px; }
+  /* La nota de la foto ocupa parte del aire de abajo: el titular queda donde va en la portada de siempre. */
+  .lamina-portada .cuerpo { padding-bottom: 64px; }
+  .foto-nota { font-size: 24px; }
+  .guia-foto::after { top: 8px; right: 80px; }
+</style>
+</head>
+<body>
+<!--
+  Carrusel 4:5 de iris en el registro «La trastienda» · lámina 1, la portada. 1080 × 1350.
+  Limpia:  ../../_base/render.sh trastienda-portada.html 1080 1350 trastienda-portada.png
+  Guías:   ../../_base/render.sh "trastienda-portada.html?guias" 1080 1350 trastienda-portada-guias.png
+  Las láminas que siguen son las del carrusel de siempre (../carrusel/carrusel-2-interior.html y
+  carrusel-3-cierre.html), sobre el negro: la foto va sólo en la portada.
+  Lo fijo, como en toda portada: el lockup arriba a la izquierda, «deslizá →» abajo a la izquierda y el
+  contador abajo a la derecha. Arriba a la derecha no va nada: ahí Instagram pone su contador de fotos.
+  La foto empieza debajo del lockup, para que el logo quede en el negro y nunca sobre la foto.
+-->
+<!-- EDITAR: la foto. Oscura y quieta, del mundo del vendedor: cajas, kraft, una persiana. Sin personas, sin logos ni marcas,
+     sin el packaging de Mercado Libre y sin productos de clientes reales. La caja mide 1080 × 720 y la foto se recorta al
+     centro: sirve la misma de 1080 × 820 del feed. La franja de abajo tiene que ser casi negra, porque ahí caen el contexto y
+     el titular: medí en la PNG que el texto encima pase 4,5:1. El fundido con el negro lo pone el CSS, arriba y abajo.
+     En una copia fuera de esta carpeta, la ruta va absoluta. La de ejemplo es un dibujo hecho por script (foto-ejemplo.py). -->
+<img class="foto" data-slot="foto" src="foto-ejemplo.jpg" alt="">
+
+<main class="lamina lamina-portada">
+  <header class="cabecera">
+    <span class="lockup lockup-chico" role="img" aria-label="iris agents"><span class="icono signature" aria-hidden="true">i</span><span class="logotipo signature" aria-hidden="true">iris agents</span></span>
+  </header>
+
+  <section class="cuerpo">
+    <p class="contexto">
+      <!-- EDITAR: la línea de contexto, la campaña o la fecha en 1 a 3 palabras, sin punto. Máximo 26 caracteres. Va en tinta y el CSS
+           la pasa a mayúsculas. Sin «iris» (saldría «IRIS») y sin «Mercado Libre». -->
+      <span data-slot="contexto">Fin de año</span>
+      <!-- EDITAR: cuándo, si hay una fecha real: «Faltan 3 semanas», «Hoy». Máximo 16 caracteres. Si no hay, dejalo vacío. Sin urgencia inventada. -->
+      <span data-slot="contexto-cuando">Faltan 3 semanas</span>
+    </p>
+    <h1 class="titular titular-portada">
+      <!-- EDITAR: línea 1 del titular, en IBM Plex. Una idea. Máximo 17 caracteres (1 renglón). -->
+      <span data-slot="titular-linea-1">Lo que se agota</span>
+      <!-- EDITAR: línea 2 del titular, en la firma, en el sello (el texto va adentro del <span class="sello">). Sin números y termina
+           en punto. Máximo 30 caracteres (hasta 2 renglones; con 18 entra seguro en 1). Mejor en 1 renglón: en dos, el sello es un
+           solo bloque del ancho del titular, y el petróleo pesa más de lo que tiene que pesar. -->
+      <em class="signature"><span class="sello" data-slot="titular-linea-2">antes de diciembre.</span></em>
+    </h1>
+    <!-- EDITAR: de dónde sale la foto. Si la generó una IA: «Imagen generada con IA.». Si es una foto propia, borrá el <p> entero.
+         Máximo 40 caracteres. -->
+    <p class="foto-nota" data-slot="foto-nota">Imagen de ejemplo.</p>
+  </section>
+
+  <footer class="pie">
+    <span class="pie-texto">deslizá →</span>
+    <!-- EDITAR: número de esta lámina / total de láminas, en mono. Ej.: 1/3, 1/5. -->
+    <span class="contador" data-slot="contador">1/3</span>
+  </footer>
+</main>
+
+<!-- Guía de la foto: sólo con ?guias. Las demás (margen, contador de Instagram y grilla del perfil) las dibuja carrusel-guias.js. -->
+<div class="guia guia-foto" data-etiqueta="foto · el texto encima pasa 4,5:1" aria-hidden="true" style="left: 0; top: 172px; width: 1080px; height: 720px;"></div>
+</body>
+</html>

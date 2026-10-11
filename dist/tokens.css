@@ -55,8 +55,12 @@
   --iris-color-link-underline: #72716e;
   /* Fondo de la selección de texto. */
   --iris-color-selection: #3a3937;
-  /* El sello: el bloque de tinta detrás de la segunda línea de un titular de dos líneas, con la firma calada en signature.text. Es el valor de text.primary. Es el único bloque lleno de tinta de la pieza: si hay un botón principal a la vista, va con borde. */
+  /* El sello de la app: el bloque de tinta detrás de la segunda línea de un titular de dos líneas, con la firma calada en signature.text. Es el valor de text.primary. Es el único bloque lleno de tinta de la pantalla: si hay un botón principal a la vista, va con borde. En marketing (piezas, banners, portadas, el titular de la landing y las OG) el sello es signature.marketing. */
   --iris-color-signature-block: #ededea;
+  /* El sello de marketing: el bloque petróleo detrás de la segunda línea de un titular de dos líneas, con la firma en signature.marketing.text. Va en posts, stories, reels, carruseles, banners y portadas, y en el titular de la landing y sus OG; la app usa signature.block. Es el único lugar del petróleo: nunca de fondo, franja, texto, borde, botón, ícono, glifo ni estado. Casi no se despega del negro, a propósito (1,42:1 sobre bg.canvas del oscuro): el sello lo hace la letra. Si hay un botón principal a la vista, va con borde de 1px en text.primary, sin relleno. Igual en los dos modos: el bloque es oscuro siempre. */
+  --iris-color-signature-marketing-block: #03313c;
+  /* La firma sobre el sello de marketing: la tinta del oscuro, sólo sobre signature.marketing.block (11,87:1). Igual en los dos modos. */
+  --iris-color-signature-marketing-text: #ededea;
   /* La firma calada en el sello: el color del fondo, sólo sobre signature.block. Es el valor de text.on-action. */
   --iris-color-signature-text: #0a0a09;
   /* ● lleno: te toca. El único ● del set; va agrupado arriba de todo y, con el CTA, es lo único que grita. */
@@ -247,17 +251,17 @@
   --iris-typography-headline-hero-first-letter-spacing: -1.28px;
   /* Primera línea del hero y de la OG, en text.primary. */
   --iris-typography-headline-hero-first-line-height: 1.05;
-  /* Segunda línea del hero y de la OG: la firma, calada en el sello (signature.text sobre signature.block), del mismo tamaño que la primera. */
+  /* Segunda línea del hero y de la OG: la firma, en el sello de marketing (signature.marketing.text sobre signature.marketing.block), del mismo tamaño que la primera. */
   --iris-typography-headline-hero-second: var(--iris-typography-headline-hero-second-font-weight) var(--iris-typography-headline-hero-second-font-size)/var(--iris-typography-headline-hero-second-line-height) var(--iris-typography-headline-hero-second-font-family);
-  /* Segunda línea del hero y de la OG: la firma, calada en el sello (signature.text sobre signature.block), del mismo tamaño que la primera. */
+  /* Segunda línea del hero y de la OG: la firma, en el sello de marketing (signature.marketing.text sobre signature.marketing.block), del mismo tamaño que la primera. */
   --iris-typography-headline-hero-second-font-family: var(--iris-font-family-signature);
-  /* Segunda línea del hero y de la OG: la firma, calada en el sello (signature.text sobre signature.block), del mismo tamaño que la primera. */
+  /* Segunda línea del hero y de la OG: la firma, en el sello de marketing (signature.marketing.text sobre signature.marketing.block), del mismo tamaño que la primera. */
   --iris-typography-headline-hero-second-font-size: 64px;
-  /* Segunda línea del hero y de la OG: la firma, calada en el sello (signature.text sobre signature.block), del mismo tamaño que la primera. */
+  /* Segunda línea del hero y de la OG: la firma, en el sello de marketing (signature.marketing.text sobre signature.marketing.block), del mismo tamaño que la primera. */
   --iris-typography-headline-hero-second-font-weight: var(--iris-font-weight-regular);
-  /* Segunda línea del hero y de la OG: la firma, calada en el sello (signature.text sobre signature.block), del mismo tamaño que la primera. */
+  /* Segunda línea del hero y de la OG: la firma, en el sello de marketing (signature.marketing.text sobre signature.marketing.block), del mismo tamaño que la primera. */
   --iris-typography-headline-hero-second-letter-spacing: -0.64px;
-  /* Segunda línea del hero y de la OG: la firma, calada en el sello (signature.text sobre signature.block), del mismo tamaño que la primera. */
+  /* Segunda línea del hero y de la OG: la firma, en el sello de marketing (signature.marketing.text sobre signature.marketing.block), del mismo tamaño que la primera. */
   --iris-typography-headline-hero-second-line-height: 1.05;
   /* Primera línea de un titular de sección y del banner; el hero en pantallas angostas. */
   --iris-typography-headline-section-first: var(--iris-typography-headline-section-first-font-weight) var(--iris-typography-headline-section-first-font-size)/var(--iris-typography-headline-section-first-line-height) var(--iris-typography-headline-section-first-font-family);
@@ -271,17 +275,17 @@
   --iris-typography-headline-section-first-letter-spacing: -0.6px;
   /* Primera línea de un titular de sección y del banner; el hero en pantallas angostas. */
   --iris-typography-headline-section-first-line-height: 1.1;
-  /* Segunda línea del mismo titular: la firma, calada en el sello (signature.text sobre signature.block). */
+  /* Segunda línea del mismo titular: la firma, en el sello. En la app, calada en el de tinta (signature.text sobre signature.block); en marketing (el banner, el hero en pantallas angostas), en el petróleo (signature.marketing.text sobre signature.marketing.block). */
   --iris-typography-headline-section-second: var(--iris-typography-headline-section-second-font-weight) var(--iris-typography-headline-section-second-font-size)/var(--iris-typography-headline-section-second-line-height) var(--iris-typography-headline-section-second-font-family);
-  /* Segunda línea del mismo titular: la firma, calada en el sello (signature.text sobre signature.block). */
+  /* Segunda línea del mismo titular: la firma, en el sello. En la app, calada en el de tinta (signature.text sobre signature.block); en marketing (el banner, el hero en pantallas angostas), en el petróleo (signature.marketing.text sobre signature.marketing.block). */
   --iris-typography-headline-section-second-font-family: var(--iris-font-family-signature);
-  /* Segunda línea del mismo titular: la firma, calada en el sello (signature.text sobre signature.block). */
+  /* Segunda línea del mismo titular: la firma, en el sello. En la app, calada en el de tinta (signature.text sobre signature.block); en marketing (el banner, el hero en pantallas angostas), en el petróleo (signature.marketing.text sobre signature.marketing.block). */
   --iris-typography-headline-section-second-font-size: 40px;
-  /* Segunda línea del mismo titular: la firma, calada en el sello (signature.text sobre signature.block). */
+  /* Segunda línea del mismo titular: la firma, en el sello. En la app, calada en el de tinta (signature.text sobre signature.block); en marketing (el banner, el hero en pantallas angostas), en el petróleo (signature.marketing.text sobre signature.marketing.block). */
   --iris-typography-headline-section-second-font-weight: var(--iris-font-weight-regular);
-  /* Segunda línea del mismo titular: la firma, calada en el sello (signature.text sobre signature.block). */
+  /* Segunda línea del mismo titular: la firma, en el sello. En la app, calada en el de tinta (signature.text sobre signature.block); en marketing (el banner, el hero en pantallas angostas), en el petróleo (signature.marketing.text sobre signature.marketing.block). */
   --iris-typography-headline-section-second-letter-spacing: -0.4px;
-  /* Segunda línea del mismo titular: la firma, calada en el sello (signature.text sobre signature.block). */
+  /* Segunda línea del mismo titular: la firma, en el sello. En la app, calada en el de tinta (signature.text sobre signature.block); en marketing (el banner, el hero en pantallas angostas), en el petróleo (signature.marketing.text sobre signature.marketing.block). */
   --iris-typography-headline-section-second-line-height: 1.1;
   /* Botón, nav, título de fila, píldora. */
   --iris-typography-label: var(--iris-typography-label-font-weight) var(--iris-typography-label-font-size)/var(--iris-typography-label-line-height) var(--iris-typography-label-font-family);
@@ -365,8 +369,12 @@
   --iris-color-link-underline: #868581;
   /* Fondo de la selección de texto. */
   --iris-color-selection: #dbdbd8;
-  /* El sello: el bloque de tinta detrás de la segunda línea de un titular de dos líneas, con la firma calada en signature.text. Es el valor de text.primary. Es el único bloque lleno de tinta de la pieza: si hay un botón principal a la vista, va con borde. */
+  /* El sello de la app: el bloque de tinta detrás de la segunda línea de un titular de dos líneas, con la firma calada en signature.text. Es el valor de text.primary. Es el único bloque lleno de tinta de la pantalla: si hay un botón principal a la vista, va con borde. En marketing (piezas, banners, portadas, el titular de la landing y las OG) el sello es signature.marketing. */
   --iris-color-signature-block: #1a1917;
+  /* El sello de marketing: el bloque petróleo detrás de la segunda línea de un titular de dos líneas, con la firma en signature.marketing.text. Va en posts, stories, reels, carruseles, banners y portadas, y en el titular de la landing y sus OG; la app usa signature.block. Es el único lugar del petróleo: nunca de fondo, franja, texto, borde, botón, ícono, glifo ni estado. Casi no se despega del negro, a propósito (1,42:1 sobre bg.canvas del oscuro): el sello lo hace la letra. Si hay un botón principal a la vista, va con borde de 1px en text.primary, sin relleno. Igual en los dos modos: el bloque es oscuro siempre. */
+  --iris-color-signature-marketing-block: #03313c;
+  /* La firma sobre el sello de marketing: la tinta del oscuro, sólo sobre signature.marketing.block (11,87:1). Igual en los dos modos. */
+  --iris-color-signature-marketing-text: #ededea;
   /* La firma calada en el sello: el color del fondo, sólo sobre signature.block. Es el valor de text.on-action. */
   --iris-color-signature-text: #fafaf9;
   /* ● lleno: te toca. El único ● del set; va agrupado arriba de todo y, con el CTA, es lo único que grita. En claro va sólo como relleno, nunca como texto ni en un trazo fino. */
@@ -438,8 +446,12 @@
     --iris-color-link-underline: #868581;
     /* Fondo de la selección de texto. */
     --iris-color-selection: #dbdbd8;
-    /* El sello: el bloque de tinta detrás de la segunda línea de un titular de dos líneas, con la firma calada en signature.text. Es el valor de text.primary. Es el único bloque lleno de tinta de la pieza: si hay un botón principal a la vista, va con borde. */
+    /* El sello de la app: el bloque de tinta detrás de la segunda línea de un titular de dos líneas, con la firma calada en signature.text. Es el valor de text.primary. Es el único bloque lleno de tinta de la pantalla: si hay un botón principal a la vista, va con borde. En marketing (piezas, banners, portadas, el titular de la landing y las OG) el sello es signature.marketing. */
     --iris-color-signature-block: #1a1917;
+    /* El sello de marketing: el bloque petróleo detrás de la segunda línea de un titular de dos líneas, con la firma en signature.marketing.text. Va en posts, stories, reels, carruseles, banners y portadas, y en el titular de la landing y sus OG; la app usa signature.block. Es el único lugar del petróleo: nunca de fondo, franja, texto, borde, botón, ícono, glifo ni estado. Casi no se despega del negro, a propósito (1,42:1 sobre bg.canvas del oscuro): el sello lo hace la letra. Si hay un botón principal a la vista, va con borde de 1px en text.primary, sin relleno. Igual en los dos modos: el bloque es oscuro siempre. */
+    --iris-color-signature-marketing-block: #03313c;
+    /* La firma sobre el sello de marketing: la tinta del oscuro, sólo sobre signature.marketing.block (11,87:1). Igual en los dos modos. */
+    --iris-color-signature-marketing-text: #ededea;
     /* La firma calada en el sello: el color del fondo, sólo sobre signature.block. Es el valor de text.on-action. */
     --iris-color-signature-text: #fafaf9;
     /* ● lleno: te toca. El único ● del set; va agrupado arriba de todo y, con el CTA, es lo único que grita. En claro va sólo como relleno, nunca como texto ni en un trazo fino. */

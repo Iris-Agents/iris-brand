@@ -25,7 +25,7 @@ escasea.
 |---|---|---|
 | El logotipo | Header, footer, OG, firma de mail, el lockup | Dibujo vectorial (`wordmark.svg`), desde 20 px de cuerpo. |
 | La i del ícono | Favicon, foto de perfil, ícono de app, conector de Claude | Dibujo vectorial (`icon.svg`), desde 16 px con el master chico. |
-| La segunda línea de un titular de dos líneas | Hero y OG (64 px), secciones y banner (40 px) | Texto, 400 itálica, del mismo tamaño que la primera línea, desde 32 px, calada en el sello (5.3). |
+| La segunda línea de un titular de dos líneas | Hero y OG (64 px), secciones y banner (40 px) | Texto, 400 itálica, del mismo tamaño que la primera línea, desde 32 px, en el sello (5.3). |
 | **Nada más** | — | Ni una palabra suelta adentro de una línea sans, ni un titular de una sola línea, ni un estado vacío, ni números, ni botones, ni eyebrows, ni cuerpo, ni interfaz. |
 
 - **Por qué tan poco:** tiene un solo peso y no trae cifras tabulares, así que no sirve para datos
@@ -41,7 +41,7 @@ escasea.
 | | Línea 1 | Línea 2 |
 |---|---|---|
 | Familia | IBM Plex Sans 500 | La firma, 400 itálica |
-| Color | `text.primary` | Calada en el sello: la letra en `signature.text` (el color del fondo) sobre un bloque en `signature.block` (la tinta) |
+| Color | `text.primary` | En el sello: en la app, calada en `signature.text` (el color del fondo) sobre `signature.block` (la tinta); en marketing, en tinta (`signature.marketing.text`) sobre `signature.marketing.block` (el petróleo) |
 | Tamaño | El mismo en las dos | El mismo en las dos |
 | Interlineado | El de su estilo | La línea, 1, con 0,16em de aire arriba; adentro del sello, 0,86 |
 
@@ -58,28 +58,38 @@ escasea.
 
 ### El sello
 
-La segunda línea no va en gris: el gris, en lugar de remarcar, apagaba. Va calada, con la firma en
-el color del fondo sobre un bloque de tinta. Lo decidió Franco el 2026-10-10, entre cuatro opciones
+La segunda línea no va en gris: el gris, en lugar de remarcar, apagaba. Va en un sello, un bloque
+de esquinas rectas detrás de la firma. Lo decidió Franco el 2026-10-10, entre cuatro opciones
 (rosa, sello, rosa con rúbrica y rosa grande); «blanco y más blanco» quedó descartado.
+
+Hay dos sellos, con las mismas medidas y distintos colores:
+
+| Sello | Dónde | El bloque | La letra | Clase | Contraste |
+|---|---|---|---|---|---|
+| De tinta | La app | `signature.block`: #EDEDEA en oscuro, #1A1917 en claro | Calada, en `signature.text`: #0A0A09 en oscuro, #FAFAF9 en claro | `.signature-seal` | 16,89:1 y 16,82:1 |
+| Petróleo | Marketing: las piezas de redes, los banners, las portadas, el titular de la landing y las OG | `signature.marketing.block`: #03313C en los dos modos | En tinta, `signature.marketing.text`: #EDEDEA en los dos modos | `.signature-seal-marketing`; en las piezas de redes, el `.sello` de `pieces/redes/_base/brand.css` | 11,87:1 |
 
 - **La receta** vive en `css/signature.css` y va siempre igual:
   - la línea de la firma (`.signature-line`), en bloque, con `margin-top: 0.16em` y
     `line-height: 1`;
-  - adentro, el sello (`.signature-seal`): un `<span>` con `display: inline-block`,
-    `padding: 0.14em 0.16em 0.13em 0.13em` (arriba, derecha, abajo, izquierda),
-    `line-height: 0.86` y esquinas rectas, sin borde ni sombra;
-  - el bloque en `signature.block` y la letra en `signature.text`: #EDEDEA y #0A0A09 en oscuro;
-    en claro se invierte igual, #1A1917 y #FAFAF9. Da 16,89:1 y 16,82:1.
+  - adentro, el sello (`.signature-seal` o `.signature-seal-marketing`): un `<span>` con
+    `display: inline-block`, `padding: 0.14em 0.16em 0.18em 0.13em` (arriba, derecha, abajo,
+    izquierda), `line-height: 0.86` y esquinas rectas, sin borde ni sombra;
+  - el bloque y la letra, los de su sello.
 - **Las medidas van en em:** el sello sigue al tamaño del titular, en los dos pares y en las piezas.
-- **Es el único bloque lleno de tinta de la pieza.** Si hay un botón principal a la vista (el
-  «Aprobar» de la tarjeta en una pieza, el botón principal del hero de la landing), va con borde
-  (capítulo 06, 6.5).
+- **Con el sello a la vista, el botón principal va con borde** (el «Aprobar» de la tarjeta en una
+  pieza, el botón principal del hero de la landing; capítulo 06, 6.5). En marketing, porque el foco
+  es la firma y lo que dice la pieza; en la app, porque el sello de tinta es el único bloque lleno
+  de tinta.
 - **En dos renglones**, el sello es un solo bloque del ancho del titular.
+- **El petróleo va sólo en el sello de marketing**, y es la única variante del sello (capítulo 04,
+  4.9). El bloque casi no se despega del negro (1,42:1), a propósito: lo que se lee es la firma.
 
 ```html
+<!-- En la landing: el sello petróleo. En la app, la misma estructura con .signature-seal. -->
 <h1 class="text-hero">
   Agentes expertos
-  <span class="signature-line text-hero-signature font-signature italic"><span class="signature-seal">a cargo de tu e-commerce.</span></span>
+  <span class="signature-line text-hero-signature font-signature italic"><span class="signature-seal-marketing">a cargo de tu e-commerce.</span></span>
 </h1>
 ```
 
@@ -132,6 +142,8 @@ El largo de línea está en `layout.measure.lede` (60), `layout.measure.prose` (
 - En el HTML se escribe en minúscula normal («Hoy en tu cuenta») y el CSS lo pasa a mayúsculas.
 - Nunca lleva «iris»: saldría «IRIS».
 - Los encabezados de una tabla usan el mismo estilo.
+- **En una pieza de redes**, el eyebrow de arriba de todo es la línea de contexto y va en
+  `text.primary`, no en `text.tertiary` (capítulo 09, 9.11).
 
 ## 5.6 Números
 
@@ -166,7 +178,8 @@ El largo de línea está en `layout.measure.lede` (60), `layout.measure.prose` (
 - La firma recta (DM Serif Display regular), la firma fuera de sus tres usos o por debajo de 32 px
   como texto.
 - La segunda línea del titular en gris o sin el sello; un sello con esquinas redondeadas, borde,
-  sombra o un color que no sea el de sus dos tokens.
+  sombra o un color que no sea el de sus dos tokens; el sello petróleo en la app, o el de tinta en
+  marketing.
 - Plex Sans en itálica: no se carga y el navegador la falsearía. La única itálica es la firma.
 - La mono en eyebrows, etiquetas, botones o palabras («en curso» y «hoy» van en sans).
 - Un texto de menos de 12 px.

@@ -48,7 +48,7 @@ En el CSS principal, después de Tailwind:
 @import "iris-brand/fonts.css";     /* las caras: DM Serif Display itálica, IBM Plex Sans y Plex Mono */
 @import "iris-brand/tokens.css";    /* las variables --iris-*, en oscuro y en claro */
 @import "iris-brand/tailwind.css";  /* las utilidades: bg-canvas, text-fg, rounded-card… */
-@import "iris-brand/signature.css"; /* el sello de la firma: .signature-line y .signature-seal */
+@import "iris-brand/signature.css"; /* el sello: .signature-line, .signature-seal y .signature-seal-marketing */
 
 html {
   font-synthesis: none;             /* que el navegador no invente negritas */
@@ -60,8 +60,10 @@ html {
 - `tailwind.css` pisa `font-sans` y `font-mono` a propósito: la familia por default de la app pasa
   a ser IBM Plex Sans. No bloquea la paleta de Tailwind ni redefine los nombres de shadcn; el puente
   a shadcn, si hace falta, queda en la app.
-- `signature.css` es la receta del sello: la segunda línea de un titular de dos líneas va calada en
-  un bloque de tinta (capítulo 05, 5.3). Hace falta en toda página con un titular de dos líneas.
+- `signature.css` es la receta del sello, la segunda línea de un titular de dos líneas (capítulo
+  05, 5.3): `.signature-seal` es el de la app, la firma calada en un bloque de tinta;
+  `.signature-seal-marketing` es el del titular de la landing y sus OG, la firma en tinta sobre un
+  bloque petróleo. Hace falta en toda página con un titular de dos líneas.
 - El paquete también exporta `iris-brand/design-system.json`. Una app no lo necesita.
 - El logo y las fuentes se importan por su ruta: `import icono from "iris-brand/logo/icon.svg"`,
   `iris-brand/logo/favicon.ico`, `iris-brand/fonts/…`. Nunca se copian a mano a la app.
@@ -87,14 +89,15 @@ Se lee por rol, nunca por gris:
 
 | Qué | Nombres |
 |---|---|
-| Colores, con cualquier prefijo (`bg-`, `text-`, `border-`, `fill-`…) | Fondos: `canvas` `surface` `raised` `hover` `selected` · Texto: `fg` `fg-secondary` `fg-tertiary` `fg-placeholder` `fg-disabled` `on-action` · Bordes: `line-subtle` `line` `line-control` · Acción: `action` `action-destructive` `focus` `selection` `backdrop` · El sello: `signature` (el bloque) `on-signature` (la letra) · Estados, sólo en el glifo: `status-attention` `status-working` `status-failed` `status-done` `status-idle` · Datos: `data-series` `data-comparison` `data-grid` `link-underline` |
+| Colores, con cualquier prefijo (`bg-`, `text-`, `border-`, `fill-`…) | Fondos: `canvas` `surface` `raised` `hover` `selected` · Texto: `fg` `fg-secondary` `fg-tertiary` `fg-placeholder` `fg-disabled` `on-action` · Bordes: `line-subtle` `line` `line-control` · Acción: `action` `action-destructive` `focus` `selection` `backdrop` · El sello: `signature` (el bloque) `on-signature` (la letra); en la landing, `signature-marketing` `on-signature-marketing` · Estados, sólo en el glifo: `status-attention` `status-working` `status-failed` `status-done` `status-idle` · Datos: `data-series` `data-comparison` `data-grid` `link-underline` |
 | Radios | `rounded-chip` `rounded-control` `rounded-card` `rounded-panel` `rounded-frame`; las píldoras, `rounded-full` |
 | Estilos de texto (tamaño, interlineado, tracking y peso) | `text-hero` `text-hero-signature` `text-section` `text-section-signature` `text-title` `text-lede` `text-body` `text-reading` `text-ui` `text-label` `text-eyebrow` `text-mono` |
 | Familias | `font-sans` `font-signature` `font-mono` |
 
 Sin Tailwind, las mismas variables: `var(--iris-color-bg-canvas)`, `var(--iris-radius-card)`. El
 nombre es el id del token con guiones: `color.text.secondary` es `--iris-color-text-secondary`. Al
-CSS sólo salen los roles: ningún primitivo (`neutral-dark.*`, `signal.*`) llega a una app.
+CSS sólo salen los roles: ningún primitivo (`neutral-dark.*`, `signal.*`, `brand.petrol`) llega a
+una app. El petróleo llega sólo como el bloque del sello de marketing.
 
 ### El vidrio
 
@@ -157,7 +160,8 @@ en la major siguiente:
 ## La marca en una pantalla
 
 **El alma.** Elegante, oscura y minimalista. Monocromo: la jerarquía sale de la luz y la tinta es
-el acento. Sin sombras, sin glow y sin gradientes llamativos; el único blur es el vidrio.
+el acento. Sin sombras, sin glow y sin gradientes llamativos; el único blur es el vidrio. Hay un
+solo acento de color, el petróleo, y va en un solo lugar: el sello de la firma en marketing.
 
 **El logo**, en tres piezas según el lugar. Nunca se tipea: se usa el SVG.
 
@@ -174,15 +178,21 @@ de empresa, facturas, contratos.
 
 | Familia | Para qué |
 |---|---|
-| DM Serif Display itálica, la firma | Sólo en tres lugares: el logotipo, la i del ícono y la segunda línea de un titular de dos líneas (desde 32 px, calada en el sello). |
+| DM Serif Display itálica, la firma | Sólo en tres lugares: el logotipo, la i del ícono y la segunda línea de un titular de dos líneas (desde 32 px, en el sello). |
 | IBM Plex Sans 400 y 500 | Todo lo que se lee y se opera. No hay tercer peso. |
 | IBM Plex Mono 400 | Sólo datos: ids, horas, nombres de tools, atajos. |
 
-**El sello.** La segunda línea del titular no va en gris: va calada, con la firma en el color del
-fondo sobre un bloque de tinta de esquinas rectas, del mismo tamaño que la primera línea
-(`css/signature.css`, capítulo 05). Es el único bloque lleno de tinta de la pieza: si hay un botón
-principal a la vista (el «Aprobar» de la tarjeta en una pieza, el botón principal del hero), va con
-borde de 1 px en `text.primary`, sin relleno. En la app y en un formulario, el CTA sigue lleno.
+**El sello.** La segunda línea del titular no va en gris: va en un sello, un bloque de esquinas
+rectas detrás de la firma, del mismo tamaño que la primera línea (`css/signature.css`, capítulo
+05). Hay dos, con las mismas medidas:
+- **En marketing** (posts, stories, reels, carruseles, banners, portadas, el titular de la landing
+  y las OG), el sello petróleo: la firma en tinta (#EDEDEA) sobre un bloque #03313C, sobre el negro.
+  Da 11,87:1, y el bloque casi no se despega del fondo (1,42:1), a propósito.
+- **En la app**, el sello de tinta: la firma calada en el color del fondo sobre un bloque de tinta.
+
+Con el sello a la vista, el botón principal (el «Aprobar» de la tarjeta en una pieza, el botón
+principal del hero) va con borde de 1 px en `text.primary`, sin relleno: el foco es la firma y lo
+que dice la pieza. Sin sello a la vista, el CTA sigue lleno.
 
 **Color.** La base; la paleta completa, con OKLCH y contraste, está en el capítulo 04.
 
@@ -191,9 +201,14 @@ borde de 1 px en `text.primary`, sin relleno. En la app y en un formulario, el C
 | `brand.black` · `brand.white` | #0A0A09 · #FAFAF9 | igual |
 | `bg.canvas` · `bg.surface` · `bg.raised` | #0A0A09 · #111110 · #181816 | #FAFAF9 en los tres |
 | `text.primary`, que también es la tinta del CTA, del foco y del sello | #EDEDEA | #1A1917 |
-| `signature.block` · `signature.text`: el sello y la firma calada | #EDEDEA · #0A0A09 | #1A1917 · #FAFAF9 |
+| `signature.block` · `signature.text`: el sello de la app y la firma calada | #EDEDEA · #0A0A09 | #1A1917 · #FAFAF9 |
+| `signature.marketing.block` · `signature.marketing.text`: el sello petróleo y la firma en tinta | #03313C · #EDEDEA | igual |
 | `text.secondary` · `text.tertiary` | #BFBEB9 · #9B9A96 | #4E4D49 · #686764 |
 | `border.subtle` · `border.default` | #2C2B29 · #3A3937 | #E3E3E1 · #CECECB |
+
+**El petróleo** (`brand.petrol`, #03313C) es el único acento de color, y va sólo en el bloque del
+sello de marketing. Nunca de fondo, en una franja, como texto, borde, botón, ícono, glifo o estado,
+ni en el logo. El detalle y lo descartado, en el capítulo 04 (4.9).
 
 **Los cinco estados.** Siempre glifo más palabra, o glifo más leyenda. Ninguna forma se repite y el
 color va sólo en el glifo.
@@ -219,7 +234,17 @@ logró iris: «Contestó 40 preguntas», «Resolvió 3 reclamos», «Generó 3 v
 «Adhirió a una promoción», «Mejoró la reputación». Sin «Cliente ·», «Producto ·» ni «Vendedor ·»:
 los nombres de los agentes quedan para la app. En la tarjeta de aprobación el antetítulo es
 «Propuesta». El titular del banner y de la portada de Facebook es «Agentes expertos / *a cargo de tu
-e-commerce.*», y son las dos únicas piezas con un degradé radial (blanco al 4 %).
+e-commerce.*», y las dos llevan un degradé radial (blanco al 4 %).
+
+**Las redes.** Tres registros sobre el mismo sistema, uno por post y con el mismo sello petróleo en
+el titular: **Pregunta y cifra** (la base: la imagen es el intercambio, la pregunta con su cursor,
+la línea «tool · estado» y la cifra grande), **En vivo** (los reels: pregunta → ◐ trabajando →
+respuesta → OK, en video vertical de 1080 × 1920, con el cursor en tinta) y **La trastienda**
+(campañas y fechas: una foto oscura y quieta del mundo del vendedor, sin personas ni marcas, y si es
+generada con IA, lo dice). «Aprobar» va con borde, sin relleno. Sin burbuja de chat:
+la persona se marca con el cursor. La luz radial, blanca y de hasta el 6 %, va sólo detrás del punto
+focal; el ● y el ◐ crecen hasta 48 px con su palabra; la línea «tool · estado» va a 26–30 px y la
+línea de contexto de arriba, en `text.primary`. El detalle, en el capítulo 11 (11.13).
 
 **Mercado Libre.** Se nombra como un hecho («tu cuenta de Mercado Libre», «para vendedores de
 Mercado Libre»), con iris siempre más grande. Nunca su logo, sus colores ni un diseño parecido;
@@ -228,9 +253,10 @@ de un módulo ni de una cuenta; «expertos» no va pegado a «Mercado Libre». E
 Livre»; en público nunca «MercadoLibre» ni «MeLi». El descargo va en el pie de la landing. El
 detalle, en el capítulo 12.
 
-**Lo que no.** El violeta, el amarillo de Mercado Libre, juegos con el iris del ojo, «el primer
+**Lo que no.** El violeta (tampoco en el cursor), los colores de Mercado Libre (tampoco en redes),
+un segundo acento de color o el petróleo fuera del sello, juegos con el iris del ojo, «el primer
 empleado de IA», Playfair, mascotas, robots, destellos, emojis, glow, sombras, gradientes
-llamativos, «piloto automático», «24/7», «bot» y los superlativos.
+llamativos, la burbuja de chat en una pieza, «piloto automático», «24/7», «bot» y los superlativos.
 
 **El manual:** [00 Cómo se usa](guide/00-como-se-usa.md) ·
 [01 Esencia](guide/01-esencia.md) · [02 Nombre](guide/02-nombre.md) ·
@@ -271,26 +297,34 @@ de desarrollo y compilaría en cada instalación de cada app.
 - **Alias y modos:** todo alias resuelve en los dos modos; un rol apunta sólo a foundation, nunca a
   otro rol; oscuro y claro tienen los mismos roles; los roles son sólo de color; ningún token lleva
   `$extensions`; todo token tiene `$type`, y todo color y todo rol, `$description`.
-- **Color:** el hex coincide con sus componentes OKLCH, ningún color cae fuera de sRGB, y
-  «resuelto» es el mismo gris que `text.tertiary`.
-- **Contraste:** los 157 pares llegan a WCAG 2.2 AA sobre los cinco fondos de su modo: 4,5:1 el
-  texto (también la firma sobre el sello); 3:1 los bordes de control, los glifos de estado, el
-  foco, las series y el subrayado. `text.disabled` queda en 3:1 o más. APCA se imprime al lado,
-  como dato.
+- **Color:** el hex coincide con sus componentes OKLCH, ningún color cae fuera de sRGB y
+  «resuelto» es el mismo gris que `text.tertiary`. El petróleo lo usa sólo
+  `signature.marketing.block`, y queda a ΔEOK 0,091 o más de los estados, de los colores de Claude
+  y de Anthropic, de los de Mercado Libre y Mercado Pago y de los colores descartados.
+- **Contraste:** los 159 pares llegan a su mínimo sobre los cinco fondos de su modo: 4,5:1 el
+  texto (también la firma sobre el sello de la app); 7:1 la firma sobre el sello de marketing; 3:1
+  los bordes de control, los glifos de estado, el foco, las series y el subrayado. `text.disabled`
+  queda en 3:1 o más. APCA se imprime al lado, como dato.
 - **Tipografía:** doce estilos, sólo pesos 400 y 500, nada debajo de 12 px, el tracking que le toca
   a cada familia y tamaño, y las dos líneas de un titular con el mismo tamaño e interlineado. La
   firma, sólo en la segunda línea de un titular, desde 32 px y en 400.
 - **Vidrio:** cada tinte es el neutro que dice su nombre, la barra es `bg.surface` y el panel
   `bg.raised` con alfa, y el texto permitido pasa con blanco o negro puro detrás aunque el
   desenfoque no se pinte.
-- **`dist/`:** es exactamente lo que genera el build, ningún primitivo sale al CSS y los bloques
-  del claro traen sólo color.
+- **`dist/`:** es exactamente lo que genera el build, ningún primitivo sale al CSS, el petróleo sale
+  sólo como `--iris-color-signature-marketing-block` y los bloques del claro traen sólo color.
 - **`css/`:** `tailwind.css`, `glass.css` y `signature.css` sólo nombran variables que existen y no
-  escriben un valor propio; ningún nombre de `tailwind.css` choca con shadcn ni con la paleta de
+  escriben un valor propio; cada sello de `signature.css` lee los colores de su lugar (la app o
+  marketing); ningún nombre de `tailwind.css` choca con shadcn ni con la paleta de
   Tailwind, salvo `font-sans` y `font-mono`, a propósito; están todos los roles de color menos el
   vidrio, que va por `glass.css`; cada familia de los tokens está en `fonts.css` y cada archivo que
   nombra existe.
-- **Piezas:** cada variable de `pieces/redes/_base/brand.css` tiene su token, con el mismo valor.
+- **Piezas:** cada variable de `pieces/redes/_base/brand.css` tiene su token, con el mismo valor, y
+  el sello de las piezas es el de marketing.
+- **El sello:** las tres copias (`css/signature.css`, `brand.css` y el preview del Headline) tienen
+  el mismo relleno y el mismo interlineado.
+- **Lo descartado:** ningún token, nombre del Design System ni variable de CSS se llama `piece`,
+  `cardboard` o cartón.
 
 ### Cambiar un token
 

@@ -51,8 +51,10 @@ Cada principio trae una consecuencia visual que se puede verificar en una pieza.
 
 Competente, preciso, de pocas palabras.
 
-**Se ve así:** negro, neutros y nada más. No hay ilustraciones, mascotas, robots, emojis, destellos,
-glow, sombras ni gradientes llamativos. Hay dos pesos tipográficos, 400 y 500: el bold que grita no
+**Se ve así:** negro, neutros y un solo acento: el petróleo del sello de la firma en marketing,
+que casi no se despega del negro (capítulo 04, 4.9). Una pieza de La trastienda suma una foto
+oscura (capítulo 11); nada más. No hay ilustraciones, mascotas, robots, emojis, destellos, glow,
+sombras ni gradientes llamativos. Hay dos pesos tipográficos, 400 y 500: el bold que grita no
 existe. El copy es corto y en voz activa.
 
 ### 2. La memoria se ve y se lee
@@ -62,7 +64,8 @@ es parte del producto.
 
 **Se ve así:** la lectura larga se trata como tipografía de libro: `copy.reading` a 15/1,65, hasta
 72 caracteres por línea, en `text.primary`. El agente escribe sobre el papel, sin globo; la persona
-sí va en burbuja. El texto de apoyo va en `text.secondary`; `text.tertiary` queda para datos sueltos
+sí va en burbuja (en la app: en una pieza de redes la persona se marca con el cursor, capítulo 09,
+9.11). El texto de apoyo va en `text.secondary`; `text.tertiary` queda para datos sueltos
 y nunca para una oración.
 
 ### 3. Hechos, no adjetivos
@@ -81,8 +84,8 @@ reputación». No hay badges ni contadores sin base.
 Lo que necesita al dueño va arriba. Lo que iris resolvió va abajo y en silencio.
 
 **Se ve así:** monocromo. La jerarquía sale de la luz y la tinta es el acento. Lo que grita es poco
-y siempre lo mismo: un solo bloque lleno de tinta por pantalla (el CTA, o en una pieza el sello del
-titular) y el ● ámbar de «te toca», el único ● del sistema, agrupado arriba. Lo resuelto lleva una ✓ gris y su texto baja a `text.tertiary`. El movimiento dura
+y siempre lo mismo: un solo bloque lleno por pantalla (el CTA o, con un titular de dos líneas, el
+sello de la firma) y el ● ámbar de «te toca», el único ● del sistema, agrupado arriba. Lo resuelto lleva una ✓ gris y su texto baja a `text.tertiary`. El movimiento dura
 de 120 a 280 ms, frena suave y no rebota. Lo que se anima en un estado late dos veces y queda quieto.
 
 ### 5. El dueño decide, y la aprobación es parte del producto

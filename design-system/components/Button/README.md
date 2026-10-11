@@ -9,7 +9,7 @@ Reconstrucción estática de `.boton`, `.boton-lleno` y `.boton-ghost` de `piece
 - **Tinta llena:** la acción principal de la pantalla, «Aprobar» en la tarjeta de aprobación, el CTA de la landing. Hay una sola por pantalla.
 - **Ghost:** la secundaria, «Rechazar con motivo».
 - **Destructivo:** borrar, revertir o reemplazar, «Borrar 12 publicaciones».
-- **Borde:** el botón principal cuando en la misma pieza hay un sello (el titular de dos líneas). El sello es el único bloque lleno de tinta: el botón va con borde de 1 px en `text-primary`, sin relleno y con la letra en `text-primary`. Fuera de una pieza con sello, el principal es la tinta llena.
+- **Borde:** el botón principal cuando a la vista hay un sello (el titular de dos líneas, ver `Headline`): borde de 1 px en `text-primary`, sin relleno y con la letra en `text-primary`. En marketing, con el sello petróleo, porque el foco es la firma y lo que dice la pieza: lleno, «Aprobar» era lo que más se veía en las piezas, y eso era un defecto. En la app, con el sello de tinta, porque el sello es el único bloque lleno de tinta. Sin sello a la vista, el principal es la tinta llena.
 
 ## Qué provee quien lo usa
 

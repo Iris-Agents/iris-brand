@@ -1,0 +1,32 @@
+/* «El intercambio», la pieza del registro «Pregunta y cifra»: la conversación es la imagen.
+   Lo que escribe el dueño termina en un cursor; lo que contesta la cuenta empieza con la herramienta
+   que usó, sigue con la cifra y, si hace falta, pide el OK. Sin burbujas: en redes la persona se
+   marca con el cursor y la cuenta con la línea «tool · estado».
+   Se enlaza DESPUÉS de ../../_base/brand.css y ../_comun/plantilla.css. Cada HTML fija los tamaños. */
+
+/* La pregunta, en minúscula inicial como se tipea, y el cursor en tinta. */
+.pregunta { margin: 0; font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; color: var(--text-primary); text-wrap: balance; }
+.cursor { display: inline-block; width: 0.09em; height: 0.82em; margin-left: 0.08em; vertical-align: -0.06em; background: var(--text-primary); }
+
+/* La línea «tool · estado» (guide/08-piezas-propias.md, 8.4), en mono y en terciario. */
+.trabajo { display: flex; align-items: center; gap: 0.5em; margin: 0; font-family: var(--font-mono); line-height: 1.3; letter-spacing: 0; color: var(--text-tertiary); white-space: nowrap; }
+.trabajo .glifo { width: 0.9em; height: 0.9em; }
+
+/* La cifra, a tamaño afiche, con su unidad al lado; si la unidad no entra, baja sola. */
+.cifra { isolation: isolate; display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px 28px; margin: 0; }
+.cifra-numero { position: relative; font-weight: 500; line-height: 0.86; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--text-primary); white-space: nowrap; }
+.cifra-unidad { line-height: 1.2; letter-spacing: -0.015em; color: var(--text-primary); white-space: nowrap; }
+/* La luz: un radial blanco al 6 %, sólo detrás de la cifra, que es el punto focal. Nunca a
+   pantalla completa: es un óvalo de 900 × 560 y llega al borde izquierdo ya apagado (uno o dos
+   niveles de 8 bits sobre el negro). */
+.cifra-numero::before { content: ""; position: absolute; z-index: -1; left: 50%; top: 50%; width: 900px; height: 560px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgb(255 255 255 / 0.06), rgb(255 255 255 / 0)); pointer-events: none; }
+
+/* Dos filas de contexto: la etiqueta en secundario, el valor en tinta y Plex 500. */
+.filas { margin: 0; }
+.filas div { display: flex; justify-content: space-between; gap: 24px; border-top: 2px solid var(--border-subtle); line-height: 1.2; letter-spacing: -0.0125em; }
+.filas dt { color: var(--text-secondary); }
+.filas dd { margin: 0; font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--text-primary); }
+
+/* El pedido de OK: el ● de «te toca», como objeto y siempre con su palabra. */
+.ok { display: flex; align-items: center; gap: 0.52em; margin: 0; font-weight: 500; line-height: 1.2; letter-spacing: -0.015em; color: var(--text-primary); }
+.ok .glifo { width: 1.05em; height: 1.05em; }

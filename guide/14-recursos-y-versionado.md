@@ -11,7 +11,7 @@ Dónde está cada cosa, cómo la toma una app, qué frena el test y cómo sale u
 | Los tokens (DTCG 2025.10) | `tokens/`: `foundation.tokens.json`, `themes/` (oscuro y claro) y `iris.resolver.json`, con el oscuro por defecto. |
 | El CSS generado | `dist/tokens.css`. Se commitea: quien lo consume no compila nada. |
 | La salida para Claude Design | `dist/design-system.json`, en la forma de listas que lee el tipo Design System. |
-| El CSS escrito a mano, sin valores propios | `css/fonts.css`, `css/tailwind.css` y `css/glass.css`. |
+| El CSS escrito a mano, sin valores propios | `css/fonts.css`, `css/tailwind.css`, `css/glass.css` y `css/signature.css`. |
 | Las fuentes | `fonts/`: WOFF2 de DM Serif Display itálica, IBM Plex Sans (400 y 500) e IBM Plex Mono (400), con sus licencias OFL. |
 | El logo | `logo/`: los SVG master del ícono, del logotipo y del lockup, y sus exportaciones (capítulo 03). |
 | Las piezas terminadas | `pieces/redes/`, con el avatar en `pieces/redes/perfil/`, y `pieces/linkedin/`: el banner del perfil y la portada y el logo de la página de empresa. La OG por defecto se guarda en `pieces/` cuando salga de Claude Design (14.7). |
@@ -81,10 +81,12 @@ Hay un solo comando, `pnpm build`: genera `dist/tokens.css` con Terrazzo, genera
 2. un alias no resuelve en alguno de los dos modos, un rol apunta a otro rol, los modos no tienen
    los mismos nombres, un token no tiene `$type`, un color o un rol no tiene `$description`, o
    alguno lleva `$extensions`;
-3. un hex no coincide con su OKLCH, un color cae fuera de sRGB, o «resuelto» deja de ser el mismo
-   gris que `text.tertiary`;
-4. alguno de los 157 pares de contraste baja de WCAG 2.2 AA sobre cualquier fondo de su modo
-   (capítulo 13);
+3. un hex no coincide con su OKLCH, un color cae fuera de sRGB, «resuelto» deja de ser el mismo
+   gris que `text.tertiary`, el petróleo lo usa un token que no es `signature.marketing.block`, o
+   queda a menos de ΔEOK 0,091 de un estado, de los colores de Claude o de Anthropic, de los de
+   Mercado Libre o Mercado Pago, o de un color ya descartado (capítulo 04, 4.9);
+4. alguno de los 159 pares de contraste baja de su mínimo sobre cualquier fondo de su modo: WCAG
+   2.2 AA, y 7:1 para la firma sobre el sello de marketing (capítulo 13);
 5. no son doce estilos, aparece un peso fuera de 400 y 500, algo baja de 12 px, un estilo no cumple
    la regla de tracking de su familia, o las dos líneas de un titular no comparten tamaño e
    interlineado;
@@ -93,13 +95,20 @@ Hay un solo comando, `pnpm build`: genera `dist/tokens.css` con Terrazzo, genera
 7. un tinte del vidrio deja de ser el neutro que dice su nombre, o el texto permitido no pasa con
    blanco o negro puro detrás;
 8. `css/tailwind.css` choca con los nombres de shadcn o con la paleta de Tailwind, nombra una
-   variable que `dist/tokens.css` no tiene o le falta un rol de color; `css/glass.css` escribe un
-   color propio; `css/fonts.css` no declara una familia de los tokens o nombra un archivo que no
+   variable que `dist/tokens.css` no tiene o le falta un rol de color; `css/glass.css` o
+   `css/signature.css` escriben un color propio, o `.signature-seal` y `.signature-seal-marketing`
+   leen los colores del otro sello; `css/fonts.css` no declara una familia de los tokens o nombra un archivo que no
    existe;
 9. `dist/` no es exactamente lo que generan los tokens (un `dist/` viejo, editado a mano o con otra
-   versión del paquete adentro no pasa), un primitivo sale al CSS o un bloque del claro trae algo
-   más que color;
-10. una variable de `pieces/redes/_base/brand.css` no tiene su token o vale otra cosa.
+   versión del paquete adentro no pasa), un primitivo sale al CSS, el petróleo aparece en
+   `dist/tokens.css` en otra variable que `--iris-color-signature-marketing-block`, o un bloque del
+   claro trae algo más que color;
+10. una variable de `pieces/redes/_base/brand.css` no tiene su token o vale otra cosa, o le falta el
+    sello de marketing (`--signature-block` y `--signature-text`), o una de las tres copias del sello
+    (`css/signature.css`, `brand.css` y el preview del Headline) cambia el relleno o el interlineado;
+11. un token, un nombre del Design System o una variable de CSS (en `css/`, `pieces/` o los
+    componentes del Design System) se llama como lo descartado: `piece`, `cardboard` o cartón
+    (capítulo 04, 4.9).
 
 ---
 
@@ -220,3 +229,33 @@ System «iris», y el PNG final se guarda en `pieces/`. **El avatar** es la foto
 
 **El ícono y el favicon** se exportan una sola vez desde los SVG master de `logo/`, y se vuelven a
 exportar sólo si cambia el SVG.
+
+---
+
+## 14.8 Qué trae 1.4.0
+
+Es minor, porque agrega tokens y no renombra ni borra ninguno (14.4).
+
+- **El petróleo, el único acento de color** (capítulo 04, 4.9): el primitivo `color.brand.petrol`
+  (#03313C) y el sello de marketing, `signature.marketing.block` y `signature.marketing.text`,
+  iguales en los dos modos. En CSS, `--iris-color-signature-marketing-block` y
+  `--iris-color-signature-marketing-text`; en Tailwind, `bg-signature-marketing` y
+  `text-on-signature-marketing`.
+- **La clase `.signature-seal-marketing`** en `css/signature.css`, para el titular de la landing y
+  sus OG. La app sigue con `.signature-seal`, sin cambios.
+- **El sello de las piezas de redes pasa al petróleo**: `--signature-block` y `--signature-text` de
+  `pieces/redes/_base/brand.css`.
+- **Los tres registros de redes** (Pregunta y cifra, En vivo y La trastienda) y las medidas de las
+  piezas: sin burbuja, el ● y el ◐ de hasta 48 px, la luz radial de hasta el 6 %, la línea «tool ·
+  estado» a 26–30 px y la línea de contexto en `text.primary` (capítulo 11, 11.13).
+- **El intercambio**, la pieza propia nueva (capítulo 08, 8.9).
+- **Las plantillas de los registros**: `pieces/redes/plantillas/intercambio/` (feed y story) y
+  `pieces/redes/plantillas/trastienda/` (feed y portada de carrusel), y la línea de contexto en tinta
+  en las de siempre.
+- **El movimiento en piezas de video** y el video vertical de 1080 × 1920 (capítulo 06, 6.7;
+  capítulo 11, 11.8).
+- **El sello baja 0,05em**: el relleno de abajo pasa de 0,13em a 0,18em, en los dos sellos. Las letras
+  que bajan (p, g, y, f) llegan a 0,24em bajo la línea de base y con 0,13em asomaban hasta 3 px del
+  bloque. Con la letra clara del petróleo se veía; con la de tinta, la letra quedaba cortada.
+- **El test** suma la firma sobre el sello de marketing (159 pares), la guarda del petróleo, la del
+  sello de las piezas y que las tres copias del sello tengan la misma geometría (14.3).

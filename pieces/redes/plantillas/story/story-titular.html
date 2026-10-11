@@ -16,7 +16,7 @@
   :root { --ancho: 1080px; --alto: 1920px; }
   .marco { top: 285px; right: 72px; bottom: 340px; left: 72px; }
   .contenido { display: flex; flex-direction: column; height: 963px; }
-  .eyebrow { font-size: 30px; }
+  .eyebrow { font-size: 30px; color: var(--text-primary); }
   .titular { margin-top: auto; font-size: 120px; }
   /* En un reel, la columna de botones (me gusta, comentar) sube por la derecha hasta el 40 % de abajo:
      la bajada termina en x = 950 para que ningún renglón quede debajo (hopperhq.com/blog/instagram-reel-size). */
@@ -29,13 +29,14 @@
 <body>
 <main class="marco" data-bloque="marco">
   <div class="contenido" data-bloque="contenido">
-    <!-- EDITAR: eyebrow, el tema en 1 a 3 palabras, sin punto. Máximo 30 caracteres. Sin «iris»: el eyebrow sale en mayúsculas y la marca va siempre en minúscula. -->
+    <!-- EDITAR: eyebrow, el tema en 1 a 3 palabras, sin punto. Máximo 30 caracteres. Sin «iris»: el eyebrow sale en mayúsculas y la marca va siempre en minúscula.
+         Es la línea de contexto: va en tinta, para que se lea en el primer segundo. -->
     <p class="eyebrow" data-slot="eyebrow">Presentación</p>
 
     <h1 class="titular" data-bloque="titular">
       <!-- EDITAR: línea 1 del titular (Plex). Una idea. Máximo 28 caracteres (hasta 2 renglones). -->
       <span data-slot="titular-linea-1">Agentes expertos</span>
-      <!-- EDITAR: línea 2 del titular (va en la firma, calada en el sello). Sin números. Máximo 28 caracteres (hasta 2 renglones).
+      <!-- EDITAR: línea 2 del titular (va en la firma, en el sello). Sin números. Máximo 28 caracteres (hasta 2 renglones).
            El texto va adentro del <span class="sello">; en dos renglones, el sello es un solo bloque del ancho del titular. -->
       <span class="signature"><span class="sello" data-slot="titular-linea-2">a cargo de tu e-commerce.</span></span>
     </h1>

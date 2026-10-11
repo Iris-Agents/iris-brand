@@ -2,7 +2,7 @@
   "name": "iris",
   "version": 1,
   "meta": {
-    "source": "iris-brand@1.3.0"
+    "source": "iris-brand@1.4.0"
   },
   "color": {
     "themes": [
@@ -150,7 +150,7 @@
           "dark": "#ededea",
           "light": "#1a1917"
         },
-        "usage": "El sello: el bloque de tinta detrás de la segunda línea de un titular de dos líneas, con la firma calada en signature.text. Es el valor de text.primary. Es el único bloque lleno de tinta de la pieza: si hay un botón principal a la vista, va con borde."
+        "usage": "El sello de la app: el bloque de tinta detrás de la segunda línea de un titular de dos líneas, con la firma calada en signature.text. Es el valor de text.primary. Es el único bloque lleno de tinta de la pantalla: si hay un botón principal a la vista, va con borde. En marketing (piezas, banners, portadas, el titular de la landing y las OG) el sello es signature.marketing."
       },
       {
         "name": "signature-text",
@@ -159,6 +159,22 @@
           "light": "#fafaf9"
         },
         "usage": "La firma calada en el sello: el color del fondo, sólo sobre signature.block. Es el valor de text.on-action."
+      },
+      {
+        "name": "signature-marketing-block",
+        "value": {
+          "dark": "#03313c",
+          "light": "#03313c"
+        },
+        "usage": "El sello de marketing: el bloque petróleo detrás de la segunda línea de un titular de dos líneas, con la firma en signature.marketing.text. Va en posts, stories, reels, carruseles, banners y portadas, y en el titular de la landing y sus OG; la app usa signature.block. Es el único lugar del petróleo: nunca de fondo, franja, texto, borde, botón, ícono, glifo ni estado. Casi no se despega del negro, a propósito (1,42:1 sobre bg.canvas del oscuro): el sello lo hace la letra. Si hay un botón principal a la vista, va con borde de 1px en text.primary, sin relleno. Igual en los dos modos: el bloque es oscuro siempre."
+      },
+      {
+        "name": "signature-marketing-text",
+        "value": {
+          "dark": "#ededea",
+          "light": "#ededea"
+        },
+        "usage": "La firma sobre el sello de marketing: la tinta del oscuro, sólo sobre signature.marketing.block (11,87:1). Igual en los dos modos."
       },
       {
         "name": "focus",
@@ -297,6 +313,11 @@
         "name": "brand-white",
         "value": "#fafaf9",
         "usage": "Blanco de marca: la i del ícono, el logotipo sobre oscuro y el piso del claro."
+      },
+      {
+        "name": "brand-petrol",
+        "value": "#03313c",
+        "usage": "Petróleo: el único acento de color de la marca, y va en un solo lugar: el bloque del sello de la firma en marketing (signature.marketing.block), con la firma en tinta encima (11,87:1). Casi no se despega del negro, a propósito (1,42:1 sobre brand.black). Nunca en la app, ni de fondo, franja, texto, borde, botón, ícono, glifo, estado ni en el logo. Queda a ΔEOK 0,19 o más de los estados, de los colores de Claude y de Anthropic, de los de Mercado Libre y Mercado Pago y de los violetas viejos."
       }
     ]
   },
@@ -445,7 +466,7 @@
             "lineHeight": 1.05,
             "fontWeight": 400,
             "letterSpacing": "-0.64px",
-            "usage": "Segunda línea del hero y de la OG: la firma, calada en el sello (signature.text sobre signature.block), del mismo tamaño que la primera."
+            "usage": "Segunda línea del hero y de la OG: la firma, en el sello de marketing (signature.marketing.text sobre signature.marketing.block), del mismo tamaño que la primera."
           },
           {
             "name": "headline-section-second",
@@ -453,7 +474,7 @@
             "lineHeight": 1.1,
             "fontWeight": 400,
             "letterSpacing": "-0.4px",
-            "usage": "Segunda línea del mismo titular: la firma, calada en el sello (signature.text sobre signature.block)."
+            "usage": "Segunda línea del mismo titular: la firma, en el sello. En la app, calada en el de tinta (signature.text sobre signature.block); en marketing (el banner, el hero en pantallas angostas), en el petróleo (signature.marketing.text sobre signature.marketing.block)."
           }
         ]
       },

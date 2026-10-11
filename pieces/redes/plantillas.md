@@ -19,11 +19,13 @@ Redactada el 2026-10-10 y revisada el mismo día contra los archivos reales (rut
 
 La marca es monocroma y oscura. La jerarquía sale de la luz: más claro es más importante.
 
-- Sólo los **estados** tienen color, y sólo en su glifo.
+- Hay **un solo acento de color, el petróleo**, y va en un solo lugar: el sello de la segunda línea
+  del titular (ver «El sello» más abajo).
+- Los **estados** tienen color sólo en su glifo.
 - Usá siempre la variable CSS (`var(--text-primary)`), nunca el hex suelto.
 - El contraste de la tabla está medido sobre `--bg-canvas` (WCAG).
 
-### Neutros del oscuro, negro y blanco de marca
+### Neutros del oscuro, negro y blanco de marca, y el sello
 
 | Token | Hex | Contraste | Cuándo sí | Cuándo no |
 |---|---|---|---|---|
@@ -37,11 +39,29 @@ La marca es monocroma y oscura. La jerarquía sale de la luz: más claro es más
 | `--border-subtle` | #2C2B29 | 1,40 | Separadores entre filas, borde del panel del feed. | Como borde de un control. |
 | `--border-default` | #3A3937 | 1,72 | Borde de la tarjeta de aprobación y del botón «Rechazar con motivo». También el borde del cuadrado del ícono sobre fondo negro. | Para texto. |
 | `--border-control` | #72716E | 4,06 | Borde de la píldora «Espera tu OK» y de los controles. | Para separadores (pesa demasiado) o para texto. |
-| `--text-tertiary` | #9B9A96 | 7,03 | Datos sueltos: eyebrow, horas, contador, nota, `@iris_agents`, leyenda. | Para un párrafo que se lee de corrido. |
+| `--text-tertiary` | #9B9A96 | 7,03 | Datos sueltos: el eyebrow de adentro de una pieza de producto («Propuesta», «Hoy en tu cuenta»), horas, contador, nota, `@iris_agents`, leyenda. | Para un párrafo que se lee de corrido, o para la línea de contexto de arriba de todo, que va en `--text-primary`. |
 | `--text-secondary` | #BFBEB9 | 10,64 | Bajada, texto de apoyo, el texto de cada fila del feed menos lo que cambió. | Para el titular: la línea 1 va en `--text-primary` y la 2, en el sello. |
-| `--text-primary` | #EDEDEA | 16,89 | Primera línea del titular, lo que cambió en cada fila del feed (la cifra o el objeto, en `<b>` y Plex 500), cifras, título de la tarjeta, el borde y la letra de «Aprobar». | Para el logotipo: va en `--brand-white`. |
-| `--signature-block` | #EDEDEA | — | El sello: el bloque de tinta detrás de la segunda línea del titular. Es el único bloque lleno de la pieza. | Para un botón: «Aprobar» va con borde de 1 px (2 px en el carrusel) en `--text-primary`, sin relleno. |
-| `--signature-text` | #0A0A09 | 16,89 sobre `--signature-block` | La firma calada en el sello: el color del fondo. | Fuera del sello. |
+| `--text-primary` | #EDEDEA | 16,89 | La línea de contexto de arriba de todo, la primera línea del titular, lo que cambió en cada fila del feed (la cifra o el objeto, en `<b>` y Plex 500), cifras, título de la tarjeta, el borde y la letra de «Aprobar». | Para el logotipo: va en `--brand-white`. |
+| `--signature-block` | #03313C | 1,42, a propósito: casi no se despega del negro | El sello: el bloque petróleo detrás de la segunda línea del titular. Es el único acento de color de la pieza. | En cualquier otro lugar (ver «El sello»). Tampoco para un botón: «Aprobar» va con borde de 1 px (2 px en el carrusel) en `--text-primary`, sin relleno. |
+| `--signature-text` | #EDEDEA | 11,87 sobre `--signature-block` | La letra de la firma en el sello: la tinta. | Fuera del sello: ahí la tinta es `--text-primary`, que tiene el mismo valor. |
+
+### El sello
+
+Decisión de Franco del 2026-10-10: iris sigue monocroma, con un solo acento de color. Es el petróleo
+(#03313C, OKLCH 0.29 0.05 219) y va en un solo lugar: el bloque del sello, con la firma en tinta
+encima. «El verde, de forma sutil y cuando realmente se necesita»: por eso el bloque casi no se
+despega del negro (1,42:1) y lo que se lee es la letra (11,87:1).
+
+- **Va en todo lo de marketing:** posts, stories, reels, carruseles, banners y portadas (LinkedIn,
+  Facebook) y el titular de la landing. En las piezas es la clase `.sello` de `_base/brand.css`, la
+  misma en los tres registros (sección 5).
+- **La app no lo usa:** ahí el sello sigue siendo de tinta (bloque #EDEDEA y letra #0A0A09 en oscuro,
+  invertido en claro). No es de estas piezas.
+- **Nunca** va de fondo de la pieza, de franja, de texto, de borde, de botón, de ícono, de glifo, de
+  estado ni en el logo. El verde de «trabajando» (◐, `--status-working`) es otra cosa: un estado,
+  que no cambia.
+- **El botón principal a la vista** («Aprobar» en la tarjeta) va con borde de tinta y sin relleno: el
+  foco es la firma y lo que dice la pieza, no el botón.
 
 ### Estados
 
@@ -90,13 +110,21 @@ Los glifos, para copiar. Son los mismos de las plantillas, con `viewBox` de 10 y
 
 ### Colores que no existen
 
-- **Violeta**, en ningún tono.
-- **El amarillo de Mercado Libre** (#FFE600 y parecidos) y **el cian de Mercado Pago**.
+- **Violeta**, en ningún tono: tampoco en el cursor, que va en tinta.
+- **El cartón**, ni como sello, ni como textura, ni como color. **El verde claro** (aguamarina) y
+  **el rosa**. **El petróleo de fondo** de una pieza entera.
+- **Los colores de Mercado Libre** (su amarillo, #FFE600 y parecidos, y su azul) y **el cian de
+  Mercado Pago**, tampoco en redes.
 - **Gradientes llamativos, glow, glass y sombras.** En oscuro, cada nivel se separa con un escalón
   de luz y un borde.
 
-**Única excepción:** la portada de Facebook lleva un degradé radial muy sutil (blanco al 4 %). Es
-hermana del banner de LinkedIn y no se usa en ninguna otra pieza.
+**Dos excepciones de luz:**
+- La portada de Facebook lleva un degradé radial muy sutil (blanco al 4 %). Es hermana del banner de
+  LinkedIn.
+- Las piezas de redes pueden llevar **una luz radial blanca de hasta el 6 %**, una sola y sólo
+  detrás del punto focal (la cifra del intercambio): nunca a pantalla completa ni de color. En su
+  centro el texto sigue pasando: el terciario da 6,25:1, medido en la PNG. La usa
+  `plantillas/intercambio/intercambio.css`.
 
 ---
 
@@ -125,16 +153,18 @@ interior del carrusel también va sin firma.
 ### El titular de dos líneas
 
 - **Línea 1:** IBM Plex Sans 500, en `--text-primary`.
-- **Línea 2:** la firma (DM Serif Display 400 itálica), calada en el sello: la letra en
-  `--signature-text` (el color del fondo) sobre un bloque en `--signature-block` (la tinta). No va
-  en gris.
+- **Línea 2:** la firma (DM Serif Display 400 itálica), en el sello: la letra en
+  `--signature-text` (la tinta) sobre el bloque `--signature-block` (el petróleo). No va en gris.
 - **Las dos al mismo tamaño.** El interlineado de la línea 1 es de 1,04 a 1,14; la línea 2 lleva el
   del sello: 1, con 0,16em de aire arriba.
 - **El sello** es la clase `.sello` de `brand.css`: `inline-block`, padding de 0,14em 0,16em
-  0,13em 0,13em, interlineado de 0,86 y esquinas rectas. En dos renglones es un solo bloque del
+  0,18em 0,13em, interlineado de 0,86 y esquinas rectas. En dos renglones es un solo bloque del
   ancho del titular.
-- **Es el único bloque lleno de la pieza.** Donde va la tarjeta de aprobación, «Aprobar» va con
-  borde de tinta y sin relleno (`.boton-borde`).
+- **Es el único color de la pieza**, fuera del glifo de un estado. El foco es la firma y lo que
+  dice la pieza: donde va la tarjeta de aprobación, «Aprobar» va con borde de tinta y sin relleno
+  (`.boton-borde`).
+- **Es el mismo en todas las piezas y en los tres registros**, también en La trastienda: sin
+  textura ni otro color.
 - **La línea 2 no lleva números** y termina en punto.
 
 En las plantillas ya está armado: `<span data-slot="titular-linea-1">` y
@@ -150,6 +180,7 @@ Una pieza de 1080 px se ve en el teléfono a unos 390 px de ancho, o sea a 0,36 
 | Titular (las dos líneas) | 64 px | 64 a 120 px | 23 px o más |
 | Bajada y texto de lectura | 34 px | 34 a 42 px | 12 px o más |
 | Filas, datos y botones de las piezas de producto | 28 px | 28 a 34 px | 10 px o más |
+| La línea «tool · estado» del intercambio | 26 px, y hasta 30 | 28 px | 9 a 11 px |
 | Rótulos de una a tres palabras (eyebrow, nota, `@`, hora, contador, leyenda) | 22 px, y mejor 24 | 22 a 30 px | 8 a 11 px |
 | Logotipo dentro del lockup | 40 px de cuerpo | 40 a 92 px | 14 px o más |
 
@@ -165,12 +196,19 @@ el piso es 22 px y el titular va a 38 px: no le apliques esta tabla.
 | Plex de 13 a 24 px | −0,01em |
 | Plex de 25 a 39 px | entre −0,01 y −0,015em (las plantillas usan −0,0125em a 34 px) |
 | La firma, a cualquier tamaño | −0,01em |
-| Eyebrow: Plex 500 en mayúsculas, `--text-tertiary` | +0,08em |
+| Eyebrow y línea de contexto: Plex 500 en mayúsculas | +0,08em |
 | Plex Mono | 0 |
 
 **El eyebrow:**
 - En el HTML se escribe en minúscula normal («Hoy en tu cuenta») y el CSS lo pasa a mayúsculas.
 - Nunca lleva «iris»: saldría «IRIS», y la marca va siempre en minúscula.
+- **La línea de contexto** es el eyebrow de arriba de todo, en toda pieza: la misma letra, pero en
+  `--text-primary`, porque se tiene que leer en el primer segundo. En las plantillas de siempre es el
+  `.eyebrow` de arriba (slot `eyebrow`), que cada HTML pasa a tinta; en las de los registros (el
+  intercambio y La trastienda) es `.contexto`, con el tema a la izquierda y, si hay una fecha real,
+  cuándo a la derecha («Faltan 3 semanas»).
+- El eyebrow de adentro de una pieza de producto («Propuesta», «Hoy en tu cuenta») sigue en
+  `--text-tertiary`, como en la app.
 
 ### Descargas oficiales
 
@@ -261,7 +299,7 @@ cumplen. El manual todavía no fija un número: esta regla es de esta especifica
 - Deformarlo: estirarlo, comprimirlo, rotarlo, inclinarlo más o separar el ícono de la palabra.
 - Hornear esquinas redondeadas en el archivo del ícono o del avatar: va cuadrado, a sangre, y la red
   pone su máscara. El radio existe sólo cuando el ícono se dibuja dentro de una pieza, y lo da el CSS.
-- Cambiarle el color: el logotipo nunca va en gris, en un color de estado ni en degradé.
+- Cambiarle el color: el logotipo nunca va en gris, en un color de estado, en petróleo ni en degradé.
 - Ponerle al lado robots, cerebros, destellos ✨, chispas o emojis.
 
 ---
@@ -289,6 +327,20 @@ cumplen. El manual todavía no fija un número: esta regla es de esta especifica
 
 ## 5. Las plantillas
 
+### Los tres registros
+
+Los posts se arman sobre el mismo sistema en tres registros. **Cada post usa uno solo**: no se
+mezcla el intercambio con la foto, ni la foto con las piezas de producto.
+
+| Registro | Cuándo va | La imagen | Plantillas | El sello |
+|---|---|---|---|---|
+| **Pregunta y cifra** | La base: los posts, las stories y los carruseles. | El intercambio: la pregunta con su cursor, la línea «tool · estado» y la cifra grande. También las piezas de producto (la tarjeta, el feed). | `intercambio/`, y las de siempre: `feed-4x5/`, `cuadrado/`, `story/` y `carrusel/` | Petróleo, en el titular cuando la pieza lo lleva (una portada, un cierre). El intercambio va sin titular. |
+| **En vivo** | Los reels. | La secuencia del intercambio en el tiempo: la pregunta que se tipea → ◐ trabajando → la respuesta → el OK. | No hay plantilla de video en este repo. `intercambio/intercambio-story.html` sirve de portada y muestra el intercambio completo, que es como termina la secuencia; los tiempos y el movimiento están en el manual (capítulo 06, «Movimiento en piezas de video»). | Petróleo, cuando el reel cierra con un titular. El cursor va en tinta. |
+| **La trastienda** | Campañas y fechas. | Una foto oscura y quieta del mundo del vendedor. | `trastienda/` (feed y portada de carrusel; las láminas que siguen son las del carrusel de siempre) | Petróleo, el mismo de los otros dos, sin textura. |
+
+**El video** de En vivo es vertical, de 1080 × 1920 (además del 1920 × 1080 de las demos). Una pieza
+animada en HTML, con `prefers-reduced-motion`, queda quieta en su cuadro final.
+
 ### Qué imagen lleva una pieza
 
 La imagen de iris son sus **piezas propias**, dibujadas como en la app:
@@ -309,11 +361,34 @@ La imagen de iris son sus **piezas propias**, dibujadas como en la app:
   - Arriba, el antetítulo «Propuesta» y la píldora «Espera tu OK». No va el nombre del agente.
   - El título es la acción, con verbo y objeto.
   - Debajo, «lo que va a hacer», con dos cifras (antes → después) y cuándo se leyó el dato.
-  - Los botones son «Aprobar», con borde de tinta y sin relleno (el sello del titular es el único
-    bloque lleno de la pieza), y «Rechazar con motivo», en ghost. Esos dos textos no se cambian.
+  - Los botones son «Aprobar», con borde de tinta y sin relleno (el foco es la firma y lo que dice
+    la pieza), y «Rechazar con motivo», en ghost. Esos dos textos no se cambian.
+- **El intercambio** (registro Pregunta y cifra). La conversación con iris, sin burbuja de chat: lo
+  que escribe el dueño termina en un cursor y lo que contesta iris empieza con la línea «tool ·
+  estado». De arriba abajo:
+  - La línea de contexto, en tinta.
+  - La pregunta del dueño, en sus palabras y con minúscula inicial, como se tipea: Plex 500 al tamaño
+    de un titular, terminada en el cursor (una barra fina en tinta, que no se borra).
+  - La línea «tool · estado»: la ✓ gris, el nombre real de la tool en mono, «listo» y la hora, en
+    `--text-tertiary` y a 26–30 px.
+  - La cifra grande, lo más grande de la pieza, con su unidad al lado («**6.100** por venta.»), y
+    debajo dos filas de contexto (la etiqueta en `--text-secondary`, el valor en `--text-primary` 500).
+  - El OK, sólo si la respuesta termina en una decisión del dueño: el ● de «te toca» como objeto (de
+    hasta 48 px) y su palabra, «¿La bajo? Espera tu OK.». Si no hay nada que decidir, no va: el ●
+    nunca va sin decisión.
+- **La foto de La trastienda.** Oscura y quieta, del mundo del vendedor: cajas, kraft, una persiana.
+  - Sin personas, sin logos ni marcas, sin el packaging de Mercado Libre y sin productos de clientes
+    reales.
+  - Si es generada con IA, lo dice en chico, en `--text-tertiary`: «Imagen generada con IA.».
+  - El texto que cae sobre la foto pasa 4,5:1 contra lo que tiene detrás, medido en la PNG (sección 7).
+  - El logo nunca va sobre la foto: va en el negro liso.
 
-**No entran en ninguna pieza:** fotos de stock, robots, cerebros, destellos ✨, emojis, mockups de
-teléfonos, capturas de cuentas reales, gradientes llamativos, glow, glass ni sombras.
+**No entran en ninguna pieza:** fotos de stock (la única foto es la de La trastienda, con sus
+reglas), burbujas de chat, robots, cerebros, destellos ✨, emojis, mockups de teléfonos, capturas de
+cuentas reales, gradientes llamativos, glow, glass ni sombras.
+
+**Los glifos ● y ◐ como objeto** (en el intercambio, en un reel) van de hasta 48 px y siempre con su
+palabra al lado.
 
 ### Cómo están hechas
 
@@ -323,6 +398,9 @@ teléfonos, capturas de cuentas reales, gradientes llamativos, glow, glass ni so
   El magenta no es un color de marca y nunca sale en la pieza limpia.
 - **Qué se edita.** Cada texto editable tiene `data-slot="nombre"` y, arriba, un comentario
   `<!-- EDITAR: … máximo N caracteres -->`. Lo que no tiene `data-slot` no se toca.
+- **La foto** de La trastienda es un `<img data-slot="foto">`: se cambia el `src`. La de ejemplo
+  (`trastienda/foto-ejemplo.jpg`) es un dibujo hecho por script (`foto-ejemplo.py`), no una foto ni
+  una imagen de IA: por eso su nota dice «Imagen de ejemplo.».
 - **Las cifras inventadas** llevan `<!-- EJEMPLO -->` o `data-ejemplo` en el HTML.
   - En las plantillas que tienen el slot `nota`, se muestra además «Datos de ejemplo.» en la pieza.
     En el carrusel interior la nota va en el pie, a la izquierda del contador.
@@ -353,11 +431,19 @@ cada ruta va completa.
 | `pieces/redes/plantillas/carrusel/carrusel-1-portada.html` | Carrusel 4:5, lámina 1: la portada. | 1080 × 1350 | Margen de 88 px (el mínimo es 72). La grilla 3:4 recorta 34 px por lado. Arriba a la derecha quedan 200 × 150 px vacíos para el contador de fotos de Instagram (medida estimada). | `eyebrow` 24 · `titular-linea-1` 30 (hasta 2 renglones) · `titular-linea-2` 28 (hasta 2 renglones; con 16 entra en 1; termina en punto) · `contador` («1/3») |
 | `pieces/redes/plantillas/carrusel/carrusel-2-interior.html` | Carrusel, lámina interior: una por punto o paso, y se repite. | 1080 × 1350 | Margen de 88 px. Arriba a la derecha, 200 × 150 px vacíos. | `marcador` («01») · `titulo` 36 (hasta 2 renglones, sin firma) · `texto` 140 (3 renglones) · `pieza`: la tarjeta, el feed del `<template id="pieza-feed">` (sus filas no son slots: 37 caracteres con píldora, 43 con «en curso» y 51 sin nada) o nada · `aprobacion-antetitulo` 38 («Propuesta») · `aprobacion-titulo` 30 · `aprobacion-concepto-1` 24 · `aprobacion-cifra-1` 12 · `aprobacion-concepto-2` 24 · `aprobacion-cifra-2` 12 · `aprobacion-leido` 14 · `nota` 40 (en el pie; vacía si la lámina va sin pieza) · `contador` |
 | `pieces/redes/plantillas/carrusel/carrusel-3-cierre.html` | Carrusel, última lámina: el cierre con el llamado. | 1080 × 1350 | Margen de 88 px. Arriba a la derecha, 200 × 150 px vacíos. | `cta-linea-1` 28 (hasta 2 renglones; una dirección o un @ van dentro de `<span class="sin-corte">`) · `cta-linea-2` 22 (1 renglón) · `dato` 44 (acá sí puede ir «Mercado Libre») · `contador` |
+| `pieces/redes/plantillas/intercambio/intercambio-feed.html` | Post de feed 4:5 del registro Pregunta y cifra: el intercambio como imagen, sin titular. Siempre sobre el negro. | 1080 × 1350 | Margen de 72 px. La grilla 3:4 del perfil recorta 34 px por lado. | `contexto` 26 · `contexto-cuando` 16 (vacío si no hay una fecha real) · `pregunta` 60 (hasta 3 renglones; minúscula inicial; el cursor va pegado y no se borra) · `tool` 36 (en mono, el nombre real) · `tool-hora` (HH:MM) · `cifra` 6 (con el punto de miles y el signo) · `cifra-unidad` 34 (termina en punto; va al lado de la cifra si la cifra tiene hasta 5 caracteres y la unidad unos 10, si no baja sola) · `fila-1..2-etiqueta` 30 · `fila-1..2-valor` 18 · `ok-pregunta` 26 (sólo si hay una decisión; si no, se borra el `<p class="ok">` entero) · `nota` 40 |
+| `pieces/redes/plantillas/intercambio/intercambio-story.html` | Story y portada de reel con el intercambio. También es el cuadro final, quieto, de un reel de En vivo. | 1080 × 1920 | Las mismas que la story con titular: lo importante entre y = 285 e y = 1248; el pie, hasta y = 1580. | Los mismos que el feed, con los mismos largos: con todos al máximo, la nota termina justo en y = 1248. |
+| `pieces/redes/plantillas/trastienda/trastienda-feed.html` | Post de feed 4:5 del registro La trastienda, para campañas y fechas: la foto arriba, el titular con el sello y una bajada. | 1080 × 1350 | Margen de 72 px. La grilla 3:4 recorta 34 px por lado. La foto ocupa y 0–820 a sangre y se funde con el negro en sus 300 px de abajo: el contexto y el titular caen sobre ella y pasan 4,5:1. La nota de la foto y el pie van en el negro liso. | `foto` (1080 × 820 o más grande en la misma proporción; se recorta al centro) · `contexto` 26 · `contexto-cuando` 16 · `titular-linea-1` 19 (1 renglón) · `titular-linea-2` 38 (hasta 2 renglones; con 19 entra en 1, y mejor en 1) · `bajada` 86 (hasta 2 renglones) · `foto-nota` 40 («Imagen generada con IA.» si lo es; si es una foto propia, se borra) |
+| `pieces/redes/plantillas/trastienda/trastienda-portada.html` | Carrusel 4:5 del registro La trastienda, lámina 1: la portada con la foto. Las láminas que siguen son `carrusel-2-interior` y `carrusel-3-cierre`, sobre el negro. Usa `carrusel.css`. | 1080 × 1350 | Margen de 88 px. La grilla 3:4 recorta 34 px por lado. Arriba a la derecha, 200 × 150 px vacíos. La foto va en y 172–892, debajo del lockup y de su resguardo, y se funde con el negro 120 px arriba y 280 abajo: de y 0 a 172 no hay nada de la foto. | `foto` (caja de 1080 × 720; sirve la misma del feed) · `contexto` 26 · `contexto-cuando` 16 · `titular-linea-1` 17 (1 renglón) · `titular-linea-2` 30 (hasta 2 renglones; con 18 entra en 1, y mejor en 1) · `foto-nota` 40 · `contador` («1/3») |
 | `pieces/redes/instagram/destacadas/destacada-{demo,casos,precios,ayuda,como-funciona,novedades,permisos}.html` → la vista de las siete juntas en `destacadas-preview.html` y `.png` | Portadas de historias destacadas de Instagram: un pictograma de trazo sobre negro, sin texto. | 1080 × 1920 | Instagram recorta un círculo de Ø1080 centrado en (540, 960). La zona segura es un círculo de Ø720. La caja del pictograma mide 528 px (492 en Demo, para que pese lo mismo que las otras), con un máximo de 560. | `pictograma`: un SVG de trazo en grilla de 24 × 24, dibujado entre 2 y 22. Sin `stroke-width` (el trazo de 30 px lo fija `destacada.css`). Los puntos llenos llevan `class="dot"`. |
 
 ### Avisos de cada formato
 
 - **Carrusel:** el lockup y el pie de cada lámina no se tocan.
+- **Un post, un registro.** El intercambio no lleva titular de dos líneas, foto ni piezas de
+  producto; La trastienda no lleva el intercambio ni piezas de producto.
+- **La trastienda, con otra foto:** el texto que cae sobre la foto se vuelve a medir (sección 7).
+  Si no pasa 4,5:1, se cambia o se oscurece la foto; el texto no se mueve ni cambia de color.
 - **Largos máximos:** en todas las plantillas y en la portada de Facebook están medidos con un
   texto ancho a propósito (muchas m, ñ, o, d), así que un texto común siempre entra. En las filas
   del feed se midió además con todo en `<b>` salvo la primera palabra, que es lo más ancho.
@@ -476,16 +562,61 @@ print(f'{ancho}×{alto} · tinta x {columnas.min()}–{columnas.max()} · y {fil
 ```
 
 Por ejemplo, el feed 4:5 con margen de 72 tiene que dar x 72–1008 e y 72–1278 o menos. En la
-story, la tinta llega hasta y = 1580 porque ahí va el pie.
+story, la tinta llega hasta y = 1580 porque ahí va el pie. En La trastienda la foto va a sangre, así
+que la tinta toca los bordes: ahí el margen se mira en la `-guias.png`.
+
+### El texto sobre la foto de La trastienda
+
+Tiene que pasar 4,5:1 contra lo más claro que tenga detrás. Se mide así:
+
+1. Se renderiza una copia de la pieza con el texto transparente: en el `<head>`, después de los
+   estilos, `<style>* { color: transparent !important; }</style>`.
+2. En esa PNG se toma la caja de cada texto que cae sobre la foto (el contexto, la línea 1 del
+   titular) y se busca el píxel más claro.
+3. Se calcula el contraste WCAG del color del texto contra ese píxel:
+
+```python
+import sys
+import numpy as np
+from PIL import Image
+
+# Uso: python3 contraste.py <png-sin-texto> <x0> <y0> <x1> <y1> <hex del texto>
+def luminance(rgb):
+    channel = rgb / 255
+    linear = np.where(channel <= 0.04045, channel / 12.92, ((channel + 0.055) / 1.055) ** 2.4)
+    return linear @ np.array([0.2126, 0.7152, 0.0722])
+
+background = np.asarray(Image.open(sys.argv[1]).convert('RGB')).astype(float)
+left, top, right, bottom = map(int, sys.argv[2:6])
+text = luminance(np.array([int(sys.argv[6][i:i + 2], 16) for i in (1, 3, 5)], dtype=float))
+behind = luminance(background[top:bottom, left:right].reshape(-1, 3)).max()
+print(f'peor contraste {(max(text, behind) + 0.05) / (min(text, behind) + 0.05):.2f}:1')
+```
+
+Con la foto de ejemplo y todos los textos al máximo, el peor caso es el «cuándo» del feed, arriba a
+la derecha, donde la foto tiene su luz: 13,91:1. El resto del texto sobre la foto da de 15,16:1 a
+16,79:1, y la letra del sello, sobre su bloque, 11,87:1.
 
 ### Lista de control
 
+- [ ] El post usa un solo registro: Pregunta y cifra, En vivo o La trastienda.
 - [ ] La firma va sólo en la segunda línea del titular, y el logotipo no se tocó.
-- [ ] La segunda línea va en el sello y ningún otro bloque va lleno de tinta: «Aprobar» va con
-  borde.
+- [ ] La segunda línea va en el sello petróleo (`.sello`, la letra en tinta), y el petróleo no
+  aparece en ningún otro lugar: ni de fondo, ni en una franja, un texto, un borde o un botón.
+  «Aprobar» va con borde, sin relleno.
+- [ ] No hay cartón ni texturas, verde claro, rosa ni violeta (tampoco en el cursor), ni los colores
+  de Mercado Libre o Mercado Pago.
+- [ ] No hay burbujas de chat: la persona se marca con el cursor y la respuesta empieza con la línea
+  «tool · estado», a 26–30 px y con el nombre real de la tool.
+- [ ] La línea de contexto va en tinta.
+- [ ] Si hay luz radial, es una sola, blanca, de hasta el 6 % y detrás del punto focal.
+- [ ] En La trastienda: la foto no tiene personas, marcas, el packaging de Mercado Libre ni
+  productos de clientes; si es de IA lo dice («Imagen generada con IA.»); el texto encima pasa
+  4,5:1 medido en la PNG, y el logo va en el negro.
 - [ ] No hay «Mercado Libre» en el titular, el eyebrow ni el texto principal.
 - [ ] Cada glifo tiene su palabra o su leyenda, y la leyenda nombra sólo los estados que
-  aparecen (un panel con todas las filas resueltas va sin leyenda).
+  aparecen (un panel con todas las filas resueltas va sin leyenda). Un ● o un ◐ como objeto mide
+  hasta 48 px, y el ● va sólo si hay una decisión del dueño.
 - [ ] Lo que te toca va primero en el feed.
 - [ ] Ninguna fila ni tarjeta nombra un agente (Cliente, Producto, Vendedor): cada fila dice el
   resultado, con lo que cambió en `<b>`.

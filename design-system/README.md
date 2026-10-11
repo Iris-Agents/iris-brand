@@ -1,4 +1,4 @@
-iris es un SaaS de agentes que atienden a los clientes y manejan la cuenta de un vendedor de Mercado Libre de punta a punta, con la autonomía que el dueño les da. La marca es elegante, oscura y minimalista. Es monocroma: la jerarquía sale de la luz, la tinta es el acento y lo único que grita es un CTA lleno y el ● de «te toca». La diferencia no está en la paleta sino en las piezas de producto (el feed, la tarjeta de aprobación, los glifos de estado, la línea «tool · estado») y en una itálica que aparece poco. La itálica firma; el producto convence.
+iris es un SaaS de agentes que atienden a los clientes y manejan la cuenta de un vendedor de Mercado Libre de punta a punta, con la autonomía que el dueño les da. La marca es elegante, oscura y minimalista. Es monocroma: la jerarquía sale de la luz, la tinta es el acento y lo único que grita es un CTA lleno y el ● de «te toca». La diferencia no está en la paleta sino en las piezas de producto (el feed, la tarjeta de aprobación, los glifos de estado, la línea «tool · estado», el intercambio) y en una itálica que aparece poco. La itálica firma; el producto convence. Hay un solo acento de color, el petróleo, y va en un solo lugar: el sello de la firma en marketing. La app usa el sello de tinta.
 
 ## Contenido
 
@@ -59,13 +59,22 @@ iris es un SaaS de agentes que atienden a los clientes y manejan la cuenta de un
 
 ### La tinta es el acento
 
-- `action-primary`, `focus` y `text-primary` son la misma tinta. No hay color de marca ni un azul de «novedad».
+- `action-primary`, `focus` y `text-primary` son la misma tinta. No hay color de marca en la interfaz ni un azul de «novedad»: el único acento de color es el petróleo del sello de marketing (abajo).
 - Armá el CTA como relleno de `action-primary` con `text-on-action`, en `.label`, con `radius-control` y `size-control-dense` (28px, la app) o `size-control-comfortable` (40px, la landing y las piezas). Hay uno solo lleno por pantalla. En hover baja a opacidad 0,9.
 - Armá el secundario ghost: sin relleno, borde `border-default`, texto `text-primary`, hover `bg-hover`.
 - Armá el destructivo ghost: texto y borde `action-destructive`, nunca relleno, con una confirmación que repite el objeto («Borrar 12 publicaciones», no «¿Estás seguro?»).
 - Armá el input con borde `border-control`, placeholder `text-placeholder` y foco de tinta. El foco es un outline de 2px en `focus` a 2px de distancia, con `:focus-visible`.
 - Dejá el link del color del texto que lo rodea, subrayado 1px en `link-underline` a 3px de distancia; en hover el subrayado pasa a `text-primary`.
 - El hover y la selección no tienen color: son `bg-hover` y `bg-selected`.
+
+### El petróleo, el único acento
+
+Un solo color fuera de los neutros y los estados, `brand-petrol` (#03313C), en un solo lugar: el bloque del sello de la firma en marketing, `signature-marketing-block`, con la firma en tinta en `signature-marketing-text` (#EDEDEA).
+
+- Usalo en el titular de dos líneas de todo lo de marketing: posts, stories, reels, carruseles, banners, portadas de LinkedIn y Facebook, el titular de la landing y las OG. En la app, el sello es el de tinta: `signature-block` con la firma calada en `signature-text`.
+- No lo uses en ningún otro lugar: ni de fondo (tampoco de una pieza entera), ni en una franja, ni como texto, borde, botón, ícono, glifo o estado, ni en el logo. El verde de `status-working` es otra cosa y no cambia.
+- El bloque casi no se despega del negro (1,42:1 sobre `brand-black`), a propósito: el sello lo hace la letra, a 11,87:1. No lo aclares ni lo satures para que se vea más.
+- No sumes otro color. Se probaron y se descartaron el cartón, el fondo petróleo de una pieza entera, el verde claro (aguamarina), el rosa y el violeta (tampoco en el cursor); los colores de Mercado Libre no van, tampoco en redes.
 
 ### Los cinco estados
 
@@ -82,6 +91,7 @@ Cada estado tiene un glifo de 10px, un color y una palabra. Ninguna forma se rep
 - Poné siempre glifo más palabra, o glifo más leyenda. La palabra va en un token de texto; nunca pintes de estado un texto (salvo el rojo), un fondo, un borde, un titular ni el logo.
 - Ordená por urgencia: te toca, falló, trabajando, esperando, resuelto. Al pie de un listado con estados mezclados va la leyenda, con sólo los que aparecen: «● te toca · ✕ falló · ◐ trabajando · ○ esperando · ✓ resuelto». Cada sección usa su palabra («respondida» en un hilo de preguntas, «listo» en una tool).
 - No dibujes ningún otro elemento como un punto lleno, un círculo hueco o un medio círculo. Los glifos no son íconos y no se reemplazan por lucide. Los SVG para copiar están en la sección Estados.
+- En una pieza de redes, el ● y el ◐ pueden ir como objeto, de hasta 48px, siempre con su palabra al lado («● ¿La bajo? Espera tu OK.»). Los demás glifos no crecen; adentro de la línea «tool · estado», el glifo va al tamaño de la línea.
 
 ### Tipografía
 
@@ -94,18 +104,20 @@ Tres familias, dos pesos (400 y 500). No hay tercer peso ni bold falso: poné `h
 | IBM Plex Mono 400 | `--font-mono` | Sólo datos: ids, horas, nombres de tools, payloads, atajos. |
 
 - Usá los doce estilos y nada entre medio: `.headline-hero-first` y `.headline-hero-second` (64px, hero y OG); `.headline-section-first` y `.headline-section-second` (40px, secciones, banner y el hero abajo de 600px); `.title` (18/500); `.copy-lede` (18, bajada, hasta 60 caracteres); `.copy-body` (16, landing y documentos, hasta 66); `.copy-reading` (15, el hilo del agente, hasta 72, sin globo); `.copy-ui` (13, la base densa de la app); `.label` (13/500, botón, nav, píldora); `.eyebrow` (12/500); `.mono` (12).
-- Aplicá la regla de la firma: DM Serif Display itálica va en el logotipo y en la i del ícono, que son dibujos de `assets/Logos/`, y como texto sólo en `.headline-hero-second` o `.headline-section-second`, calada en el sello (`signature-text` sobre un bloque de `signature-block`), desde 32px. Nunca una palabra suelta en itálica, un titular de una línea, números, botones, eyebrows, cuerpo ni interfaz.
+- Aplicá la regla de la firma: DM Serif Display itálica va en el logotipo y en la i del ícono, que son dibujos de `assets/Logos/`, y como texto sólo en `.headline-hero-second` o `.headline-section-second`, en el sello, desde 32px. Nunca una palabra suelta en itálica, un titular de una línea, números, botones, eyebrows, cuerpo ni interfaz.
 - Componé el titular de dos líneas con las dos clases del mismo par, el mismo tamaño e interlineado y `text-wrap: balance`. La primera en `text-primary`; la segunda, la firma, donde la frase se vuelve personal, sin números y terminada en punto. Un titular de una línea va entero en la sans.
-- Poné la firma en el sello: `display: inline-block`, `padding: 0.14em 0.16em 0.13em 0.13em`, interlineado 0,86, esquinas rectas, fondo `signature-block` y letra `signature-text`; la línea con 0,16em de aire arriba. El sello es el único bloque lleno de tinta de la pieza: si hay un botón principal a la vista (el «Aprobar» de la tarjeta, el botón del hero), dibujalo con borde de 1px en `text-primary`, sin relleno y con la letra en `text-primary`.
+- Poné la firma en el sello: `display: inline-block`, `padding: 0.14em 0.16em 0.18em 0.13em`, interlineado 0,86, esquinas rectas, sin borde ni sombra; la línea con 0,16em de aire arriba e interlineado 1. Hay dos sellos con esa misma geometría: en marketing, el petróleo (fondo `signature-marketing-block`, letra `signature-marketing-text`); en la app, el de tinta (fondo `signature-block`, letra calada en `signature-text`). Los dos roles del de marketing valen lo mismo en los dos modos.
+- Con el sello a la vista, el botón principal (el «Aprobar» de la tarjeta, el botón del hero) va con borde de 1px en `text-primary`, sin relleno y con la letra en `text-primary`: el foco es la firma y lo que dice la pieza. Sin sello a la vista, el CTA va lleno.
 
 ```html
+<!-- En marketing. En la app, el mismo marcado con var(--signature-block) y var(--signature-text). -->
 <h1>
   <span class="headline-hero-first" style="display:block;color:var(--text-primary)">Agentes expertos</span>
-  <span class="headline-hero-second" style="display:block;color:var(--text-secondary)">a cargo de tu e-commerce.</span>
+  <span class="headline-hero-second" style="display:block;font-style:italic;margin-top:0.16em;line-height:1"><span style="display:inline-block;padding:0.14em 0.16em 0.18em 0.13em;line-height:0.86;background:var(--signature-marketing-block);color:var(--signature-marketing-text)">a cargo de tu e-commerce.</span></span>
 </h1>
 ```
 
-- Escribí el `.eyebrow` en minúscula normal y pasalo a mayúsculas con `text-transform: uppercase` (la clase no lo hace), en `text-tertiary`. Nunca lleva «iris». Los encabezados de tabla usan el mismo estilo.
+- Escribí el `.eyebrow` en minúscula normal y pasalo a mayúsculas con `text-transform: uppercase` (la clase no lo hace), en `text-tertiary`. Nunca lleva «iris». Los encabezados de tabla usan el mismo estilo. En una pieza de redes, el eyebrow de arriba de todo es la línea de contexto («Faltan 2 semanas») y va en `text-primary`.
 - No bajes de 12px, no uses Plex en itálica, no pongas la mono en eyebrows, etiquetas, botones ni palabras («en curso» y «hoy» van en sans), y no uses mayúsculas sostenidas fuera del eyebrow. Ninguna familia fuera de las tres: ni Inter, ni Playfair, ni la del sistema.
 
 ### Espacio y layout
@@ -124,7 +136,7 @@ Tres familias, dos pesos (400 y 500). No hay tercer peso ni bold falso: poné `h
 
 - Usá bordes de 1px en todo; el color dice el peso: `border-subtle` (el hairline dominante), `border-default` (popovers, diálogos, secundario) o `border-control` (inputs y controles).
 - Usá la regla inset de 2px en `text-primary`, junto con `bg-selected`, sólo para la fila activa de una lista. Nunca es un filete de color al costado de una card.
-- No uses sombras en ningún modo, ni glow, ni gradientes llamativos. La única excepción es un degradé radial de blanco al 4 % en el banner de LinkedIn y en la portada de Facebook, y en ninguna otra pieza.
+- No uses sombras en ningún modo, ni glow, ni gradientes llamativos. Las únicas excepciones son dos luces radiales blancas: la del banner de LinkedIn y la portada de Facebook (al 4 %) y la de las piezas de redes, de hasta el 6 %, una sola y sólo detrás del punto focal (la cifra o el titular). Nunca a pantalla completa ni de color, y nunca en la interfaz.
 
 ### Elevación
 
@@ -182,6 +194,13 @@ Tres familias, dos pesos (400 y 500). No hay tercer peso ni bold falso: poné `h
 - Hacé latir el ◐ en opacidad dos veces al entrar al estado (de 1 a 0,45 y de vuelta, 1200ms cada latido) y dejalo quieto. Nunca gira ni late en loop. En una pieza estática no se mueve.
 - Con `prefers-reduced-motion: reduce`, dejá todo quieto y visible.
 
+#### Movimiento en piezas de video
+
+- Un reel (el registro En vivo) es vertical, 1080 × 1920 a 30fps, y cuenta el intercambio en el tiempo, una entrada por tiempo: la pregunta que se tipea → la línea «tool · estado» con el ◐ de trabajando → la respuesta, con la cifra → el OK, con el ● y su palabra. Cuando la tool termina, la línea pasa de ◐ a ✓.
+- El cursor titila en tinta (`text-primary`), prendido y apagado, sólo cuando el tipeo para; mientras se tipea, va fijo.
+- Usá las duraciones de arriba: cada tiempo entra con `opacity` y `translateY` en 600ms con ease-out; lo que entra junto, con 80ms de desfase; un cambio de estado (◐ → ✓) es un fundido de 180ms; lo que se va, en 280ms; lo que cambia de lugar, con `cubic-bezier(0.65, 0, 0.35, 1)`. El ◐ late una o dos veces (1200ms, hasta 0,45) y queda quieto.
+- Sin rebotes ni resortes; nada gira y nada queda en loop, salvo el cursor mientras espera. Con `prefers-reduced-motion`, el HTML del video muestra el cuadro final, quieto.
+
 ### Datos y gráficos
 
 - Dibujá la serie protagonista en `data-series` (sólida, 1,5px) y la referencia en `data-comparison` (punteada, 1,5px), con la grilla en `data-grid`. Dos series como máximo; con más, gráficos chicos repetidos con la misma escala. Rotulá la línea, no una leyenda de colores.
@@ -200,7 +219,7 @@ Tres familias, dos pesos (400 y 500). No hay tercer peso ni bold falso: poné `h
 | Juntos, el logo principal | `assets/Logos/lockup.svg` sobre oscuro, `assets/Logos/lockup-on-light.svg` sobre claro | Todo lo demás: la web, la firma de mail, documentos, el banner, el pie de los posts. |
 
 - Elegí así: si el espacio es cuadrado, el ícono; si el ícono ya está en la pantalla, la marca sola; si no, juntos.
-- Poné la marca y el lockup sobre los neutros de su modo. Nunca sobre una foto movida, un color de estado, un degradé (salvo el del banner) ni los colores de Mercado Libre o Mercado Pago. Sobre `brand-black`, el cuadrado del ícono lleva borde `border-default` (`lockup.svg` ya lo trae); sobre claro, va sin borde.
+- Poné la marca y el lockup sobre los neutros de su modo. Nunca sobre una foto (tampoco la de La trastienda), un color de estado, un degradé (salvo el del banner) ni los colores de Mercado Libre o Mercado Pago, y nunca pintes el logo en petróleo. Sobre `brand-black`, el cuadrado del ícono lleva borde `border-default` (`lockup.svg` ya lo trae); sobre claro, va sin borde.
 - Dejá el resguardo libre: A/2 alrededor del ícono o del lockup (A es el lado del ícono); 1 x alrededor de la marca sola (x ≈ medio cuerpo).
 - Respetá los mínimos: el ícono, 24px (16px sólo con `icon-small.svg`); la marca, 20px de cuerpo (unos 87px de ancho); el lockup, 26px de alto. En una pieza de 1080, ícono de 52px y marca de 40px de cuerpo.
 - Si una pieza dibuja el ícono como tile, el cuadrado lleva radio de 0,23 de su lado. Los archivos del ícono van siempre cuadrados, sin esquinas ni transparencia: la máscara la pone la plataforma.
@@ -225,7 +244,7 @@ Tres familias, dos pesos (400 y 500). No hay tercer peso ni bold falso: poné `h
 
 ## Lo que no
 
-El violeta, en cualquier tono. El amarillo de Mercado Libre. Juegos con el iris del ojo. «El primer empleado de IA». Playfair. Mascotas, robots, destellos y emojis. Glow, sombras y gradientes llamativos. Blur fuera del vidrio. «Piloto automático», «24/7», «bot» y los superlativos.
+El violeta, en cualquier tono, tampoco en el cursor. Los colores de Mercado Libre, tampoco en redes. Un segundo acento de color, o el petróleo fuera del sello de marketing. La burbuja de chat en una pieza de redes. Juegos con el iris del ojo. «El primer empleado de IA». Playfair. Mascotas, robots, destellos y emojis. Glow, sombras y gradientes llamativos. Blur fuera del vidrio. «Piloto automático», «24/7», «bot» y los superlativos.
 
 ## No sincronizado
 

@@ -7,11 +7,15 @@ lo que la plataforma tapa.
 Reglas que valen para todas:
 - **Oscuro.** El fondo es `color.brand.black` (#0A0A09). El claro existe para la app; las piezas no
   lo usan, salvo el email (11.10).
-- **Sin efectos.** Sin glow, sombras, vidrio ni gradientes. La única excepción es un degradé radial
-  muy sutil (blanco al 4 %) en dos piezas: el banner de LinkedIn y la portada de Facebook.
-- **El titular de dos líneas, con sello.** La segunda línea va calada en el sello (capítulo 05,
-  5.3), que es el único bloque lleno de tinta de la pieza: si la pieza muestra la tarjeta de
-  aprobación, «Aprobar» va con borde (capítulo 06, 6.5).
+- **Sin efectos.** Sin glow, sombras, vidrio ni gradientes. Las únicas excepciones son dos luces
+  radiales blancas: la del banner de LinkedIn y la portada de Facebook (al 4 %) y la de las piezas
+  de redes (hasta el 6 %, sólo detrás del punto focal: 11.13).
+- **El titular de dos líneas, con el sello petróleo.** La segunda línea va en el sello de
+  marketing: la firma en tinta sobre el bloque petróleo, sobre el negro (capítulo 04, 4.9; capítulo
+  05, 5.3). Es el mismo en todas las piezas de este capítulo y en el titular de la landing, que usa
+  la clase `.signature-seal-marketing` de `css/signature.css`; la app sigue con el sello de tinta
+  (`.signature-seal`). Si la pieza muestra la tarjeta de aprobación, «Aprobar» va con borde
+  (capítulo 06, 6.5): el foco es la firma y lo que dice la pieza.
 - **En lo público, el resultado.** Las filas dicen qué logró iris, sin el nombre del agente
   (capítulo 09).
 - **Las cifras de una pieza son de ejemplo**, y se marcan: «Datos de ejemplo.» en la pieza cuando
@@ -68,7 +72,7 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
   x 67–702 en el celular. El contenido empieza en x 718.
 - **Después de esa zona:** el lockup (el ícono y «iris agents») y, debajo, el titular de dos
   líneas a 40 px, «Agentes expertos / a cargo de tu e-commerce.». La primera línea en la sans 500 y
-  `text.primary`; la segunda en la firma, calada en el sello. Sin Mercado Libre en el titular.
+  `text.primary`; la segunda en la firma, en el sello petróleo. Sin Mercado Libre en el titular.
 - **A la derecha:** el feed «Hoy en tu cuenta» en un panel de 340 px, con los cinco resultados:
   «Mejoró la reputación», «Contestó 40 preguntas», «Resolvió 3 reclamos», «Generó 3 ventas
   adicionales» y «Adhirió a una promoción». Cada fila con ✓, el verbo en `text.secondary` y el
@@ -109,19 +113,24 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
   `twitter:card` va `summary_large_image` con la misma imagen.
 - **La composición:**
   - el lockup arriba a la izquierda y un eyebrow de contexto arriba a la derecha;
-  - el titular de dos líneas a 64 px, con la segunda en el sello;
+  - el titular de dos líneas a 64 px, con la segunda en el sello petróleo, el mismo del titular de
+    la landing (`.signature-seal-marketing`);
   - la tarjeta de aprobación o unas filas del feed, como imagen del producto; en la tarjeta,
-    «Aprobar» va con borde, porque el sello es el único bloque lleno;
+    «Aprobar» va con borde, porque el foco es la firma y lo que dice la pieza;
   - abajo a la izquierda, una línea de hechos con su fuente; abajo a la derecha, el dominio en la
     mono.
 - **Se genera desde la página**: una plantilla HTML que lee `tokens.css` y se pasa a PNG en el
   build, con el mismo texto que dibuja la página. Nunca un PNG fijo con cifras que envejecen.
 - La OG por defecto (la de una página sin la suya) vive en `pieces/`.
-- Sin degradé: sólo lo llevan el banner y la portada de Facebook.
+- Sin luz radial: la llevan el banner, la portada de Facebook y las piezas de redes.
 
 ## 11.8 Video y demos
 
-- 1920 × 1080 a 30 fps, fondo `color.brand.black`.
+- **Las demos:** 1920 × 1080 a 30 fps, fondo `color.brand.black`.
+- **Los reels y las stories de video:** vertical, 1080 × 1920 a 30 fps. Lo esencial va dentro de la
+  zona segura de la story (`pieces/redes/plantillas.md`), porque la interfaz de la red tapa arriba y
+  abajo. Es el registro En vivo (11.13), con el movimiento del capítulo 06 («Movimiento en piezas
+  de video»).
 - Clips de 15 a 25 s donde se vean las llamadas, con la línea «tool · estado» (capítulo 08,
   sección 8.4).
 - Si la demo está acelerada, se dice cuánto. Lo que es de una cuenta real va con la censura con
@@ -172,16 +181,16 @@ magenta, que **nunca se publica**.
 
 | Carpeta | Qué hay | Para qué red |
 |---|---|---|
-| `pieces/redes/_base/` | `brand.css` (colores, fuentes y las clases `.signature` y `.sello`), `render.sh`, `render-all.sh` y `piezas.tsv` | Todas |
+| `pieces/redes/_base/` | `brand.css` (colores, también los del sello petróleo, fuentes y las clases `.signature` y `.sello`), `render.sh`, `render-all.sh` y `piezas.tsv` | Todas |
 | `pieces/redes/perfil/` | La foto de perfil y una hoja de control con la foto en chico | Instagram, Facebook y WhatsApp |
 | `pieces/redes/facebook/` | La portada | Facebook |
 | `pieces/redes/instagram/destacadas/` | Las portadas de las historias destacadas: un pictograma de trazo, sin texto | Instagram |
-| `pieces/redes/plantillas/` | `feed-4x5/`, `cuadrado/`, `story/` (también portada de reel) y `carrusel/`, con lo común en `_comun/` | Instagram y Facebook |
+| `pieces/redes/plantillas/` | `feed-4x5/`, `cuadrado/`, `story/` (también portada de reel) y `carrusel/`, con lo común en `_comun/`; y las de los registros (11.13): `intercambio/` (feed y story) y `trastienda/` (feed y portada de carrusel) | Instagram y Facebook |
 
 - **Qué hay en cada carpeta:** `pieces/redes/README.md`.
 - **El sello** ya viene armado en cada plantilla con titular de dos líneas: el texto de la segunda
-  línea va adentro del `<span class="sello">`. Donde hay tarjeta de aprobación, «Aprobar» va con
-  borde (`.boton-borde`).
+  línea va adentro del `<span class="sello">`, que en `brand.css` es el sello petróleo de
+  marketing. Donde hay tarjeta de aprobación, «Aprobar» va con borde (`.boton-borde`).
 - **LinkedIn** va aparte, en `pieces/linkedin/` (11.4 y 11.5), y sus PNG salen con el mismo
   `render-all.sh`.
 - **La especificación de las plantillas** (formatos, zonas seguras, slots y largos máximos, cómo
@@ -198,5 +207,62 @@ del 2026-10-10. Si todavía dice otra cosa, valen estas:
   «Vendedor ·».
 - La tarjeta de aprobación lleva el antetítulo «Propuesta», no el nombre del agente.
 - La bio puede nombrar a Mercado Libre como un hecho.
+- Las piezas de redes pueden llevar la luz radial de hasta el 6 %, y la línea de contexto va en
+  `text.primary` (11.13).
+- El sello de la firma es el petróleo de marketing: la firma en tinta sobre el bloque #03313C
+  (capítulo 04, 4.9).
+- La línea «tool · estado» va a 26–30 px en una pieza de 1080, en la mono y `text.tertiary`
+  (11.13).
 
 Cómo se regeneran las PNG: capítulo 14.
+
+## 11.13 Los tres registros de redes
+
+Los posts de redes se arman sobre el mismo sistema en tres registros. **Cada post usa uno solo.** El
+sello es el mismo en los tres: el petróleo de marketing, con la firma en tinta (capítulo 04, 4.9).
+
+| Registro | Cuándo va | La imagen | El sello |
+|---|---|---|---|
+| **Pregunta y cifra** | La base: los posts y los carruseles | El intercambio (capítulo 08, 8.9): la pregunta con cursor, la línea «tool · estado» y la cifra grande | Petróleo, en el titular |
+| **En vivo** | Los reels | La secuencia del intercambio en el tiempo: pregunta → ◐ trabajando → respuesta → OK, con el cursor en tinta (#EDEDEA) | Petróleo, en el titular |
+| **La trastienda** | Campañas y fechas | Una foto oscura y quieta del mundo del vendedor | Petróleo, en el titular |
+
+### Pregunta y cifra
+
+- La imagen es la conversación: arriba la línea de contexto, después la pregunta con su cursor, la
+  línea «tool · estado», la cifra grande con su unidad y, si la respuesta propone algo, el OK con
+  el ●. El titular de dos líneas lleva la segunda línea en el sello petróleo. La plantilla del
+  intercambio (`pieces/redes/plantillas/intercambio/`) va sin titular: si el post lo lleva, va en
+  otra lámina (la portada o el cierre de un carrusel), con el sello.
+- El fondo es el negro de siempre.
+
+### En vivo
+
+- Un reel vertical de 1080 × 1920 (11.8). El primer tiempo es la pregunta que se tipea; después el ◐
+  de trabajando en la línea de la tool, la respuesta con su cifra y el OK con su ●.
+- El cursor va en tinta (`text.primary`). El movimiento sigue el capítulo 06 («Movimiento en
+  piezas de video»).
+
+### La trastienda
+
+- **La foto:** oscura y quieta, del mundo del vendedor: cajas, kraft, una persiana. Va sin personas,
+  sin logos ni marcas, sin el packaging de Mercado Libre y sin productos de clientes reales.
+- **Si es generada con IA, lo dice**, en chico y en `text.tertiary`: «Imagen generada con IA.».
+- **El texto que cae sobre la foto** pasa 4,5:1 contra lo que tiene detrás, medido en la PNG. Lo
+  demás va sobre el negro liso.
+- **El logo nunca va sobre la foto** (capítulo 03, 3.8): va sobre el negro.
+- **El sello es el mismo petróleo** de los otros dos registros, detrás de la segunda línea del
+  titular. La foto no le cambia el color ni la letra.
+
+### Medidas en las piezas de redes
+
+| Qué | Regla |
+|---|---|
+| El sello | El de marketing: la firma en `signature.marketing.text` (#EDEDEA) sobre `signature.marketing.block` (#03313C), 11,87:1, con las medidas de siempre (capítulo 05, 5.3). En `brand.css`, `--signature-block` y `--signature-text`. |
+| La luz radial | Blanca, de hasta el 6 %, una sola, detrás del punto focal (la cifra o el titular). Nunca a pantalla completa ni de color. En su centro, todo el texto sigue pasando (el terciario da 6,25:1, medido en la PNG). |
+| Los glifos ● y ◐ | Como objeto, de hasta 48 px, siempre con su palabra (capítulo 08, 8.1). |
+| La línea «tool · estado» | 26–30 px en una pieza de 1080, en la mono y `text.tertiary` (capítulo 08, 8.4). |
+| La línea de contexto | El eyebrow de arriba de todo, en `text.primary` (capítulo 09, 9.11). |
+| El botón principal | «Aprobar», con borde de tinta de 1 px y sin relleno (capítulo 06, 6.5). |
+| La burbuja | No va: la persona se marca con el cursor (capítulo 09, 9.11). |
+| El video | Vertical, 1080 × 1920 a 30 fps (11.8). |

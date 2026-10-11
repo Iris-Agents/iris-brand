@@ -19,11 +19,12 @@
   --text-secondary: #bfbeb9;
   --text-primary: #ededea;
 
-  /* El sello de la firma (la segunda línea del titular): el bloque de tinta y la letra calada en el
-     color del fondo. Es el único bloque lleno de tinta de la pieza: el botón principal, como
-     «Aprobar», va con borde de tinta y sin relleno. */
-  --signature-block: #ededea;
-  --signature-text: #0a0a09;
+  /* El sello de la firma (la segunda línea del titular) en marketing: la letra en tinta sobre un
+     bloque petróleo, el único acento de color de la marca (decisión de Franco del 2026-10-10). Es
+     signature.marketing de los tokens; la app usa el sello de tinta. El botón principal, como
+     «Aprobar», va con borde de tinta y sin relleno: el foco es la firma y lo que dice la pieza. */
+  --signature-block: #03313c;
+  --signature-text: #ededea;
 
   /* Estados (paleta verificada 2026-10-10, modo oscuro). Usarlos sólo por variable.
      Decisión de Franco del 2026-10-10: verde = en movimiento (trabajando, ◐ medio círculo:
@@ -49,4 +50,4 @@ body { font-family: var(--font-sans); }
 
 /* El sello: va adentro de la segunda línea del titular, que lleva margin-top 0.16em y line-height 1
    (lo pone el CSS de cada pieza). Esquinas rectas; las medidas en em siguen al tamaño del titular. */
-.sello { display: inline-block; padding: 0.14em 0.16em 0.13em 0.13em; line-height: 0.86; background: var(--signature-block); color: var(--signature-text); }
+.sello { display: inline-block; padding: 0.14em 0.16em 0.18em 0.13em; line-height: 0.86; background: var(--signature-block); color: var(--signature-text); }

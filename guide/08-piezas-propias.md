@@ -5,8 +5,9 @@ años. Lo que no tiene nadie es lo que hace iris, y por eso esas piezas son la i
 el centro de la landing, el motivo de las OG, el corazón del banner y de los posts. No son un
 adorno: muestran el producto, que es la forma más directa de «hechos, no adjetivos».
 
-Son siete: el glifo de estado, el feed «Hoy en tu cuenta», la tarjeta de aprobación, la línea
-«tool · estado», la grilla segmentada, el error con lo destructivo, y la censura con chip.
+Son ocho: el glifo de estado, el feed «Hoy en tu cuenta», la tarjeta de aprobación, la línea
+«tool · estado», la grilla segmentada, el error con lo destructivo, la censura con chip y el
+intercambio, que es la conversación con iris como pieza (8.9).
 
 Los valores salen de los tokens: el capítulo 04 para color, el 05 para tipografía y el 06 para
 forma. Este capítulo dice cómo se arma cada pieza y qué no se le cambia. Las plantillas de
@@ -52,6 +53,9 @@ Reglas:
   pintan texto, fondos, bordes ni titulares.
 - **En claro, el ámbar va sólo relleno**: el ● entero, nunca como texto ni en un trazo fino (pasa
   3:1 como glifo y no llega a 4,5:1).
+- **En una pieza de redes**, el ● y el ◐ pueden ir como objeto, de hasta 48 px, siempre con su
+  palabra al lado: «● ¿La bajo? Espera tu OK.». Adentro de la línea «tool · estado», el glifo va al
+  tamaño de la línea. Los demás glifos no crecen, y ninguno pinta un texto, un fondo ni un borde.
 
 No existe un sexto color. Se probó un azul para «novedad» y quedó pegado al cian de Mercado Pago;
 ningún estado lo necesita.
@@ -124,10 +128,12 @@ solo donde vos lo dejás; si no decidiste, te espera.
 - Dos botones, y sus textos no se cambian:
   - **«Aprobar»**: el CTA de tinta (`action.primary` con `text.on-action`). Es el único botón
     lleno de la pantalla.
-  - **En una pieza con sello** (un post, una OG, un carrusel: la segunda línea del titular va
-    calada, capítulo 05), el sello es el único bloque lleno: «Aprobar» va con borde de 1 px en
-    `text.primary`, sin relleno y con la letra en `text.primary` (capítulo 06, 6.5). Sigue siendo
-    el principal: el borde de tinta lo separa del ghost.
+  - **En una pieza con sello** (un post, una OG, un carrusel: la segunda línea del titular va en
+    el sello petróleo, capítulo 05, 5.3), «Aprobar» va con borde de 1 px en `text.primary`, sin
+    relleno y con la letra en `text.primary` (capítulo 06, 6.5): el foco es la firma y lo que dice
+    la pieza. En las piezas viejas, «Aprobar» lleno era lo que más se veía, y eso era un defecto.
+    Sigue siendo el principal: el borde de tinta lo separa del ghost. En la app pasa lo mismo con
+    el sello de tinta a la vista.
   - **«Rechazar con motivo»**: ghost, con `border.default`.
 
 **En la app** la tarjeta además dice cuánto arriesga (en mono) y deja abrir lo que va a mandar
@@ -157,7 +163,8 @@ entrada y la salida quedan a un clic.
 - Al abrirla, los bloques se rotulan «Entrada», «Salida» o «Error».
 
 En una pieza (una OG, un video, un post) la línea puede llevar la hora: `price_update · listo ·
-10:40`. Es la prueba de que iris trabaja con herramientas reales, no una animación.
+10:40`. Es la prueba de que iris trabaja con herramientas reales, no una animación. En una pieza
+de 1080 px va a 26–30 px, en la mono y `text.tertiary`: la mono de 12 px es la de la app.
 
 ---
 
@@ -217,3 +224,55 @@ La pieza para un usuario real que firmó su consentimiento (las condiciones, en 
   midió. Si suman, se pueden mostrar como filas del feed (8.2), con ✓ y la cifra en `<b>`.
 - **Nada más:** sin foto de stock, sin logo de la tienda salvo autorización escrita, sin comillas
   decorativas gigantes, y sin «Datos de ejemplo.» en la misma pieza.
+
+---
+
+## 8.9 El intercambio
+
+La conversación con iris, como pieza: el dueño pregunta, iris lee la cuenta y contesta con una
+cifra, y lo que cambia algo espera el OK. Muestra, sin explicarlo, que del otro lado hay una IA que
+trabaja sobre tu cuenta. Es la imagen del registro Pregunta y cifra y la secuencia de En vivo
+(capítulo 11, 11.13).
+
+**Anatomía**, de arriba abajo:
+
+1. **La pregunta, con cursor.** Lo que escribe el dueño, en sus palabras y como se tipea en el
+   teléfono: minúscula inicial, de vos. Va en Plex Sans 500 y `text.primary`, al tamaño de un
+   titular (64 px o más en una pieza de 1080), con `text-wrap: balance`. Termina en el cursor: una
+   barra fina y vertical en tinta (`text.primary`), del alto de una mayúscula. El cursor dice «esto
+   lo escribió una persona».
+2. **La línea «tool · estado»** (8.4), con la que empieza la respuesta: el glifo y
+   `nombre_de_la_tool · estado · hora`, en la mono y `text.tertiary`, a 26–30 px. Dice «esto lo
+   contestó iris, leyendo tu cuenta». Los nombres de las tools son los reales, y se verifican contra
+   las que existen el día que se publica.
+3. **La cifra grande.** La respuesta, en Plex Sans 500 con cifras tabulares y `text.primary`: es lo
+   más grande de la pieza. Al lado, su unidad en la sans 400: «**6.100** por venta.». Debajo, si
+   hace falta, dos o tres filas concepto / cifra como las de la tarjeta (el concepto en
+   `text.secondary`, la cifra en `text.primary` 500), separadas por `border.subtle`.
+4. **El OK**, sólo si la respuesta propone un cambio: el ● de te toca, de hasta 48 px, y al lado su
+   palabra en Plex Sans 500 y `text.primary`: «¿La bajo? Espera tu OK.».
+
+```
+si bajo 15 % la mochila, ¿cuánto me queda?|
+✓ listing_prices_scan · listo · 10:40
+6.100 por venta.
+Hoy te quedan                         9.200
+Tu mínimo                             5.000
+● ¿La bajo? Espera tu OK.
+```
+
+**Reglas.**
+- **Sin burbuja.** Las dos voces se separan por el cursor y por la línea de la tool: sin globos, sin
+  columnas por turno, sin avatar, sin caja de input ni botón de enviar, sin los tres puntitos de
+  «escribiendo» (capítulo 09, 9.11). En la app la persona sigue en burbuja.
+- **La respuesta va en la sans**, nunca en la firma: la firma no lleva números y queda para el
+  titular.
+- **El ● es el único color de estado** mientras la pieza espera el OK. En la línea, el glifo dice
+  cómo terminó la tool: ✓ en gris; el ◐ verde sólo en video, mientras trabaja.
+- **La cifra es de ejemplo** y se marca (capítulo 11), con su unidad; el cero también se muestra.
+- **En video**, los cuatro tiempos entran de a uno, con la secuencia de «Movimiento en piezas de
+  video» (capítulo 06, 6.7).
+
+**No se hace:** la burbuja, la respuesta en serif, una pantalla de celular con la conversación
+adentro, la pregunta pulida como un titular de agencia (con mayúscula y sin cursor), una cifra sin
+unidad, el fondo marfil o el naranja de Claude.

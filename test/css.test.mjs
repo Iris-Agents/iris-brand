@@ -2,7 +2,7 @@
 // semánticos con los valores que resuelve el modelo propio, y tailwind.css, glass.css y
 // signature.css sólo nombran variables que existen, sin un valor propio.
 import assert from "node:assert/strict";
-import { existsSync } from "node:fs";
+import { existsSync, readdirSync } from "node:fs";
 import { describe, test } from "node:test";
 import { renderDesignSystem } from "../scripts/design-system.mjs";
 import { buildTokensCSS } from "../scripts/terrazzo.mjs";
@@ -49,6 +49,39 @@ describe("dist/tokens.css", () => {
 	}
 	test("los bloques claros no traen nada más que color", () => {
 		for (const blockName of ["light", "system"]) assert.deepEqual([...declarationsOf(blocks[blockName]).keys()].filter((name) => !name.startsWith("--iris-color-")), []);
+	});
+});
+
+// El petróleo es el único acento, en un solo lugar: sale al CSS sólo como el sello de marketing.
+describe("el acento de color", () => {
+	const petrol = hexOf(foundation.get("color.brand.petrol").value);
+	test("dist/tokens.css trae el sello de marketing en los tres bloques, y ninguna otra variable con el petróleo", () => {
+		assert.deepEqual([...tokensCSS.matchAll(/--[\w-]*petrol[\w-]*/g)].map(([name]) => name), []);
+		for (const [blockName, block] of Object.entries(blocks)) {
+			const declared = [...declarationsOf(block)];
+			assert.deepEqual(declared.filter(([name]) => name.includes("marketing")).map(([name]) => name), ["--iris-color-signature-marketing-block", "--iris-color-signature-marketing-text"], blockName);
+			assert.deepEqual(declared.filter(([, value]) => value.toLowerCase() === petrol).map(([name]) => name), ["--iris-color-signature-marketing-block"], blockName);
+		}
+	});
+	// Lo que quedó afuera (el cartón y los colores de pieza) no vuelve como token: ni un id, ni un nombre
+	// del Design System, ni una variable de CSS declarada o leída, en las piezas tampoco.
+	test("ningún token se llama piece, cardboard ni cartón, en ningún archivo", () => {
+		const outlawed = /piece|cardboard|cart[oó]n/i;
+		const filesUnder = (folder, extensions) =>
+			readdirSync(new URL(folder, repoUrl), { recursive: true })
+				.filter((name) => extensions.some((extension) => name.endsWith(extension)))
+				.map((name) => `${folder}${name}`);
+		const withoutComments = (source) => source.replaceAll(/\/\*[\s\S]*?\*\/|<!--[\s\S]*?-->/g, "");
+		const cssFiles = ["dist/tokens.css", ...filesUnder("css/", [".css"]), ...filesUnder("pieces/", [".css", ".html"]), ...filesUnder("design-system/components/", [".html", ".css"])];
+		const designSystemNames = (path) => ["color", "spacing", "radius"].flatMap((family) => JSON.parse(readText(path))[family].tokens.map(({ name }) => `${path}: ${name}`));
+		const names = [
+			...[foundation, ...modes.map((mode) => semantics[mode])].flatMap((tokens) => [...tokens.keys()].map((id) => `tokens/: ${id}`)),
+			...designSystemNames("dist/design-system.json"),
+			...designSystemNames("design-system/tokens.json"),
+			...Object.keys(JSON.parse(readText("design-system/tokens.notes.json")).tokens).map((name) => `design-system/tokens.notes.json: ${name}`),
+			...cssFiles.flatMap((path) => [...withoutComments(readText(path)).matchAll(/--[\w-]+/g)].map(([name]) => `${path}: ${name}`)),
+		];
+		assert.deepEqual(names.filter((entry) => outlawed.test(entry.slice(entry.indexOf(": ") + 2))), []);
 	});
 });
 
@@ -121,6 +154,15 @@ describe("css/signature.css", () => {
 	});
 	test("no escribe ningún color propio", () => {
 		assert.deepEqual([...source.matchAll(/#[0-9a-f]{3,8}\b|rgba?\(|hsla?\(|oklch\(/gi)].map(([match]) => match), []);
+	});
+	// Si se cruzan, el petróleo entra a la app.
+	test("cada sello lee los colores de su lugar: .signature-seal los de la app, .signature-seal-marketing los de marketing", () => {
+		const colorsOf = (className) =>
+			[...source.matchAll(/([^{}]+)\{([^}]*)\}/g)]
+				.filter(([, selectors]) => selectors.split(",").map((selector) => selector.trim()).includes(`.${className}`))
+				.flatMap(([, , body]) => [...body.matchAll(/(background-color|color):\s*var\((--[\w-]+)\)/g)].map(([, property, name]) => `${property}: ${name}`));
+		assert.deepEqual(colorsOf("signature-seal"), ["background-color: --iris-color-signature-block", "color: --iris-color-signature-text"]);
+		assert.deepEqual(colorsOf("signature-seal-marketing"), ["background-color: --iris-color-signature-marketing-block", "color: --iris-color-signature-marketing-text"]);
 	});
 });
 

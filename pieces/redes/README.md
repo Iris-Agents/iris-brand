@@ -12,14 +12,27 @@ Cómo se escribe y se publica un post no está en este repo.
 
 | Carpeta | Qué tiene | Para qué red |
 |---|---|---|
-| `_base/` | `brand.css` (tokens de color, fuentes de Google y las clases `.signature` y `.sello`, el sello de la segunda línea del titular), `render.sh` (una PNG), `render-all.sh` y `piezas.tsv` (todas las PNG). | Todas |
+| `_base/` | `brand.css` (tokens de color, fuentes de Google y las clases `.signature` y `.sello`, el sello petróleo de la segunda línea del titular), `render.sh` (una PNG), `render-all.sh` y `piezas.tsv` (todas las PNG). | Todas |
 | `perfil/` | La foto de perfil: la i del ícono a sangre sobre negro. `perfil-preview.html` es una hoja de control con la foto en chico. | Instagram, Facebook y WhatsApp: la misma foto en las tres |
 | `facebook/` | La portada de la página, en una sola versión: `portada.html`, con el titular «Agentes expertos / a cargo de tu e-commerce.». Mercado Libre no va en el titular: se nombra como un hecho en el «Acerca de» y en la bio (capítulo 12 del manual). | Facebook |
 | `instagram/destacadas/` | Las portadas de las historias destacadas: Demo, Casos, Precios y Ayuda, más tres propuestas (Cómo funciona, Novedades, Permisos). `destacadas-preview.html` las muestra juntas en chico. | Instagram |
-| `plantillas/` | Los posts: `feed-4x5/`, `cuadrado/`, `story/` (también portada de reel) y `carrusel/`, con los estilos comunes en `_comun/`. | Instagram y Facebook |
+| `plantillas/` | Los posts: `feed-4x5/`, `cuadrado/`, `story/` (también portada de reel) y `carrusel/`, con los estilos comunes en `_comun/`. Y las de los registros: `intercambio/` (el intercambio, en feed y story) y `trastienda/` (la foto, en feed y portada de carrusel). | Instagram y Facebook |
 
 Junto a cada HTML está su PNG limpia y su `-guias.png`, que es la misma pieza con las zonas seguras
 dibujadas en magenta. La de guías es para revisar: **nunca se publica**.
+
+## El sello y los tres registros
+
+La marca es monocroma, con un solo acento de color: el **petróleo** (#03313C) del sello, el bloque
+detrás de la segunda línea del titular, con la firma en tinta (#EDEDEA) encima, a 11,87:1. Va en
+todas las piezas de redes, sale de `.sello` en `_base/brand.css` y no va en ningún otro lugar: ni de
+fondo, ni en una franja, un texto, un borde o un botón. «Aprobar» va con borde de tinta y sin relleno.
+
+Cada post usa uno solo de tres registros: **Pregunta y cifra** (la base: el intercambio, con la
+pregunta con su cursor, la línea «tool · estado» y la cifra grande, y las plantillas de siempre),
+**En vivo** (los reels: la secuencia del intercambio en video vertical) y **La trastienda** (campañas
+y fechas: una foto oscura y quieta del mundo del vendedor, con el mismo sello). Qué lleva cada uno
+está en la sección 5 de [`plantillas.md`](plantillas.md).
 
 ## Cómo regenerar
 
@@ -53,9 +66,10 @@ y ese mismo día Franco fijó las formas: el único ● lleno es «te toca» (á
 «trabajando» y «resuelto» es una ✓ gris. La tabla está en la sección 1 de [`plantillas.md`](plantillas.md).
 
 Cuando cambie un color: se edita `brand.css`, se corre `render-all.sh` y se miran las PNG que
-tienen glifos (la portada de Facebook, el banner de LinkedIn, `cuadrado-pieza`, `story-pieza` y el
-feed alternativo del carrusel, que está en un `<template>` y no tiene PNG propia). Cuando cambie una
-forma, además se reemplaza el glifo en cada HTML que lo dibuja: el `<symbol>` de la ✓ en la portada
-de Facebook y en `../linkedin/banner-perfil.html` (es el único glifo que usan), los `<symbol>` de
-`cuadrado-pieza` y `story-pieza`, y los `<svg>` sueltos del `<template>` del carrusel interior.
+tienen glifos (la portada de Facebook, el banner de LinkedIn, `cuadrado-pieza`, `story-pieza`, las
+dos del intercambio y el feed alternativo del carrusel, que está en un `<template>` y no tiene PNG
+propia). Cuando cambie una forma, además se reemplaza el glifo en cada HTML que lo dibuja: el
+`<symbol>` de la ✓ en la portada de Facebook y en `../linkedin/banner-perfil.html` (es el único glifo
+que usan), los `<symbol>` de `cuadrado-pieza`, `story-pieza`, `intercambio-feed` e
+`intercambio-story` (la ✓ y el ●), y los `<svg>` sueltos del `<template>` del carrusel interior.
 El pictograma de la destacada «Cómo funciona» (de ○ a ✓) usa el mismo vocabulario.

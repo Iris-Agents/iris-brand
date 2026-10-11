@@ -131,9 +131,9 @@ porque no lo nombra.
 
 ## 9.8 El titular de dos líneas
 
-- La primera línea, en la sans; la segunda, en la firma, calada en el sello (capítulo 05, 5.3). El
-  corte lo decide el copy: la firma entra donde la frase se vuelve personal. «Agentes expertos / a
-  cargo de tu e-commerce.»
+- La primera línea, en la sans; la segunda, en la firma, en el sello (capítulo 05, 5.3): el de
+  tinta en la app, el petróleo en marketing. El corte lo decide el copy: la firma entra donde la
+  frase se vuelve personal. «Agentes expertos / a cargo de tu e-commerce.»
 - La segunda línea es la que remarca: por eso va en el sello y no en gris.
 - La segunda línea no lleva números y termina en punto.
 - Un titular de una sola línea va entero en la sans: la firma no se agrega para decorar.
@@ -158,6 +158,24 @@ Un usuario real puede aparecer en una pieza **sólo si firmó su consentimiento 
   hace falta, va como un hecho chico («vende en Mercado Libre»), nunca con su logo (capítulo 12).
 - **Se ve como testimonio:** la cita lleva el nombre y la fecha. Una pieza con un testimonio no
   lleva «Datos de ejemplo.»: o es real y aprobada, o es de ejemplo, nunca las dos en la misma pieza.
+
+---
+
+## 9.11 La conversación en redes
+
+- **Sin burbuja.** En la app el agente escribe sobre el papel y la persona va en burbuja (capítulo
+  01). En redes no hay burbuja, porque en una pieza se lee como la captura de la interfaz de otro:
+  lo que escribe la persona termina en un cursor y lo que contesta iris empieza con la línea «tool ·
+  estado». Sin avatar, sin columnas por turno, sin caja de input y sin los tres puntitos de
+  «escribiendo». La pieza es el intercambio (capítulo 08, 8.9).
+- **La pregunta se escribe como la tipea el dueño:** en sus palabras, de vos y con minúscula
+  inicial. «si bajo 15 % la mochila, ¿cuánto me queda?». No es un titular: no lleva la firma.
+- **La respuesta es una cifra con su unidad**, con la voz de siempre: «6.100 por venta.». El OK es
+  una pregunta corta con su palabra: «¿La bajo? Espera tu OK.».
+- **La línea de contexto**, la de arriba de todo en una pieza de redes, va en `text.primary` y no en
+  `text.tertiary`: dice para quién es o cuándo («Faltan 2 semanas») y se tiene que leer en el primer
+  segundo. Conserva el resto del eyebrow (la sans 500, las mayúsculas por CSS, nunca «iris»). Si
+  nombra a Mercado Libre, sigue el capítulo 12.
 
 ---
 

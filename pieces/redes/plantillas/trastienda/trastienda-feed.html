@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>La trastienda · feed 4:5</title>
+<!-- Plantilla de post para feed: 1080 × 1350. El registro «La trastienda», para campañas y fechas: una foto
+     oscura y quieta del mundo del vendedor y el titular con el sello.
+     Render: ../../_base/render.sh trastienda-feed.html 1080 1350 salida.png
+     Con guías: render.sh "trastienda-feed.html?guias" 1080 1350 salida-guias.png
+     Un post usa un solo registro: acá no va el intercambio ni las piezas de producto. El logo va en el negro, nunca sobre la foto. -->
+<link rel="stylesheet" href="../../_base/brand.css">
+<link rel="stylesheet" href="../_comun/plantilla.css">
+<link rel="stylesheet" href="trastienda.css">
+<script>if (new URLSearchParams(location.search).has('guias')) document.documentElement.classList.add('guias');</script>
+<style>
+  :root { --ancho: 1080px; --alto: 1350px; --foto-alto: 820px; --fundido-abajo: 300px; }
+  .marco { inset: 72px; }
+  .contexto { font-size: 28px; }
+  .titular { margin-top: auto; font-size: 88px; }
+  .bajada { margin-top: 40px; font-size: 40px; }
+  .foto-nota { margin-top: 48px; font-size: 24px; }
+  .pie { margin-top: 40px; }
+  .lockup { --logo-alto: 56px; }
+  .handle { font-size: 30px; }
+</style>
+</head>
+<body>
+<!-- EDITAR: la foto. Oscura y quieta, del mundo del vendedor: cajas, kraft, una persiana. Sin personas, sin logos ni marcas,
+     sin el packaging de Mercado Libre y sin productos de clientes reales. 1080 × 820 o más grande en la misma proporción:
+     se recorta al centro. La franja de arriba y la de abajo tienen que ser casi negras, porque ahí caen el contexto y el
+     titular: medí en la PNG que el texto encima pase 4,5:1. El fundido con el negro lo pone el CSS.
+     En una copia fuera de esta carpeta, la ruta va absoluta. La de ejemplo es un dibujo hecho por script (foto-ejemplo.py). -->
+<img class="foto" data-slot="foto" src="foto-ejemplo.jpg" alt="">
+
+<main class="marco" data-bloque="marco">
+  <p class="contexto" data-bloque="contexto">
+    <!-- EDITAR: la línea de contexto, la campaña o la fecha en 1 a 3 palabras, sin punto. Máximo 26 caracteres. Va en tinta y el CSS
+         la pasa a mayúsculas. Sin «iris» (saldría «IRIS») y sin «Mercado Libre». -->
+    <span data-slot="contexto">Fin de año</span>
+    <!-- EDITAR: cuándo, si hay una fecha real: «Faltan 3 semanas», «Hoy». Máximo 16 caracteres. Si no hay, dejalo vacío. Sin urgencia inventada. -->
+    <span data-slot="contexto-cuando">Faltan 3 semanas</span>
+  </p>
+
+  <h1 class="titular" data-bloque="titular">
+    <!-- EDITAR: línea 1 del titular (Plex). Una idea. Máximo 19 caracteres (1 renglón). -->
+    <span data-slot="titular-linea-1">Antes de diciembre,</span>
+    <!-- EDITAR: línea 2 del titular (va en la firma, en el sello: el texto va adentro del <span class="sello">). Sin números y
+         termina en punto. Máximo 38 caracteres (hasta 2 renglones; con 19 entra seguro en 1). Mejor en 1 renglón: en dos, el sello
+         es un solo bloque del ancho del titular, y el petróleo pesa más de lo que tiene que pesar. -->
+    <span class="signature"><span class="sello" data-slot="titular-linea-2">preguntale a tu cuenta.</span></span>
+  </h1>
+
+  <!-- EDITAR: bajada, una o dos oraciones cortas, sin adjetivos. Máximo 86 caracteres (hasta 2 renglones). -->
+  <p class="bajada" data-slot="bajada">Qué se te agota, cuánto te queda por venta y qué promo no te conviene.</p>
+
+  <!-- EDITAR: de dónde sale la foto. Si la generó una IA: «Imagen generada con IA.». Si es una foto propia, borrá el <p> entero.
+       Máximo 40 caracteres. -->
+  <p class="foto-nota" data-slot="foto-nota">Imagen de ejemplo.</p>
+
+  <footer class="pie" data-bloque="pie">
+    <span class="lockup" aria-label="iris agents">
+      <span class="icono signature" aria-hidden="true">i</span>
+      <span class="wordmark signature">iris agents</span>
+    </span>
+    <span class="handle">@iris_agents</span>
+  </footer>
+</main>
+
+<!-- Guías: sólo se ven con ?guias. Margen 72 px: pedido de marca. Grilla 3:4 (1080 × 1440 desde enero de 2025): un 4:5 se ve a 1012 de ancho, centrado (help.hopperhq.com/en/articles/10907941). -->
+<i class="guia etiqueta-arriba-fuera" data-etiqueta="margen 72 px" style="left: 72px; top: 72px; width: 936px; height: 1206px;"></i>
+<i class="guia punteada etiqueta-abajo" data-etiqueta="grilla del perfil 3:4 · recorta 34 px por lado" style="left: 34px; top: 0; width: 1012px; height: 1350px;"></i>
+<i class="guia guia-foto punteada etiqueta-derecha" data-etiqueta="foto · el texto encima pasa 4,5:1" style="left: 0; top: 0; width: 1080px; height: 820px;"></i>
+</body>
+</html>

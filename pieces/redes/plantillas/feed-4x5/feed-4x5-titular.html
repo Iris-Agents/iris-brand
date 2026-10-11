@@ -12,7 +12,7 @@
 <style>
   :root { --ancho: 1080px; --alto: 1350px; }
   .marco { inset: 72px; }
-  .eyebrow { font-size: 28px; }
+  .eyebrow { font-size: 28px; color: var(--text-primary); }
   .titular { margin-top: auto; font-size: 120px; }
   .bajada { margin-top: 48px; font-size: 40px; }
   .pie { margin-top: 112px; }
@@ -22,13 +22,14 @@
 </head>
 <body>
 <main class="marco" data-bloque="marco">
-  <!-- EDITAR: eyebrow, el tema en 1 a 3 palabras, sin punto. Máximo 30 caracteres. Sin «iris»: el eyebrow sale en mayúsculas y la marca va siempre en minúscula. -->
+  <!-- EDITAR: eyebrow, el tema en 1 a 3 palabras, sin punto. Máximo 30 caracteres. Sin «iris»: el eyebrow sale en mayúsculas y la marca va siempre en minúscula.
+       Es la línea de contexto: va en tinta, para que se lea en el primer segundo. -->
   <p class="eyebrow" data-slot="eyebrow">Aprobaciones</p>
 
   <h1 class="titular" data-bloque="titular">
     <!-- EDITAR: línea 1 del titular (Plex). Una idea. Máximo 28 caracteres (hasta 2 renglones). -->
     <span data-slot="titular-linea-1">Lo que no decidiste</span>
-    <!-- EDITAR: línea 2 del titular (va en la firma, calada en el sello). Sin números. Máximo 28 caracteres (hasta 2 renglones).
+    <!-- EDITAR: línea 2 del titular (va en la firma, en el sello). Sin números. Máximo 28 caracteres (hasta 2 renglones).
          El texto va adentro del <span class="sello">; en dos renglones, el sello es un solo bloque del ancho del titular. -->
     <span class="signature"><span class="sello" data-slot="titular-linea-2">te espera.</span></span>
   </h1>

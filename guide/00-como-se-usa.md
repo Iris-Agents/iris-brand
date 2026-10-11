@@ -42,8 +42,9 @@ Además, el manual se publica en dos lugares que no son código:
 - Hay dos excepciones escritas, porque no son valores que se reusen:
   - **La geometría del logo** (proporciones de la i, el resguardo, el lockup) vive en los SVG de
     `logo/` y en el capítulo 03.
-  - **El degradé radial del banner** (blanco al 4 %) vive sólo en el banner de LinkedIn y en la
-    portada de Facebook. No es token y no se usa en ninguna otra pieza.
+  - **Las luces radiales**: la del banner (blanco al 4 %) vive sólo en el banner de LinkedIn y en la
+    portada de Facebook, y la de las piezas de redes (blanco hasta el 6 %, sólo detrás del punto
+    focal) en los posts y los reels (capítulo 11, 11.13). No son token.
 
 ## 0.4 Cómo se lee un nombre de token
 
@@ -61,6 +62,9 @@ Hay dos capas. Los **primitivos** son la paleta cruda; los **semánticos** dicen
   `rounded-card`, `font-signature italic`. Un mal uso se nota a simple vista: `text-line-subtle`
   o `bg-fg-tertiary` no tienen sentido.
 - Un primitivo en el CSS de una app es un error: se usa siempre el semántico.
+- El petróleo (`color.brand.petrol`) es un primitivo más: llega a la landing por su rol,
+  `signature.marketing.block` (`bg-signature-marketing` en Tailwind), y a las piezas de redes por el
+  `--signature-block` de `pieces/redes/_base/brand.css` (capítulo 04, 4.9).
 - En este manual el valor va con su hex, por ejemplo `text.secondary` (#BFBEB9 en oscuro,
   #4E4D49 en claro). El hex está para leer. En código, nunca.
 

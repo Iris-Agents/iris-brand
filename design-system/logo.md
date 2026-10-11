@@ -65,7 +65,7 @@ La única excepción es el degradé radial de blanco al 4 % del banner de Linked
 
 ## Usos incorrectos
 
-- **Color:** cualquier violeta (el viejo #4C1D95, sus filetes, la raya debajo de la OG vieja); el amarillo (#FFE600) o el azul (#3483FA) de Mercado Libre o el cian de Mercado Pago (#00BCFF) en el logo o a su lado; la marca en gris, a dos tonos, en un color de estado o en degradé; glow, sombra, contorno, vidrio o gradiente sobre la marca.
+- **Color:** cualquier violeta (el viejo #4C1D95, sus filetes, la raya debajo de la OG vieja); el amarillo (#FFE600) o el azul (#3483FA) de Mercado Libre o el cian de Mercado Pago (#00BCFF) en el logo o a su lado; la marca en gris, a dos tonos, en un color de estado, en petróleo (`brand-petrol`) o en degradé; glow, sombra, contorno, vidrio o gradiente sobre la marca.
 - **Forma:** una raya o un subrayado debajo del logotipo; rotar, inclinar más, estirar o comprimir; separar el punto de la i; esquinas horneadas o con transparencia en el ícono; juegos con el ojo (pupilas, círculos concéntricos, «iris ve todo»).
 - **Tipografía:** Playfair, la DM Serif Display recta, Plex o cualquier otra fuente; tipear el logotipo; «Iris», «IRIS» o «Iris Agents» en el logotipo; un sufijo («AI», «.ai»); el logotipo como palabra adentro de una oración.
 - **Compañía:** mascotas, robots, cerebros, destellos o emojis al lado; la marca de otro más grande, pegada o en co-branding; «partner», «oficial», «certificado», «aliado» o «powered by»; un claim rechazado al lado.

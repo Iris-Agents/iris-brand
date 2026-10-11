@@ -117,7 +117,7 @@ portada de Facebook: ahí el lockup va encima, en `color.brand.white`.
   debajo del logotipo de la OG vieja.
 - El amarillo de Mercado Libre (#FFE600), su azul (#3483FA) o el cian de Mercado Pago (#00BCFF), en
   el logo o a su lado.
-- La marca en gris, a dos tonos, en un color de estado o en degradé.
+- La marca en gris, a dos tonos, en un color de estado, en petróleo o en degradé.
 - Glow, sombra, contorno, vidrio o un gradiente sobre la marca.
 
 **Forma**

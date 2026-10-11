@@ -53,8 +53,12 @@ body { position: relative; }
   color: var(--text-tertiary);
 }
 
-/* Titular de dos líneas: la 1 en Plex 500, la 2 en la firma, mismo tamaño. La 2 va calada en el
-   sello (.sello, en brand.css): la línea lleva 0,16em de aire arriba e interlineado 1. */
+/* La línea de contexto, en lugar del eyebrow en las láminas de los registros (La trastienda): la misma
+   letra, en tinta. A la izquierda el tema; a la derecha, si hay, cuándo. */
+.contexto { display: flex; justify-content: space-between; gap: 24px; margin: 0; font-size: 24px; font-weight: 500; line-height: 1.3; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary); white-space: nowrap; }
+
+/* Titular de dos líneas: la 1 en Plex 500, la 2 en la firma, mismo tamaño. La 2 va en el sello
+   (.sello, en brand.css): la línea lleva 0,16em de aire arriba e interlineado 1. */
 .titular { margin: 0; font-weight: 500; line-height: 1.04; letter-spacing: -0.02em; color: var(--text-primary); text-wrap: balance; }
 .titular > span { display: block; }
 .sin-corte { white-space: nowrap; }
@@ -145,7 +149,7 @@ body { position: relative; }
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
-/* «Aprobar»: el sello de la portada y del cierre es el único bloque lleno de tinta del carrusel,
+/* «Aprobar»: el foco del carrusel es la firma de la portada y del cierre y lo que dice cada lámina,
    así que el botón principal va con borde de tinta, sin relleno. */
 .boton-borde { background: transparent; color: var(--text-primary); border: 2px solid var(--text-primary); }
 .boton-ghost { background: transparent; color: var(--text-primary); border: 2px solid var(--border-default); }

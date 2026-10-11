@@ -9,7 +9,7 @@ que se separan por luz y borde, y movimiento corto que frena suave.
 |---|---|---|
 | `radius.chip` | 4 px | Tecla (kbd), badge, controles chicos. |
 | `radius.control` | 6 px | Botón e input. |
-| `radius.card` | 8 px | Card, popover, burbuja de la persona, composer. |
+| `radius.card` | 8 px | Card, popover, burbuja de la persona en la app (en redes no hay burbuja), composer. |
 | `radius.panel` | 12 px | Paneles y diálogos; las cards grandes de la landing. |
 | `radius.frame` | 16 px | Marcos de captura y de video. |
 | `radius.pill` | 9999 px | Píldoras, como «Espera tu OK». |
@@ -73,12 +73,14 @@ achica el ritmo, no el contenido.
 
 - **El CTA es tinta:** relleno de `action.primary` con `text.on-action` encima, en `label`. Hay uno
   solo por pantalla. En hover baja a opacidad 0,9 (`opacity.hover`).
-- **Con el sello a la vista, el CTA va con borde.** El sello del titular (capítulo 05, 5.3) es el
-  único bloque lleno de tinta de la pieza: el botón principal (el «Aprobar» de la tarjeta en una
-  pieza, el botón principal del hero de la landing) se dibuja con borde de 1 px en `text.primary`,
-  sin relleno y con la letra en `text.primary`. Del ghost lo separa el borde: tinta, no
-  `border.default`. Su hover es `bg.hover`, como el de todo control sin relleno. Fuera de las piezas
-  con sello (la app, un formulario), el CTA va lleno.
+- **Con el sello a la vista, el CTA va con borde.** Con el titular y su sello (capítulo 05, 5.3) en
+  la misma pieza o pantalla, el botón principal (el «Aprobar» de la tarjeta en una pieza, el botón
+  principal del hero de la landing) se dibuja con borde de 1 px en `text.primary`, sin relleno y con
+  la letra en `text.primary`. En marketing, con el sello petróleo, el foco es la firma y lo que dice
+  la pieza: lleno, el botón es lo más claro, y en las piezas viejas «Aprobar» era lo que más se
+  veía. En la app, con el sello de tinta, el sello es el único bloque lleno de tinta. Del ghost lo
+  separa el borde: tinta, no `border.default`. Su hover es `bg.hover`, como el de todo control sin
+  relleno. Sin sello a la vista (casi toda la app, un formulario), el CTA va lleno.
 - **El secundario es ghost:** sin relleno, con borde `border.default` y texto `text.primary`. Su hover
   es `bg.hover`.
 - **El destructivo es ghost:** texto y borde en `action.destructive`, nunca relleno. Va con una
@@ -93,8 +95,8 @@ achica el ritmo, no el contenido.
 - **lucide, de 16 px**, en el color del texto que acompañan.
 - Sólo cuando ayudan a operar: nunca decorativos.
 - Ningún ícono de «IA»: ni destellos, ni cerebros, ni robots, ni varitas.
-- Los glifos de estado no son íconos: son los cinco del capítulo 04, de 10 px, y no se reemplazan
-  por un ícono de lucide.
+- Los glifos de estado no son íconos: son los cinco del capítulo 04, de 10 px (en una pieza de
+  redes, el ● y el ◐ hasta 48 px: capítulo 11, 11.13), y no se reemplazan por un ícono de lucide.
 
 ## 6.7 Movimiento
 
@@ -118,6 +120,30 @@ achica el ritmo, no el contenido.
   control para pausar. Nunca gira.
 - **Con `prefers-reduced-motion`** todo queda quieto y visible.
 - Claude Design no lee el movimiento de los tokens: va escrito en el README de su Design System.
+
+### Movimiento en piezas de video
+
+Un reel cuenta una conversación en el tiempo (el registro En vivo, capítulo 11, 11.13). Lo que se
+anima es el trabajo de iris, nunca un adorno.
+
+- **La secuencia** es siempre la misma, una entrada por tiempo: la pregunta que se tipea → la línea
+  «tool · estado» con el ◐ de trabajando → la respuesta, con la cifra → el OK, con el ● y su
+  palabra. Cuando la tool termina, la línea pasa de ◐ a ✓.
+- **El cursor titila** en tinta (`text.primary`, #EDEDEA), prendido y apagado, y sólo cuando el
+  tipeo para: mientras se tipea, va fijo al final del texto.
+- **El ◐ late** como en la app: en opacidad hasta `opacity.pulse` (0,45) y de vuelta, con
+  `duration.pulse` (1200 ms) por latido y `easing.in-out`, una o dos veces, y queda quieto. Nunca
+  gira.
+- **Las duraciones son las de los tokens.** Cada tiempo entra con `opacity` y `translateY`, en
+  `duration.reveal` (600 ms) y `easing.out`; lo que entra junto (las filas debajo de la cifra) va
+  con `duration.stagger` (80 ms) de desfase; un cambio de estado, como ◐ → ✓, es un fundido de
+  `duration.base` (180 ms); lo que se va, se va en `duration.slow` (280 ms); lo que cambia de lugar
+  usa `easing.in-out`.
+- **Sin rebotes ni resortes.** Nada gira y nada queda en loop, salvo el cursor mientras espera. Se
+  anima sólo `transform`, `opacity` y color.
+- **Con `prefers-reduced-motion`**, quieto: el HTML del que sale el video muestra el cuadro final,
+  con todo visible.
+- El formato es vertical, 1080 × 1920 a 30 fps (capítulo 11, 11.8).
 
 ## 6.8 El vidrio
 

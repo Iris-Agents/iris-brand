@@ -5,7 +5,8 @@ Cómo se arma cada pieza que sale de iris. Todas usan lo mismo: el negro de marc
 ## Reglas de todas
 
 - **Oscuro.** El fondo es `brand-black`. Las piezas no usan el claro, salvo el email.
-- **Sin efectos.** Sin glow, sombras, vidrio ni gradientes. La única excepción es el degradé radial de blanco al 4 % del banner de LinkedIn y de la portada de Facebook.
+- **El titular de dos líneas, con el sello petróleo.** La segunda línea va en el sello de marketing: la firma en `signature-marketing-text` sobre un bloque `signature-marketing-block`, sobre el negro. Es el mismo en todas estas piezas y en el titular de la landing; la app usa el sello de tinta. Si la pieza muestra la tarjeta de aprobación, «Aprobar» va con borde de 1px en `text-primary` y sin relleno: el foco es la firma y lo que dice la pieza.
+- **Sin efectos.** Sin glow, sombras, vidrio ni gradientes. Las únicas excepciones son dos luces radiales blancas: la del banner de LinkedIn y la portada de Facebook (al 4 %) y la de las piezas de redes (hasta el 6 %, sólo detrás del punto focal).
 - **En lo público, el resultado.** Las filas dicen qué logró iris, sin el nombre del agente.
 - **Cifras de ejemplo, marcadas.** «Datos de ejemplo.» en la pieza cuando hay lugar para una nota, y siempre en el HTML. Un dato real de un cliente no va nunca.
 - **Mercado Libre como un hecho**, chico y en texto, nunca en un titular.
@@ -34,7 +35,7 @@ Cómo se arma cada pieza que sale de iris. Todas usan lo mismo: el negro de marc
 
 - Fondo `brand-black`, con el degradé radial de blanco al 4 % arriba a la derecha.
 - La zona de la foto queda libre: LinkedIn la pone en x 33–373 en la computadora y en x 67–702 en el celular. El contenido empieza en x 718.
-- Después de esa zona, el lockup y, debajo, el titular a 40px: «Agentes expertos / *a cargo de tu e-commerce.*», con `.headline-section-first` en `text-primary` y `.headline-section-second` calada en el sello (`signature-block` y `signature-text`).
+- Después de esa zona, el lockup y, debajo, el titular a 40px: «Agentes expertos / *a cargo de tu e-commerce.*», con `.headline-section-first` en `text-primary` y `.headline-section-second` en el sello petróleo (`signature-marketing-block` y `signature-marketing-text`).
 - A la derecha, el feed en un panel de 340px con los cinco resultados («Mejoró la reputación», «Contestó 40 preguntas», «Resolvió 3 reclamos», «Generó 3 ventas adicionales», «Adhirió a una promoción»), cada uno con ✓, el verbo en `text-secondary` y el objeto en `text-primary` 500.
 - Mercado Libre va en el «Acerca de» del perfil, no en el banner.
 
@@ -55,7 +56,8 @@ Cómo se arma cada pieza que sale de iris. Todas usan lo mismo: el negro de marc
 
 ## Video y demos
 
-- 1920 × 1080 a 30 fps, fondo `brand-black`. Clips de 15 a 25 s donde se vean las llamadas, con la línea «tool · estado».
+- Las demos: 1920 × 1080 a 30 fps, fondo `brand-black`. Clips de 15 a 25 s donde se vean las llamadas, con la línea «tool · estado».
+- Los reels y las stories de video: vertical, 1080 × 1920 a 30 fps, con lo esencial dentro de la zona segura de la story. Es el registro En vivo, con el movimiento de «Movimiento en piezas de video».
 - Si la demo está acelerada, se dice cuánto. Lo de una cuenta real va con la censura con chip; mejor, con datos de ejemplo.
 - En la web: poster, `preload="none"` y la conversación también como texto. Con voz, subtítulos.
 
@@ -74,5 +76,18 @@ Cómo se arma cada pieza que sale de iris. Todas usan lo mismo: el negro de marc
 ## Plantillas de redes
 
 En Instagram va el 4:5; el cuadrado queda para Facebook; además hay story y carrusel. Cada pieza es un HTML editable con su PNG, y una versión `-guias` con las zonas seguras que nunca se publica. La bio puede decir «tu cuenta de Mercado Libre», sin logo ni colores; el nombre de la cuenta nunca lleva Mercado Libre.
+
+### Los tres registros
+
+Cada post usa uno solo, sobre el mismo sistema y con el mismo sello: el petróleo de marketing, en el titular.
+
+| Registro | Cuándo va | La imagen | El sello |
+|---|---|---|---|
+| Pregunta y cifra | La base: posts y carruseles | El intercambio: la pregunta con cursor, la línea «tool · estado» y la cifra grande | Petróleo, en el titular |
+| En vivo | Los reels | La secuencia pregunta → ◐ trabajando → respuesta → OK, en video vertical, con el cursor en tinta (`text-primary`) | Petróleo, en el titular |
+| La trastienda | Campañas y fechas | Una foto oscura y quieta del mundo del vendedor | Petróleo, en el titular: la foto no le cambia el color |
+
+- **La foto de La trastienda:** cajas, kraft, una persiana; sin personas, sin logos ni marcas, sin el packaging de Mercado Libre y sin productos de clientes reales. Si es generada con IA, lo dice en chico: «Imagen generada con IA.». El texto que cae sobre la foto pasa 4,5:1 contra lo que tiene detrás, y el logo nunca va sobre la foto.
+- **En una pieza de 1080:** la luz radial blanca de hasta el 6 %, una sola, detrás del punto focal y nunca a pantalla completa; el ● y el ◐ como objeto, de hasta 48px, con su palabra; la línea «tool · estado» a 26–30px; la línea de contexto (el eyebrow de arriba de todo) en `text-primary`; «Aprobar» con borde y sin relleno; sin burbuja de chat.
 
 Capítulo completo: [11 Aplicaciones](https://github.com/Iris-Agents/iris-brand/blob/main/guide/11-aplicaciones.md). Zonas medidas de LinkedIn: [pieces/linkedin/README.md](https://github.com/Iris-Agents/iris-brand/blob/main/pieces/linkedin/README.md). Formatos, zonas seguras y largos máximos de las plantillas: [pieces/redes/plantillas.md](https://github.com/Iris-Agents/iris-brand/blob/main/pieces/redes/plantillas.md).

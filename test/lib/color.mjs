@@ -11,6 +11,9 @@ export const inSRGB = (value) => toColor(value).inGamut("srgb");
 // Distancia en OKLab entre el color declarado y su hex: el redondeo a 8 bits da < 0,005.
 export const hexDrift = (value) => toColor(value).deltaE(new Color(value.hex), "OK");
 
+// Distancia en OKLab entre dos colores: lo que mide si dos colores se confunden.
+export const deltaEOK = (firstHex, secondHex) => new Color(firstHex).deltaE(new Color(secondHex), "OK");
+
 export const wcag = (foregroundHex, backgroundHex) => new Color(foregroundHex).contrast(new Color(backgroundHex), "WCAG21");
 
 // APCA no es simétrico: el fondo va primero.

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>El intercambio · feed 4:5</title>
+<!-- Plantilla de post para feed: 1080 × 1350. El registro «Pregunta y cifra»: la imagen es la conversación.
+     Render: ../../_base/render.sh intercambio-feed.html 1080 1350 salida.png
+     Con guías: render.sh "intercambio-feed.html?guias" 1080 1350 salida-guias.png
+     Va siempre sobre el negro. Un post usa un solo registro: acá no va foto ni el feed «Hoy en tu cuenta».
+     La pieza no lleva titular de dos líneas; si el post lo necesita (una portada, un cierre), va en otra lámina, con el sello. -->
+<link rel="stylesheet" href="../../_base/brand.css">
+<link rel="stylesheet" href="../_comun/plantilla.css">
+<link rel="stylesheet" href="intercambio.css">
+<script>if (new URLSearchParams(location.search).has('guias')) document.documentElement.classList.add('guias');</script>
+<style>
+  :root { --ancho: 1080px; --alto: 1350px; }
+  .marco { inset: 72px; }
+  .contexto { font-size: 28px; }
+  .intercambio { display: flex; flex-direction: column; margin-block: auto; }
+  .pregunta { font-size: 76px; }
+  .trabajo { margin-top: 40px; font-size: 28px; }
+  .cifra { margin-top: 40px; }
+  .cifra-numero { font-size: 270px; }
+  .cifra-unidad { font-size: 44px; }
+  .filas { margin-top: 40px; font-size: 34px; }
+  .filas div { padding: 16px 0; }
+  .ok { margin-top: 36px; font-size: 38px; }
+  .nota { margin-bottom: 40px; font-size: 26px; }
+  .lockup { --logo-alto: 56px; }
+  .handle { font-size: 30px; }
+</style>
+</head>
+<body>
+<!-- Glifos de estado. Cada uno va con su palabra: «listo» en la línea de la tool, «Espera tu OK» en el pedido. -->
+<svg width="0" height="0" style="position: absolute;" aria-hidden="true">
+  <symbol id="te-toca" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.25" fill="currentColor"/></symbol>
+  <symbol id="resuelto" viewBox="0 0 10 10"><path d="M1.6 5.4 4 7.8 8.6 2.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+</svg>
+
+<main class="marco" data-bloque="marco">
+  <p class="contexto" data-bloque="contexto">
+    <!-- EDITAR: la línea de contexto, el tema en 1 a 3 palabras, sin punto. Máximo 26 caracteres. Va en tinta y el CSS la pasa a mayúsculas.
+         Sin «iris» (saldría «IRIS») y sin «Mercado Libre» (capítulo 12: va, si hace falta, en la nota). -->
+    <span data-slot="contexto">Precios</span>
+    <!-- EDITAR: cuándo, si hay una fecha real: «Falta 1 semana», «Hoy». Máximo 16 caracteres. Si no hay, dejalo vacío. Sin urgencia inventada. -->
+    <span data-slot="contexto-cuando">Falta 1 semana</span>
+  </p>
+
+  <!-- EJEMPLO: la pregunta, la tool, la cifra y las filas son inventadas. Nunca datos reales de un cliente. -->
+  <div class="intercambio" data-bloque="intercambio">
+    <!-- EDITAR: la pregunta del dueño, en sus palabras y con minúscula inicial, como se tipea en el teléfono. Una sola pregunta.
+         Máximo 60 caracteres (3 renglones). El cursor va pegado al final: no se borra. -->
+    <p class="pregunta"><span data-slot="pregunta">si bajo 15 % la mochila, ¿cuánto me queda por venta?</span><span class="cursor" aria-hidden="true"></span></p>
+
+    <!-- EDITAR: la tool que leyó la cuenta, con su nombre real (verificalo contra el MCP vigente). Máximo 36 caracteres, en mono.
+         Y la hora HH:MM en que terminó. El ✓ y «listo» no se tocan. -->
+    <p class="trabajo"><svg class="glifo resuelto"><use href="#resuelto"/></svg><span><span data-slot="tool">listing_prices_scan</span> · listo · <time data-slot="tool-hora">10:40</time></span></p>
+
+    <!-- EDITAR: la respuesta. La cifra, máximo 6 caracteres contando el punto de miles y el signo («6.100», «−1.300»).
+         La unidad o lo que la cifra cuenta, terminada en punto: máximo 34 caracteres. Entra al lado de la cifra si la cifra
+         tiene hasta 5 caracteres y la unidad unos 10 («por venta.»); si no entra, baja sola debajo de la cifra. -->
+    <p class="cifra"><b class="cifra-numero" data-slot="cifra">6.100</b><span class="cifra-unidad" data-slot="cifra-unidad">por venta.</span></p>
+
+    <!-- EDITAR: dos filas de contexto de la cifra. Etiqueta máximo 30 caracteres; valor máximo 18 (una cifra, o «antes → después»). -->
+    <dl class="filas">
+      <div><dt data-slot="fila-1-etiqueta">Hoy te quedan</dt><dd data-slot="fila-1-valor">9.200</dd></div>
+      <div><dt data-slot="fila-2-etiqueta">Tu mínimo</dt><dd data-slot="fila-2-valor">5.000</dd></div>
+    </dl>
+
+    <!-- EDITAR: sólo si la respuesta termina en una decisión del dueño. La pregunta de vuelta, corta: máximo 26 caracteres.
+         El ● y «Espera tu OK.» no se tocan. Si no hay nada que decidir, se borra el <p class="ok"> entero: el ● nunca va sin decisión. -->
+    <p class="ok"><svg class="glifo te-toca"><use href="#te-toca"/></svg><span><span data-slot="ok-pregunta">¿La bajo?</span> Espera tu OK.</span></p>
+  </div>
+
+  <!-- EDITAR: dejala mientras las cifras sean inventadas. Máximo 40 caracteres. -->
+  <p class="nota" data-slot="nota">Datos de ejemplo.</p>
+
+  <footer class="pie" data-bloque="pie">
+    <span class="lockup" aria-label="iris agents">
+      <span class="icono signature" aria-hidden="true">i</span>
+      <span class="wordmark signature">iris agents</span>
+    </span>
+    <span class="handle">@iris_agents</span>
+  </footer>
+</main>
+
+<!-- Guías: sólo se ven con ?guias. Margen 72 px: pedido de marca. Grilla 3:4 (1080 × 1440 desde enero de 2025): un 4:5 se ve a 1012 de ancho, centrado (help.hopperhq.com/en/articles/10907941). -->
+<i class="guia etiqueta-arriba-fuera" data-etiqueta="margen 72 px" style="left: 72px; top: 72px; width: 936px; height: 1206px;"></i>
+<i class="guia punteada etiqueta-abajo" data-etiqueta="grilla del perfil 3:4 · recorta 34 px por lado" style="left: 34px; top: 0; width: 1012px; height: 1350px;"></i>
+</body>
+</html>

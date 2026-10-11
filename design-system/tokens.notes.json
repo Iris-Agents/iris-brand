@@ -19,10 +19,12 @@
     "border-subtle": "El hairline dominante, de 1px: separadores, cards, filas del feed y la grilla segmentada. Decorativo (1,40:1 sobre bg-canvas en oscuro): nunca es la única señal de un control.",
     "border-default": "Línea fuerte, de 1px: popovers, diálogos, scrollbar, el botón secundario ghost y el borde del cuadrado del ícono cuando va sobre negro. Decorativo.",
     "border-control": "Borde de input, de la píldora «Espera tu OK» y de todo control sin otra señal. Pasa 3:1 sobre los cinco fondos (peor caso 3,11:1 en oscuro, 3,05:1 en claro): no lo aclares. Nunca sobre glass-bar.",
-    "action-primary": "El CTA es tinta: relleno de este color con text-on-action encima, en .label. Uno solo lleno por pantalla; en hover baja a opacidad 0,9. En una pieza con sello (signature-block) el sello es el único bloque lleno de tinta: el botón principal a la vista va con borde de 1px en text-primary, sin relleno y con la letra en text-primary.",
+    "action-primary": "El CTA es tinta: relleno de este color con text-on-action encima, en .label. Uno solo lleno por pantalla; en hover baja a opacidad 0,9. Con el sello de la firma a la vista (signature-block en la app, signature-marketing-block en las piezas, el titular de la landing y las OG), el botón principal va con borde de 1px en text-primary, sin relleno y con la letra en text-primary: el foco es la firma y lo que dice la pantalla.",
     "action-destructive": "Texto y borde del botón que borra o revierte: ghost, nunca relleno, con una confirmación que repite el objeto («Borrar 12 publicaciones»). Como texto se lee sobre los cinco fondos (peor caso 4,91:1 en oscuro, 4,64:1 en claro).",
-    "signature-block": "El sello: el bloque de tinta detrás de la segunda línea de un titular de dos líneas, con la firma calada en signature-text. Es el valor de text-primary, con esquinas rectas y sin borde. Es el único bloque lleno de tinta de la pieza: si hay un botón principal a la vista (el «Aprobar» de la tarjeta en una pieza, el botón principal del hero de la landing), va con borde de 1px en text-primary, sin relleno. Fuera de las piezas con sello (la app, un formulario), el CTA de tinta sigue lleno.",
+    "signature-block": "El sello de la app: el bloque de tinta detrás de la segunda línea de un titular de dos líneas, con la firma calada en signature-text. Es el valor de text-primary, con esquinas rectas y sin borde (.signature-seal de signature.css). Es el único bloque lleno de tinta de la pantalla: si hay un botón principal a la vista, va con borde de 1px en text-primary, sin relleno. Sin el sello a la vista (un formulario, una tabla), el CTA de tinta sigue lleno. En marketing (piezas, banners, portadas, el titular de la landing y las OG) el sello es signature-marketing-block.",
     "signature-text": "La firma calada en el sello: el color del fondo, sólo sobre signature-block (16,89:1 en oscuro, 16,82:1 en claro). Es el valor de text-on-action.",
+    "signature-marketing-block": "El sello de marketing: el bloque petróleo (brand-petrol, #03313C) detrás de la segunda línea de un titular de dos líneas, con la firma en signature-marketing-text. Misma geometría que el sello de la app: padding 0.14em 0.16em 0.18em 0.13em, interlineado 0,86, esquinas rectas, sin borde (.signature-seal-marketing de signature.css; en las piezas, .sello de brand.css). Va en posts, stories, reels, carruseles, banners, portadas (LinkedIn, Facebook), el titular de la landing y sus OG; la app usa signature-block. Es el único lugar del petróleo: nunca de fondo, franja, texto, borde, botón, ícono, glifo, estado ni en el logo. Casi no se despega del negro, a propósito (1,42:1 sobre bg-canvas del oscuro): el sello lo hace la letra. Con el sello a la vista, el botón principal va con borde de 1px en text-primary, sin relleno. Igual en los dos modos.",
+    "signature-marketing-text": "La firma sobre el sello de marketing: la tinta del oscuro (#EDEDEA, el valor de text-primary del oscuro), sólo sobre signature-marketing-block (11,87:1). Igual en los dos modos: el bloque es oscuro siempre.",
     "focus": "Anillo de foco: outline de 2px a 2px de distancia, con :focus-visible. Es la tinta: pasa 3:1 sobre todos los fondos (peor caso 12,92:1 y 14,49:1).",
     "selection": "Fondo de la selección de texto (::selection), con el texto en su color de siempre.",
     "backdrop": "Cortina detrás de un diálogo modal (nivel 3): negro al 60 % en oscuro, al 30 % en claro. Nunca detrás de un vidrio: con cortina, el vidrio desaparece.",
@@ -41,6 +43,7 @@
     "glass-specular": "Línea de luz de 1px, inset, en el borde de arriba del vidrio (box-shadow: inset 0 1px 0). Es luz, no sombra: blanco al 10 % en oscuro, al 70 % en claro.",
     "brand-black": "Negro de marca: el cuadrado del ícono, la tinta de wordmark-black.svg y el piso del oscuro (landing, piezas, OG, banner). A la vista es neutro: la calidez del sistema vive en los grises medios. Igual en los dos modos.",
     "brand-white": "Blanco de marca: la i del ícono, la tinta de wordmark-white.svg y el piso del claro. No es el color del texto: el texto es text-primary. El logotipo en brand-white sobre brand-black da 18,96:1.",
+    "brand-petrol": "Petróleo (OKLCH 0.29 0.05 219): el único acento de color de la marca, en un solo lugar: el bloque del sello de marketing (signature-marketing-block). No se usa suelto: ni de fondo (tampoco de una pieza entera), ni franja, texto, borde, botón, ícono, glifo, estado ni en el logo, y nunca en la app. Queda a ΔEOK 0,19 o más de los estados, de los colores de Claude y de Anthropic, de los de Mercado Libre y Mercado Pago y de los violetas viejos. Igual en los dos modos.",
     "space-1": "4px. El paso más chico: lo apretado adentro de una fila de datos o de un control.",
     "space-2": "8px. Para lo denso: adentro de una tabla, una fila o un control.",
     "space-3": "12px. Para lo denso: adentro de una tabla, una fila o un control.",
@@ -71,7 +74,7 @@
   },
   "typeGroups": {
     "Sans": "IBM Plex Sans: todo lo que se lee y se opera. 400 para leer, 500 para titulares, títulos, etiquetas y botones; no hay tercer peso. Las cifras ya son tabulares.",
-    "Firma": "DM Serif Display itálica 400: sólo la segunda línea de un titular de dos líneas, desde 32px y calada en el sello: signature-text sobre signature-block. El logotipo y la i del ícono también son la firma, pero como dibujo (assets/Logos), nunca tipeados.",
+    "Firma": "DM Serif Display itálica 400: sólo la segunda línea de un titular de dos líneas, desde 32px y en el sello: en marketing, signature-marketing-text sobre signature-marketing-block; en la app, calada en signature-text sobre signature-block. El logotipo y la i del ícono también son la firma, pero como dibujo (assets/Logos), nunca tipeados.",
     "Mono": "IBM Plex Mono 400: sólo datos (ids, horas, nombres de tools, payloads, atajos)."
   },
   "typeStyles": {
@@ -112,11 +115,11 @@
       "sample": "HOY EN TU CUENTA"
     },
     "headline-hero-second": {
-      "usage": "Segunda línea del hero y de la OG: la firma, del mismo tamaño que la primera, calada en el sello (signature-text sobre signature-block). La línea va con margin-top 0,16em y line-height 1; adentro, un span inline-block con padding 0,14em 0,16em 0,13em 0,13em, line-height 0,86 y esquinas rectas. Entra donde la frase se vuelve personal, sin números, y termina en punto. Nunca sola.",
+      "usage": "Segunda línea del hero y de la OG: la firma, del mismo tamaño que la primera, en el sello de marketing (signature-marketing-text sobre signature-marketing-block). La línea va con margin-top 0,16em y line-height 1; adentro, un span inline-block con padding 0,14em 0,16em 0,18em 0,13em, line-height 0,86 y esquinas rectas. Entra donde la frase se vuelve personal, sin números, y termina en punto. Nunca sola.",
       "sample": "a cargo de tu e-commerce."
     },
     "headline-section-second": {
-      "usage": "Segunda línea del mismo titular: la firma, del mismo tamaño que la primera, calada en el sello (signature-text sobre signature-block), con la misma receta que .headline-hero-second. Sin números y termina en punto. Nunca sola.",
+      "usage": "Segunda línea del mismo titular: la firma, del mismo tamaño que la primera, en el sello, con la misma receta que .headline-hero-second: en la app, calada en signature-text sobre signature-block; en marketing (el banner, el hero abajo de 600px), signature-marketing-text sobre signature-marketing-block. Sin números y termina en punto. Nunca sola.",
       "sample": "le sirve para siempre."
     },
     "mono": {

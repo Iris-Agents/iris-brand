@@ -5,7 +5,8 @@
     "$description": "Primitivos de color. La escala existe porque un contexto del resolver sólo puede apuntar a foundation.",
     "brand": {
       "black": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.145, 0.002, 95], "hex": "#0a0a09"}, "$description": "Negro de marca: el fondo del ícono y el piso del oscuro (landing, piezas, OG, banner). A la vista es neutro: la calidez del sistema vive en los grises medios."},
-      "white": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.985, 0.0013, 95], "hex": "#fafaf9"}, "$description": "Blanco de marca: la i del ícono, el logotipo sobre oscuro y el piso del claro."}
+      "white": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.985, 0.0013, 95], "hex": "#fafaf9"}, "$description": "Blanco de marca: la i del ícono, el logotipo sobre oscuro y el piso del claro."},
+      "petrol": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.29, 0.05, 219], "hex": "#03313c"}, "$description": "Petróleo: el único acento de color de la marca, y va en un solo lugar: el bloque del sello de la firma en marketing (signature.marketing.block), con la firma en tinta encima (11,87:1). Casi no se despega del negro, a propósito (1,42:1 sobre brand.black). Nunca en la app, ni de fondo, franja, texto, borde, botón, ícono, glifo, estado ni en el logo. Queda a ΔEOK 0,19 o más de los estados, de los colores de Claude y de Anthropic, de los de Mercado Libre y Mercado Pago y de los violetas viejos."}
     },
     "neutral-dark": {
       "$description": "Los once valores del oscuro, de abajo hacia arriba. Tono 95, croma de 0,002 a 0,006.",
@@ -19,7 +20,7 @@
       "8": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.55, 0.005, 95], "hex": "#72716e"}, "$description": "border.control · disabled · link.underline (>= 3:1 sobre los cinco fondos)"},
       "9": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.685, 0.006, 95], "hex": "#9b9a96"}, "$description": "tertiary · placeholder · status.done · data.comparison (>= 4,5:1 sobre los cinco fondos)"},
       "10": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.8, 0.006, 95], "hex": "#bfbeb9"}, "$description": "secondary"},
-      "11": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.945, 0.004, 95], "hex": "#ededea"}, "$description": "primary · action · focus · status.idle · data.series · signature.block"}
+      "11": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.945, 0.004, 95], "hex": "#ededea"}, "$description": "primary · action · focus · status.idle · data.series · signature.block · signature.marketing.text (en los dos modos)"}
     },
     "neutral-light": {
       "$description": "Los diez valores del claro, de arriba hacia abajo. Misma familia; no es la oscura invertida.",
@@ -35,7 +36,7 @@
       "10": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.215, 0.004, 95], "hex": "#1a1917"}, "$description": "primary · action · focus · data.series · signature.block"}
     },
     "signal": {
-      "$description": "Los colores de estado, lo único fuera de los neutros. Van en el glifo de estado, siempre con su palabra; el rojo además puede ir como texto (destructivo, error de un campo). Nunca en el logo, en un fondo ni como adorno. Medidos contra los que usa Claude (Claude Code y claude.ai).",
+      "$description": "Los colores de estado, lo único fuera de los neutros además del petróleo de brand.petrol. Van en el glifo de estado, siempre con su palabra; el rojo además puede ir como texto (destructivo, error de un campo). Nunca en el logo, en un fondo ni como adorno. Medidos contra los que usa Claude (Claude Code y claude.ai).",
       "amber-on-dark": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.8, 0.14, 70], "hex": "#f7ac4d"}, "$description": "Te toca (●). 7,9:1 en el peor fondo del oscuro. Tono 70, L 0,80: a ΔEOK 0,156 del amarillo de Mercado Libre y a 0,146 del clay de Claude."},
       "amber-on-light": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.6, 0.12, 70], "hex": "#ad721c"}, "$description": "Te toca (●) en claro. 3,33:1 en el peor fondo: sólo relleno, nunca texto ni un trazo fino."},
       "green-on-dark": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.64, 0.12, 150], "hex": "#50a064"}, "$description": "iris trabajando (◐). 4,73:1 en el peor fondo del oscuro. El verde de los cambios agregados en Claude Code (ΔEOK 0,025)."},
@@ -73,11 +74,11 @@
     "headline": {
       "hero": {
         "first": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 64, "unit": "px"}, "fontWeight": "{font.weight.medium}", "letterSpacing": {"value": -1.28, "unit": "px"}, "lineHeight": 1.05}, "$description": "Primera línea del hero y de la OG, en text.primary."},
-        "second": {"$type": "typography", "$value": {"fontFamily": "{font.family.signature}", "fontSize": {"value": 64, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": -0.64, "unit": "px"}, "lineHeight": 1.05}, "$description": "Segunda línea del hero y de la OG: la firma, calada en el sello (signature.text sobre signature.block), del mismo tamaño que la primera."}
+        "second": {"$type": "typography", "$value": {"fontFamily": "{font.family.signature}", "fontSize": {"value": 64, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": -0.64, "unit": "px"}, "lineHeight": 1.05}, "$description": "Segunda línea del hero y de la OG: la firma, en el sello de marketing (signature.marketing.text sobre signature.marketing.block), del mismo tamaño que la primera."}
       },
       "section": {
         "first": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 40, "unit": "px"}, "fontWeight": "{font.weight.medium}", "letterSpacing": {"value": -0.6, "unit": "px"}, "lineHeight": 1.1}, "$description": "Primera línea de un titular de sección y del banner; el hero en pantallas angostas."},
-        "second": {"$type": "typography", "$value": {"fontFamily": "{font.family.signature}", "fontSize": {"value": 40, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": -0.4, "unit": "px"}, "lineHeight": 1.1}, "$description": "Segunda línea del mismo titular: la firma, calada en el sello (signature.text sobre signature.block)."}
+        "second": {"$type": "typography", "$value": {"fontFamily": "{font.family.signature}", "fontSize": {"value": 40, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": -0.4, "unit": "px"}, "lineHeight": 1.1}, "$description": "Segunda línea del mismo titular: la firma, en el sello. En la app, calada en el de tinta (signature.text sobre signature.block); en marketing (el banner, el hero en pantallas angostas), en el petróleo (signature.marketing.text sobre signature.marketing.block)."}
       }
     },
     "title": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 18, "unit": "px"}, "fontWeight": "{font.weight.medium}", "letterSpacing": {"value": -0.18, "unit": "px"}, "lineHeight": 1.35}, "$description": "Título de entidad en la app; título de card en la landing."},

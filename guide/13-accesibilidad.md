@@ -7,7 +7,7 @@ frena el test no se puede romper, y lo demás se revisa antes de entregar una pi
 
 ## 13.1 Contraste
 
-Lo frena el test: ninguno de los 157 pares baja de su mínimo sobre ninguno de los fondos de su
+Lo frena el test: ninguno de los 159 pares baja de su mínimo sobre ninguno de los fondos de su
 modo (canvas, surface, raised, hover y selected en oscuro; canvas, hover y selected en claro).
 
 Los valores son del peor fondo de cada modo (`bg.selected`), truncados a dos decimales como pide
@@ -32,6 +32,11 @@ WCAG. La tabla completa, también sobre el canvas, está en el capítulo 04.
       para una oración.
 - [ ] En claro, el ámbar de te toca va sólo como glifo lleno: nunca como texto ni en un trazo fino
       (no llega a 4,5:1).
+- [ ] La firma va en su sello y se lee contra el bloque: en la app, `signature.text` sobre
+      `signature.block` (16,89:1 en oscuro, 16,82:1 en claro); en marketing,
+      `signature.marketing.text` sobre `signature.marketing.block` (11,87:1 en los dos modos, con un
+      mínimo de 7:1). El bloque petróleo contra el negro da 1,42:1, y es a propósito: lo separa la
+      letra, no el bloque (capítulo 04, 4.9).
 - [ ] No se baja la opacidad de un texto que dice algo. La opacidad de 0,4 es para un control
       deshabilitado entero, que WCAG exime.
 - [ ] En el vidrio, el contraste lo garantiza el tinte, no el desenfoque: pasa con blanco puro
@@ -69,6 +74,8 @@ WCAG. La tabla completa, también sobre el canvas, está en el capítulo 04.
       lisa. Safari no le pasa a la web la preferencia de reducir transparencia, y por eso el tinte
       tiene que garantizar el contraste solo.
 - [ ] Con `forced-colors: active`, el vidrio se apaga y manda el sistema (Canvas y CanvasText).
+- [ ] En el HTML del que sale un reel, con `prefers-reduced-motion: reduce` se ve el cuadro final,
+      quieto y con todo visible (capítulo 06, «Movimiento en piezas de video»).
 
 ## 13.5 Texto
 
@@ -98,6 +105,8 @@ WCAG. La tabla completa, también sobre el canvas, está en el capítulo 04.
 - [ ] El video tiene poster, `preload="none"`, y su conversación también está en HTML. Si tiene voz,
       lleva subtítulos.
 - [ ] Una censura con chip dice «oculto» en texto, que también se lee con un lector de pantalla.
+- [ ] En una pieza de La trastienda, el texto que cae sobre la foto pasa 4,5:1 contra lo que tiene
+      detrás, medido en la PNG; si la foto es generada con IA, la pieza lo dice.
 
 ---
 

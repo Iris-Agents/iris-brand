@@ -1,4 +1,4 @@
-<!-- @dsCard group="Tipografía" width=960 height=480 subtitle="El titular de dos líneas: Plex Sans 500 arriba y la firma calada en el sello abajo, mismo tamaño" -->
+<!-- @dsCard group="Tipografía" width=960 height=480 subtitle="El titular de dos líneas: Plex Sans 500 arriba y la firma en el sello abajo, mismo tamaño. El sello petróleo en marketing, el de tinta en la app" -->
 <!doctype html>
 <html lang="es">
 <head>
@@ -14,25 +14,30 @@
   .titular { margin: 0; }
   .titular > span { display: block; text-wrap: balance; }
   .primera { color: var(--text-primary); }
-  /* La firma: DM Serif Display itálica 400, del mismo tamaño que la primera línea, calada en el sello. */
+  /* La firma: DM Serif Display itálica 400, del mismo tamaño que la primera línea, en el sello. Los dos
+     sellos tienen la misma geometría; cambia sólo el color. */
   .segunda { font-style: italic; margin-top: 0.16em; line-height: 1; }
-  .sello { display: inline-block; padding: 0.14em 0.16em 0.13em 0.13em; line-height: 0.86; background: var(--signature-block); color: var(--signature-text); }
+  .sello { display: inline-block; padding: 0.14em 0.16em 0.18em 0.13em; line-height: 0.86; }
+  /* Marketing (piezas, banners, portadas, el titular de la landing): la firma en tinta sobre el petróleo. */
+  .sello-marketing { background: var(--signature-marketing-block); color: var(--signature-marketing-text); }
+  /* La app: la firma calada sobre el bloque de tinta. */
+  .sello-app { background: var(--signature-block); color: var(--signature-text); }
 </style>
 </head>
 <body>
 <div class="titulares">
-  <section class="muestra" aria-label="Hero">
-    <p class="rotulo copy-ui"><span class="mono">headline-hero-first</span> · <span class="mono">headline-hero-second</span> · 64 / 1,05</p>
+  <section class="muestra" aria-label="Marketing, hero">
+    <p class="rotulo copy-ui">Marketing · <span class="mono">headline-hero</span> · 64 / 1,05 · sello <span class="mono">signature-marketing-block</span></p>
     <h1 class="titular">
       <span class="primera headline-hero-first">Agentes expertos</span>
-      <span class="segunda headline-hero-second"><span class="sello">a cargo de tu e-commerce.</span></span>
+      <span class="segunda headline-hero-second"><span class="sello sello-marketing">a cargo de tu e-commerce.</span></span>
     </h1>
   </section>
-  <section class="muestra" aria-label="Sección">
-    <p class="rotulo copy-ui"><span class="mono">headline-section-first</span> · <span class="mono">headline-section-second</span> · 40 / 1,1</p>
+  <section class="muestra" aria-label="App, sección">
+    <p class="rotulo copy-ui">App · <span class="mono">headline-section</span> · 40 / 1,1 · sello <span class="mono">signature-block</span></p>
     <h2 class="titular">
       <span class="primera headline-section-first">Agentes expertos</span>
-      <span class="segunda headline-section-second"><span class="sello">a cargo de tu e-commerce.</span></span>
+      <span class="segunda headline-section-second"><span class="sello sello-app">a cargo de tu e-commerce.</span></span>
     </h2>
   </section>
 </div>

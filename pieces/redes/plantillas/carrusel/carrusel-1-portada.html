@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="../../_base/brand.css">
 <link rel="stylesheet" href="carrusel.css">
 <script src="carrusel-guias.js" defer></script>
+<style>
+  .eyebrow { color: var(--text-primary); }
+</style>
 </head>
 <body>
 <!--
@@ -23,14 +26,15 @@
   </header>
 
   <section class="cuerpo">
-    <!-- EDITAR: tema del carrusel, una o dos palabras. Máximo 24 caracteres. El CSS lo pasa a mayúsculas. -->
+    <!-- EDITAR: tema del carrusel, una o dos palabras. Máximo 24 caracteres. El CSS lo pasa a mayúsculas.
+         Es la línea de contexto: va en tinta, para que se lea en el primer segundo. -->
     <p class="eyebrow" data-slot="eyebrow">Permisos</p>
     <h1 class="titular titular-portada">
       <!-- EDITAR: línea 1 del titular, en IBM Plex. Máximo 30 caracteres (ocupa hasta 2 renglones). -->
       <span data-slot="titular-linea-1">Hasta dónde trabaja sola,</span>
-      <!-- EDITAR: línea 2 del titular, en la firma, calada en el sello (el texto va adentro del <span class="sello">). Máximo 28 caracteres
+      <!-- EDITAR: línea 2 del titular, en la firma, en el sello (el texto va adentro del <span class="sello">). Máximo 28 caracteres
            (hasta 2 renglones; con 16 entra en 1, y en dos renglones el sello es un solo bloque del ancho del titular). Termina en punto. -->
-      <em class="signature"><span class="sello" data-slot="titular-linea-2">lo decidís vos.</span></em>
+      <em class="signature"><span class="sello" data-slot="titular-linea-2">te lo pregunta.</span></em>
     </h1>
   </section>
 

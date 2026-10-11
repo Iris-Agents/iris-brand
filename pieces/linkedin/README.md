@@ -41,8 +41,9 @@ La medida es la de la ayuda de LinkedIn.
 Cómo quedó:
 - El lockup y el titular empiezan en x 718, 16 px a la derecha de todas las fotos. Ninguna zona de
   foto tiene un píxel de tinta.
-- El sello de la segunda línea del titular termina en x 1167: entra entero aun con el recorte del
-  20 %.
+- El sello de la segunda línea del titular es el de todas las piezas de redes: el bloque petróleo
+  con la firma en tinta (`.sello` de `pieces/redes/_base/brand.css`). Termina en x 1167: entra entero
+  aun con el recorte del 20 %. El color no cambia sus medidas.
 - El panel mide 340 px y va en x 1208–1547, a 36 px del borde derecho, con 40 px de aire después
   del sello. Con el titular a 40 px no entra uno más ancho: el sello sumó 14 px al ancho de la
   línea, y el panel se corrió 4 px a la derecha para no perder el aire.
@@ -62,7 +63,8 @@ La medida es la de la ayuda de LinkedIn (linkedin.com/help/linkedin/answer/a5633
 | Lo importante | En el centro y lejos de los bordes, sobre todo de la esquina de abajo a la derecha | La ayuda de LinkedIn. |
 
 Cómo quedó: la marca y el titular empiezan en x 640, a la derecha de los dos logos, y la tinta
-ocupa x 640–1089, y 49–204 (el sello de la segunda línea va de x 640 a 1089).
+ocupa x 640–1089, y 48–205 (el sello de la segunda línea va de x 640 a 1089 y de y 159 a 205, con
+la g de «cargo» adentro).
 
 ### Logo de la página (400 × 400)
 

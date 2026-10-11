@@ -2,7 +2,7 @@
 // vidrio y las piezas tienen su archivo hermano en esta carpeta.
 import assert from "node:assert/strict";
 import { describe, test } from "node:test";
-import { hexDrift, hexOf, inSRGB } from "./lib/color.mjs";
+import { deltaEOK, hexDrift, hexOf, inSRGB } from "./lib/color.mjs";
 import { createValidator } from "./lib/json-schema.mjs";
 import { aliasesIn, documents, foundation, modes, readJSON, resolutions, resolved, semantics } from "./lib/tokens.mjs";
 
@@ -69,6 +69,50 @@ describe("color", () => {
 	});
 	test("resuelto va en silencio: el mismo gris que text.tertiary en los dos modos", () => {
 		for (const mode of modes) assert.equal(hexOf(resolved[mode].get("color.status.done").value), hexOf(resolved[mode].get("color.text.tertiary").value), mode);
+	});
+});
+
+// El petróleo es el único acento de color, y va en un solo lugar: el sello de marketing.
+describe("el petróleo", () => {
+	test("sólo lo usa signature.marketing.block, en los dos modos", () => {
+		const usersIn = (tokens) => [...tokens].filter(([, token]) => aliasesIn(token.value).includes("color.brand.petrol")).map(([id]) => id);
+		assert.deepEqual(usersIn(foundation), [], "foundation");
+		for (const mode of modes) assert.deepEqual(usersIn(semantics[mode]), ["color.signature.marketing.block"], mode);
+	});
+	test("el sello de marketing es igual en los dos modos: el bloque petróleo y la letra en la tinta del oscuro", () => {
+		for (const [part, expected] of [["block", "color.brand.petrol"], ["text", "color.neutral-dark.11"]]) {
+			for (const mode of modes) assert.equal(hexOf(resolved[mode].get(`color.signature.marketing.${part}`).value), hexOf(foundation.get(expected).value), `${mode} ${part}`);
+		}
+	});
+	// Lo que tiene que esquivar. El mínimo es la distancia del azul de «novedad» que se descartó por
+	// pegado al cian de Mercado Pago (ΔEOK 0,091): el petróleo tiene que quedar más lejos que eso. Los
+	// estados van en los dos modos: el del claro es más oscuro y queda más cerca.
+	const statuses = modes.flatMap((mode) => ["attention", "working", "failed"].map((path) => [`status.${path} (${mode})`, hexOf(resolved[mode].get(`color.status.${path}`).value)]));
+	const avoided = {
+		...Object.fromEntries(statuses),
+		"clay de Claude": "#d97757",
+		"marfil de Claude": "#f0efea",
+		"marfil claro de Claude": "#faf9f5",
+		"verde de Anthropic": "#788c5d",
+		"azul de Anthropic": "#6a9bcc",
+		"amarillo de Mercado Libre": "#ffe600",
+		"azul de Mercado Libre": "#3483fa",
+		"cian de Mercado Pago": "#00bcff",
+		"violeta 500": "#8b5cf6",
+		"violeta 400": "#a78bfa",
+		"violeta 300": "#c4b5fd",
+		"violeta 900": "#4c1d95",
+		"menta descartada": "#a8e6cf",
+		"lima descartada": "#d4f27a",
+		"aguamarina descartada": "#7fbfbc",
+	};
+	test("queda a ΔEOK 0,091 o más de los estados, de Claude, de Anthropic, de Mercado Libre, de Mercado Pago y de los verdes y violetas descartados", (context) => {
+		const petrol = hexOf(foundation.get("color.brand.petrol").value);
+		const distances = Object.entries(avoided).map(([label, hex]) => ({ label, hex, distance: deltaEOK(petrol, hex) }));
+		for (const { label, hex, distance } of distances.toSorted((first, second) => first.distance - second.distance)) {
+			context.diagnostic(`petróleo ${petrol} contra ${label.padEnd(28)} ${hex}  ΔEOK ${distance.toFixed(3).replace(".", ",")}`);
+		}
+		assert.deepEqual(distances.filter(({ distance }) => distance < 0.091).map(({ label, distance }) => `${label}: ΔEOK ${distance.toFixed(3)}`), []);
 	});
 });
 

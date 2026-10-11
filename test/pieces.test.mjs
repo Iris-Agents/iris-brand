@@ -6,7 +6,8 @@ import { test } from "node:test";
 import { hexOf } from "./lib/color.mjs";
 import { readText, resolved } from "./lib/tokens.mjs";
 
-// Variable de brand.css → token. Las piezas son de la marca, así que leen el modo oscuro.
+// Variable de brand.css → token. Las piezas son de la marca, así que leen el modo oscuro. El sello
+// de las piezas es el de marketing (el bloque petróleo con la firma en tinta), no el de la app.
 const colorTokens = {
 	"--brand-black": "color.brand.black",
 	"--brand-white": "color.brand.white",
@@ -21,8 +22,8 @@ const colorTokens = {
 	"--text-tertiary": "color.text.tertiary",
 	"--text-secondary": "color.text.secondary",
 	"--text-primary": "color.text.primary",
-	"--signature-block": "color.signature.block",
-	"--signature-text": "color.signature.text",
+	"--signature-block": "color.signature.marketing.block",
+	"--signature-text": "color.signature.marketing.text",
 	"--status-attention": "color.status.attention",
 	"--status-working": "color.status.working",
 	"--status-done": "color.status.done",
@@ -55,10 +56,39 @@ test("los colores de brand.css son los del oscuro", () => {
 	assert.deepEqual(differing, []);
 });
 
+// El test de arriba compara sólo lo que brand.css declara: sin estas dos, la clase .sello se quedaría
+// sin color y nadie se enteraría.
+test("brand.css trae el sello de marketing: --signature-block y --signature-text", () => {
+	for (const [name, id] of [["--signature-block", "color.signature.marketing.block"], ["--signature-text", "color.signature.marketing.text"]]) {
+		assert.equal(pieceVariables.get(name)?.toLowerCase(), hexOf(resolved.dark.get(id).value), name);
+	}
+});
+
 test("las familias de brand.css son las de los tokens", () => {
 	for (const [name, { id, family }] of Object.entries(fontTokens)) {
 		if (!pieceVariables.has(name)) continue;
 		const pieceFamily = pieceVariables.get(name).split(",")[0].trim().replaceAll(/["']/g, "");
 		assert.equal(pieceFamily, family(resolved.dark.get(id).value), name);
 	}
+});
+
+// El sello se escribe en tres lugares: css/signature.css (la app y la landing), brand.css (las piezas)
+// y el preview del Headline del Design System. La geometría es una sola: si una copia cambia el
+// relleno o el interlineado, las letras que bajan (p, g, y, f) se salen del bloque en esa copia.
+const declarationsOf = (css, selector) => {
+	const withoutComments = css.replaceAll(/\/\*[\s\S]*?\*\//g, "");
+	const rule = [...withoutComments.matchAll(/([^{}]+)\{([^}]*)\}/g)].find(([, selectors]) => selectors.split(",").map((name) => name.trim()).includes(selector));
+	assert.ok(rule, `no hay una regla para ${selector}`);
+	return Object.fromEntries([...rule[2].matchAll(/([\w-]+)\s*:\s*([^;]+);?/g)].map(([, property, value]) => [property, value.trim()]));
+};
+const sealGeometry = (declarations) => ({ padding: declarations.padding, "line-height": declarations["line-height"] });
+
+test("los sellos tienen la misma geometría en signature.css, brand.css y el preview del Headline", () => {
+	const appSeal = sealGeometry(declarationsOf(readText("css/signature.css"), ".signature-seal"));
+	const marketingSeal = sealGeometry(declarationsOf(readText("css/signature.css"), ".signature-seal-marketing"));
+	const pieceSeal = sealGeometry(declarationsOf(readText("pieces/redes/_base/brand.css"), ".sello"));
+	const previewSeal = sealGeometry(declarationsOf(readText("design-system/components/Headline/preview.html").match(/<style>([\s\S]*?)<\/style>/)[1], ".sello"));
+	assert.deepEqual(marketingSeal, appSeal);
+	assert.deepEqual(pieceSeal, appSeal);
+	assert.deepEqual(previewSeal, appSeal);
 });
