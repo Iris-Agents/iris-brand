@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Vidrio · dato (N1a)</title>
+<!-- Redes v2, variante N1a (negro con petróleo): «qué hace iris». Feed 4:5, 1080 × 1350.
+     Render: ../../_base/render.sh vidrio-dato.html 1080 1350 salida.png
+     Las reglas, en guide/15-redes.md. Los íconos son de lucide (ISC), pegados en línea. -->
+<link rel="stylesheet" href="../../_base/vidrio.css">
+<style>html, body { margin: 0; } body { width: 1080px; height: 1350px; } .vp { width: 1080px; height: 1350px; }</style>
+</head>
+<body>
+<!-- EJEMPLO: cifras inventadas. Nunca datos reales de un cliente. -->
+<main class="vp n1a" data-formato="feed-4x5">
+  <span class="luz" style="--lx:42%; --ly:18%"></span>
+  <div class="vidrio">
+    <span class="contexto">Para vendedores de Mercado Libre</span>
+    <div class="aire"></div>
+    <!-- EDITAR: la pregunta, tal como la escribe el vendedor. En la casilla: el mensaje por enviar. -->
+    <div class="casilla"><span class="escrito">¿Qué se queda sin stock este finde?</span><span class="enviar"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" > <path d="m5 12 7-7 7 7" /> <path d="M12 19V5" /> </svg></span></div>
+    <!-- EDITAR: la herramienta real (estado/producto.md), «listo» y la hora. -->
+    <div class="tool" style="margin-top:3cqw">✓ listing_sales_scan · listo · 21:14</div>
+    <div class="cifra"><b>2</b><small>publicaciones se quedan<br>sin stock antes del sábado</small></div>
+    <div class="filas">
+      <div><span class="con-icono"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7" /> <path d="m7.5 4.27 9 5.15" /> </svg>Mochila urbana gris</span><span>quedan 4</span></div>
+      <div><span class="con-icono"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7" /> <path d="m7.5 4.27 9 5.15" /> </svg>Cafetera italiana 1L</span><span>quedan 6</span></div>
+    </div>
+    <div class="pie"><img class="lockup" src="../../../../logo/lockup.svg" alt="iris agents"><span>Datos de ejemplo.</span></div>
+  </div>
+</main>
+</body>
+</html>

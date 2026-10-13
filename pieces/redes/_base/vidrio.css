@@ -1,0 +1,178 @@
+/* Redes v2: el vidrio. La capa de las piezas de redes (Instagram, Facebook, TikTok, Shorts, WhatsApp
+   y LinkedIn cuando muestra el producto). Las reglas están en el manual, capítulo 15.
+
+   No cambia ningún token ni nada de la app. Los valores propios de redes (las luces, la frase, el
+   vidrio y los pesos 600 y 700) viven acá hasta que se decida pasarlos a tokens (15.10). Los colores
+   de estado son los de los tokens, copiados con su nombre al lado.
+
+   Cómo se usa: la raíz de la pieza lleva data-formato (pieces/redes/_base/formatos.json) y las clases
+   .vp y una variante (.n1a, .n1b, .n2a o .n2b). Todo se mide en cqw: 1cqw es el 1 % del ancho de la
+   pieza (10,8 px en una de 1080), así la misma pieza sirve en cualquier formato. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=block');
+
+/* ── Las cuatro variantes: negro o blanco, con petróleo o con ámbar (15.2) ── */
+.vp.n1a, .vp.n1b {
+  --vp-bg: #0a0a09;            /* color.brand.black */
+  --vp-fg: #fafaf9;            /* color.brand.white */
+  --vp-mut: rgba(250, 250, 249, 0.64);
+  --vp-vidrio: rgba(14, 14, 13, 0.42);
+  --vp-borde: rgba(255, 255, 255, 0.17);
+  --vp-brillo: rgba(255, 255, 255, 0.38);
+  --vp-fila: rgba(255, 255, 255, 0.06);
+  --vp-linea: rgba(255, 255, 255, 0.12);
+  --vp-sombra: rgba(0, 0, 0, 0.4);
+  --vp-boton: #fafaf9;
+  --vp-boton-texto: #0a0a09;
+  --vp-toca: #f7ac4d;          /* color.status.attention, oscuro */
+  --vp-trabajando: #50a064;    /* color.status.working, oscuro */
+  --vp-esperando: #ededea;     /* color.status.idle, oscuro */
+  --vp-listo: #9b9a96;         /* color.status.done, oscuro */
+  --vp-fallo: #e66e68;         /* color.status.failed, oscuro */
+}
+.vp.n2a, .vp.n2b {
+  --vp-bg: #e9e9e6;
+  --vp-fg: #0a0a09;
+  --vp-mut: rgba(10, 10, 9, 0.6);
+  --vp-vidrio: rgba(255, 255, 255, 0.5);
+  --vp-borde: rgba(255, 255, 255, 0.8);
+  --vp-brillo: rgba(255, 255, 255, 0.95);
+  --vp-fila: rgba(255, 255, 255, 0.62);
+  --vp-linea: rgba(10, 10, 9, 0.08);
+  --vp-sombra: rgba(20, 20, 40, 0.14);
+  --vp-boton: #0a0a09;
+  --vp-boton-texto: #fafaf9;
+  --vp-toca: #ad721c;          /* color.status.attention, claro: sólo como relleno */
+  --vp-trabajando: #266739;    /* color.status.working, claro */
+  --vp-esperando: #4e4d49;     /* color.status.idle, claro */
+  --vp-listo: #686764;         /* color.status.done, claro */
+  --vp-fallo: #bc3732;         /* color.status.failed, claro */
+}
+/* Petróleo: «qué hace iris». Ámbar: «lo que te toca». */
+.vp.n1a { --vp-luz: #0b3a44; --vp-frase: #b9d3d8; --vp-ok: #fafaf9; --vp-ok-texto: #0a0a09; --vp-ok-borde: transparent; }
+.vp.n1b { --vp-luz: #6a4314; --vp-frase: #fafaf9; --vp-ok: #1a1712; --vp-ok-texto: #f3d3a4; --vp-ok-borde: rgba(247, 172, 77, 0.45); }
+.vp.n2a { --vp-luz: #bfd8dc; --vp-frase: #0b4a57; --vp-ok: #0a0a09; --vp-ok-texto: #fafaf9; --vp-ok-borde: transparent; }
+.vp.n2b { --vp-bg: #ecebe7; --vp-luz: #f2d6ae; --vp-frase: #0a0a09; --vp-ok: #fbe9cf; --vp-ok-texto: #5a3a0e; --vp-ok-borde: rgba(173, 114, 28, 0.35); }
+
+/* Monocromo: con foto, vocera, mascota o mucho contenido (15.5). El color lo pone la imagen. */
+.vp.mono.n1a, .vp.mono.n1b { --vp-luz: #3a3a37; --vp-frase: var(--vp-fg); --vp-trabajando: var(--vp-mut); --vp-ok: #fafaf9; --vp-ok-texto: #0a0a09; --vp-ok-borde: transparent; }
+.vp.mono.n2a, .vp.mono.n2b { --vp-luz: #cfcfcb; --vp-frase: var(--vp-fg); --vp-trabajando: var(--vp-mut); --vp-ok: #0a0a09; --vp-ok-texto: #fafaf9; --vp-ok-borde: transparent; }
+
+/* LinkedIn de producto: el mismo vidrio, más quieto (15.8). */
+.vp.linkedin-producto .luz { opacity: 0.55; filter: blur(12cqw); }
+.vp.linkedin-producto .vidrio { -webkit-backdrop-filter: blur(2.4cqw) saturate(140%); backdrop-filter: blur(2.4cqw) saturate(140%); }
+
+/* ── La pieza ── */
+.vp {
+  position: relative; container-type: inline-size; overflow: hidden; isolation: isolate;
+  background: var(--vp-bg); color: var(--vp-fg);
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+/* Una sola luz de color detrás del vidrio (15.3). Se mueve con --lx, --ly y --ls. */
+.vp .luz {
+  position: absolute; z-index: 0; left: var(--lx, 40%); top: var(--ly, 20%); width: var(--ls, 70%);
+  aspect-ratio: 1; border-radius: 50%; background: var(--vp-luz); filter: blur(10cqw);
+}
+.vp .foto { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center; }
+.vp .foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 10, 9, 0.15) 35%, rgba(10, 10, 9, 0.75)); }
+
+/* ── El vidrio: panel, barra, tarjeta o plano (15.4) ── */
+.vp .vidrio {
+  position: absolute; z-index: 2; inset: 6cqw; padding: 7cqw 7.5cqw 6cqw; border-radius: 5cqw;
+  display: flex; flex-direction: column;
+  background: var(--vp-vidrio); border: 1px solid var(--vp-borde);
+  box-shadow: inset 0 1px 0 var(--vp-brillo), 0 3cqw 8cqw var(--vp-sombra);
+  -webkit-backdrop-filter: blur(2.4cqw) saturate(170%); backdrop-filter: blur(2.4cqw) saturate(170%);
+}
+.vp .vidrio::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 36%, rgba(255, 255, 255, 0) 72%, rgba(255, 255, 255, 0.08));
+}
+.vp[data-formato="story"] .vidrio, .vp[data-formato="reel"] .vidrio { inset: 14cqw 6cqw 26cqw; }
+.vp .vidrio.barra { inset: auto 5cqw 7cqw 5cqw; padding: 6cqw; }
+.vp[data-formato="story"] .vidrio.barra, .vp[data-formato="reel"] .vidrio.barra { inset: auto 5cqw 24cqw 5cqw; }
+.vp .vidrio.tarjeta { inset: auto auto 7cqw 7cqw; width: 62cqw; padding: 5cqw; }
+/* Plano: LinkedIn corporativo. Sin luz, sin desenfoque, borde fino. */
+.vp .vidrio.plano { -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; border-radius: 2.4cqw; border-color: var(--vp-linea); background: var(--vp-plano, #ffffff); }
+.vp.n1a .vidrio.plano, .vp.n1b .vidrio.plano { --vp-plano: #121211; }
+.vp .vidrio.plano::before { display: none; }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .vp.n1a .vidrio, .vp.n1b .vidrio { background: rgba(20, 20, 19, 0.88); }
+  .vp.n2a .vidrio, .vp.n2b .vidrio { background: rgba(255, 255, 255, 0.9); }
+}
+.vp .aire { flex: 1; }
+.vp .arriba { display: flex; justify-content: space-between; align-items: center; gap: 2cqw; }
+
+/* ── Letras (15.6) ── */
+.vp .contexto {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 1.2cqw;
+  font: 500 2.2cqw/1 'IBM Plex Sans', sans-serif; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 1.5cqw 2.4cqw; border-radius: 99px; border: 1px solid var(--vp-borde); background: var(--vp-fila);
+}
+.vp .titular { margin: 0; font: 600 7.2cqw/1.06 'IBM Plex Sans', sans-serif; letter-spacing: -0.022em; text-wrap: balance; }
+.vp .frase { margin: 0.4cqw 0 0; font: 400 italic 7.8cqw/1.08 'DM Serif Display', Georgia, serif; color: var(--vp-frase); text-wrap: balance; }
+.vp .cifra { display: flex; align-items: flex-end; gap: 2.6cqw; margin-top: 4cqw; }
+.vp .cifra b { font: 700 26cqw/0.8 'IBM Plex Sans', sans-serif; letter-spacing: -0.055em; }
+.vp .cifra small { font: 500 3.2cqw/1.3 'IBM Plex Sans', sans-serif; color: var(--vp-mut); padding-bottom: 1cqw; }
+.vp .texto { margin: 3cqw 0 0; max-width: 62cqw; font: 400 3.6cqw/1.45 'IBM Plex Sans', sans-serif; color: var(--vp-mut); }
+.vp .tool { display: flex; align-items: center; gap: 1.4cqw; margin-top: 2.4cqw; font: 400 2.5cqw/1 'IBM Plex Mono', monospace; color: var(--vp-mut); }
+.vp .pagina { font: 400 2.2cqw/1 'IBM Plex Mono', monospace; color: var(--vp-mut); }
+/* En LinkedIn no va la cursiva: la frase se escribe en el texto (15.8). */
+.vp.linkedin .frase, .vp.linkedin-producto .frase { display: none; }
+
+/* ── Íconos: lucide, trazo fino, en el color del texto (15.7) ── */
+.vp .ic { width: 1.15em; height: 1.15em; flex: none; stroke-width: 1.75; }
+.vp .con-icono { display: inline-flex; align-items: center; gap: 1.8cqw; }
+
+/* ── El mensaje de la persona (15.7) ── */
+/* Casilla: lo que se va a enviar. Burbuja: lo que ya se envió. La respuesta de iris va sin globo. */
+.vp .casilla {
+  display: flex; align-items: flex-end; gap: 2cqw; padding: 2cqw 2cqw 2cqw 4.2cqw; border-radius: 6.7cqw;
+  background: var(--vp-fila); border: 1px solid var(--vp-borde); box-shadow: inset 0 1px 0 var(--vp-brillo);
+}
+.vp .casilla .escrito { flex: 1; min-width: 0; align-self: center; padding: 1cqw 0; font: 500 4.3cqw/1.25 'IBM Plex Sans', sans-serif; }
+/* El cursor va pegado a la última palabra, para que nunca quede solo en un renglón:
+   ¿Qué se queda sin stock este <span class="junto">finde?<i class="cursor"></i></span> */
+.vp .junto { white-space: nowrap; }
+.vp .cursor { display: inline-block; width: 0.45cqw; height: 4.4cqw; margin-left: 0.8cqw; vertical-align: -0.6cqw; background: var(--vp-fg); }
+.vp .casilla .escrito.vacio { color: var(--vp-mut); font-weight: 400; }
+.vp .enviar { flex: none; width: 9.4cqw; height: 9.4cqw; border-radius: 50%; display: grid; place-items: center; background: var(--vp-boton); color: var(--vp-boton-texto); }
+.vp .enviar .ic { width: 4.8cqw; height: 4.8cqw; stroke-width: 2.25; }
+.vp .enviar.apagado { background: transparent; color: var(--vp-mut); border: 1px solid var(--vp-borde); }
+.vp .burbuja { align-self: flex-end; max-width: 84%; padding: 3cqw 4.2cqw; border-radius: 4.4cqw 4.4cqw 1.2cqw 4.4cqw; background: var(--vp-boton); color: var(--vp-boton-texto); font: 500 4.3cqw/1.3 'IBM Plex Sans', sans-serif; }
+.vp .enviado { align-self: flex-end; display: inline-flex; align-items: center; gap: 1cqw; margin-top: 1.6cqw; font: 400 2.3cqw/1 'IBM Plex Mono', monospace; color: var(--vp-mut); }
+
+/* ── Filas de datos ── */
+.vp .filas { margin-top: 4cqw; padding: 0.6cqw 3cqw; border-radius: 2.8cqw; background: var(--vp-fila); font: 400 3.1cqw/1.2 'IBM Plex Sans', sans-serif; }
+.vp .filas > div { display: flex; justify-content: space-between; gap: 3cqw; padding: 2.3cqw 0; }
+.vp .filas > div + div { border-top: 1px solid var(--vp-linea); }
+.vp .filas > div > :last-child { font-weight: 500; font-variant-numeric: tabular-nums; }
+.vp .antes { font-weight: 400; color: var(--vp-mut); text-decoration: line-through; margin-right: 2cqw; }
+
+/* ── Estados: los cinco glifos de la marca (capítulo 08, 8.1), como pill (15.7) ── */
+.vp .estados { display: flex; flex-wrap: wrap; gap: 1.6cqw; margin-top: 4cqw; }
+.vp .estado {
+  display: inline-flex; align-items: center; gap: 1.4cqw; white-space: nowrap;
+  font: 600 2.7cqw/1 'IBM Plex Sans', sans-serif; padding: 1.8cqw 2.8cqw; border-radius: 99px;
+  border: 1px solid var(--vp-borde); background: var(--vp-fila);
+}
+.vp .estado svg { width: 1.9cqw; height: 1.9cqw; flex: none; }
+.vp .estado.toca { background: var(--vp-ok); color: var(--vp-ok-texto); border-color: var(--vp-ok-borde); }
+.vp .estado.toca svg { color: var(--vp-toca); }
+.vp.n1a .estado.toca svg, .vp.mono .estado.toca svg { color: #f7ac4d; }
+.vp.n2a .estado.toca svg { color: #f7ac4d; }
+.vp .estado.trabajando svg { color: var(--vp-trabajando); }
+.vp .estado.esperando svg { color: var(--vp-esperando); }
+.vp .estado.listo { color: var(--vp-mut); font-weight: 500; }
+.vp .estado.listo svg { color: var(--vp-listo); }
+.vp .estado.fallo { color: var(--vp-fallo); }
+.vp .estado.fallo svg { color: var(--vp-fallo); }
+
+/* ── Botones ── */
+.vp .botones { display: flex; gap: 2cqw; margin-top: 4cqw; }
+.vp .boton { display: inline-flex; align-items: center; gap: 1.4cqw; padding: 2.6cqw 4.4cqw; border-radius: 99px; border: 1px solid var(--vp-borde); background: var(--vp-fila); font: 500 3cqw/1 'IBM Plex Sans', sans-serif; }
+.vp .boton.principal { background: var(--vp-boton); color: var(--vp-boton-texto); border-color: transparent; }
+
+/* ── Pie ── */
+.vp .pie { display: flex; justify-content: space-between; align-items: center; margin-top: 4.5cqw; font: 400 2.2cqw/1 'IBM Plex Sans', sans-serif; color: var(--vp-mut); }
+.vp .pie .lockup { height: 4.6cqw; width: auto; display: block; }

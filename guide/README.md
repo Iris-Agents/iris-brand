@@ -27,6 +27,7 @@ hex al lado para que se lea; en código se usa siempre el token.
 | [12 · Mercado Libre y otras marcas](12-mercado-libre.md) | Cómo se nombra a Mercado Libre, qué no se usa nunca, el descargo, y Claude, Mercado Pago y los canales futuros. |
 | [13 · Accesibilidad](13-accesibilidad.md) | La lista de control: contraste, foco, tamaño de lo que se toca, estado sin depender del color, movimiento. |
 | [14 · Recursos](14-recursos.md) | Cómo la instala y la actualiza una app, qué frena el test, cómo se cambia la marca y cómo se regeneran las piezas. |
+| [15 · Redes v2: el vidrio](15-redes.md) | La identidad de redes desde octubre de 2026: las cuatro variantes, la luz, el vidrio, el monocromo, estados, íconos y el mensaje, LinkedIn, tono y personajes. No toca la app. |
 
 ## Cómo se lee
 

@@ -196,6 +196,10 @@ Cómo se regeneran las PNG: capítulo 14.
 
 ## 11.13 Los tres registros de redes
 
+> **Redes v2.** Desde octubre de 2026 las piezas de redes se arman con el vidrio del capítulo 15,
+> que manda donde este apartado y el 11.14 dicen distinto. Lo de acá sigue siendo la referencia de
+> las plantillas anteriores.
+
 Los posts de redes se arman sobre el mismo sistema en tres registros. **Cada post usa uno solo**, y
 lo fija su primera lámina. Un carrusel es un post: su portada fija el registro, y las láminas que
 siguen (el interior y el cierre) son las del carrusel de siempre, sobre el negro, y pueden llevar

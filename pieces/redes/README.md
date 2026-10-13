@@ -19,6 +19,7 @@ este repo.
 | `perfil/` | La foto de perfil: la i del ícono a sangre sobre negro. `perfil-preview.html` es una hoja de control con la foto en chico. | Instagram, Facebook y WhatsApp: la misma foto en las tres |
 | `facebook/` | La portada de la página, en una sola versión: `portada.html`, con el titular «Agentes expertos / a cargo de tu e-commerce.». Cómo se arma, en el capítulo 11 del manual (11.6). | Facebook |
 | `instagram/destacadas/` | Las portadas de las historias destacadas: Demo, Casos, Precios y Ayuda, más tres propuestas (Cómo funciona, Novedades, Permisos). `destacadas-preview.html` las muestra juntas en chico. | Instagram |
+| `plantillas/vidrio/` | **Redes v2**: tres plantillas de ejemplo con el vidrio (`vidrio-dato`, `vidrio-decision`, `vidrio-story`), sobre `_base/vidrio.css`. Las reglas, en el capítulo 15 del manual. | Todas, y LinkedIn cuando muestra el producto |
 | `plantillas/` | Los posts: `feed-4x5/`, `cuadrado/`, `story/` (también portada de reel) y `carrusel/`, con los estilos comunes en `_comun/`. Y las de los registros: `intercambio/` (el intercambio, en feed y story) y `trastienda/` (la foto, en feed y portada de carrusel). | Instagram y Facebook |
 
 Junto a cada HTML está su PNG limpia y su `-guias.png`, que es la misma pieza con las zonas seguras

@@ -10,7 +10,9 @@ cambia acá y cada app lo toma cuando quiere. Este repo no modifica ninguna app.
 
 ### Para armar una pieza de redes
 
-Una persona o un agente, con plantilla o sin ella:
+Una persona o un agente, con plantilla o sin ella. **Desde octubre de 2026 las piezas de redes son
+las de redes v2, con el vidrio: [capítulo 15](guide/15-redes.md)**, que manda sobre lo de abajo
+donde dicen distinto.
 
 1. **Qué hace buena una pieza, qué no va y qué hacer ante la duda:** el
    [capítulo 11](guide/11-aplicaciones.md), 11.14. Los tres registros de redes, en 11.13.
@@ -45,7 +47,7 @@ Una persona o un agente, con plantilla o sin ella:
 | [`dist/`](dist/) | Generado y commiteado: `tokens.css`, las variables `--iris-*` de los dos modos. No se edita a mano. |
 | [`fonts/`](fonts/) | Los WOFF2 de DM Serif Display itálica, IBM Plex Sans 400 y 500 e IBM Plex Mono 400, con sus licencias OFL. Procedencia y sumas en `fonts/README.md`. |
 | [`logo/`](logo/) | El ícono, el logotipo y el lockup en SVG (contornos, sin fuentes), más el favicon y los PNG, también para lo que no lee SVG (`logo/png/`). Qué va dónde: `logo/README.md`. |
-| [`guide/`](guide/README.md) | El manual, en 15 capítulos, con su índice en `guide/README.md`. |
+| [`guide/`](guide/README.md) | El manual, en 16 capítulos, con su índice en `guide/README.md`. |
 | [`pieces/`](pieces/) | Las piezas terminadas, en HTML con su PNG. En `pieces/redes/`, la foto de perfil, la portada de Facebook, las destacadas de Instagram y las plantillas de posts, con su especificación (`plantillas.md`), las medidas de cada formato (`_base/formatos.json`) y la medición de una pieza (`_base/medir/`); en `pieces/linkedin/`, el banner del perfil y la portada y el logo de la página de empresa. |
 | [`scripts/`](scripts/) | `terrazzo.mjs`: el parseo de `tz build`, en memoria, con el que el test compara `dist/tokens.css`. La config de Terrazzo es `terrazzo.config.mjs`, en la raíz. |
 | [`test/`](test/) | La guarda que corre con cada build, con los esquemas oficiales de DTCG en `test/schemas/`. Qué frena: capítulo 14, 14.4. |
