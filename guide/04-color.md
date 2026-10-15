@@ -1,14 +1,15 @@
 # 04 · Color
 
-**Monocromo. La jerarquía sale de la luz y la tinta es el acento.** Más claro es más importante en
-oscuro, más oscuro en claro. Fuera de los neutros sólo existen los colores de estado, que viven en
-su glifo, y un solo acento de color: el petróleo, que va en el sello de la firma de marketing y en
-ningún otro lugar (4.9).
+**Blanco y negro, con dos colores que significan algo.** La jerarquía sale de la luz y la tinta es
+el acento: más claro es más importante en oscuro, más oscuro en claro. Fuera de los neutros están
+los colores de estado, que viven en su glifo, y los dos colores de la marca, que dicen de quién es
+el turno: **el petróleo, lo que hace iris; el ámbar, lo que te toca.** Van en la luz de fondo y en
+la frase, nunca de relleno (4.9).
 
-- **El oscuro es la identidad** y el default: landing, piezas, OG, banner, redes y el resolver de
-  tokens.
-- **El claro existe para la app**, para quien la usa de día. Comparte los roles del oscuro, no es el
-  oscuro invertido.
+- **El oscuro es la noche y el claro es el día** de la misma marca. El oscuro es el default: landing,
+  OG, banner y el resolver de tokens. El claro es para quien usa la app de día, y en redes se
+  alterna con el oscuro en la grilla (capítulo 15). Comparte los roles del oscuro, no es el oscuro
+  invertido.
 - El `meta theme-color` de cada página es el `bg.canvas` de su modo: #0A0A09 o #FAFAF9.
 
 ## 4.1 Paleta
@@ -19,7 +20,21 @@ ningún otro lugar (4.9).
 |---|---|---|---|
 | `color.brand.black` | #0A0A09 | 0.145 0.002 95 | El fondo del ícono y el piso del oscuro en todo. Un negro neutro: hoy conviven tres (#0A0A0B en el ícono, #070708 en la landing y el banner, #121211 en la app) y queda éste. |
 | `color.brand.white` | #FAFAF9 | 0.985 0.0013 95 | La i del ícono, el logotipo sobre oscuro y el piso del claro. No es el color del texto: el texto del oscuro es `text.primary`. |
-| `color.brand.petrol` | #03313C | 0.29 0.05 219 | El petróleo, el único acento de color: el bloque del sello de la firma en marketing (4.9). Nada más. |
+| `color.brand.petrol` | #03313C | 0.29 0.05 219 | El petróleo en su tono más hondo: el bloque del sello de marketing, que queda sólo en las piezas que ya lo llevan (4.9). Lo nuevo usa sus tonos, abajo. |
+
+### Los tonos de la marca: `color.tint`
+
+El petróleo y el ámbar, cada uno con un tono para el oscuro y otro para el claro. El ámbar es el
+mismo tono 70 del ● de «te toca», más hondo o más pálido: dice lo mismo.
+
+| Token | Hex | OKLCH | Lo usa |
+|---|---|---|---|
+| `color.tint.petrol-deep` | #0B3A44 | 0.323 0.0511 215.4 | `backlight.iris` en oscuro |
+| `color.tint.petrol-pale` | #BFD8DC | 0.865 0.0273 208.3 | `backlight.iris` en claro |
+| `color.tint.petrol-mist` | #B9D3D8 | 0.8491 0.0287 210.5 | `signature.phrase` en oscuro |
+| `color.tint.petrol-ink` | #0B4A57 | 0.3784 0.0626 215.8 | `signature.phrase` en claro |
+| `color.tint.amber-deep` | #6A4314 | 0.4193 0.0808 66.7 | `backlight.attention` en oscuro |
+| `color.tint.amber-pale` | #F2D6AE | 0.8895 0.061 76.6 | `backlight.attention` en claro |
 
 La escala va en tono 95 con croma de 0,002 a 0,006: el leve tinte cálido se percibe recién en los
 grises medios. En oscuro, cada nivel de fondo sube 3,1 puntos de luz (0,031 de L en OKLCH): es el
@@ -58,8 +73,8 @@ escalón que la landing había calibrado, porque menos no se veía y más se le�
 
 ### Señal: `color.signal`
 
-Con el petróleo de arriba, los únicos colores fuera de los neutros. Cada señal tiene su versión para
-oscuro y para claro.
+Con el petróleo y los tonos de arriba, los únicos colores fuera de los neutros. Cada señal tiene su
+versión para oscuro y para claro.
 
 | Token | Hex | OKLCH | Lo usa |
 |---|---|---|---|
@@ -95,9 +110,13 @@ Un componente usa sólo estos nombres. Cambian de valor con el modo; el rol es e
 | `border.control` | #72716E | #868581 | Borde de input y de todo control sin otra señal; el borde de la píldora. |
 | `action.primary` | #EDEDEA | #1A1917 | El CTA: relleno de tinta con `text.on-action` encima. Con el sello a la vista, el botón principal va con borde (4.3). |
 | `action.destructive` | #E66E68 | #BC3732 | Texto y borde del botón que borra o revierte. Ghost, nunca relleno. |
-| `signature.block` | #EDEDEA | #1A1917 | El sello de la app: el bloque de tinta detrás de la segunda línea del titular (capítulo 05, 5.3). Es el valor de `text.primary`. |
+| `signature.phrase` | #B9D3D8 | #0B4A57 | La frase: la firma en color, sin bloque, en la segunda línea del titular (capítulo 05, 5.3). Petróleo, porque dice lo que hace iris; en lo que te toca, la firma va en `text.primary`. |
+| `backlight.iris` | #0B3A44 | #BFD8DC | La luz de lo que hace iris, detrás del vidrio (4.9 y capítulo 06). Decorativa. |
+| `backlight.attention` | #6A4314 | #F2D6AE | La luz de lo que te toca: sólo con una decisión pendiente. Decorativa. |
+| `backlight.neutral` | #3A3937 | #CECECB | La luz en monocromo, con foto, persona, gráfico o mucho contenido. Es el valor de `border.default`. |
+| `signature.block` | #EDEDEA | #1A1917 | El sello de la app: el bloque de tinta detrás de la segunda línea del titular. Es el valor de `text.primary`. Sólo donde ya está (4.9). |
 | `signature.text` | #0A0A09 | #FAFAF9 | La firma calada en el sello de la app: el color del fondo, sólo sobre `signature.block`. Es el valor de `text.on-action`. |
-| `signature.marketing.block` | #03313C | #03313C | El sello de marketing: el bloque petróleo detrás de la segunda línea del titular en las piezas de redes, los banners, las portadas y la landing (4.9). Es `brand.petrol`, el mismo en los dos modos. |
+| `signature.marketing.block` | #03313C | #03313C | El sello de marketing: el bloque petróleo detrás de la segunda línea del titular en la landing, sus OG, el banner, las portadas y las plantillas de los tres registros de redes, hasta que se rehagan (4.9). Es `brand.petrol`, el mismo en los dos modos. |
 | `signature.marketing.text` | #EDEDEA | #EDEDEA | La firma en tinta sobre el sello de marketing, sólo sobre `signature.marketing.block`. Es `neutral-dark.11` en los dos modos: el bloque es oscuro siempre. |
 | `focus` | #EDEDEA | #1A1917 | El anillo de foco: 2 px a 2 px de distancia. |
 | `selection` | #3A3937 | #DBDBD8 | El fondo de la selección de texto. |
@@ -106,20 +125,17 @@ Un componente usa sólo estos nombres. Cambian de valor con el modo; el rol es e
 | `data.series` · `data.comparison` · `data.grid` | #EDEDEA · #9B9A96 · #2C2B29 | #1A1917 · #686764 · #E3E3E1 | Gráficos (capítulo 07). |
 | `link.underline` | #72716E | #868581 | El subrayado de un link en texto corrido (capítulo 05). |
 
-## 4.3 Por qué no hay color
+## 4.3 Por qué casi no hay color
 
-El acento es la tinta: el valor de `text.primary` es también el relleno del CTA, el anillo de foco y
-el bloque del sello de la app. Como casi todo comparte tinta, lo que grita no puede ser el color:
-grita la forma. Un solo bloque lleno de tinta por pantalla y el ● de «te toca».
+El acento es la tinta: el valor de `text.primary` es también el relleno del CTA y el anillo de foco.
+Como casi todo comparte tinta, lo que grita no puede ser el color: grita la forma. Un solo bloque
+lleno de tinta por pantalla y el ● de «te toca».
 
-**Con el sello a la vista, el botón principal va con borde**, sin relleno: el «Aprobar» de la
-tarjeta en una pieza, el botón principal del hero de la landing. Cómo se dibuja y por qué, en el
-capítulo 06 (6.5).
-
-**Un acento, en un lugar.** La interfaz no tiene color de marca ni un azul para «novedad»: se probó,
-queda a ΔE 0,091 del cian de Mercado Pago y, al lado del ámbar, arma la pareja de colores de Mercado
-Libre. Ningún estado lo necesita. El único color fuera de los neutros y de los estados es el
-petróleo, y va sólo en el bloque del sello de marketing (4.9), que casi no se despega del negro.
+**El color, cuando significa algo.** La interfaz no tiene un color de marca para pintar botones ni
+un azul para «novedad»: se probó, queda a ΔE 0,091 del cian de Mercado Pago y, al lado del ámbar,
+arma la pareja de colores de Mercado Libre. Los dos colores de la marca no decoran: dicen de quién
+es el turno (4.9). Por eso van en la luz, que se siente, y en la frase, que se lee; nunca en un
+botón, un borde ni un fondo plano.
 
 ## 4.4 Contraste
 
@@ -139,6 +155,7 @@ redondeado a dos decimales. El test compara el valor sin redondear.
 | `text.on-action` sobre `action.primary` | 4,5 | 16,89 | — | 16,82 | — |
 | `signature.text` sobre `signature.block` | 4,5 | 16,89 | — | 16,82 | — |
 | `signature.marketing.text` sobre `signature.marketing.block` | **7** | 11,87 | — | 11,87 | — |
+| `signature.phrase` | 4,5 | 12,61 | 9,65 | 9,43 | 8,13 |
 | ● `status.attention` | 3 | 10,34 | 7,92 | 3,87 | **3,33** |
 | ◐ `status.working` | 3 | 6,18 | 4,73 | 6,53 | 5,62 |
 | ✓ `status.done` | 3 | 7,03 | 5,38 | 5,42 | 4,66 |
@@ -154,6 +171,7 @@ redondeado a dos decimales. El test compara el valor sin redondear.
   101,4 / 91,5 en claro; `text.secondary` 67,2 / 64,3 y 86,1 / 76,2; `text.tertiary` 47,5 / 44,6 y
   75,3 / 65,4. Por eso el terciario del oscuro queda para datos que se leen de un vistazo.
 - **Exentos:** `text.disabled` (WCAG exime lo deshabilitado; igual queda en 3:1 o más),
+  las tres luces de `backlight.*`, que nunca llevan nada encima sin un vidrio de por medio, y
   `border.subtle`, `border.default` y `data.grid`, que son decorativos (1,40 y 1,72:1 sobre el canvas
   oscuro). El logotipo en `brand.white` sobre `brand.black` da 18,96:1.
 - **La firma sobre el sello de marketing** tiene un mínimo más alto, 7:1, porque el bloque casi no
@@ -164,7 +182,7 @@ redondeado a dos decimales. El test compara el valor sin redondear.
 
 - **`text.primary`** en todo lo que se lee de corrido: el hilo del agente, los documentos, el cuerpo.
 - **`text.secondary`** en el apoyo de 13 px para arriba: bajadas y ayudas. La segunda línea del
-  titular no va en gris: va en el sello (capítulo 05, 5.3).
+  titular no va en gris: va en la frase, `signature.phrase` (capítulo 05, 5.3).
 - **`text.tertiary`** sólo en datos sueltos que se leen de un vistazo: «10:40 · id 4418 · 27
   ventas». Nunca en una oración. Una nota fija y corta que marca la pieza («Datos de ejemplo.»,
   «Imagen generada con IA.», «Para vendedores de Mercado Libre.») se lee como un rótulo aunque
@@ -217,6 +235,8 @@ El SVG de cada glifo, con `viewBox` de 10 y el color por `currentColor`, está e
   «respondida».
 - El color va sólo en el glifo. La palabra va en los tokens de texto; nunca se pintan de estado un
   texto (salvo el rojo, arriba), un fondo, un borde, un titular ni el logotipo.
+- La luz ámbar (`backlight.attention`, 4.9) no es un estado: acompaña al ● de «te toca» en la
+  pantalla o la pieza, y nunca lo reemplaza.
 - Ningún otro elemento se dibuja como un punto lleno, un círculo hueco o un medio círculo, ni
   siquiera en otro color. La excepción son los pictogramas de las historias destacadas
   (`pieces/redes/instagram/destacadas/`): dibujos de trazo en blanco, sin texto ni estados, donde un
@@ -253,71 +273,86 @@ raised) y el borde, un paso. En claro todo es el mismo blanco y el nivel lo dice
 - El amarillo de Mercado Libre (#FFE600) y parecidos, su azul (#3483FA) y el cian de Mercado Pago
   (#00BCFF), tampoco en redes. El naranja y el marfil de Claude.
 - Un color que no esté en los tokens, o un hex suelto en código.
-- El petróleo fuera del bloque del sello de marketing (4.9): de fondo, en una franja, como texto,
-  borde, botón, ícono, glifo o estado, en el logo o en el sello de la app.
-- Gradientes llamativos y glow. Las únicas excepciones son tres:
+- El petróleo o el ámbar fuera de la luz, la frase y el sello que ya existe (4.9): de fondo plano,
+  en una franja, como borde, botón, ícono, glifo o estado, o en el logo. El ámbar como luz sin una
+  decisión pendiente.
+- Más de una luz de color por pantalla o pieza, o una luz con texto encima sin vidrio.
+- Gradientes llamativos y glow. Las únicas excepciones son cuatro:
+  - la luz de fondo (`backlight.*`, 4.9): un círculo de color que se apaga hacia afuera, detrás
+    del vidrio;
   - las dos luces radiales blancas, que no son token: la del banner de LinkedIn y la portada de
     Facebook (al 4 %) y la de las piezas de redes, de hasta el 6 % y sólo detrás del punto focal
     (capítulo 11, 11.13). Nunca a pantalla completa ni de color;
   - el fundido de la foto de La trastienda con el negro, que la apaga hacia el `bg.canvas` sin otro
     color (capítulo 11, 11.13).
-- Sombras, o blur fuera del vidrio de la capa flotante.
+- Sombras, o blur fuera del vidrio. La única sombra es la suave del vidrio de las piezas de redes
+  (capítulo 15), que no existe en la app.
 - Un color de estado fuera de su glifo, o el color como única señal.
 - Atenuar con opacidad un texto que significa algo.
 
-## 4.9 El petróleo: el acento de la firma de marketing
+## 4.9 Los dos colores de la marca: el petróleo y el ámbar
 
-iris sigue monocroma, con un solo acento de color: el petróleo, `color.brand.petrol` (#03313C, OKLCH
-0.29 0.05 219). Va en un solo lugar: el bloque del sello de la firma en marketing. Lo decidió Franco
-el 2026-10-10: el color, de forma sutil y cuando realmente se necesita.
+iris es blanco y negro, con dos colores que dicen de quién es el turno. Lo decidió el encargado de
+contenido para redes el 2026-10-13 y pasó a toda la marca el 2026-10-15, para que la app se vea
+igual; aprueba Franco (capítulo 00, 0.7).
 
-**Qué es.** El mismo sello de 5.3, con otros colores. La firma (DM Serif Display itálica 400, la
-segunda línea de un titular de dos líneas) va en tinta, `signature.marketing.text` (#EDEDEA), sobre
-un bloque petróleo, `signature.marketing.block` (#03313C), y todo sobre el negro de siempre
-(#0A0A09). Las medidas no cambian (capítulo 05, 5.3). Los dos roles valen lo mismo en oscuro y en
-claro: el bloque es oscuro siempre.
+| Color | Qué dice | La luz | La frase |
+|---|---|---|---|
+| **Petróleo** | Lo que hace iris: lee la cuenta, responde, propone. | `backlight.iris` | `signature.phrase` |
+| **Ámbar** | Lo que te toca: una decisión, una aprobación, un OK. Es el color del ● de `status.attention`. | `backlight.attention` | `text.primary`: la firma no se pinta de ámbar |
 
-**Dónde va.** En todo lo de marketing: los posts, las stories, los reels, los carruseles, los
-banners, las portadas de LinkedIn y Facebook, el titular de la landing y sus OG.
-- En los tres registros de redes es el mismo sello (capítulo 11, 11.13).
-- En la landing es la clase `.signature-seal-marketing` de `css/signature.css` (con Tailwind,
-  `bg-signature-marketing` y `text-on-signature-marketing`).
-- En las piezas de redes es el `.sello` de `pieces/redes/_base/brand.css`, que ya lleva estos
-  valores.
+- **Uno por pantalla o pieza.** El tema lo pone lo que se muestra: si hay una decisión pendiente,
+  ámbar; si no, petróleo. No se mezclan.
+- **Monocromo** cuando la imagen ya trae color o hay mucho que leer (una foto, una persona, un
+  gráfico, más de tres filas): la luz pasa a `backlight.neutral` y la frase, a `text.primary`. El
+  ámbar sobrevive sólo en el ● de «te toca».
 
-**La app sigue con el sello de tinta:** el bloque en `signature.block` (#EDEDEA) y la firma calada
-en `signature.text` (#0A0A09) en oscuro; en claro, invertido (#1A1917 y #FAFAF9). Es la clase
-`.signature-seal`.
+### La luz
 
-**Dónde no.** El petróleo nunca va:
-- de fondo, ni de una pieza entera ni de un panel, ni en una franja;
-- como texto, borde, botón, ícono, glifo o estado;
-- en el logo;
-- en el sello de la app.
+Una sola luz de color por pantalla o pieza: un círculo que se apaga hacia afuera, detrás del
+vidrio. En la app y la landing es `.glass-backlight` de `css/glass.css` con su color
+(`-iris`, `-attention` o `-neutral`); en las piezas de redes, `.luz` de
+`pieces/redes/_base/vidrio.css`. Es decorativa: nada se lee sobre ella sin un vidrio encima, y
+nunca es un fondo plano. Con `prefers-reduced-transparency` o `forced-colors` se apaga.
 
-El verde de estado (◐ trabajando, #50A064) es otra cosa y no cambia.
+**En la app**, dónde va la decide quien diseña la pantalla, con un criterio: la luz va donde la
+pantalla respira (el ingreso, el inicio, el estado vacío, la tarjeta de «te toca» cuando flota), no
+detrás de una tabla, un formulario o el hilo del agente, que son para trabajar.
 
-**Contraste.** La firma sobre el bloque da 11,87:1 (APCA Lc 91,4), y el test la frena con un mínimo
-de 7:1, más alto que el del texto. El bloque contra el negro da 1,42:1, y es a propósito: el sello
-casi no se despega del fondo y lo que se lee es la firma. Es un acento sutil, no un par con umbral.
+### La frase
 
-**Por qué éste.** Medido en OKLab, queda lejos de lo que tiene que esquivar: a ΔEOK 0,37 del verde
-de «trabajando» del oscuro, 0,37 del azul de Mercado Libre, 0,47 del cian de Mercado Pago y 0,42 del
-naranja de Claude. Lo más cerca son el violeta viejo y el verde de «trabajando» del claro, los dos a
-0,19. El test frena cualquier valor a menos de 0,091, la distancia por la que se descartó el azul de
-«novedad» (4.3).
+La segunda línea de un titular de dos líneas, en la firma, va en color y sin bloque:
+`signature.phrase` (#B9D3D8 en oscuro, #0B4A57 en claro), 9,65:1 y 8,13:1 en el peor fondo. En lo
+que te toca va en `text.primary`. Reemplaza al sello (capítulo 05, 5.3).
 
-**El botón principal, con borde.** Con el sello petróleo a la vista, «Aprobar» va con borde y sin
-relleno (4.3; capítulo 06, 6.5).
+### El sello, de salida
 
-**Hay un acento y un lugar.** Un segundo color, o el mismo color en otro lugar, deja de ser una
-firma. Un color nuevo entra como token, con su lugar escrito acá, o no existe.
+El sello (el bloque detrás de la firma) ya no va en nada nuevo. Queda donde está hoy, con sus
+tokens, hasta que esas piezas se rehagan: el titular de la landing y sus OG
+(`.signature-seal-marketing`), el banner de LinkedIn, la portada de Facebook y las plantillas de los
+tres registros de redes (`.sello` de `brand.css`). Cuando se rehagan, el sello se borra con sus
+tokens y sus clases, como dice 14.5. El petróleo hondo de `brand.petrol` es el de ese bloque, y
+el test frena que lo use otro rol.
+
+### Por qué estos
+
+**El petróleo** queda a ΔEOK 0,19 o más de los estados, del naranja y el marfil de Claude, de los
+colores de Mercado Libre y Mercado Pago y de los violetas viejos, y sus tonos se quedan a 12° o menos
+de su tono. **El ámbar** es el del ● de «te toca» (tono 70): así la luz y el glifo dicen lo mismo, y
+queda lejos del amarillo de Mercado Libre (0,156).
+
+Tres tonos pálidos quedan más cerca que 0,091 de un color claro que la marca esquiva, y el test los
+tiene anotados con la distancia que no pueden bajar: el petróleo pálido y la frase del oscuro, a
+0,053 y 0,059 de la menta descartada (los separa el tono, 208 y 210 contra 167), y el ámbar pálido,
+a 0,083 del marfil de Claude (los separa el croma, 0,061 contra 0,005, y va sólo como luz detrás
+del vidrio).
 
 ### Descartados
 
 Se probaron y no van (2026-10-10):
 - **El cartón**: ni de sello, ni como textura de cinta, ni como token.
-- **El fondo petróleo** de una pieza entera: el petróleo es el bloque del sello, nunca el fondo.
+- **El fondo petróleo** de una pieza entera: el petróleo va en la luz y en la frase, nunca de fondo
+  plano.
 - **El verde claro** (aguamarina) para el sello, y los verdes más verdes, que caen en la menta.
 - **El rosa**, en la firma o en el sello.
 - **El violeta**, en cualquier tono, también en el cursor de una pieza: el cursor va en tinta.

@@ -2,6 +2,10 @@
   iris · el sello de la firma. Lee las variables de dist/tokens.css (importala antes); acá no hay
   un solo valor de color.
 
+  El sello sale de la marca (manual, capítulo 05, 5.3): no va en nada nuevo. La segunda línea del
+  titular va en la frase, sin bloque: font-signature italic text-signature-phrase. Este archivo
+  queda para lo que ya lo lleva (el titular de la landing y sus OG) hasta que se rehaga.
+
   La segunda línea de un titular de dos líneas va en sello: la firma (DM Serif Display itálica 400,
   del mismo tamaño que la primera línea) sobre un bloque de esquinas rectas.
 
@@ -18,7 +22,7 @@
   - .signature-seal-marketing   el sello de marketing, para el titular de la landing y sus OG: el
                                 bloque petróleo en signature.marketing.block y la letra en tinta en
                                 signature.marketing.text (11,87:1, igual en los dos modos). Es el
-                                único lugar del petróleo.
+                                único lugar de brand.petrol.
 
   Los dos sellos tienen la misma geometría; cambia sólo el color. Las piezas de redes no usan este
   archivo: van con la clase .sello de pieces/redes/_base/brand.css, que ya trae el sello de

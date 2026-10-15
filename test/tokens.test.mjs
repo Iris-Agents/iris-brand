@@ -72,7 +72,31 @@ describe("color", () => {
 	});
 });
 
-// El petróleo es el único acento de color, y va en un solo lugar: el sello de marketing.
+// Lo que tienen que esquivar el petróleo y sus tonos. El mínimo es la distancia del azul de «novedad»
+// que se descartó por pegado al cian de Mercado Pago (ΔEOK 0,091). Los estados van en los dos modos:
+// el del claro es más oscuro y queda más cerca.
+const statuses = modes.flatMap((mode) => ["attention", "working", "failed"].map((path) => [`status.${path} (${mode})`, hexOf(resolved[mode].get(`color.status.${path}`).value)]));
+const avoided = {
+	...Object.fromEntries(statuses),
+	"clay de Claude": "#d97757",
+	"marfil de Claude": "#f0efea",
+	"marfil claro de Claude": "#faf9f5",
+	"verde de Anthropic": "#788c5d",
+	"azul de Anthropic": "#6a9bcc",
+	"amarillo de Mercado Libre": "#ffe600",
+	"azul de Mercado Libre": "#3483fa",
+	"cian de Mercado Pago": "#00bcff",
+	"violeta 500": "#8b5cf6",
+	"violeta 400": "#a78bfa",
+	"violeta 300": "#c4b5fd",
+	"violeta 900": "#4c1d95",
+	"menta descartada": "#a8e6cf",
+	"lima descartada": "#d4f27a",
+	"aguamarina descartada": "#7fbfbc",
+};
+
+// El petróleo hondo de brand.petrol queda sólo en el sello de marketing de las piezas que ya lo llevan.
+// Lo nuevo usa los tonos de color.tint (más abajo).
 describe("el petróleo", () => {
 	test("sólo lo usa signature.marketing.block, en los dos modos", () => {
 		const usersIn = (tokens) => [...tokens].filter(([, token]) => aliasesIn(token.value).includes("color.brand.petrol")).map(([id]) => id);
@@ -84,28 +108,6 @@ describe("el petróleo", () => {
 			for (const mode of modes) assert.equal(hexOf(resolved[mode].get(`color.signature.marketing.${part}`).value), hexOf(foundation.get(expected).value), `${mode} ${part}`);
 		}
 	});
-	// Lo que tiene que esquivar. El mínimo es la distancia del azul de «novedad» que se descartó por
-	// pegado al cian de Mercado Pago (ΔEOK 0,091): el petróleo tiene que quedar más lejos que eso. Los
-	// estados van en los dos modos: el del claro es más oscuro y queda más cerca.
-	const statuses = modes.flatMap((mode) => ["attention", "working", "failed"].map((path) => [`status.${path} (${mode})`, hexOf(resolved[mode].get(`color.status.${path}`).value)]));
-	const avoided = {
-		...Object.fromEntries(statuses),
-		"clay de Claude": "#d97757",
-		"marfil de Claude": "#f0efea",
-		"marfil claro de Claude": "#faf9f5",
-		"verde de Anthropic": "#788c5d",
-		"azul de Anthropic": "#6a9bcc",
-		"amarillo de Mercado Libre": "#ffe600",
-		"azul de Mercado Libre": "#3483fa",
-		"cian de Mercado Pago": "#00bcff",
-		"violeta 500": "#8b5cf6",
-		"violeta 400": "#a78bfa",
-		"violeta 300": "#c4b5fd",
-		"violeta 900": "#4c1d95",
-		"menta descartada": "#a8e6cf",
-		"lima descartada": "#d4f27a",
-		"aguamarina descartada": "#7fbfbc",
-	};
 	test("queda a ΔEOK 0,091 o más de los estados, de Claude, de Anthropic, de Mercado Libre, de Mercado Pago y de los verdes y violetas descartados", (context) => {
 		const petrol = hexOf(foundation.get("color.brand.petrol").value);
 		const distances = Object.entries(avoided).map(([label, hex]) => ({ label, hex, distance: deltaEOK(petrol, hex) }));
@@ -113,6 +115,60 @@ describe("el petróleo", () => {
 			context.diagnostic(`petróleo ${petrol} contra ${label.padEnd(28)} ${hex}  ΔEOK ${distance.toFixed(3).replace(".", ",")}`);
 		}
 		assert.deepEqual(distances.filter(({ distance }) => distance < 0.091).map(({ label, distance }) => `${label}: ΔEOK ${distance.toFixed(3)}`), []);
+	});
+});
+
+// Los dos colores de la marca, en sus tonos: el petróleo (lo que hace iris) y el ámbar (lo que te
+// toca). Van sólo en la luz de fondo y en la frase, cada tono en su modo.
+describe("los tonos de la marca", () => {
+	const tints = [...foundation].filter(([id]) => id.startsWith("color.tint.")).map(([id, token]) => [id, token.value]);
+	const expected = {
+		dark: { "color.backlight.iris": "color.tint.petrol-deep", "color.backlight.attention": "color.tint.amber-deep", "color.signature.phrase": "color.tint.petrol-mist" },
+		light: { "color.backlight.iris": "color.tint.petrol-pale", "color.backlight.attention": "color.tint.amber-pale", "color.signature.phrase": "color.tint.petrol-ink" },
+	};
+	test("sólo los usan la luz y la frase, con el tono de su modo", () => {
+		for (const mode of modes) {
+			const users = Object.fromEntries([...semantics[mode]].flatMap(([id, token]) => aliasesIn(token.value).filter((target) => target.startsWith("color.tint.")).map((target) => [id, target])));
+			assert.deepEqual(users, expected[mode], mode);
+		}
+		assert.deepEqual([...foundation].filter(([, token]) => aliasesIn(token.value).some((target) => target.startsWith("color.tint."))).map(([id]) => id), [], "foundation");
+	});
+	test("la luz de monocromo es border.default, en los dos modos", () => {
+		for (const mode of modes) assert.equal(hexOf(resolved[mode].get("color.backlight.neutral").value), hexOf(resolved[mode].get("color.border.default").value), mode);
+	});
+	// El tono es lo que dice de qué color es: el petróleo cerca de brand.petrol, el ámbar cerca del ●.
+	test("cada tono queda a 12° o menos del tono de su color", () => {
+		const hueOf = (id) => foundation.get(id).value.components[2];
+		const roots = { petrol: hueOf("color.brand.petrol"), amber: hueOf("color.signal.amber-on-dark") };
+		for (const [id, value] of tints) {
+			const root = roots[id.split(".").at(-1).split("-")[0]];
+			assert.ok(root !== undefined, `${id}: no es petrol-* ni amber-*`);
+			assert.ok(Math.abs(value.components[2] - root) <= 12, `${id}: tono ${value.components[2]}, su color ${root}`);
+		}
+	});
+	// Lo mismo que esquiva el petróleo, salvo los estados del propio color (el ámbar es el del ●). Tres
+	// tonos pálidos quedan cerca de un color claro sin ser de su familia: los separa el tono o el croma,
+	// y están anotados con la distancia que no pueden bajar.
+	const allowed = {
+		"color.tint.petrol-pale menta descartada": { floor: 0.05, why: "tono 208 contra 167" },
+		"color.tint.petrol-mist menta descartada": { floor: 0.055, why: "tono 210 contra 167" },
+		"color.tint.amber-pale marfil de Claude": { floor: 0.08, why: "croma 0,061 contra 0,005" },
+	};
+	test("quedan a ΔEOK 0,091 o más de lo que esquiva la marca, salvo las tres cercanías anotadas", (context) => {
+		const failing = [];
+		for (const [id, value] of tints) {
+			const tint = hexOf(value);
+			const family = id.includes("amber") ? "attention" : null;
+			for (const [label, hex] of Object.entries(avoided)) {
+				if (family && label.startsWith(`status.${family}`)) continue;
+				const distance = deltaEOK(tint, hex);
+				if (distance >= 0.091) continue;
+				const exception = allowed[`${id} ${label}`];
+				context.diagnostic(`${id} ${tint} contra ${label} ${hex}  ΔEOK ${distance.toFixed(3).replace(".", ",")}${exception ? ` (anotada: ${exception.why})` : ""}`);
+				if (!exception || distance < exception.floor) failing.push(`${id} contra ${label}: ΔEOK ${distance.toFixed(3)}`);
+			}
+		}
+		assert.deepEqual(failing, []);
 	});
 });
 

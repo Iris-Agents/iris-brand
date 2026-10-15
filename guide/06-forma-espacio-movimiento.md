@@ -75,14 +75,12 @@ achica el ritmo, no el contenido.
 
 - **El CTA es tinta:** relleno de `action.primary` con `text.on-action` encima, en `label`. Hay uno
   solo por pantalla. En hover baja a opacidad 0,9 (`opacity.hover`).
-- **Con el sello a la vista, el CTA va con borde.** Con el titular y su sello (capítulo 05, 5.3) en
-  la misma pieza o pantalla, el botón principal (el «Aprobar» de la tarjeta en una pieza, el botón
-  principal del hero de la landing) se dibuja con borde de 1 px en `text.primary`, sin relleno y con
-  la letra en `text.primary`. En marketing, con el sello petróleo, el foco es la firma y lo que dice
-  la pieza: lleno, el botón es lo más claro, y en las piezas viejas «Aprobar» era lo que más se
-  veía, y eso era un defecto. En la app, con el sello de tinta, el sello es el único bloque lleno de
-  tinta. Del ghost lo separa el borde: tinta, no `border.default`. Su hover es `bg.hover`, como el
-  de todo control sin relleno. Sin sello a la vista (casi toda la app, un formulario), el CTA va lleno.
+- **Con un sello a la vista, el CTA va con borde.** El sello ya no va en nada nuevo (capítulo 05,
+  5.3): la firma va en color y el CTA, lleno. Donde el sello sigue (el hero de la landing, las
+  plantillas viejas), el botón principal se dibuja con borde de 1 px en `text.primary`, sin relleno
+  y con la letra en `text.primary`, para que el sello sea el único bloque lleno de tinta. Del ghost
+  lo separa el borde: tinta, no `border.default`. Su hover es `bg.hover`, como el de todo control
+  sin relleno.
 - **El secundario es ghost:** sin relleno, con borde `border.default` y texto `text.primary`. Su hover
   es `bg.hover`.
 - **El destructivo es ghost:** texto y borde en `action.destructive`, nunca relleno. Va con una
@@ -150,12 +148,14 @@ anima es el trabajo de iris, nunca un adorno.
 
 ## 6.8 El vidrio
 
-**Vidrio ahumado, y sólo en la capa que flota.** Es la única excepción a «sin blur» del sistema.
+**Vidrio ahumado sobre una luz de color.** En la app es la capa que flota; en las piezas de redes,
+el panel o la tarjeta de la pieza (capítulo 15). Es la única excepción a «sin blur» del sistema.
 
 ### La regla
 
-El vidrio es la capa que flota sobre contenido que se mueve. Nunca va en el contenido, nunca en una
-pieza estática, nunca vidrio sobre vidrio y nunca más de dos a la vez. **El contraste lo garantiza el
+En la app, el vidrio es la capa que flota sobre contenido que se mueve. Nunca va en el contenido,
+nunca vidrio sobre vidrio y nunca más de dos a la vez. En las piezas de redes es el soporte de la
+pieza, con su propia hoja (`pieces/redes/_base/vidrio.css`) y sus reglas (capítulo 15). **El contraste lo garantiza el
 tinte, no el blur:** con el peor fondo detrás y aunque el desenfoque no se pinte, el texto permitido
 pasa.
 
@@ -196,7 +196,7 @@ En CSS son `--iris-color-glass-bar`, `--iris-color-glass-panel`, `--iris-color-g
 | Sí | No |
 |---|---|
 | La barra flotante de la landing. | El contenido: feed, cards, tablas, chat, documentos, formularios. |
-| La paleta ⌘K, **sin cortina detrás**: con el `backdrop` el vidrio desaparece, así que va uno de los dos. | Las piezas estáticas (OG, banner, redes, logo): sin movimiento detrás, el vidrio es un dibujo de vidrio. |
+| La paleta ⌘K, **sin cortina detrás**: con el `backdrop` el vidrio desaparece, así que va uno de los dos. | Las piezas estáticas de la app y la landing (OG, banner, logo): sin movimiento detrás, el vidrio es un dibujo de vidrio. Las de redes lo usan a propósito, con su hoja (capítulo 15). |
 | Popovers y menús. | La tarjeta de aprobación adentro del feed: ahí es contenido. |
 | La tarjeta de aprobación cuando flota sobre el contenido. Adentro todo es sólido: el CTA de tinta y el ghost. | Vidrio sobre vidrio, o más de dos vidrios a la vez. Nada a pantalla completa. |
 
@@ -205,8 +205,31 @@ En CSS son `--iris-color-glass-bar`, `--iris-color-glass-panel`, `--iris-color-g
 - Sobre el negro casi plano de la app el vidrio apenas se distingue de la superficie lisa: donde se
   luce es en la barra de la landing y sobre fotos.
 
+### La luz de fondo
+
+Detrás del vidrio puede ir una luz de color, una sola por pantalla: `.glass-backlight` con su color,
+`.glass-backlight-iris` (petróleo, lo que hace iris), `.glass-backlight-attention` (ámbar, sólo con
+una decisión pendiente) o `.glass-backlight-neutral` (monocromo). Qué dice cada color y dónde va,
+en el capítulo 04 (4.9).
+
+- **Es un degradé radial, no un blur:** un círculo de `backlight.*` que se apaga hacia afuera. No
+  cuesta pintarlo y se ve igual en todos los navegadores. Va con `aria-hidden="true"`.
+- **El lugar y el tamaño los pone la pantalla** (`top`, `left`, `width`): la clase trae la forma y
+  el color. Se corre para no quedar detrás de lo que se lee.
+- **No se anima ni sigue al mouse.** Es luz de ambiente, no un efecto.
+- **Nada se lee sobre ella sin vidrio encima:** es decorativa y no tiene umbral de contraste.
+
+```html
+<div class="relative isolate overflow-hidden">
+  <span class="glass-backlight glass-backlight-iris" style="top: -20%; left: 30%; width: 70%" aria-hidden="true"></span>
+  <div class="glass-panel relative rounded-panel">…</div>
+</div>
+```
+
 ### Accesibilidad
 
+- **La luz de fondo** se apaga con `prefers-reduced-transparency: reduce`, `prefers-contrast: more`
+  y `forced-colors: active`.
 - **Sin soporte de `backdrop-filter`** el elemento es la superficie lisa del nivel 2: `bg.raised` con
   `border.default`. Es el mismo nivel que el vidrio, así que nada cambia de lugar.
 - **Con `prefers-reduced-transparency: reduce` o `prefers-contrast: more`** vuelve a la superficie

@@ -1,5 +1,5 @@
 // La matriz de contraste WCAG 2.2 AA, completa: cada texto y cada gráfico sobre los cinco fondos
-// de cada modo. Texto 4,5:1; bordes de control, glifos de estado, foco, series y subrayado 3:1; la
+// de cada modo (la frase, la firma en color, cuenta como texto). Texto 4,5:1; bordes de control, glifos de estado, foco, series y subrayado 3:1; la
 // firma sobre el sello de marketing, 7:1 (va sobre el petróleo, que casi no se despega del negro).
 // APCA se imprime al lado, como dato: no frena nada.
 import assert from "node:assert/strict";
@@ -8,7 +8,7 @@ import { apca, hexOf, wcag } from "./lib/color.mjs";
 import { modes, resolved } from "./lib/tokens.mjs";
 
 const backgrounds = ["bg.canvas", "bg.surface", "bg.raised", "bg.hover", "bg.selected"];
-const texts = ["text.primary", "text.secondary", "text.tertiary", "text.placeholder", "status.failed", "action.destructive"];
+const texts = ["text.primary", "text.secondary", "text.tertiary", "text.placeholder", "signature.phrase", "status.failed", "action.destructive"];
 const graphics = ["border.control", "status.attention", "status.working", "status.done", "status.idle", "focus", "data.series", "data.comparison", "link.underline"];
 
 const colorOf = (mode, path) => hexOf(resolved[mode].get(`color.${path}`).value);
@@ -34,8 +34,8 @@ function buildPairs() {
 const pairs = buildPairs();
 const formatRatio = (ratio) => ratio.toFixed(2).replace(".", ",");
 
-test("son 159 pares con umbral, y todos llegan a su mínimo", (context) => {
-	assert.equal(pairs.length, 159);
+test("son 169 pares con umbral, y todos llegan a su mínimo", (context) => {
+	assert.equal(pairs.length, 169);
 	const failing = pairs.filter((pair) => pair.ratio < pair.minimum);
 	for (const mode of [...modes, "logo"]) {
 		const worstByForeground = new Map();

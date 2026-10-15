@@ -3,7 +3,7 @@ import css from "@terrazzo/plugin-css";
 import Color from "colorjs.io";
 
 // Los primitivos no salen al CSS: un componente sólo lee semánticos, tipografía, forma y movimiento.
-const primitiveColors = ["color.brand.**", "color.neutral-dark.**", "color.neutral-light.**", "color.signal.**", "color.alpha.**"];
+const primitiveColors = ["color.brand.**", "color.tint.**", "color.neutral-dark.**", "color.neutral-light.**", "color.signal.**", "color.alpha.**"];
 
 export const cssVariableName = (tokenId) => `--iris-${tokenId.replaceAll(".", "-")}`;
 

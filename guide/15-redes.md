@@ -6,9 +6,14 @@ dicha de una forma más visual y menos técnica, para un vendedor que scrollea e
 publicaciones.
 
 **Qué cubre:** las piezas de Instagram, Facebook, TikTok, YouTube Shorts y estados de WhatsApp, y
-las de LinkedIn que muestran el producto. **Qué no toca:** la app, la landing, el mail ni ningún
-token. Donde este capítulo y el 11 (11.13 y 11.14) dicen distinto para una pieza de redes, manda
-este. Lo decidió el encargado de contenido el 2026-10-13; lo aprueba Franco (capítulo 00, 0.7).
+las de LinkedIn que muestran el producto. Donde este capítulo y el 11 (11.13 y 11.14) dicen distinto
+para una pieza de redes, manda este. Lo decidió el encargado de contenido el 2026-10-13; lo aprueba
+Franco (capítulo 00, 0.7).
+
+**Lo que es de toda la marca** (los dos colores y lo que dice cada uno, la luz, la frase en lugar
+del sello y el vidrio como material) pasó a los tokens y a los capítulos 04, 05 y 06 el 2026-10-15,
+para que la app se vea igual. Este capítulo queda con lo propio de redes: las cuatro variantes, los
+formatos, el monocromo de las piezas, los pesos 600 y 700, el mensaje, LinkedIn y los personajes.
 
 Lo que cambia respecto de los tres registros del capítulo 11, en una línea: **el vidrio sobre una
 sola luz de color reemplaza al sello, entran el ámbar como color de tema, los pesos 600 y 700, los
@@ -34,22 +39,25 @@ blanco son el modo noche y el modo día de la misma pieza.
 
 | Variante | Fondo | Luz | Frase | Para qué |
 |---|---|---|---|---|
-| **N1a** | negro `#0A0A09` | petróleo `#0B3A44` | petróleo claro `#B9D3D8` | Qué hace iris: casos, preguntas a la cuenta, datos |
-| **N1b** | negro `#0A0A09` | ámbar oscuro `#6A4314` | blanco | Lo que te toca: decisiones, aprobaciones, control |
-| **N2a** | blanco `#E9E9E6` | petróleo pálido `#BFD8DC` | petróleo `#0B4A57` | Qué hace iris |
-| **N2b** | blanco `#ECEBE7` | ámbar pálido `#F2D6AE` | negro | Lo que te toca |
+| **N1a** | negro `#0A0A09` | `backlight.iris` del oscuro, #0B3A44 | `signature.phrase` del oscuro, #B9D3D8 | Qué hace iris: casos, preguntas a la cuenta, datos |
+| **N1b** | negro `#0A0A09` | `backlight.attention` del oscuro, #6A4314 | blanco | Lo que te toca: decisiones, aprobaciones, control |
+| **N2a** | blanco de día `#E9E9E6` | `backlight.iris` del claro, #BFD8DC | `signature.phrase` del claro, #0B4A57 | Qué hace iris |
+| **N2b** | blanco de día `#ECEBE7` | `backlight.attention` del claro, #F2D6AE | negro | Lo que te toca |
+
+El blanco de día de las piezas es un poco más gris que el `bg.canvas` del claro (#FAFAF9): en un feed
+lleno de blanco, el vidrio necesita un fondo que no sea papel. Vive sólo en `vidrio.css`.
 
 - **Una variante por pieza.** Un carrusel no mezcla variantes entre láminas.
-- **El tema decide el color:** petróleo para lo que hace iris, ámbar para lo que te toca. Así el
-  ámbar sigue queriendo decir «decidís vos» (capítulo 04, 4.6).
+- **El tema decide el color:** petróleo para lo que hace iris, ámbar para lo que te toca (capítulo
+  04, 4.9). Así el ámbar sigue queriendo decir «decidís vos».
 - **En la grilla se alternan negro y blanco:** nunca dos negras ni dos blancas seguidas.
 - **El sello no va en redes v2.** La frase se destaca con la cursiva y su color, sin bloque detrás.
 
 ## 15.3 La luz
 
-**Una sola luz de color detrás del vidrio**, nunca varias. Es un círculo desenfocado que se puede
-mover (`--lx`, `--ly`) y agrandar (`--ls`). En un carrusel la luz se corre de lámina en lámina, así
-se siente que avanza.
+**Una sola luz de color detrás del vidrio**, nunca varias (capítulo 04, 4.9). En las piezas es
+`.luz`, un círculo desenfocado que se puede mover (`--lx`, `--ly`) y agrandar (`--ls`). En un
+carrusel la luz se corre de lámina en lámina, así se siente que avanza.
 
 ## 15.4 El vidrio
 
@@ -69,8 +77,8 @@ barra y sus botones.
 ## 15.5 Monocromo
 
 Cuando la pieza lleva **una foto, la vocera, la mascota, más de tres filas de datos, más de dos
-párrafos o un gráfico**, el color se apaga: clase `.mono`. La luz pasa a gris, la frase va en el
-color del texto y los estados quedan neutros. **El ámbar sobrevive sólo en el ● de «Espera tu
+párrafos o un gráfico**, el color se apaga: clase `.mono`. La luz pasa a gris
+(`backlight.neutral`), la frase va en el color del texto y los estados quedan neutros. **El ámbar sobrevive sólo en el ● de «Espera tu
 OK»**, porque significa algo. En un gráfico, las barras van en el color del texto y sólo la que
 importa en petróleo.
 
@@ -163,13 +171,17 @@ de ejemplo marcadas, nada de «MCP».
 Con cualquiera de los dos en la pieza, va en monocromo (15.5). El capítulo 01 (1.5) prohíbe
 mascotas y personas en la marca de la app; en redes v2, esa regla no aplica.
 
-## 15.10 Para llevar a la app
+## 15.10 Lo que pasó a la marca
 
-Nada de esto cambia la app. Si se decide darle a la app la misma identidad, estos son los pasos, y
-cada uno toca reglas que hoy frena el test (capítulo 14, 14.4):
+El 2026-10-15 lo que no es propio de redes pasó a toda la marca, para que la app se vea igual:
 
-1. **Los colores de las luces y las frases** pasan a tokens de los dos modos (por ejemplo,
-   `color.social.light.petrol`, `color.social.phrase`), con su `$description`.
-2. **Los pesos 600 y 700** entran en la escala tipográfica, o quedan sólo para redes.
-3. **El vidrio de las piezas** se suma a `css/glass.css`, que hoy es sólo para la capa que flota.
-4. **El sello** sigue en la app o se retira también ahí.
+| Qué | Dónde está ahora |
+|---|---|
+| Los dos colores y lo que dice cada uno | Capítulo 04, 4.9; tokens `color.tint.*` |
+| La luz de cada tema y la del monocromo | `backlight.iris`, `backlight.attention` y `backlight.neutral`; en la app, `.glass-backlight` (capítulo 06) |
+| La frase en lugar del sello | `signature.phrase`; capítulo 05, 5.3 |
+| El vidrio como material, no sólo la capa que flota | Capítulo 06, 6.8 |
+
+`vidrio.css` copia esos valores con el nombre de su token al lado, y el test los ata (capítulo 14,
+14.4). Siguen siendo sólo de redes los pesos 600 y 700, el blanco de día, el vidrio más transparente
+de las piezas con su sombra, y la pill del OK.

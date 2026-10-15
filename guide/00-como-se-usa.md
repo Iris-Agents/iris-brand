@@ -52,9 +52,10 @@ Hay dos capas. Los **primitivos** son la paleta cruda; los **semánticos** dicen
   `rounded-card`, `font-signature italic`. Un mal uso se nota a simple vista: `text-line-subtle`
   o `bg-fg-tertiary` no tienen sentido.
 - Un primitivo en el CSS de una app es un error: se usa siempre el semántico.
-- El petróleo (`color.brand.petrol`) es un primitivo más: llega a la landing por su rol,
-  `signature.marketing.block` (`bg-signature-marketing` en Tailwind), y a las piezas de redes por el
-  `--signature-marketing-block` de `pieces/redes/_base/brand.css` (capítulo 04, 4.9).
+- Los colores de la marca son primitivos como los demás (`color.brand.petrol` y los tonos de
+  `color.tint`): llegan a una app por su rol, `signature.phrase` y `backlight.*`
+  (`text-signature-phrase`, `bg-backlight-iris` en Tailwind), y a las piezas de redes por las
+  variables de `pieces/redes/_base/vidrio.css` (capítulo 04, 4.9).
 - En este manual el valor va con su hex, por ejemplo `text.secondary` (#BFBEB9 en oscuro,
   #4E4D49 en claro). El hex está para leer. En código, nunca.
 

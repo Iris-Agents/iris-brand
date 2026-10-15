@@ -1,16 +1,18 @@
 /* Redes v2: el vidrio. La capa de las piezas de redes (Instagram, Facebook, TikTok, Shorts, WhatsApp
    y LinkedIn cuando muestra el producto). Las reglas están en el manual, capítulo 15.
 
-   No cambia ningún token ni nada de la app. Los valores propios de redes (las luces, la frase, el
-   vidrio y los pesos 600 y 700) viven acá hasta que se decida pasarlos a tokens (15.10). Los colores
-   de estado son los de los tokens, copiados con su nombre al lado.
+   Las piezas son HTML sueltos que se renderizan sin build, así que los colores de la marca se copian
+   acá con el nombre de su token al lado: el negro y el blanco, los estados, las luces
+   (color.backlight.*) y la frase (color.signature.phrase). test/pieces.test.mjs los ata a los
+   tokens. Lo propio de redes (el fondo de día, el vidrio de las piezas, la pill del OK y los pesos
+   600 y 700) vive sólo acá.
 
    Cómo se usa: la raíz de la pieza lleva data-formato (pieces/redes/_base/formatos.json) y las clases
    .vp y una variante (.n1a, .n1b, .n2a o .n2b). Todo se mide en cqw: 1cqw es el 1 % del ancho de la
    pieza (10,8 px en una de 1080), así la misma pieza sirve en cualquier formato. */
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=block');
 
-/* ── Las cuatro variantes: negro o blanco, con petróleo o con ámbar (15.2) ── */
+/* ── Las cuatro variantes: negro o blanco (el oscuro y el claro), con petróleo o con ámbar (15.2) ── */
 .vp.n1a, .vp.n1b {
   --vp-bg: #0a0a09;            /* color.brand.black */
   --vp-fg: #fafaf9;            /* color.brand.white */
@@ -47,15 +49,17 @@
   --vp-listo: #686764;         /* color.status.done, claro */
   --vp-fallo: #bc3732;         /* color.status.failed, claro */
 }
-/* Petróleo: «qué hace iris». Ámbar: «lo que te toca». */
+/* Petróleo: «qué hace iris». Ámbar: «lo que te toca». La luz es color.backlight.iris o
+   color.backlight.attention de su modo; la frase, color.signature.phrase, o el texto en ámbar. */
 .vp.n1a { --vp-luz: #0b3a44; --vp-frase: #b9d3d8; --vp-ok: #fafaf9; --vp-ok-texto: #0a0a09; --vp-ok-borde: transparent; }
 .vp.n1b { --vp-luz: #6a4314; --vp-frase: #fafaf9; --vp-ok: #1a1712; --vp-ok-texto: #f3d3a4; --vp-ok-borde: rgba(247, 172, 77, 0.45); }
 .vp.n2a { --vp-luz: #bfd8dc; --vp-frase: #0b4a57; --vp-ok: #0a0a09; --vp-ok-texto: #fafaf9; --vp-ok-borde: transparent; }
 .vp.n2b { --vp-bg: #ecebe7; --vp-luz: #f2d6ae; --vp-frase: #0a0a09; --vp-ok: #fbe9cf; --vp-ok-texto: #5a3a0e; --vp-ok-borde: rgba(173, 114, 28, 0.35); }
 
-/* Monocromo: con foto, vocera, mascota o mucho contenido (15.5). El color lo pone la imagen. */
-.vp.mono.n1a, .vp.mono.n1b { --vp-luz: #3a3a37; --vp-frase: var(--vp-fg); --vp-trabajando: var(--vp-mut); --vp-ok: #fafaf9; --vp-ok-texto: #0a0a09; --vp-ok-borde: transparent; }
-.vp.mono.n2a, .vp.mono.n2b { --vp-luz: #cfcfcb; --vp-frase: var(--vp-fg); --vp-trabajando: var(--vp-mut); --vp-ok: #0a0a09; --vp-ok-texto: #fafaf9; --vp-ok-borde: transparent; }
+/* Monocromo: con foto, vocera, mascota o mucho contenido (15.5). El color lo pone la imagen. La luz
+   es color.backlight.neutral de su modo. */
+.vp.mono.n1a, .vp.mono.n1b { --vp-luz: #3a3937; --vp-frase: var(--vp-fg); --vp-trabajando: var(--vp-mut); --vp-ok: #fafaf9; --vp-ok-texto: #0a0a09; --vp-ok-borde: transparent; }
+.vp.mono.n2a, .vp.mono.n2b { --vp-luz: #cececb; --vp-frase: var(--vp-fg); --vp-trabajando: var(--vp-mut); --vp-ok: #0a0a09; --vp-ok-texto: #fafaf9; --vp-ok-borde: transparent; }
 
 /* LinkedIn de producto: el mismo vidrio, más quieto (15.8). */
 .vp.linkedin-producto .luz { opacity: 0.55; filter: blur(12cqw); }

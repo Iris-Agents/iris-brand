@@ -96,3 +96,37 @@ test(".sello lee el sello de marketing: --signature-marketing-block y --signatur
 	const seal = declarationsOf(readText("pieces/redes/_base/brand.css"), ".sello");
 	assert.deepEqual([seal.background, seal.color], ["var(--signature-marketing-block)", "var(--signature-marketing-text)"]);
 });
+
+// pieces/redes/_base/vidrio.css (redes v2, capítulo 15) también copia colores de la marca: el negro y el
+// blanco, los estados, las luces y la frase. Cada variante lee los de su modo: n1a y n1b son el
+// oscuro; n2a y n2b, el claro. Lo propio de redes (el fondo de día, el vidrio, la pill del OK) no
+// tiene token y no está en este mapa.
+const vidrioRules = new Map(
+	[...readText("pieces/redes/_base/vidrio.css").replaceAll(/\/\*[\s\S]*?\*\//g, "").matchAll(/([^{}]+)\{([^}]*)\}/g)].map(([, selectors, body]) => [
+		selectors.split(";").at(-1).trim().replaceAll(/\s+/g, " "),
+		new Map([...body.matchAll(/(--vp-[\w-]+):\s*([^;]+);?/g)].map(([, name, value]) => [name, value.trim().toLowerCase()])),
+	]),
+);
+const vidrioTokens = {
+	".vp.n1a, .vp.n1b": { mode: "dark", tokens: { "--vp-bg": "color.brand.black", "--vp-fg": "color.brand.white", "--vp-toca": "color.status.attention", "--vp-trabajando": "color.status.working", "--vp-esperando": "color.status.idle", "--vp-listo": "color.status.done", "--vp-fallo": "color.status.failed" } },
+	".vp.n2a, .vp.n2b": { mode: "light", tokens: { "--vp-fg": "color.brand.black", "--vp-toca": "color.status.attention", "--vp-trabajando": "color.status.working", "--vp-esperando": "color.status.idle", "--vp-listo": "color.status.done", "--vp-fallo": "color.status.failed" } },
+	".vp.n1a": { mode: "dark", tokens: { "--vp-luz": "color.backlight.iris", "--vp-frase": "color.signature.phrase" } },
+	".vp.n1b": { mode: "dark", tokens: { "--vp-luz": "color.backlight.attention" } },
+	".vp.n2a": { mode: "light", tokens: { "--vp-luz": "color.backlight.iris", "--vp-frase": "color.signature.phrase" } },
+	".vp.n2b": { mode: "light", tokens: { "--vp-luz": "color.backlight.attention" } },
+	".vp.mono.n1a, .vp.mono.n1b": { mode: "dark", tokens: { "--vp-luz": "color.backlight.neutral" } },
+	".vp.mono.n2a, .vp.mono.n2b": { mode: "light", tokens: { "--vp-luz": "color.backlight.neutral" } },
+};
+
+test("los colores de la marca en vidrio.css son los de los tokens, cada variante en su modo", () => {
+	const differing = [];
+	for (const [selector, { mode, tokens }] of Object.entries(vidrioTokens)) {
+		const declared = vidrioRules.get(selector);
+		assert.ok(declared, `vidrio.css no tiene la regla ${selector}`);
+		for (const [name, id] of Object.entries(tokens)) {
+			const expected = hexOf(resolved[mode].get(id).value);
+			if (declared.get(name) !== expected) differing.push(`${selector} ${name}: ${declared.get(name)}, ${id} (${mode}) da ${expected}`);
+		}
+	}
+	assert.deepEqual(differing, []);
+});

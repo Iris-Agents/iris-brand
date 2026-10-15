@@ -10,7 +10,7 @@ const worstBackdrops = ["#ffffff", "#000000"];
 const allowed = {
 	bar: { text: ["text.primary", "text.secondary"], graphic: ["action.primary", "focus"] },
 	panel: {
-		text: ["text.primary", "text.secondary", "text.tertiary", "text.placeholder", "status.failed", "action.destructive"],
+		text: ["text.primary", "text.secondary", "text.tertiary", "text.placeholder", "signature.phrase", "status.failed", "action.destructive"],
 		graphic: ["border.control", "status.attention", "status.working", "status.done", "status.idle", "focus", "data.series", "data.comparison", "link.underline", "action.primary"],
 	},
 };

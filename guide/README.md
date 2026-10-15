@@ -16,9 +16,9 @@ hex al lado para que se lea; en código se usa siempre el token.
 | [01 · Esencia](01-esencia.md) | Qué es iris, su personalidad, los siete principios con su consecuencia visual y dónde está la diferencia. |
 | [02 · Nombre](02-nombre.md) | «iris», «iris agents» e «Iris Agents»: cuándo va cada uno, cómo se nombran los agentes y lo que nunca se escribe. |
 | [03 · Logo e ícono](03-logo-e-icono.md) | Las tres piezas y cuándo va cada una, construcción, resguardo, tamaños mínimos, fondos, usos incorrectos y archivos. |
-| [04 · Color](04-color.md) | La paleta monocroma, los roles por modo, el contraste, los cinco estados, lo que está prohibido y el petróleo, el único acento. |
-| [05 · Tipografía](05-tipografia.md) | Tres familias y dos pesos, la regla de la firma, el titular de dos líneas con sus dos sellos y la escala de doce estilos. |
-| [06 · Forma, espacio y movimiento](06-forma-espacio-movimiento.md) | Radios, bordes, elevación sin sombras, espaciado, controles, íconos, movimiento y el vidrio de la capa que flota. |
+| [04 · Color](04-color.md) | Blanco y negro con dos colores que significan algo (el petróleo, lo que hace iris; el ámbar, lo que te toca), los roles por modo, el contraste, los cinco estados, la luz y lo que está prohibido. |
+| [05 · Tipografía](05-tipografia.md) | Tres familias y dos pesos, la regla de la firma, el titular de dos líneas con la frase en color, el sello que sale y la escala de doce estilos. |
+| [06 · Forma, espacio y movimiento](06-forma-espacio-movimiento.md) | Radios, bordes, elevación sin sombras, espaciado, controles, íconos, movimiento, el vidrio y la luz de fondo. |
 | [07 · Datos y gráficos](07-datos-y-graficos.md) | Cifras con fuente y fecha, series, tablas y lo que un gráfico de iris no hace. |
 | [08 · Piezas propias](08-piezas-propias.md) | La tarjeta de aprobación, el feed «Hoy en tu cuenta», los glifos con su leyenda, la línea «tool · estado» y el intercambio. |
 | [09 · Voz y tono](09-voz-y-tono.md) | Cómo habla iris, las reglas de copy, los idiomas y las palabras que no se usan. |
@@ -27,7 +27,7 @@ hex al lado para que se lea; en código se usa siempre el token.
 | [12 · Mercado Libre y otras marcas](12-mercado-libre.md) | Cómo se nombra a Mercado Libre, qué no se usa nunca, el descargo, y Claude, Mercado Pago y los canales futuros. |
 | [13 · Accesibilidad](13-accesibilidad.md) | La lista de control: contraste, foco, tamaño de lo que se toca, estado sin depender del color, movimiento. |
 | [14 · Recursos](14-recursos.md) | Cómo la instala y la actualiza una app, qué frena el test, cómo se cambia la marca y cómo se regeneran las piezas. |
-| [15 · Redes v2: el vidrio](15-redes.md) | La identidad de redes desde octubre de 2026: las cuatro variantes, la luz, el vidrio, el monocromo, estados, íconos y el mensaje, LinkedIn, tono y personajes. No toca la app. |
+| [15 · Redes v2: el vidrio](15-redes.md) | Lo propio de redes desde octubre de 2026: las cuatro variantes, la luz y el vidrio en las piezas, el monocromo, estados, íconos y el mensaje, LinkedIn, tono y personajes. |
 
 ## Cómo se lee
 
