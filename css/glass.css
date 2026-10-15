@@ -1,21 +1,48 @@
 /*
-  iris · vidrio ahumado para la capa que flota. Lee las variables de dist/tokens.css (importala
-  antes); acá no hay un solo valor de color.
+  iris · vidrio ahumado para la capa que flota, y la luz de fondo. Lee las variables de
+  dist/tokens.css (importala antes); acá no hay un solo valor de color.
 
-  Va sólo en lo que flota sobre contenido que se mueve. Nunca en el contenido (feed, cards,
-  tablas, chat, formularios), nunca en una pieza estática, nunca vidrio sobre vidrio y nunca más
-  de dos a la vez. Es el único blur del sistema, y no se anima: aparece y se va con opacity.
+  En la app va sólo en lo que flota sobre contenido que se mueve. Nunca en el contenido (feed,
+  cards, tablas, chat, formularios), nunca vidrio sobre vidrio y nunca más de dos a la vez. Es el
+  único blur del sistema, y no se anima: aparece y se va con opacity. Las piezas de redes dibujan su
+  propio vidrio con pieces/redes/_base/vidrio.css (capítulo 15).
 
   - .glass-bar    la barra que flota (la nav de la landing). Sólo text.primary, text.secondary,
                   el CTA de tinta sólido y el foco: ni texto gris, ni texto rojo, ni bordes de
                   control, ni glifos de estado. Si hacen falta, es un panel.
   - .glass-panel  lo que flota con texto (⌘K sin cortina, popovers, la aprobación cuando flota).
                   El tinte es bg.raised al 94 %: todo lo que pasa sobre los fondos pasa acá.
+  - .glass-backlight  la luz de fondo: un círculo de color que se apaga hacia afuera, detrás del
+                      vidrio. Una sola por pantalla, decorativa (aria-hidden) y quieta. El color va
+                      por su modificador: -iris (petróleo, lo que hace iris), -attention (ámbar, lo
+                      que te toca, sólo con una decisión pendiente) o -neutral (monocromo). Dónde va
+                      y su tamaño los pone la pantalla; nada se lee sobre ella sin un vidrio encima.
 
   El contraste lo garantiza el tinte, no el blur: con el peor fondo detrás y sin desenfoque, el
   texto permitido igual pasa (lo mide test/glass.test.mjs). Sin lente ni refracción: el filtro
   SVG sólo lo pinta Chromium y @supports no lo detecta.
 */
+
+/* La luz es un degradé radial, no un blur: no cuesta nada pintarla y se ve igual en todos lados. */
+.glass-backlight {
+  position: absolute;
+  z-index: 0;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.glass-backlight-iris {
+  background-image: radial-gradient(closest-side, var(--iris-color-backlight-iris), transparent);
+}
+
+.glass-backlight-attention {
+  background-image: radial-gradient(closest-side, var(--iris-color-backlight-attention), transparent);
+}
+
+.glass-backlight-neutral {
+  background-image: radial-gradient(closest-side, var(--iris-color-backlight-neutral), transparent);
+}
 
 /* Sin backdrop-filter: la superficie lisa de siempre (nivel 2: raised + border.default). */
 .glass-bar,
@@ -48,6 +75,10 @@
   contraste solo.
 */
 @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .glass-backlight {
+    display: none;
+  }
+
   .glass-bar,
   .glass-panel {
     background-color: var(--iris-color-bg-raised);
@@ -59,6 +90,10 @@
 }
 
 @media (forced-colors: active) {
+  .glass-backlight {
+    display: none;
+  }
+
   .glass-bar,
   .glass-panel {
     background-color: Canvas;

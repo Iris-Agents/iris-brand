@@ -31,7 +31,7 @@ describe("dist/ es lo que genera el build", () => {
 
 describe("dist/tokens.css", () => {
 	test("ningún primitivo sale al CSS", () => {
-		assert.deepEqual([...tokensCSS.matchAll(/--iris-color-(brand|neutral-dark|neutral-light|signal|alpha)-[\w-]+/g)].map(([name]) => name), []);
+		assert.deepEqual([...tokensCSS.matchAll(/--iris-color-(brand|tint|neutral-dark|neutral-light|signal|alpha)-[\w-]+/g)].map(([name]) => name), []);
 	});
 	test("todo lo que no es un primitivo de color está en :root", () => {
 		const expected = [...foundation.keys()].filter((id) => !id.startsWith("color.")).map(cssName);
@@ -51,8 +51,8 @@ describe("dist/tokens.css", () => {
 	});
 });
 
-// El petróleo es el único acento, en un solo lugar: sale al CSS sólo como el sello de marketing.
-describe("el acento de color", () => {
+// El petróleo hondo sale al CSS sólo como el sello de marketing; sus tonos, sólo en la luz y la frase.
+describe("el color de la marca", () => {
 	const petrol = hexOf(foundation.get("color.brand.petrol").value);
 	test("dist/tokens.css trae el sello de marketing en los tres bloques, y ninguna otra variable con el petróleo", () => {
 		assert.deepEqual([...tokensCSS.matchAll(/--[\w-]*petrol[\w-]*/g)].map(([name]) => name), []);
@@ -60,6 +60,14 @@ describe("el acento de color", () => {
 			const declared = [...declarationsOf(block)];
 			assert.deepEqual(declared.filter(([name]) => name.includes("marketing")).map(([name]) => name), ["--iris-color-signature-marketing-block", "--iris-color-signature-marketing-text"], blockName);
 			assert.deepEqual(declared.filter(([, value]) => value.toLowerCase() === petrol).map(([name]) => name), ["--iris-color-signature-marketing-block"], blockName);
+		}
+	});
+	// Los tonos de color.tint salen sólo en la luz de fondo y en la frase.
+	test("los tonos de la marca salen sólo en --iris-color-backlight-* y --iris-color-signature-phrase", () => {
+		const tints = new Set([...foundation].filter(([id]) => id.startsWith("color.tint.")).map(([, token]) => hexOf(token.value)));
+		for (const [blockName, block] of Object.entries(blocks)) {
+			const users = [...declarationsOf(block)].filter(([, value]) => tints.has(value.toLowerCase())).map(([name]) => name);
+			assert.deepEqual(users.sort(), ["--iris-color-backlight-attention", "--iris-color-backlight-iris", "--iris-color-signature-phrase"], blockName);
 		}
 	});
 	// Lo que quedó afuera (el cartón y los colores de pieza) no vuelve como token: ni un id, ni una

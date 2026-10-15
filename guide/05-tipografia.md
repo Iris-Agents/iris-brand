@@ -25,7 +25,7 @@ escasea.
 |---|---|---|
 | El logotipo | Header, footer, OG, firma de mail, el lockup | Dibujo vectorial (`wordmark.svg`), desde 20 px de cuerpo. |
 | La i del ícono | Favicon, foto de perfil, ícono de app, conector de Claude | Dibujo vectorial (`icon.svg`), desde 16 px con el master chico. |
-| La segunda línea de un titular de dos líneas | Hero y OG (64 px), secciones y banner (40 px) | Texto, 400 itálica, del mismo tamaño que la primera línea, desde 32 px, en el sello (5.3). |
+| La segunda línea de un titular de dos líneas | Hero y OG (64 px), secciones y banner (40 px) | Texto, 400 itálica, del mismo tamaño que la primera línea, desde 32 px, en la frase (5.3). |
 | **Nada más** | — | Ni una palabra suelta adentro de una línea sans, ni un titular de una sola línea, ni un estado vacío, ni números, ni botones, ni eyebrows, ni cuerpo, ni interfaz. |
 
 - **Por qué tan poco:** tiene un solo peso y no trae cifras tabulares, así que no sirve para datos
@@ -48,9 +48,9 @@ escasea.
 | | Línea 1 | Línea 2 |
 |---|---|---|
 | Familia | IBM Plex Sans 500 | La firma, 400 itálica |
-| Color | `text.primary` | En el sello: en la app, calada en `signature.text` (el color del fondo) sobre `signature.block` (la tinta); en marketing, en tinta (`signature.marketing.text`) sobre `signature.marketing.block` (el petróleo) |
+| Color | `text.primary` | La frase: `signature.phrase`, el petróleo, sin bloque detrás. En lo que te toca, `text.primary` |
 | Tamaño | El mismo en las dos | El mismo en las dos |
-| Interlineado | El de su estilo | La línea, 1, con 0,16em de aire arriba; adentro del sello, 0,86 |
+| Interlineado | El de su estilo | El de su estilo |
 
 - **El corte lo decide el copy:** la firma entra donde la frase se vuelve personal.
 - La línea 2 no lleva números y termina en punto.
@@ -63,45 +63,38 @@ escasea.
 > **Lo que aprendió una vez**\
 > *le sirve para siempre.*
 
-### El sello
-
-La segunda línea no va en gris: el gris, en lugar de remarcar, apagaba. Va en un sello, un bloque
-de esquinas rectas detrás de la firma. Lo decidió Franco el 2026-10-10, entre cuatro opciones
-(rosa, sello, rosa con rúbrica y rosa grande); «blanco y más blanco» quedó descartado.
-
-Hay dos sellos, con las mismas medidas y distintos colores:
-
-| Sello | Dónde | El bloque | La letra | Clase | Contraste |
-|---|---|---|---|---|---|
-| De tinta | La app | `signature.block`: #EDEDEA en oscuro, #1A1917 en claro | Calada, en `signature.text`: #0A0A09 en oscuro, #FAFAF9 en claro | `.signature-seal` | 16,89:1 y 16,82:1 |
-| Petróleo | Marketing: las piezas de redes, los banners, las portadas, el titular de la landing y las OG | `signature.marketing.block`: #03313C en los dos modos | En tinta, `signature.marketing.text`: #EDEDEA en los dos modos | `.signature-seal-marketing`; en las piezas de redes, el `.sello` de `pieces/redes/_base/brand.css` | 11,87:1 |
-
-- **La receta** vive en `css/signature.css` y va siempre igual:
-  - la línea de la firma (`.signature-line`), en bloque, con `margin-top: 0.16em` y
-    `line-height: 1`;
-  - adentro, el sello (`.signature-seal` o `.signature-seal-marketing`): un `<span>` con
-    `display: inline-block`, `padding: 0.14em 0.16em 0.18em 0.13em` (arriba, derecha, abajo,
-    izquierda), `line-height: 0.86` y esquinas rectas, sin borde ni sombra;
-  - el bloque y la letra, los de su sello.
-- **Las medidas van en em:** el sello sigue al tamaño del titular, en los dos pares y en las piezas.
-- **Con el sello a la vista, el botón principal va con borde** (el «Aprobar» de la tarjeta en una
-  pieza, el botón principal del hero de la landing; capítulo 06, 6.5).
-- **En dos renglones**, el sello es un solo bloque del ancho del titular.
-- **El petróleo va sólo en el sello de marketing**, y es la única variante del sello (capítulo 04,
-  4.9). El bloque casi no se despega del negro (1,42:1), a propósito: lo que se lee es la firma.
-
-```html
-<!-- En la landing: el sello petróleo. En la app, la misma estructura con .signature-seal. -->
-<h1 class="text-hero">
-  Agentes expertos
-  <span class="signature-line text-hero-signature font-signature italic"><span class="signature-seal-marketing">a cargo de tu e-commerce.</span></span>
-</h1>
-```
-
 Hay dos pares, sin tipografía fluida: `headline.hero` (64/1,05) para el hero y las OG, y
 `headline.section` (40/1,1) para secciones y el banner. Abajo de 600 px de ancho
 (`layout.breakpoint.narrow`) el hero usa el par de sección, y en un teléfono de 390 px ocupa de 3 a
 4 líneas.
+
+### La frase
+
+La segunda línea no va en gris: el gris, en lugar de remarcar, apagaba. Va en color, en la firma y
+sin nada detrás: `signature.phrase`, el petróleo de lo que hace iris (#B9D3D8 en oscuro, #0B4A57 en
+claro; 9,65:1 y 8,13:1 en el peor fondo). En una pantalla o pieza de lo que te toca (capítulo 04,
+4.9) va en `text.primary`: el ámbar no se usa para letra.
+
+- **Lo remarca la letra**, la itálica y su color: sin bloque, sin subrayado, sin resaltado.
+- **El botón principal va lleno**, como en toda la app (capítulo 06, 6.5): sin bloque a la vista, no
+  compite con nada.
+- Con Tailwind: `font-signature italic text-signature-phrase`.
+
+```html
+<h1 class="text-hero">
+  Agentes expertos
+  <span class="block text-hero-signature font-signature italic text-signature-phrase">a cargo de tu e-commerce.</span>
+</h1>
+```
+
+### El sello, de salida
+
+Hasta octubre de 2026 la segunda línea iba en un sello, un bloque de esquinas rectas detrás de la
+firma: de tinta en la app (`.signature-seal`) y petróleo en marketing (`.signature-seal-marketing`,
+y el `.sello` de las plantillas de redes). **No va en nada nuevo.** Queda, con su receta de
+`css/signature.css`, en lo que ya lo lleva (el titular de la landing y sus OG, el banner, las
+portadas y las plantillas de los tres registros de redes) hasta que se rehaga, y entonces se borra
+(capítulo 04, 4.9). Mientras esté a la vista, el botón principal de esa pantalla va con borde.
 
 ## 5.4 La escala
 
@@ -187,12 +180,12 @@ El largo de línea está en `layout.measure.lede` (60), `layout.measure.prose` (
 
 ## 5.9 Prohibido
 
-- Un tercer peso (600 o 700) o un bold falso. Un titular va en 500.
+- Un tercer peso (600 o 700) o un bold falso. Un titular va en 500. Las piezas de redes v2 son la
+  única excepción (capítulo 15, 15.6).
 - La firma recta (DM Serif Display regular), la firma fuera de sus tres usos o por debajo de 32 px
   como texto.
-- La segunda línea del titular en gris o sin el sello; un sello con esquinas redondeadas, borde,
-  sombra o un color que no sea el de sus dos tokens; el sello petróleo en la app, o el de tinta en
-  marketing.
+- La segunda línea del titular en gris, con un bloque o un resaltado detrás, o en ámbar; un sello
+  en algo nuevo (capítulo 04, 4.9).
 - Plex Sans en itálica: no se carga y el navegador la falsearía. La única itálica es la firma.
 - La mono en eyebrows, etiquetas, botones o palabras («en curso» y «hoy» van en sans).
 - Un texto de menos de 12 px; en una pieza de redes, de menos de su mínimo (5.4).

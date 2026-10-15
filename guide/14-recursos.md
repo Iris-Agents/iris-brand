@@ -27,8 +27,8 @@ Y en el CSS principal, después de Tailwind:
 @import "iris-brand/fonts.css";     /* las caras: DM Serif Display itálica, IBM Plex Sans y Plex Mono */
 @import "iris-brand/tokens.css";    /* las variables --iris-*, en oscuro y en claro */
 @import "iris-brand/tailwind.css";  /* las utilidades: bg-canvas, text-fg, rounded-card… */
-@import "iris-brand/signature.css"; /* el sello: .signature-line, .signature-seal y .signature-seal-marketing */
-@import "iris-brand/glass.css";     /* sólo si la app tiene una capa que flota (capítulo 06, 6.8) */
+@import "iris-brand/glass.css";     /* el vidrio y la luz de fondo (capítulo 06, 6.8) */
+@import "iris-brand/signature.css"; /* sólo donde sigue un sello (capítulo 05, 5.3) */
 
 html {
   font-synthesis: none;             /* que el navegador no invente negritas */
@@ -49,9 +49,9 @@ html {
   los WOFF2 salen como assets. Con la CLI de Tailwind no se reacomodan.
 - **`tailwind.css` pisa `font-sans` y `font-mono` a propósito:** la familia por default de la app
   pasa a ser IBM Plex Sans. No bloquea la paleta de Tailwind ni redefine los nombres de shadcn.
-- **`signature.css` hace falta en toda página con un titular de dos líneas:** `.signature-seal` es
-  el sello de la app y `.signature-seal-marketing`, el del titular de la landing y sus OG
-  (capítulo 05, 5.3).
+- **La frase no necesita CSS propio:** es `font-signature italic text-signature-phrase` (capítulo
+  05, 5.3). `signature.css` hace falta sólo donde sigue un sello: `.signature-seal-marketing` en el
+  titular de la landing y sus OG, hasta que se rehagan.
 - **El logo y las fuentes se importan por su ruta:** `import icono from "iris-brand/logo/icon.svg"`,
   `iris-brand/logo/favicon.ico`, `iris-brand/fonts/…`. Nunca se copian a mano a la app.
 - **Las plantillas de redes vienen en el paquete**, en `iris-brand/pieces/…`. Cómo se renderiza una
@@ -66,7 +66,7 @@ Se lee por rol, nunca por gris:
   <article class="bg-surface border border-line-subtle rounded-card">
     <h2 class="text-section">
       Agentes expertos
-      <span class="signature-line text-section-signature font-signature italic"><span class="signature-seal">a cargo de tu e-commerce.</span></span>
+      <span class="block text-section-signature font-signature italic text-signature-phrase">a cargo de tu e-commerce.</span>
     </h2>
     <span class="font-mono text-mono text-fg-tertiary">10:40 · id 4418</span>
   </article>
@@ -75,7 +75,7 @@ Se lee por rol, nunca por gris:
 
 | Qué | Nombres |
 |---|---|
-| Colores, con cualquier prefijo (`bg-`, `text-`, `border-`, `fill-`…) | Fondos: `canvas` `surface` `raised` `hover` `selected` · Texto: `fg` `fg-secondary` `fg-tertiary` `fg-placeholder` `fg-disabled` `on-action` · Bordes: `line-subtle` `line` `line-control` · Acción: `action` `action-destructive` `focus` `selection` `backdrop` · El sello: `signature` (el bloque) `on-signature` (la letra); en la landing, `signature-marketing` `on-signature-marketing` · Estados, sólo en el glifo: `status-attention` `status-working` `status-failed` `status-done` `status-idle` · Datos: `data-series` `data-comparison` `data-grid` `link-underline` |
+| Colores, con cualquier prefijo (`bg-`, `text-`, `border-`, `fill-`…) | Fondos: `canvas` `surface` `raised` `hover` `selected` · Texto: `fg` `fg-secondary` `fg-tertiary` `fg-placeholder` `fg-disabled` `on-action` · Bordes: `line-subtle` `line` `line-control` · Acción: `action` `action-destructive` `focus` `selection` `backdrop` · La frase: `signature-phrase` · La luz: `backlight-iris` `backlight-attention` `backlight-neutral` (o las clases `.glass-backlight-*`) · El sello, donde sigue: `signature` `on-signature`; en la landing, `signature-marketing` `on-signature-marketing` · Estados, sólo en el glifo: `status-attention` `status-working` `status-failed` `status-done` `status-idle` · Datos: `data-series` `data-comparison` `data-grid` `link-underline` |
 | Radios | `rounded-chip` `rounded-control` `rounded-card` `rounded-panel` `rounded-frame`; las píldoras, `rounded-full` |
 | Estilos de texto (tamaño, interlineado, tracking y peso) | `text-hero` `text-hero-signature` `text-section` `text-section-signature` `text-title` `text-lede` `text-body` `text-reading` `text-ui` `text-label` `text-eyebrow` `text-mono` |
 | Familias | `font-sans` `font-signature` `font-mono` |
@@ -141,8 +141,11 @@ test, sin red: los esquemas están en `test/schemas/`. Frena cuando:
 3. un hex no coincide con su OKLCH, un color cae fuera de sRGB, «resuelto» deja de ser el mismo
    gris que `text.tertiary`, el petróleo lo usa un token que no es `signature.marketing.block`, o
    queda a menos de ΔEOK 0,091 de un estado, de los colores de Claude o de Anthropic, de los de
-   Mercado Libre o Mercado Pago, o de un color ya descartado (capítulo 04, 4.9);
-4. alguno de los 159 pares de contraste baja de su mínimo sobre cualquier fondo de su modo: WCAG
+   Mercado Libre o Mercado Pago, o de un color ya descartado (capítulo 04, 4.9); un tono de
+   `color.tint` lo usa otro rol que la luz o la frase de su modo, se aleja más de 12° del tono de
+   su color, o queda a menos de 0,091 de lo que se esquiva (salvo las tres cercanías anotadas, que
+   no pueden bajar de su piso), o la luz de monocromo deja de ser `border.default`;
+4. alguno de los 169 pares de contraste baja de su mínimo sobre cualquier fondo de su modo: WCAG
    2.2 AA, y 7:1 para la firma sobre el sello de marketing (capítulo 04, 4.4, y capítulo 13);
 5. no son doce estilos, aparece un peso fuera de 400 y 500, algo baja de 12 px, un estilo no cumple
    la regla de tracking de su familia, o las dos líneas de un titular no comparten tamaño e
@@ -160,12 +163,15 @@ test, sin red: los esquemas están en `test/schemas/`. Frena cuando:
    un archivo que no existe;
 9. `dist/` no es exactamente lo que generan los tokens (un `dist/` viejo o editado a mano no pasa),
    un primitivo sale al CSS, el petróleo aparece en `dist/tokens.css` en otra variable que
-   `--iris-color-signature-marketing-block`, o un bloque del claro trae algo más que color;
+   `--iris-color-signature-marketing-block`, un tono de `color.tint` aparece en otra que la luz o la
+   frase, o un bloque del claro trae algo más que color;
 10. una variable de `pieces/redes/_base/brand.css` no tiene su token o vale otra cosa, le falta el
     sello de marketing (`--signature-marketing-block` y `--signature-marketing-text`), `.sello` no
     los lee, o una de las dos copias del sello (`css/signature.css` y `brand.css`) cambia el relleno
     o el interlineado;
-11. un token o una variable de CSS (en `css/` o `pieces/`) se llama como lo descartado: `piece`,
+11. un color de la marca en `pieces/redes/_base/vidrio.css` (el negro y el blanco, los estados, las
+    luces y la frase de cada variante) no es el del token de su modo;
+12. un token o una variable de CSS (en `css/` o `pieces/`) se llama como lo descartado: `piece`,
     `cardboard` o cartón (capítulo 04, 4.9).
 
 ---
@@ -196,8 +202,8 @@ commit.
    componentes. Un rol apunta a foundation: `"$value": "{color.neutral-dark.9}"`.
 3. Un rol de color nuevo suma su línea en `css/tailwind.css`.
 4. `pnpm build`, y se mira la diferencia de `dist/`: tiene que ser la esperada.
-5. Si el valor también está copiado en `pieces/redes/_base/brand.css`, el test lo marca: se corrige
-   ahí y se regeneran las piezas.
+5. Si el valor también está copiado en `pieces/redes/_base/brand.css` o en
+   `pieces/redes/_base/vidrio.css`, el test lo marca: se corrige ahí y se regeneran las piezas.
 6. Se actualiza el capítulo del manual que nombra ese valor.
 
 ---
@@ -216,8 +222,8 @@ Lee `pieces/redes/_base/piezas.tsv`: una línea por PNG, con el HTML (las guías
 de arriba. Tarda un par de minutos. Una pieza sola, o una que no está en esa lista, se renderiza
 con `render.sh`: el comando está en `pieces/redes/plantillas.md`, sección 6.
 
-- Hoy `pieces/redes/_base/brand.css` repite los valores a mano. Cuando cambia un token, se
-  actualiza ahí también, hasta que lea `dist/tokens.css`.
+- Hoy `pieces/redes/_base/brand.css` y `vidrio.css` repiten los valores a mano. Cuando cambia un
+  token, se actualiza ahí también, hasta que lea `dist/tokens.css`.
 - Cuando cambia la forma de un glifo, además se reemplaza en cada HTML que lo dibuja: la lista está
   en `pieces/redes/README.md`.
 - Después de regenerar, se miran las PNG con glifos y se repasa la lista de control de

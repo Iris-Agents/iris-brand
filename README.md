@@ -16,8 +16,8 @@ donde dicen distinto.
 
 1. **Qué hace buena una pieza, qué no va y qué hacer ante la duda:** el
    [capítulo 11](guide/11-aplicaciones.md), 11.14. Los tres registros de redes, en 11.13.
-2. **Las reglas de cada cosa**, en el [manual](guide/README.md): el logo (03), el color y el
-   petróleo (04), la tipografía y el sello (05), las piezas propias y el intercambio (08), la voz
+2. **Las reglas de cada cosa**, en el [manual](guide/README.md): el logo (03), el color, el
+   petróleo y el ámbar (04), la tipografía y la frase (05), las piezas propias y el intercambio (08), la voz
    (09) y Mercado Libre (12).
 3. **Cómo están hechas las plantillas** (sus slots y largos, las clases de `brand.css`) y cómo se
    renderiza una pieza: [`pieces/redes/plantillas.md`](pieces/redes/plantillas.md).
@@ -42,8 +42,8 @@ donde dicen distinto.
 
 | Carpeta | Qué tiene |
 |---|---|
-| [`tokens/`](tokens/) | La fuente de todo, en DTCG 2025.10: `foundation.tokens.json` (primitivos, tipografía, espacio, forma, vidrio y movimiento), `themes/dark.tokens.json` y `themes/light.tokens.json` (los roles de color de cada modo) e `iris.resolver.json` (los dos modos, con el oscuro por default). El `version` del resolver es el de la spec DTCG (`2025.10`), no uno de la marca. |
-| [`css/`](css/) | Escrito a mano y sin un valor propio: `fonts.css` (las caras), `tailwind.css` (el puente a Tailwind v4), `glass.css` (el vidrio) y `signature.css` (el sello de la firma). |
+| [`tokens/`](tokens/) | La fuente de todo, en DTCG 2025.10: `foundation.tokens.json` (primitivos, con los tonos de la marca, tipografía, espacio, forma, vidrio y movimiento), `themes/dark.tokens.json` y `themes/light.tokens.json` (los roles de color de cada modo) e `iris.resolver.json` (los dos modos, con el oscuro por default). El `version` del resolver es el de la spec DTCG (`2025.10`), no uno de la marca. |
+| [`css/`](css/) | Escrito a mano y sin un valor propio: `fonts.css` (las caras), `tailwind.css` (el puente a Tailwind v4), `glass.css` (el vidrio y la luz de fondo) y `signature.css` (el sello, sólo donde sigue). |
 | [`dist/`](dist/) | Generado y commiteado: `tokens.css`, las variables `--iris-*` de los dos modos. No se edita a mano. |
 | [`fonts/`](fonts/) | Los WOFF2 de DM Serif Display itálica, IBM Plex Sans 400 y 500 e IBM Plex Mono 400, con sus licencias OFL. Procedencia y sumas en `fonts/README.md`. |
 | [`logo/`](logo/) | El ícono, el logotipo y el lockup en SVG (contornos, sin fuentes), más el favicon y los PNG, también para lo que no lee SVG (`logo/png/`). Qué va dónde: `logo/README.md`. |

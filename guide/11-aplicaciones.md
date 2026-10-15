@@ -4,6 +4,12 @@ Cómo se arma cada pieza que sale de iris. Todas usan lo mismo: el negro de marc
 lockup, el titular de dos líneas y las piezas propias del capítulo 08. Lo que cambia es el tamaño y
 lo que la plataforma tapa.
 
+> **La marca desde el 2026-10-15.** La segunda línea del titular va en la frase, en color y sin
+> bloque, y la luz de color detrás del vidrio es parte de la marca (capítulo 04, 4.9; capítulo 05,
+> 5.3). Las piezas de este capítulo (el banner, las portadas, las OG y el titular de la landing) se
+> armaron con el sello petróleo y quedan así hasta que se rehagan; lo que se rehace o se hace nuevo
+> va con la frase, y en redes, con el capítulo 15.
+
 Reglas que valen para todas:
 - **Oscuro.** El fondo es `color.brand.black` (#0A0A09). El claro existe para la app; las piezas no
   lo usan, salvo el email (11.10).

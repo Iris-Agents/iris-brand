@@ -51,10 +51,11 @@ Cada principio trae una consecuencia visual que se puede verificar en una pieza.
 
 Competente, preciso, de pocas palabras.
 
-**Se ve así:** negro, neutros y un solo acento: el petróleo del sello de la firma en marketing,
-que casi no se despega del negro (capítulo 04, 4.9). Una pieza de La trastienda suma una foto
-oscura (capítulo 11); nada más. No hay ilustraciones, mascotas, robots, emojis, destellos, glow,
-sombras ni gradientes llamativos. Hay dos pesos tipográficos, 400 y 500: el bold que grita no
+**Se ve así:** blanco y negro, con dos colores que significan algo: el petróleo de lo que hace
+iris y el ámbar de lo que te toca, en una sola luz detrás del vidrio y en la frase (capítulo 04,
+4.9). Una pieza de La trastienda suma una foto oscura (capítulo 11); nada más. No hay ilustraciones,
+mascotas, robots, emojis, destellos, glow, sombras ni gradientes llamativos (en redes v2 entran la
+vocera y la mascota: capítulo 15, 15.9). Hay dos pesos tipográficos, 400 y 500: el bold que grita no
 existe. El copy es corto y en voz activa.
 
 ### 2. La memoria se ve y se lee
@@ -83,9 +84,9 @@ reputación». No hay badges ni contadores sin base.
 
 Lo que necesita al dueño va arriba. Lo que iris resolvió va abajo y en silencio.
 
-**Se ve así:** monocromo. La jerarquía sale de la luz y la tinta es el acento. Lo que grita es poco
-y siempre lo mismo: un solo bloque lleno por pantalla (el CTA o, con un titular de dos líneas, el
-sello de la firma) y el ● ámbar de «te toca», el único ● del sistema, agrupado arriba. Lo resuelto
+**Se ve así:** casi monocromo. La jerarquía sale de la luz y la tinta es el acento. Lo que grita es
+poco y siempre lo mismo: un solo bloque lleno por pantalla (el CTA) y el ● ámbar de «te toca», el
+único ● del sistema, agrupado arriba, con su luz ámbar si la pantalla espera una decisión. Lo resuelto
 lleva una ✓ gris y, en la app, su texto baja a gris (capítulo 08, 8.2). El movimiento dura
 de 120 a 280 ms, frena suave y no rebota. Lo que se anima en un estado late dos veces y queda quieto.
 
@@ -95,7 +96,7 @@ La autonomía la da el dueño; iris no se la toma. Lo que no está autorizado se
 
 **Se ve así:** la tarjeta de aprobación es una pieza de marca: el antetítulo «Propuesta», la píldora
 «Espera tu OK», las cifras de antes y después, y cuándo se leyeron. El CTA es tinta (relleno de
-`action.primary`, o borde de tinta en una pieza con sello) y dice exactamente qué pasa: «Aprobar»,
+`action.primary`; con borde de tinta sólo donde sigue un sello) y dice exactamente qué pasa: «Aprobar»,
 «Rechazar con motivo».
 
 ### 6. Se vende una sola cosa: iris

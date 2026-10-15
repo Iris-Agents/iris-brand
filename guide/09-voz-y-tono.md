@@ -131,10 +131,10 @@ porque no lo nombra.
 
 ## 9.8 El titular de dos líneas
 
-- La primera línea, en la sans; la segunda, en la firma, en el sello (capítulo 05, 5.3): el de
-  tinta en la app, el petróleo en marketing. El corte lo decide el copy: la firma entra donde la
-  frase se vuelve personal. «Agentes expertos / a cargo de tu e-commerce.»
-- La segunda línea es la que remarca: por eso va en el sello y no en gris.
+- La primera línea, en la sans; la segunda, en la firma y en color, la frase (capítulo 05, 5.3). El
+  corte lo decide el copy: la firma entra donde la frase se vuelve personal. «Agentes expertos / a
+  cargo de tu e-commerce.»
+- La segunda línea es la que remarca: por eso va en color y no en gris.
 - La segunda línea no lleva números y termina en punto.
 - Un titular de una sola línea va entero en la sans: la firma no se agrega para decorar.
 

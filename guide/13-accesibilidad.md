@@ -7,7 +7,7 @@ frena el test no se puede romper, y lo demás se revisa antes de entregar una pi
 
 ## 13.1 Contraste
 
-Lo frena el test: ninguno de los 159 pares baja de su mínimo sobre ninguno de los fondos de su
+Lo frena el test: ninguno de los 169 pares baja de su mínimo sobre ninguno de los fondos de su
 modo (canvas, surface, raised, hover y selected en oscuro; canvas, hover y selected en claro).
 
 Cada par, con su mínimo y su valor sobre el canvas y sobre el peor fondo de cada modo, está en el
@@ -21,11 +21,13 @@ capítulo 04 (4.4).
       04, 4.5).
 - [ ] En claro, el ámbar de te toca va sólo como glifo lleno: nunca como texto ni en un trazo fino
       (no llega a 4,5:1).
-- [ ] La firma va en su sello y se lee contra el bloque: en la app, `signature.text` sobre
-      `signature.block` (16,89:1 en oscuro, 16,82:1 en claro); en marketing,
-      `signature.marketing.text` sobre `signature.marketing.block` (11,87:1 en los dos modos, con un
-      mínimo de 7:1). El bloque petróleo contra el negro da 1,42:1, y es a propósito: lo separa la
-      letra, no el bloque (capítulo 04, 4.9).
+- [ ] La frase va en `signature.phrase` (9,65:1 en el peor fondo del oscuro, 8,13:1 en el del
+      claro) o, en lo que te toca, en `text.primary`; nunca en ámbar. Donde sigue un sello, la letra
+      se lee contra su bloque: 16,89:1 y 16,82:1 el de tinta, 11,87:1 el petróleo, con un mínimo de
+      7:1 (capítulo 04, 4.9).
+- [ ] La luz de fondo es decorativa: nada se lee sobre ella sin un vidrio encima, lleva
+      `aria-hidden` y se apaga con `prefers-reduced-transparency`, `prefers-contrast: more` y
+      `forced-colors`.
 - [ ] No se baja la opacidad de un texto que dice algo. La opacidad de 0,4 es para un control
       deshabilitado entero, que WCAG exime.
 - [ ] En el vidrio, el contraste lo garantiza el tinte, no el desenfoque: pasa con blanco puro
