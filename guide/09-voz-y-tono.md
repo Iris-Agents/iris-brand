@@ -1,15 +1,14 @@
 # 09 · Voz y tono
 
-iris habla como un operador senior callado: el vendedor de mostrador que se acuerda de la gente y
-conoce sus productos. Es preciso, memorioso, transparente y calmo. No es un chatbot simpático, ni un
-mago de la IA, ni un asistente servil, ni un truco de crecimiento.
+iris habla como el mejor empleado que tuviste: sabe todo de tu cuenta, resuelve antes de que se lo
+pidas y te consulta cuando hay plata en juego. Sus rasgos están en el capítulo 01 (1.4).
 
-Le habla al dueño de la cuenta, o a quien decide en ella: alguien que ya vende, que tiene poco
-tiempo para leer y que mira cifras. Quiere saber qué se hizo, qué falló y qué le toca decidir.
+Le habla a quien decide: el dueño que vende solo o con un equipo chico, o la empresa y la agencia
+que manejan varias cuentas. Los dos tienen poco tiempo para leer y miran cifras; quieren saber qué
+se hizo, qué falló y qué les toca decidir. Cómo cambia el registro con cada uno, en el 9.12.
 
 Lo que se promete: **trabaja solo donde vos lo dejás; si no decidiste, te espera.**
-Lo que no se promete nunca: piloto automático, que reemplaza a tu equipo, una IA que hace todo,
-atención 24/7.
+Lo que no se promete nunca: piloto automático, que reemplaza a tu equipo, una IA que hace todo.
 
 ---
 
@@ -35,10 +34,10 @@ Vienen de la landing de la primera versión, que se borra; las reglas quedan.
 4. **iris nunca es un «bot».**
 5. **Sin jerga.** Nada de «MCP», «API», «endpoint», «orquestación» ni «AI-first» fuera de la
    documentación técnica. Se dice «conectá tu cuenta a Claude».
-6. **El argumento es el criterio, no la velocidad.** Lo que se vende es que lo que se aprendió una
-   vez sirve para siempre, a la vista; no que contesta rápido.
+6. **El argumento es un resultado, uno por pieza:** velocidad, margen, reputación, control o
+   tiempo (9.13).
 7. **Sólo se promete lo que existe.** Se nombran los clientes de IA donde iris está probado (hoy,
-   Claude), y nunca datos de otros vendedores: iris lee sólo la cuenta que el dueño conectó.
+   Claude y ChatGPT), y nunca datos de otros vendedores: iris lee sólo la cuenta que el dueño conectó.
 8. **En una demo se dice qué está acelerado y qué está tapado.**
 9. **Nuestra anotación nunca se parece a la palabra del producto.** Si explicamos una captura, la
    nota lleva su propio rótulo.
@@ -48,7 +47,8 @@ Vienen de la landing de la primera versión, que se borra; las reglas quedan.
     publicaciones». Los errores dicen qué pasó y cómo se arregla. Un vacío es una instrucción, con
     el botón que lo llena.
 12. **Un «no» nunca sale solo**: va con lo que sí hay.
-13. **Sin superlativos**: el mejor, el único, el más.
+13. **Sin superlativos sobre el producto**: el mejor del mercado, el único, el más rápido. «El mejor
+    empleado que tuviste» describe cómo habla iris; no se compara con nadie.
 14. **Cifras exactas en la página, y un piso redondo en la meta** (la descripción para buscadores
     envejece mejor con «más de 450» que con «467»). Se eligen unidades que se sienten: «27 por
     día», no «800 por mes».
@@ -116,7 +116,10 @@ Las reglas completas están en el capítulo 02. Lo que más se olvida al escribi
 | Sí | No |
 |---|---|
 | cuenta, cliente, producto, propuesta, aprobación | bot, chatbot, asistente virtual |
-| memoria, criterio, «te espera», «espera tu OK» | piloto automático, 24/7, magia, revolucionar |
+| memoria, criterio, «te espera», «espera tu OK» | piloto automático, magia, revolucionar |
+| agente, tu equipo, tu cuenta | «Iris AI», «la herramienta» |
+| ejecuta, analiza, responde, cuida; margen, reputación, posicionamiento, venta cruzada | revoluciona, disruptivo, potenciar, sinergia |
+| un piso redondo: «miles de preguntas por mes» | «100 % automatizado», «sin errores», «contesta todo» |
 | contestó, resolvió, recuperó, reponer (verbo + objeto) | «reemplaza a tu equipo», «el primer empleado de IA», copiloto |
 | «tu cuenta de Mercado Libre», «para vendedores de Mercado Libre» | «partner», «oficial», «certificado», «aliado», «powered by» de Mercado Libre |
 | «conectá tu cuenta a Claude» | MCP, API, endpoint, orquestación, AI-first (en público) |
@@ -143,8 +146,9 @@ porque no lo nombra.
 
 ## 9.9 A revalidar
 
-- La metáfora de «empleado» y «sueldo» de la primera versión. «El primer empleado de IA» está
-  rechazado; el ancla de precio contra un sueldo se revisa cuando se fije el precio por uso.
+- El ancla de precio contra un sueldo: se revisa cuando se fije el precio por uso. La imagen del
+  empleado ya se usa (capítulo 01, 1.4); «el primer empleado de IA» sigue afuera, porque «el
+  primero» no se puede sostener.
 
 ---
 
@@ -191,3 +195,41 @@ sigue con datos de ejemplo.
   un post, una story, la portada de un carrusel. Puede faltar donde el tema ya está a la vista, como
   en un titular con una pieza propia o en el interior y el cierre de un carrusel. Si nombra a
   Mercado Libre, sigue el capítulo 12. La letra y la pill, en el capítulo 15 (15.6).
+
+---
+
+## 9.12 Un tono, dos públicos
+
+Es la misma personalidad; cambia a quién le duele y cómo se cuenta.
+
+- **Con el vendedor** (Instagram, TikTok, X): cómplice y directo. Segunda persona, voseo y alguna
+  expresión del rubro («¿hay stock?», «el finde»). Lo que se destaca: cuánto te queda de verdad
+  cada venta, las ventas que no se escapan, las horas libres. «Vendiste más este mes. ¿Ganaste
+  más?»
+- **Con la empresa y la agencia** (LinkedIn): ejecutivo y cercano. Habla de «tu equipo» y «tus
+  cuentas», de vos y sin modismos. Lo que se destaca: crecer en cuentas sin sumar gente al mismo
+  ritmo, la reputación de cada cuenta, el control del equipo y que cada respuesta tiene su porqué.
+  «Con diez cuentas, tu equipo llega. Con la número once, alguien se queda hasta tarde.»
+- **Con humor** (X y los reels): irónico y rápido, sobre situaciones que cualquier vendedor
+  reconoce, y sobre iris misma. Nunca del comprador como persona, de la competencia ni de política.
+  Si hay que explicar el chiste, no va. La temperatura de cada formato de redes, en el capítulo 15
+  (15.9).
+
+---
+
+## 9.13 Seis principios para cualquier red
+
+Valen para Instagram, LinkedIn, X, la web y los mensajes directos.
+
+1. **Primero el problema, después iris.** La primera línea nombra algo que el lector vive: una
+   venta perdida, un margen que se va, un reclamo un domingo. iris aparece en la segunda o la
+   tercera.
+2. **Un resultado por pieza.** Velocidad, margen, reputación, control o tiempo: si hay dos, son dos
+   piezas.
+3. **Mostrar, no prometer.** Un caso, una cifra, una captura o una pregunta real que se le puede
+   hacer a la cuenta. Con datos de ejemplo, la pieza dice «Datos de ejemplo.».
+4. **El control siempre a la vista.** Toda pieza que muestra a iris actuando dice, aunque sea en
+   una línea, que lo que toca plata espera tu OK.
+5. **Frases cortas.** Menos de 20 palabras por frase, de vos y sin jerga (9.2).
+6. **Un solo pedido al final.** Comentar, escribir o probar: uno por pieza, nunca los tres.
+

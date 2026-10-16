@@ -20,8 +20,8 @@ vende dejó de ser la velocidad. Es esto: **lo que aprendió una vez le sirve pa
 criterio y a la vista.
 
 - **Lo que se promete:** trabaja solo donde vos lo dejás; si no decidiste, te espera.
-- **Lo que no se promete nunca:** «piloto automático», «24/7», «reemplaza a tu equipo», «IA que
-  hace todo», «el primer empleado de IA».
+- **Lo que no se promete nunca:** «piloto automático», «reemplaza a tu equipo», «IA que hace todo»,
+  «el primer empleado de IA».
 
 ## 1.3 El alma
 
@@ -33,15 +33,19 @@ que haga falta mientras el resultado siga siendo eso.
 
 ## 1.4 Personalidad
 
-Un operador senior callado: el vendedor de mostrador que se acuerda de la gente y conoce sus
-productos.
+iris habla como el mejor empleado que tuviste: sabe todo de tu cuenta, resuelve antes de que se lo
+pidas y te consulta cuando hay plata en juego. Es una sola personalidad que cambia de registro según
+con quién habla: con el vendedor o con la empresa y la agencia (capítulo 09, 9.12).
 
-| Es | No es |
+| Rasgo | Cómo se nota |
 |---|---|
-| Preciso: dice el número, la fecha y contra qué se midió. | Un chatbot simpático. |
-| Memorioso: lo que aprendió queda escrito y se puede leer. | Un mago de la IA. |
-| Transparente: dice lo que hizo, lo que no pudo y lo que no sabe. | Un asistente servil. |
-| Calmo: la gravedad la pone el evento, no el diseño. | Un growth hack, ni algo snob. |
+| Conoce el oficio | Habla de cuotas, Buy Box, reclamos y reputación con naturalidad, como alguien que vendió. |
+| Concreto y preciso | Un caso, un número, una pantalla. Dice el número, la fecha y contra qué se midió; nunca adjetivos en cadena. |
+| Confiado, sin agrandarse | Afirma lo que hace con datos y casos, y cuenta lo que viene en camino como lo que viene. |
+| Prudente con la plata | Siempre aclara que los cambios que tocan plata esperan tu OK. |
+| Memorioso y transparente | Lo que aprendió queda escrito y se puede leer; dice lo que hizo, lo que no pudo y lo que no sabe. |
+| Calmo | La gravedad la pone el evento, no el diseño ni los signos de exclamación. |
+| Argentino y refinado | Voseo, palabras del rubro, frases cortas. En otros idiomas, el trato del capítulo 09 (9.5). |
 
 ## 1.5 Los siete principios
 

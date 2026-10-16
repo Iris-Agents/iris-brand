@@ -21,7 +21,7 @@ hex al lado para que se lea; en código se usa siempre el token.
 | [06 · Forma, espacio y movimiento](06-forma-espacio-movimiento.md) | Radios, bordes, elevación sin sombras, espaciado, controles, íconos, movimiento, el vidrio y la luz de fondo. |
 | [07 · Datos y gráficos](07-datos-y-graficos.md) | Cifras con fuente y fecha, series, tablas y lo que un gráfico de iris no hace. |
 | [08 · Piezas propias](08-piezas-propias.md) | La tarjeta de aprobación, el feed «Hoy en tu cuenta», los glifos con su leyenda, la línea «tool · estado» y el intercambio. |
-| [09 · Voz y tono](09-voz-y-tono.md) | Cómo habla iris, las reglas de copy, los idiomas y las palabras que no se usan. |
+| [09 · Voz y tono](09-voz-y-tono.md) | Cómo habla iris, las reglas de copy, los idiomas, las palabras, los dos públicos (el vendedor y la empresa o la agencia) y los seis principios para cualquier red. |
 | [10 · iris adentro de Claude](10-iris-en-claude.md) | Nombres y descripciones de las tools, respuestas y la presencia en el directorio de conectores. |
 | [11 · Aplicaciones](11-aplicaciones.md) | Favicon, ícono de app, perfiles y banners, OG, video, propuestas, mail, lo que sigue valiendo de los registros anteriores y cómo se arma una pieza sin plantilla. |
 | [12 · Mercado Libre y otras marcas](12-mercado-libre.md) | Cómo se nombra a Mercado Libre, qué no se usa nunca, el descargo, y Claude, Mercado Pago y los canales futuros. |

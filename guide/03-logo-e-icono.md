@@ -132,7 +132,7 @@ sobre el blanco de día. Nunca sobre la luz sin un vidrio encima.
 - Rotar, inclinar más, estirar, comprimir o cambiar las proporciones. Separar el punto de la i.
 - Esquinas redondeadas horneadas en el archivo del ícono, o esquinas con transparencia.
 - Juegos con el ojo o con el iris del ojo: pupilas, círculos concéntricos, la i o la palabra como un
-  ojo, «iris ve todo».
+  ojo. La frase «iris ve todo» se puede usar como texto; lo que no va es dibujar el ojo.
 
 **Tipografía**
 - Playfair, la DM Serif Display recta, Plex o cualquier otra fuente; una itálica o un bold falsos.
@@ -147,7 +147,7 @@ sobre el blanco de día. Nunca sobre la luz sin un vidrio encima.
 - La marca de otro (Mercado Libre, Claude) más grande que la de iris, pegada a ella o armando un
   co-branding.
 - «Partner», «oficial», «certificado», «aliado» o «powered by» junto al logo.
-- Un claim rechazado al lado: «el primer empleado de IA», «piloto automático», «24/7», «bot» o un
+- Un claim rechazado al lado: «el primer empleado de IA», «piloto automático», «bot» o un
   superlativo.
 
 ## 3.10 Archivos
