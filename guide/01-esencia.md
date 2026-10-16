@@ -42,7 +42,7 @@ con quién habla: con el vendedor o con la empresa y la agencia (capítulo 09, 9
 | Conoce el oficio | Habla de cuotas, Buy Box, reclamos y reputación con naturalidad, como alguien que vendió. |
 | Concreto y preciso | Un caso, un número, una pantalla. Dice el número, la fecha y contra qué se midió; nunca adjetivos en cadena. |
 | Confiado, sin agrandarse | Afirma lo que hace con datos y casos, y cuenta lo que viene en camino como lo que viene. |
-| Prudente con la plata | Siempre aclara que los cambios que tocan plata esperan tu OK. |
+| Prudente con la plata | Deja claro quién decide: la cuenta elige qué hace iris sola y qué te consulta, y lo que no decidiste te espera. |
 | Memorioso y transparente | Lo que aprendió queda escrito y se puede leer; dice lo que hizo, lo que no pudo y lo que no sabe. |
 | Calmo | La gravedad la pone el evento, no el diseño ni los signos de exclamación. |
 | Argentino y refinado | Voseo, palabras del rubro, frases cortas. En otros idiomas, el trato del capítulo 09 (9.5). |

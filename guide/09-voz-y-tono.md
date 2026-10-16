@@ -228,8 +228,9 @@ Valen para Instagram, LinkedIn, X, la web y los mensajes directos.
    piezas.
 3. **Mostrar, no prometer.** Un caso, una cifra, una captura o una pregunta real que se le puede
    hacer a la cuenta. Con datos de ejemplo, la pieza dice «Datos de ejemplo.».
-4. **El control siempre a la vista.** Toda pieza que muestra a iris actuando dice, aunque sea en
-   una línea, que lo que toca plata espera tu OK.
+4. **El control siempre a la vista.** Toda pieza que muestra a iris actuando deja claro, aunque sea
+   en una línea, que vos elegís qué hace sola y qué te consulta: todo es configurable, también lo
+   que toca plata. Nunca «siempre espera tu OK»: depende de cómo la configuró cada cuenta.
 5. **Frases cortas.** Menos de 20 palabras por frase, de vos y sin jerga (9.2).
 6. **Un solo pedido al final.** Comentar, escribir o probar: uno por pieza, nunca los tres.
 
