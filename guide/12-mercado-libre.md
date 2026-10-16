@@ -17,9 +17,8 @@ decir un hecho, nunca su identidad.
   dato chico (en `text.tertiary` y Plex 400), en el «Acerca de», en la bio o, en una pieza orgánica
   de redes, arriba.
 - **Arriba, en una pieza orgánica de redes.** «Para vendedores de Mercado Libre» puede ir como la
-  línea de contexto, el eyebrow de arriba de todo: Plex Sans 500, mayúsculas por CSS, +0,08em y
-  `text.primary` (capítulo 05, 5.5; capítulo 09, 9.11). Si hay una cuenta regresiva, va a la
-  derecha («Faltan 3 semanas»). Con estos límites:
+  línea de contexto, en texto: qué dice, en el capítulo 09 (9.11), y cómo se ve, en el 15 (15.6).
+  Con estos límites:
   - nunca en el titular;
   - nunca con su logo, su amarillo ni su azul (12.2);
   - nunca en pauta: un aviso pago no lo nombra (12.2);

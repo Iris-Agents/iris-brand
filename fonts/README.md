@@ -1,7 +1,8 @@
 # Fuentes
 
 Las tres familias de iris, autoalojadas en WOFF2, en los subconjuntos latin y latin-ext. Las
-declara `css/fonts.css`; ninguna app las baja de un CDN.
+declara `css/fonts.css`; ninguna app las baja de un CDN. IBM Plex Sans 600 y 700 van sólo en redes
+y en la landing (titulares y cifras, capítulo 15); la app usa 400 y 500.
 
 | Archivo | Familia | Estilo | Peso | Subconjunto | Bytes | SHA-256 |
 |---|---|---|---|---|---|---|
@@ -11,6 +12,10 @@ declara `css/fonts.css`; ninguna app las baja de un CDN.
 | `ibm-plex-sans-latin-ext-400-normal.woff2` | IBM Plex Sans | normal | 400 | latin-ext | 15980 | `c93d2a12aaa280f68b9ab7b726ff8dfedda67c99ef9abed047c1847a1cc6d583` |
 | `ibm-plex-sans-latin-500-normal.woff2` | IBM Plex Sans | normal | 500 | latin | 24184 | `0717336fb31fcdcde4b8deb3675bb4a0f7f6d484864afcd6751ac29975962203` |
 | `ibm-plex-sans-latin-ext-500-normal.woff2` | IBM Plex Sans | normal | 500 | latin-ext | 16456 | `2846035d85100f84c79393f80f1442d4ee720129ab8b3ffa8969aae281db8c6c` |
+| `ibm-plex-sans-latin-600-normal.woff2` | IBM Plex Sans | normal | 600 | latin | 24252 | `8960851d691c054ed38e259bdcf1a6190d157b4203ed5bb32c632a863fb8ec2f` |
+| `ibm-plex-sans-latin-ext-600-normal.woff2` | IBM Plex Sans | normal | 600 | latin-ext | 16448 | `b25dfd4f979e442ae1e25cd0894463434cf01ba21ac1a35d39f4a82bd4cc060e` |
+| `ibm-plex-sans-latin-700-normal.woff2` | IBM Plex Sans | normal | 700 | latin | 22832 | `42e7b0c143c19df9d99fd896e76b48f846edf0902d200bc29796b34d12c33aa7` |
+| `ibm-plex-sans-latin-ext-700-normal.woff2` | IBM Plex Sans | normal | 700 | latin-ext | 16188 | `92f0392bd74fa3955bfa92f6ec747e7246d3567b6f46b32ddbaf271104836ab8` |
 | `ibm-plex-mono-latin-400-normal.woff2` | IBM Plex Mono | normal | 400 | latin | 14708 | `08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7` |
 | `ibm-plex-mono-latin-ext-400-normal.woff2` | IBM Plex Mono | normal | 400 | latin-ext | 13348 | `6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb` |
 
@@ -31,9 +36,13 @@ Por qué Fontsource y no los archivos de `fonts.gstatic.com` (comparados con fon
 
 - Google sirve a cada navegador un archivo distinto, y al de Mac le saca el hinting. Los de
   Fontsource lo conservan (ttfautohint), y Windows lo usa.
-- Google sirve IBM Plex Sans como fuente variable (peso 100 a 700 y ancho). Acá van los dos cortes
-  estáticos, 400 y 500: un tercer peso no se puede dibujar. Un `font-weight: 600` cae en el 500 y,
-  con `font-synthesis: none`, no se inventa una negrita.
+- Google sirve IBM Plex Sans como fuente variable (peso 100 a 700 y ancho). Acá van cortes
+  estáticos: 400 y 500 para todo, y 600 y 700 para redes y la landing. Un peso que no está (300,
+  800) cae en el más cercano y, con `font-synthesis: none`, no se inventa una negrita.
+
+Los 600 y 700 se sumaron el 2026-10-16, del mismo tarball (`@fontsource/ibm-plex-sans` 5.3.0, el
+mismo shasum): los 400 y 500 que ya estaban dan la misma suma que los del tarball, y los cuatro
+nuevos cubren los mismos caracteres (232 en latin, 208 en latin-ext).
 
 Verificado con fontTools en cada archivo: nombre de familia (ID 1 y 16), subfamilia (ID 2 y 17),
 `usWeightClass`, los bits de itálica de `OS/2` y `head`, `italicAngle` (−12 en la firma, 0 en el
@@ -61,6 +70,9 @@ ajustada para que ocupe el mismo lugar. Así el cambio no corre nada.
 | DM Serif Display Italic Fallback | Georgia Italic | 95.76 % | 108.19 % | 34.98 % | 0 % |
 | IBM Plex Sans Fallback (400) | Arial | 100.04 % | 102.46 % | 27.49 % | 0 % |
 | IBM Plex Sans Fallback (500) | Arial | 102.06 % | 100.43 % | 26.95 % | 0 % |
+
+Para 600 y 700 no hay fallback ajustado todavía: mientras la fuente no llegó, el navegador usa el
+de 500. Las piezas no lo necesitan (se renderizan con la fuente cargada); la landing, sí.
 
 Cómo se calcularon, con fontTools contra Georgia Italic 5.00x-4 y Arial 5.01.2x de macOS:
 

@@ -7,7 +7,7 @@ frena el test no se puede romper, y lo demás se revisa antes de entregar una pi
 
 ## 13.1 Contraste
 
-Lo frena el test: ninguno de los 169 pares baja de su mínimo sobre ninguno de los fondos de su
+Lo frena el test: ninguno de los 179 pares baja de su mínimo sobre ninguno de los fondos de su
 modo (canvas, surface, raised, hover y selected en oscuro; canvas, hover y selected en claro).
 
 Cada par, con su mínimo y su valor sobre el canvas y sobre el peor fondo de cada modo, está en el
@@ -30,8 +30,10 @@ capítulo 04 (4.4).
       `forced-colors`.
 - [ ] No se baja la opacidad de un texto que dice algo. La opacidad de 0,4 es para un control
       deshabilitado entero, que WCAG exime.
-- [ ] En el vidrio, el contraste lo garantiza el tinte, no el desenfoque: pasa con blanco puro
-      detrás aunque el blur no se pinte. En la barra flotante no van texto gris ni glifos de estado.
+- [ ] En el vidrio de la app, el contraste lo garantiza el tinte, no el desenfoque: pasa con blanco
+      puro detrás aunque el blur no se pinte. En la barra flotante no van texto gris ni glifos de
+      estado. El vidrio de las piezas de redes es más transparente: sobre una foto clara, sólo el
+      texto principal y la pill de «Espera tu OK» (capítulo 15, 15.4).
 
 ## 13.2 El estado no depende del color
 
@@ -96,8 +98,9 @@ capítulo 04 (4.4).
 - [ ] El video tiene poster, `preload="none"`, y su conversación también está en HTML. Si tiene voz,
       lleva subtítulos.
 - [ ] Una censura con chip dice «oculto» en texto, que también se lee con un lector de pantalla.
-- [ ] En una pieza con foto, el texto que cae sobre la foto pasa 4,5:1 contra lo que tiene
-      detrás, medido en la PNG; si la foto es generada con IA, la pieza lo dice.
+- [ ] En una pieza con foto, el texto que cae sobre la foto se lee contra lo más claro que tiene
+      detrás, mirado en la PNG a tamaño de teléfono (capítulo 15, 15.4); si la foto es generada con
+      IA, la pieza lo dice.
 
 ---
 
@@ -107,5 +110,5 @@ capítulo 04 (4.4).
   build (capítulo 14, 14.4).
 - **Una pantalla o una página:** recorrerla con el teclado, mirarla en los dos modos, con
   `prefers-reduced-motion` y con zoom al 200 %.
-- **Una pieza de redes:** renderizarla, medirla y repasar la lista de control de
+- **Una pieza de redes:** renderizarla, mirarla y repasar la lista de control de
   `pieces/redes/plantillas.md` (secciones 6 y 7).

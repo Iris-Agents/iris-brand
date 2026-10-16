@@ -58,16 +58,16 @@ describe("el color de la marca", () => {
 		assert.deepEqual([...tokensCSS.matchAll(/--[\w-]*petrol[\w-]*/g)].map(([name]) => name), []);
 		for (const [blockName, block] of Object.entries(blocks)) {
 			const declared = [...declarationsOf(block)];
-			assert.deepEqual(declared.filter(([name]) => name.includes("marketing")).map(([name]) => name), ["--iris-color-signature-marketing-block", "--iris-color-signature-marketing-text"], blockName);
+			assert.deepEqual(declared.filter(([name]) => name.includes("signature-marketing")).map(([name]) => name), ["--iris-color-signature-marketing-block", "--iris-color-signature-marketing-text"], blockName);
 			assert.deepEqual(declared.filter(([, value]) => value.toLowerCase() === petrol).map(([name]) => name), ["--iris-color-signature-marketing-block"], blockName);
 		}
 	});
-	// Los tonos de color.tint salen sólo en la luz de fondo y en la frase.
-	test("los tonos de la marca salen sólo en --iris-color-backlight-* y --iris-color-signature-phrase", () => {
+	// Los tonos de color.tint salen sólo en la luz de fondo, en la frase y en lo que importa de un gráfico.
+	test("los tonos de la marca salen sólo en --iris-color-backlight-*, --iris-color-signature-phrase y --iris-color-data-highlight", () => {
 		const tints = new Set([...foundation].filter(([id]) => id.startsWith("color.tint.")).map(([, token]) => hexOf(token.value)));
 		for (const [blockName, block] of Object.entries(blocks)) {
 			const users = [...declarationsOf(block)].filter(([, value]) => tints.has(value.toLowerCase())).map(([name]) => name);
-			assert.deepEqual(users.sort(), ["--iris-color-backlight-attention", "--iris-color-backlight-iris", "--iris-color-signature-phrase"], blockName);
+			assert.deepEqual(users.sort(), ["--iris-color-backlight-attention", "--iris-color-backlight-iris", "--iris-color-data-highlight", "--iris-color-signature-phrase"], blockName);
 		}
 	});
 	// Lo que quedó afuera (el cartón y los colores de pieza) no vuelve como token: ni un id, ni una
@@ -126,10 +126,14 @@ describe("css/tailwind.css", () => {
 		const colors = namesIn("color");
 		assert.deepEqual(namesIn("text").filter((name) => colors.includes(name)), []);
 	});
-	test("están todos los semánticos de color salvo el vidrio, que va por glass.css", () => {
+	test("están todos los semánticos de color salvo el vidrio y la luz, que van por glass.css", () => {
 		const mapped = new Set([...theme.values()]);
-		const missing = [...semantics.dark.keys()].filter((id) => !id.startsWith("color.glass.")).filter((id) => !mapped.has(`var(${cssName(id)})`));
+		const missing = [...semantics.dark.keys()].filter((id) => !id.startsWith("color.glass.") && !id.startsWith("color.backlight.")).filter((id) => !mapped.has(`var(${cssName(id)})`));
 		assert.deepEqual(missing, []);
+	});
+	// Con bg-backlight-* la luz sería un fondo plano, y nunca lo es.
+	test("ni el vidrio ni la luz tienen utilidad de color", () => {
+		assert.deepEqual([...theme].filter(([, value]) => /--iris-color-(glass|backlight)-/.test(value)).map(([name]) => name), []);
 	});
 });
 
@@ -149,6 +153,20 @@ describe("css/fonts.css", () => {
 		const files = [...source.matchAll(/url\("\.\.\/(fonts\/[^"]+)"\)/g)].map(([, path]) => path);
 		assert.ok(files.length > 0);
 		assert.deepEqual(files.filter((path) => !existsSync(new URL(path, repoUrl))), []);
+	});
+	// Cada archivo de fonts/ entra con el peso y el estilo que dice su nombre (Fontsource los nombra
+	// <familia>-<subconjunto>-<peso>-<estilo>.woff2).
+	test("cada woff2 de fonts/ está declarado con el peso y el estilo de su nombre", () => {
+		const faces = [...source.matchAll(/@font-face\s*\{([^}]*)\}/g)].map(([, body]) => body);
+		const declaredAs = (file) => faces.find((body) => body.includes(`url("../fonts/${file}")`));
+		const woff2 = readdirSync(new URL("fonts/", repoUrl)).filter((name) => name.endsWith(".woff2"));
+		assert.ok(woff2.length > 0);
+		const wrong = woff2.filter((file) => {
+			const [, weight, style] = file.match(/-(\d{3})-(normal|italic)\.woff2$/) ?? [];
+			const body = declaredAs(file);
+			return !body || !body.includes(`font-weight: ${weight};`) || !body.includes(`font-style: ${style};`);
+		});
+		assert.deepEqual(wrong, []);
 	});
 });
 
@@ -183,4 +201,29 @@ describe("css/glass.css", () => {
 	test("no escribe ningún color propio (sólo los del sistema en forced-colors)", () => {
 		assert.deepEqual([...source.matchAll(/#[0-9a-f]{3,8}\b|rgba?\(|hsla?\(|oklch\(/gi)].map(([match]) => match), []);
 	});
+	// Con transparencia reducida, contraste alto o colores forzados, la luz se apaga y todo vidrio
+	// vuelve a ser una superficie lisa.
+	const mediaBlock = (query) => {
+		const start = source.indexOf(`@media ${query} {`);
+		assert.notEqual(start, -1, `falta @media ${query}`);
+		let depth = 0;
+		for (let index = source.indexOf("{", start); index < source.length; index++) {
+			if (source[index] === "{") depth++;
+			if (source[index] === "}" && --depth === 0) return source.slice(start, index + 1);
+		}
+		assert.fail(`@media ${query} no cierra`);
+	};
+	const rulesIn = (block) =>
+		[...block.slice(block.indexOf("{") + 1).matchAll(/([^{}]+)\{([^}]*)\}/g)].map(([, selectors, body]) => ({ selectors: selectors.split(",").map((selector) => selector.trim()), body }));
+	const glassClasses = [...new Set([...source.matchAll(/\.(glass-(?!backlight)[\w-]+)/g)].map(([, name]) => name))];
+	for (const query of ["(prefers-reduced-transparency: reduce), (prefers-contrast: more)", "(forced-colors: active)"]) {
+		test(`@media ${query}: apaga .glass-backlight y saca el blur de todo vidrio`, () => {
+			const rules = rulesIn(mediaBlock(query));
+			const hides = (selector) => rules.some((rule) => rule.selectors.includes(selector) && /display:\s*none/.test(rule.body));
+			assert.ok(hides(".glass-backlight"), ".glass-backlight sigue prendida");
+			assert.ok(glassClasses.length >= 3, `${glassClasses}`);
+			const flattens = (name) => rules.some((rule) => rule.selectors.includes(`.${name}`) && /(^|[\s;])backdrop-filter:\s*none/.test(rule.body) && /box-shadow:\s*none/.test(rule.body));
+			assert.deepEqual(glassClasses.filter((name) => !flattens(name)), []);
+		});
+	}
 });

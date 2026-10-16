@@ -136,7 +136,8 @@ porque no lo nombra.
   cargo de tu e-commerce.»
 - La segunda línea es la que remarca: por eso va en color y no en gris.
 - La segunda línea no lleva números y termina en punto.
-- Un titular de una sola línea va entero en la sans: la firma no se agrega para decorar.
+- Un titular de una sola línea va entero en la sans: la firma no se agrega para decorar. Y la frase
+  nunca va sola, sin su primera línea (capítulo 05, 5.3).
 
 ---
 
@@ -171,20 +172,22 @@ sigue con datos de ejemplo.
 
 ## 9.11 La conversación en redes
 
-- **Sin burbuja.** En la app el agente escribe sobre el papel y la persona va en burbuja (capítulo
-  01). En redes no hay burbuja, porque en una pieza se lee como la captura de la interfaz de otro:
-  lo que escribe la persona termina en un cursor y lo que contesta iris empieza con la línea «tool ·
-  estado». Sin avatar, sin columnas por turno, sin caja de input y sin los tres puntitos de
-  «escribiendo». La pieza es el intercambio (capítulo 08, 8.9).
-- **La pregunta se escribe como la tipea el dueño:** en sus palabras, de vos y con minúscula
-  inicial. «si bajo 15 % la mochila, ¿cuánto me queda?». No es un titular: no lleva la firma.
+- **Quién dijo qué.** En una pieza, lo que escribe la persona va en la casilla, si está por
+  enviarse, o en la burbuja, si ya se envió; lo que contesta iris va sin globo y empieza con la línea
+  «tool · estado». Sin avatar, sin columnas por turno y sin los tres puntitos de «escribiendo».
+  Cómo se dibuja cada uno, en el capítulo 15 (15.7); la pieza entera es el intercambio (capítulo
+  08, 8.9).
+- **El mensaje se escribe bien,** aunque sea lo que tipea el dueño: en sus palabras y de vos, con
+  mayúscula al empezar y, si es una pregunta, con los dos signos. «¿Qué se queda sin stock este
+  finde?», nunca «qué se queda sin stock este finde». Un pedido lleva su punto: «Bajame el precio de
+  la cafetera a 21.900.». Vale también para las preguntas de los titulares, las pills y los textos
+  de cada red. No es un titular: no lleva la firma.
 - **La respuesta es una cifra con su unidad**, con la voz de siempre: «6.100 por venta.». El OK es
   una pregunta corta con su palabra: «¿La bajo? Espera tu OK.».
 - **La línea de contexto**, la de arriba de todo en una pieza de redes, dice el tema, la campaña o
-  la fecha en una a tres palabras y sin punto («Precios», «Aprobaciones»), o para quién es («Para
-  vendedores de Mercado Libre»). A la derecha, si hay una fecha real, va cuándo («Faltan 2
-  semanas»). Va en `text.primary` y no en `text.tertiary`, porque se tiene que leer en el primer
-  segundo, y conserva el resto del eyebrow (la sans 500, las mayúsculas por CSS, nunca «iris»).
-  La lleva la lámina que abre: un post, una story, la portada de un carrusel. Puede faltar donde
-  el tema ya está a la vista, como en un titular con una pieza propia o en el interior y el cierre
-  de un carrusel. Si nombra a Mercado Libre, sigue el capítulo 12.
+  la fecha en una a tres palabras y sin punto («Precios», «Aprobaciones», «Domingo, 22 hs»), o para
+  quién es («Para vendedores de Mercado Libre»). A la derecha, si hay una fecha real, va cuándo
+  («Faltan 2 semanas»). Nunca lleva «iris», porque sale en mayúsculas. La lleva la lámina que abre:
+  un post, una story, la portada de un carrusel. Puede faltar donde el tema ya está a la vista, como
+  en un titular con una pieza propia o en el interior y el cierre de un carrusel. Si nombra a
+  Mercado Libre, sigue el capítulo 12. La letra y la pill, en el capítulo 15 (15.6).

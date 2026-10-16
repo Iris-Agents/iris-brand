@@ -80,10 +80,13 @@ test("las familias de brand.css son las de los tokens", () => {
 	}
 });
 
-// pieces/redes/_base/vidrio.css (redes v2, capítulo 15) también copia colores de la marca: el negro y el
+// pieces/redes/_base/vidrio.css (redes v2, capítulo 15) también usa colores de la marca: el negro y el
 // blanco, los estados, las luces y la frase. Cada variante lee los de su modo: n1a y n1b son el
-// oscuro; n2a y n2b, el claro. Lo propio de redes (el fondo de día, el vidrio, la pill del OK) no
-// tiene token y no está en este mapa.
+// oscuro; n2a y n2b, el claro. Cada valor puede ser el hex del token o su var(--iris-…). El texto de
+// la pieza pasa a text.primary (revisión de la v2, 3.8); el blanco y el negro de marca se aceptan
+// mientras vidrio.css no lo cambie, y esa salvedad se borra cuando cambie. El
+// material del vidrio (color.glass.marketing.*, glass.marketing.*) sale de css/glass.css y de
+// dist/tokens.css; la prueba de abajo frena una var(--iris-…) que no exista.
 const vidrioRules = new Map(
 	[...readText("pieces/redes/_base/vidrio.css").replaceAll(/\/\*[\s\S]*?\*\//g, "").matchAll(/([^{}]+)\{([^}]*)\}/g)].map(([, selectors, body]) => [
 		selectors.split(";").at(-1).trim().replaceAll(/\s+/g, " "),
@@ -91,8 +94,8 @@ const vidrioRules = new Map(
 	]),
 );
 const vidrioTokens = {
-	".vp.n1a, .vp.n1b": { mode: "dark", tokens: { "--vp-bg": "color.brand.black", "--vp-fg": "color.brand.white", "--vp-toca": "color.status.attention", "--vp-trabajando": "color.status.working", "--vp-esperando": "color.status.idle", "--vp-listo": "color.status.done", "--vp-fallo": "color.status.failed" } },
-	".vp.n2a, .vp.n2b": { mode: "light", tokens: { "--vp-fg": "color.brand.black", "--vp-toca": "color.status.attention", "--vp-trabajando": "color.status.working", "--vp-esperando": "color.status.idle", "--vp-listo": "color.status.done", "--vp-fallo": "color.status.failed" } },
+	".vp.n1a, .vp.n1b": { mode: "dark", tokens: { "--vp-bg": "color.glass.marketing.canvas", "--vp-fg": ["color.text.primary", "color.brand.white"], "--vp-toca": "color.status.attention", "--vp-trabajando": "color.status.working", "--vp-esperando": "color.status.idle", "--vp-listo": "color.status.done", "--vp-fallo": "color.status.failed" } },
+	".vp.n2a, .vp.n2b": { mode: "light", tokens: { "--vp-bg": "color.glass.marketing.canvas", "--vp-fg": ["color.text.primary", "color.brand.black"], "--vp-toca": "color.status.attention", "--vp-trabajando": "color.status.working", "--vp-esperando": "color.status.idle", "--vp-listo": "color.status.done", "--vp-fallo": "color.status.failed" } },
 	".vp.n1a": { mode: "dark", tokens: { "--vp-luz": "color.backlight.iris", "--vp-frase": "color.signature.phrase" } },
 	".vp.n1b": { mode: "dark", tokens: { "--vp-luz": "color.backlight.attention" } },
 	".vp.n2a": { mode: "light", tokens: { "--vp-luz": "color.backlight.iris", "--vp-frase": "color.signature.phrase" } },
@@ -106,10 +109,19 @@ test("los colores de la marca en vidrio.css son los de los tokens, cada variante
 	for (const [selector, { mode, tokens }] of Object.entries(vidrioTokens)) {
 		const declared = vidrioRules.get(selector);
 		assert.ok(declared, `vidrio.css no tiene la regla ${selector}`);
-		for (const [name, id] of Object.entries(tokens)) {
-			const expected = hexOf(resolved[mode].get(id).value);
-			if (declared.get(name) !== expected) differing.push(`${selector} ${name}: ${declared.get(name)}, ${id} (${mode}) da ${expected}`);
+		for (const [name, ids] of Object.entries(tokens)) {
+			const accepted = [ids].flat().flatMap((id) => [hexOf(resolved[mode].get(id).value), `var(--iris-${id.replaceAll(".", "-")})`]);
+			if (!accepted.includes(declared.get(name))) differing.push(`${selector} ${name}: ${declared.get(name)}, ${[ids].flat().join(" o ")} (${mode}) da ${accepted.join(" o ")}`);
 		}
 	}
 	assert.deepEqual(differing, []);
+});
+
+// Una pieza que lee los tokens (dist/tokens.css y css/glass.css) sólo puede nombrar variables que existen:
+// una var(--iris-…) mal escrita no rompe el render, deja la pieza sin color.
+test("cada var(--iris-…) de pieces/ existe en dist/tokens.css", () => {
+	const declared = new Set([...readText("dist/tokens.css").matchAll(/^\s*(--iris-[\w-]+):/gm)].map(([, name]) => name));
+	const files = readdirSync(new URL("pieces/", repoUrl), { recursive: true }).filter((name) => /\.(html|css)$/.test(name));
+	const unknown = files.flatMap((name) => [...readText(`pieces/${name}`).matchAll(/var\((--iris-[\w-]+)/g)].filter(([, variable]) => !declared.has(variable)).map(([, variable]) => `pieces/${name}: ${variable}`));
+	assert.deepEqual(unknown, []);
 });

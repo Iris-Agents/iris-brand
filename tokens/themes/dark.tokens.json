@@ -47,6 +47,7 @@
     },
     "data": {
       "series": {"$type": "color", "$value": "{color.neutral-dark.11}", "$description": "La serie protagonista de un gráfico: trazo sólido de 1,5px."},
+      "highlight": {"$type": "color", "$value": "{color.tint.petrol-mist}", "$description": "Lo que importa en un gráfico: la barra, el punto o el tramo que la pieza señala, en el petróleo de la frase. Uno por gráfico; el resto va en data.series. >= 3:1 en los cinco fondos."},
       "comparison": {"$type": "color", "$value": "{color.neutral-dark.9}", "$description": "La serie de referencia (período anterior, precio ganador): trazo punteado. Más de dos series: gráficos chicos repetidos, nunca más grises."},
       "grid": {"$type": "color", "$value": "{color.neutral-dark.6}", "$description": "Grilla y ejes (decorativo). Las etiquetas de eje van en text.tertiary."}
     },
@@ -57,10 +58,21 @@
       "bar": {"$type": "color", "$value": "{color.alpha.neutral-dark-2-80}", "$description": "Tinte de la barra que flota (la nav de la landing). Lleva sólo text.primary, text.secondary, el CTA sólido y el foco; ni texto gris ni glifos de estado. En oscuro es bg.surface al 80 %."},
       "panel": {"$type": "color", "$value": "{color.alpha.neutral-dark-3-94}", "$description": "Tinte del panel que flota (⌘K sin cortina, popover, la aprobación que flota): bg.raised al 94 %. Todo lo que pasa sobre los fondos pasa acá, aun con el peor fondo detrás."},
       "rim": {"$type": "color", "$value": "{color.alpha.white-14}", "$description": "Borde de 1px del vidrio. En oscuro, blanco al 14 %."},
-      "specular": {"$type": "color", "$value": "{color.alpha.white-10}", "$description": "Línea de luz de 1px, inset, en el borde de arriba. Es luz, no sombra."}
+      "specular": {"$type": "color", "$value": "{color.alpha.white-10}", "$description": "Línea de luz de 1px, inset, en el borde de arriba. Es luz, no sombra."},
+      "marketing": {
+        "canvas": {"$type": "color", "$value": "{color.neutral-dark.1}", "$description": "El piso de una pieza de redes o de la landing, debajo de la luz y el vidrio. En oscuro es el negro de marca, el mismo valor que bg.canvas."},
+        "tint": {"$type": "color", "$value": "{color.alpha.neutral-dark-2-42}", "$description": "El tinte del vidrio de redes y de la landing (.glass-marketing): bg.surface al 42 %, más transparente que el de la app para que la luz se vea a través. Con la luz detrás pasan text.primary, text.secondary, la frase, los glifos de estado, el CTA y los colores de los gráficos; text.tertiary y el texto rojo, sólo donde no hay luz detrás (test/glass.test.mjs). Sobre una foto no lo garantiza: capítulo 15."},
+        "fallback": {"$type": "color", "$value": "{color.alpha.neutral-dark-2-88}", "$description": "El vidrio de redes y de la landing donde no hay backdrop-filter: bg.surface al 88 %, que se lee igual."},
+        "rim": {"$type": "color", "$value": "{color.alpha.white-17}", "$description": "Borde de 1px del vidrio de redes y de la landing. En oscuro, blanco al 17 %."},
+        "specular": {"$type": "color", "$value": "{color.alpha.white-38}", "$description": "Línea de luz de 1px, inset, en el borde de arriba del vidrio de redes y de la landing. Es luz, no sombra: este vidrio no lleva sombra."},
+        "sheen-start": {"$type": "color", "$value": "{color.alpha.white-8}", "$description": "El brillo diagonal del vidrio de redes y de la landing, en la esquina de arriba a la izquierda: linear-gradient(140deg, sheen-start, transparent 36 %, transparent 72 %, sheen-end). Es bajo a propósito: un brillo fuerte fecha el vidrio."},
+        "sheen-end": {"$type": "color", "$value": "{color.alpha.white-3}", "$description": "El final del brillo diagonal, en la esquina de abajo a la derecha."},
+        "fill": {"$type": "color", "$value": "{color.alpha.white-6}", "$description": "El relleno de lo que va adentro del vidrio de redes y de la landing: las filas, las pills, la casilla y el botón secundario. En oscuro, blanco al 6 %."},
+        "divider": {"$type": "color", "$value": "{color.alpha.white-12}", "$description": "El separador de 1px entre filas, adentro del vidrio de redes y de la landing. En oscuro, blanco al 12 %."}
+      }
     },
     "backlight": {
-      "iris": {"$type": "color", "$value": "{color.tint.petrol-deep}", "$description": "La luz de lo que hace iris: un círculo desenfocado detrás del vidrio, una sola por pantalla o pieza. Decorativa: nada se lee sobre ella sin un vidrio de por medio, y nunca es un fondo plano."},
+      "iris": {"$type": "color", "$value": "{color.tint.petrol-deep}", "$description": "La luz de lo que hace iris: un degradé radial detrás del vidrio, radial-gradient(closest-side, el color, transparent), sin blur (.glass-backlight). Una sola por pantalla o pieza. Decorativa: nada se lee sobre ella sin un vidrio de por medio, y nunca es un fondo plano."},
       "attention": {"$type": "color", "$value": "{color.tint.amber-deep}", "$description": "La luz de lo que te toca: va sólo donde hay una decisión pendiente, con el ● de status.attention a la vista. Decorativa, como backlight.iris."},
       "neutral": {"$type": "color", "$value": "{color.neutral-dark.7}", "$description": "La luz en monocromo: con una foto, una persona, un gráfico o mucho contenido, el color lo pone la imagen. Es el valor de border.default."}
     }

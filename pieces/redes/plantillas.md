@@ -2,10 +2,12 @@
 
 Cómo están hechas las piezas de `pieces/redes/` y `pieces/linkedin/`: las dos hojas de estilo, las
 plantillas de ejemplo, cómo va el logo, cómo se renderiza una pieza y cómo se revisa. Lo que cumple
-toda pieza está en el manual (`guide/`): las de redes, en el capítulo 15, y una pieza sin plantilla,
-en el 11 (11.14). Las medidas de cada formato (el lienzo, el margen o la zona segura, lo que tapa o
-recorta cada red y el tamaño mínimo de la letra) están en `_base/formatos.json`. Cómo se escribe y
-se publica un post no está acá: es oficio de contenido y vive fuera de este repo.
+toda pieza está en el manual (`guide/`): las de redes, en el capítulo 15, que manda en lo que es de
+redes, y una pieza sin plantilla, en el 11 (11.14). Esta especificación no repite reglas: dice dónde
+está cada una y cómo la resuelven las hojas. La guía de medidas de cada formato (el lienzo, el
+margen o la zona segura, lo que tapa o recorta cada red y el tamaño mínimo de la letra) es
+`_base/formatos.json`. Cómo se escribe y se publica un post no está acá: es oficio de contenido y
+vive fuera de este repo.
 
 Hay dos hojas:
 - **`_base/vidrio.css`**, la de los posts, carruseles, stories y reels (redes v2, capítulo 15): las
@@ -31,9 +33,10 @@ Las reglas son las del capítulo 04 del manual: los roles (4.2), qué texto va e
 cinco estados (4.6), lo prohibido (4.8) y los dos colores de la marca, con la luz y la frase (4.9).
 
 - **En `vidrio.css`** cada variante (`.n1a`, `.n1b`, `.n2a`, `.n2b`) declara sus colores en
-  variables `--vp-*`, con el nombre de su token al lado: el negro y el blanco, los estados, la luz
-  (`backlight.*`) y la frase (`signature.phrase`). Lo propio de redes (el blanco de día, el vidrio,
-  la pill del OK) no tiene token. Las reglas, en el capítulo 15.
+  variables `--vp-*`, que salen de su token (el hex con el nombre del token al lado, o su
+  `var(--iris-…)`): el fondo y el texto, los estados, la luz (`backlight.*`) y la frase
+  (`signature.phrase`). El material del vidrio es `glass.marketing.*` (capítulo 06, 6.8). Qué es
+  propio de redes, en el capítulo 15 (15.10).
 - **En `brand.css`** cada color es una variable con el nombre de su token y guiones:
   `text.secondary` es `--text-secondary`. Una pieza usa siempre la variable, nunca el hex suelto.
 
@@ -62,10 +65,11 @@ color y las reglas de cada estado están en el capítulo 04 (4.6); el SVG de cad
 ### Las excepciones a «sin gradientes»
 
 Son las de 4.8, y las piezas las usan así:
-- **La luz** (`.luz`): en las piezas de vidrio, un círculo desenfocado que se mueve con `--lx`,
-  `--ly` y `--ls`; en la portada de Facebook y el banner de LinkedIn, el mismo círculo en
-  `--backlight-iris`, detrás del panel.
-- **El brillo del vidrio**: el `::before` del vidrio, un degradé blanco muy bajo en diagonal.
+- **La luz** (`.luz`): en las piezas de vidrio, un círculo de color que se apaga hacia afuera y se
+  mueve con `--lx`, `--ly` y `--ls` (capítulo 15, 15.3); en la portada de Facebook y el banner de
+  LinkedIn, el mismo círculo en `--backlight-iris`, detrás del panel.
+- **El brillo del vidrio**: el `::before` del vidrio, un degradé blanco muy bajo en diagonal, con los
+  valores del capítulo 15 (15.4).
 - **La foto se funde con el negro** donde lleva texto encima: el `::after` de `.foto` en
   `vidrio.css` la oscurece hacia abajo, sin otro color.
 
@@ -86,8 +90,8 @@ del capítulo 15 (15.6).
 
 En la portada de Facebook: `<span data-slot="titular-linea-1">` y
 `<span class="signature frase" data-slot="titular-linea-2">`. En vidrio: `.titular` y `.frase`. La
-segunda línea va en color y sin bloque (5.3). En LinkedIn va sin cursiva (capítulo 15, 15.8): la
-frase es Plex 500 en `--signature-phrase`.
+segunda línea va en color y sin bloque (5.3). En los posts de LinkedIn va sin cursiva (5.3): la
+frase es Plex 500 en `--signature-phrase`. El banner y la portada de LinkedIn la llevan en la firma.
 
 ### Tamaños mínimos
 
@@ -110,8 +114,8 @@ para las piezas de 1080 y otro para la portada de Facebook, que el celular muest
 
 ### La línea de contexto
 
-La letra está en 5.5, y qué dice y cuándo puede faltar, en 9.11. En vidrio es `.contexto`, una pill
-arriba de todo; las piezas fijas de la marca no la llevan.
+Cómo se ve, en el capítulo 15 (15.6), y qué dice y cuándo puede faltar, en el 09 (9.11). En vidrio
+es `.contexto`; las piezas fijas de la marca no la llevan.
 
 ### Descargas oficiales
 
@@ -139,7 +143,8 @@ Nunca se tipea ni se rearma (3.10): cada pieza lleva el SVG de `logo/` tal cual,
 
 | Qué va | Archivo | Dónde ya está |
 |---|---|---|
-| El lockup, sobre el negro | `logo/lockup.svg` | El pie de las piezas de vidrio (como `<img>`), el banner del perfil de LinkedIn y la portada de Facebook (en línea). |
+| El lockup, sobre el negro | `logo/lockup.svg` | El pie de las piezas de vidrio negras, el banner del perfil de LinkedIn y la portada de Facebook. |
+| El lockup, sobre el blanco de día | `logo/lockup-on-light.svg` | El pie de las piezas de vidrio blancas, como la story. |
 | La marca sola, sobre el negro | `logo/wordmark-white.svg` | La portada de la página de LinkedIn, donde el ícono ya se ve en el logo de la página. |
 | El ícono a sangre, para un recorte en círculo | `logo/icon-profile.svg` | La foto de perfil (`perfil/perfil.html`). |
 | El ícono a sangre, cuadrado | `logo/icon.svg` | El logo de la página de LinkedIn (`pieces/linkedin/logo-empresa.html`, como `<img>`). |
@@ -167,9 +172,8 @@ sola de 40 px de cuerpo.
 ## 4. Mercado Libre
 
 Las reglas están en el capítulo 12 del manual (12.1 y 12.2). En vidrio, «Para vendedores de Mercado
-Libre» va en la línea de contexto de un post orgánico (`.contexto`), y el logo oficial sólo donde lo
-permite la estrategia de contenido para lo orgánico. En la portada de Facebook y en las de LinkedIn
-no va: se nombra en el «Acerca de».
+Libre» va en la línea de contexto (`.contexto`), en texto, sin su logo ni sus colores (capítulo 12).
+En la portada de Facebook y en las de LinkedIn no va: se nombra en el «Acerca de».
 
 ---
 
@@ -181,9 +185,9 @@ límite: una pieza nueva se arma con la hoja y el capítulo 15, y vale lo mismo 
 
 | Archivo | Formato | Variante | Qué muestra |
 |---|---|---|---|
-| `vidrio-dato.html` | Feed 4:5, 1080 × 1350 | N1a, petróleo | La pregunta en la casilla, la tool, una cifra y dos filas. |
+| `vidrio-dato.html` | Feed 4:5, 1080 × 1350 | N1a, petróleo | Una pregunta, la tool, una cifra y dos filas. |
 | `vidrio-decision.html` | Feed 4:5, 1080 × 1350 | N1b, ámbar | Una propuesta que espera el OK, con la frase y los botones. |
-| `vidrio-story.html` | Story, 1080 × 1920 | N2b, blanco y ámbar | El mismo vidrio en 9:16, libre arriba y abajo. |
+| `vidrio-story.html` | Story, 1080 × 1920 | N2b, blanco y ámbar | El mismo vidrio en 9:16, libre arriba y abajo, con el OK. Es una story: una portada de reel se arma aparte, con la zona segura del reel. |
 
 La raíz de cada pieza lleva `data-formato` (el de `_base/formatos.json`) y las clases `.vp` y su
 variante; las clases del contenido y cuándo va cada forma del vidrio están en el capítulo 15.
@@ -240,82 +244,37 @@ cp "$PLANTILLAS/vidrio/vidrio-dato.html" posts/2026-10-12-preguntas.html
 
 ## 7. Cómo se revisa una PNG
 
-Antes de mirar, `pnpm medir <pieza.html> <formato>` dice en palabras lo que se puede medir desde
-la página: el texto fuera de la zona del formato, la letra bajo el mínimo, una fuente que no cargó,
-un color fuera de la paleta y el texto que desborda (`_base/medir/README.md`). En una
-pieza de vidrio avisa además por los colores y los pesos de redes v2: esos avisos son esperables. Después se miran las dos imágenes, la limpia y la de guías:
+Se miran las dos imágenes, la limpia y, si la pieza la tiene, la de guías, a tamaño real y a tamaño
+de teléfono:
 
 - Que ningún texto quede cortado ni pase de sus renglones.
-- Que nada importante cruce una línea magenta.
+- Que nada importante cruce una línea magenta, y que el texto quede dentro de la zona segura de su
+  formato (`_base/formatos.json`).
 - Que las fuentes sean las de la marca: si la frase no sale en serif itálica, cargó la de reserva.
   Un carácter que las Plex cargadas no traen sale con la del sistema aunque el resto cargue: por eso
-  la flecha va siempre en SVG (la clase `.flecha` de `brand.css`).
-
-Los píxeles se miden con Python, Pillow y numpy (`pip install pillow numpy`). La tinta tiene que
-caer dentro de la zona segura de su formato (`_base/formatos.json`), y la versión limpia tiene
-que dar `magenta 0`:
-
-```python
-import sys
-import numpy as np
-from PIL import Image
-
-imagen = np.asarray(Image.open(sys.argv[1]).convert('RGB')).astype(int)
-fondo = np.array([10, 10, 9])  # --bg-canvas (en una variante blanca, su fondo)
-tinta = np.abs(imagen - fondo).sum(axis=-1) > 48
-filas, columnas = np.where(tinta)
-rojo, verde, azul = imagen[..., 0], imagen[..., 1], imagen[..., 2]
-magenta = ((rojo > 200) & (verde < 90) & (azul > 110) & (azul < 190)).sum()
-alto, ancho = tinta.shape
-print(f'{ancho}×{alto} · tinta x {columnas.min()}–{columnas.max()} · y {filas.min()}–{filas.max()} · magenta {magenta}')
-```
-
-En una pieza de vidrio la luz y el vidrio también son «tinta» para este script: ahí se mira que el
-texto quede dentro de la zona segura, y con una foto a sangre, en la `-guias.png` si la tiene.
-
-### El texto sobre una foto
-
-Tiene que pasar 4,5:1 contra lo más claro que tenga detrás. Se mide así:
-
-1. Se renderiza una copia de la pieza con el texto transparente: en el `<head>`, después de los
-   estilos, `<style>* { color: transparent !important; }</style>`.
-2. En esa PNG se toma la caja de cada texto que cae sobre la foto y se busca el píxel más claro.
-3. Se calcula el contraste WCAG del color del texto contra ese píxel:
-
-```python
-import sys
-import numpy as np
-from PIL import Image
-
-# Uso: python3 contraste.py <png-sin-texto> <x0> <y0> <x1> <y1> <hex del texto>
-def luminance(rgb):
-    channel = rgb / 255
-    linear = np.where(channel <= 0.04045, channel / 12.92, ((channel + 0.055) / 1.055) ** 2.4)
-    return linear @ np.array([0.2126, 0.7152, 0.0722])
-
-background = np.asarray(Image.open(sys.argv[1]).convert('RGB')).astype(float)
-left, top, right, bottom = map(int, sys.argv[2:6])
-text = luminance(np.array([int(sys.argv[6][i:i + 2], 16) for i in (1, 3, 5)], dtype=float))
-behind = luminance(background[top:bottom, left:right].reshape(-1, 3)).max()
-print(f'peor contraste {(max(text, behind) + 0.05) / (min(text, behind) + 0.05):.2f}:1')
-```
+  la flecha va siempre en SVG (la clase `.flecha`).
+- Que el texto sobre una foto se lea contra lo más claro que tiene detrás (capítulo 15, 15.4).
 
 ### Lista de control
 
-- [ ] La pieza usa una sola variante de vidrio, y el color dice lo que muestra: petróleo para lo que
-  hace iris, ámbar para lo que espera una decisión (capítulo 15, 15.2). En un carrusel no cambia el
-  negro o el blanco.
-- [ ] Hay una sola luz, y nada se lee sobre ella sin el vidrio encima.
-- [ ] La firma va sólo en la frase, sin bloque detrás, y el logo es el SVG de `logo/`: no está
-  tipeado ni rearmado.
-- [ ] Con foto, persona, mascota, gráfico o mucho contenido, va en monocromo (15.5).
-- [ ] El mensaje de la persona va en la casilla o en la burbuja, con mayúscula y, si pregunta, con
-  los dos signos; la respuesta de iris va sin globo, con el nombre real de la tool (15.7).
+- [ ] La pieza usa una sola variante de vidrio, y el color dice lo que muestra: petróleo, salvo con
+  el ● de «Espera tu OK» a la vista, que va en ámbar (capítulo 15, 15.2). En un carrusel no cambia
+  el negro o el blanco.
+- [ ] Hay una sola luz, nada se lee sobre ella sin el vidrio encima y, si es ámbar, va chica, detrás
+  del OK y de los botones (15.3).
+- [ ] El vidrio no lleva sombra y su brillo es el de la hoja (15.4).
+- [ ] Están el marco, el contexto, el pie y un solo protagonista (15.1).
+- [ ] La firma va sólo en la frase, nunca sola y sin bloque detrás, y el logo es el SVG de `logo/`:
+  no está tipeado ni rearmado.
+- [ ] Con foto, persona, gráfico o mucho contenido, va en monocromo (15.5).
+- [ ] El mensaje de la persona va en la casilla o en la burbuja, bien escrito (capítulo 09, 9.11);
+  la respuesta de iris va sin globo, con el nombre real de la tool (15.7).
+- [ ] Lo único lleno es «Aprobar»: la pill del OK es neutra (15.7).
 - [ ] No hay cartón ni texturas, verde claro, rosa ni violeta, ni los colores de Mercado Libre o
   Mercado Pago.
-- [ ] «Mercado Libre» no va en el titular ni en una pieza de pauta (capítulo 12).
+- [ ] «Mercado Libre» no va en el titular, con su logo ni en una pieza de pauta (capítulo 12).
 - [ ] Cada glifo tiene su palabra, y el ● va sólo si hay una decisión del dueño.
 - [ ] Ninguna fila nombra un agente: cada fila dice el resultado.
-- [ ] Las cifras inventadas están marcadas, y no hay ningún dato real sin autorización. Con
-  la vocera o la mascota, la pieza dice que es IA.
+- [ ] Las cifras inventadas están marcadas, y no hay ningún dato real sin autorización. Con la
+  vocera, la pieza dice que es IA.
 - [ ] La `-guias.png` es para revisar: nunca se publica.

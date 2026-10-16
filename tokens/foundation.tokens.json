@@ -6,14 +6,15 @@
     "brand": {
       "black": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.145, 0.002, 95], "hex": "#0a0a09"}, "$description": "Negro de marca: el fondo del ícono y el piso del oscuro (landing, piezas, OG, banner). A la vista es neutro: la calidez del sistema vive en los grises medios."},
       "white": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.985, 0.0013, 95], "hex": "#fafaf9"}, "$description": "Blanco de marca: la i del ícono, el logotipo sobre oscuro y el piso del claro."},
+      "day-white": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.933, 0.004, 95], "hex": "#e9e9e6"}, "$description": "Blanco de día: el piso del claro en redes y en la landing (glass.marketing.canvas), debajo de la luz y el vidrio. Un poco más gris que brand.white: en un feed lleno de blanco, el vidrio necesita un fondo que no sea papel. Es el único blanco de día."},
       "petrol": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.29, 0.05, 219], "hex": "#03313c"}, "$description": "Petróleo: el color de iris, en su tono más hondo. Lo usa sólo el bloque del sello de marketing (signature.marketing.block), que queda sólo en el titular de la landing y sus OG hasta que se rehagan. Lo nuevo usa sus tonos de color.tint, en la luz y en la frase. Casi no se despega del negro, a propósito (1,42:1 sobre brand.black). Nunca de fondo plano, franja, borde, botón, ícono, glifo, estado ni en el logo. Queda a ΔEOK 0,19 o más de los estados, de los colores de Claude y de Anthropic, de los de Mercado Libre y Mercado Pago y de los violetas viejos."}
     },
     "tint": {
-      "$description": "Los tonos de los dos colores de la marca, para la luz de fondo y la frase. El petróleo dice lo que hace iris; el ámbar, lo que te toca (el mismo tono 70 del ● de status.attention). Cada uno tiene su tono para el oscuro y para el claro. Nunca de fondo plano, franja, borde, botón, ícono, glifo, estado ni en el logo.",
-      "petrol-deep": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.323, 0.0511, 215.4], "hex": "#0b3a44"}, "$description": "La luz petróleo del oscuro (backlight.iris): un círculo desenfocado detrás del vidrio. Decorativa: 1,61:1 sobre brand.black, sin umbral."},
+      "$description": "Los tonos de los dos colores de la marca, para la luz de fondo, la frase y lo que importa en un gráfico (data.highlight). El petróleo dice lo que hace iris; el ámbar, lo que te toca (el mismo tono 70 del ● de status.attention). Cada uno tiene su tono para el oscuro y para el claro. Nunca de fondo plano, franja, borde, botón, ícono, glifo, estado ni en el logo.",
+      "petrol-deep": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.323, 0.0511, 215.4], "hex": "#0b3a44"}, "$description": "La luz petróleo del oscuro (backlight.iris): un degradé radial detrás del vidrio, que se apaga hacia afuera. Decorativa: 1,61:1 sobre brand.black, sin umbral."},
       "petrol-pale": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.865, 0.0273, 208.3], "hex": "#bfd8dc"}, "$description": "La luz petróleo del claro (backlight.iris). Decorativa. Queda a ΔEOK 0,053 de la menta descartada, pero el tono la separa: 208 contra 167."},
-      "petrol-mist": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.8491, 0.0287, 210.5], "hex": "#b9d3d8"}, "$description": "La frase en el oscuro (signature.phrase): la firma en color, sin bloque. 9,65:1 en el peor fondo del oscuro. Queda a ΔEOK 0,059 de la menta descartada, pero el tono la separa: 210 contra 167."},
-      "petrol-ink": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.3784, 0.0626, 215.8], "hex": "#0b4a57"}, "$description": "La frase en el claro (signature.phrase). 8,13:1 en el peor fondo del claro."},
+      "petrol-mist": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.8491, 0.0287, 210.5], "hex": "#b9d3d8"}, "$description": "La frase en el oscuro (signature.phrase): la firma en color, sin bloque. También lo que importa en un gráfico (data.highlight). 9,65:1 en el peor fondo del oscuro. Queda a ΔEOK 0,059 de la menta descartada, pero el tono la separa: 210 contra 167."},
+      "petrol-ink": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.3784, 0.0626, 215.8], "hex": "#0b4a57"}, "$description": "La frase en el claro (signature.phrase) y lo que importa en un gráfico (data.highlight). 8,13:1 en el peor fondo del claro."},
       "amber-deep": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.4193, 0.0808, 66.7], "hex": "#6a4314"}, "$description": "La luz ámbar del oscuro (backlight.attention), para lo que espera una decisión. Decorativa: 2,29:1 sobre brand.black, sin umbral."},
       "amber-pale": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.8895, 0.061, 76.6], "hex": "#f2d6ae"}, "$description": "La luz ámbar del claro (backlight.attention). Decorativa. Queda a ΔEOK 0,083 del marfil de Claude, que es casi gris (croma 0,005): los separa el croma, 0,061."}
     },
@@ -64,18 +65,35 @@
       "neutral-light-10-20": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.215, 0.004, 95], "alpha": 0.2, "hex": "#1a1917"}, "$description": "neutral-light.10 al 20 %: el borde del vidrio en claro."},
       "white-14": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.14, "hex": "#ffffff"}, "$description": "El borde del vidrio en oscuro."},
       "white-10": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.1, "hex": "#ffffff"}, "$description": "La línea de luz del vidrio en oscuro."},
-      "white-70": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.7, "hex": "#ffffff"}, "$description": "La línea de luz del vidrio en claro."}
+      "white-70": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.7, "hex": "#ffffff"}, "$description": "La línea de luz del vidrio en claro."},
+      "neutral-dark-2-42": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.176, 0.0022, 95], "alpha": 0.42, "hex": "#111110"}, "$description": "neutral-dark.2 (surface) al 42 %: el tinte del vidrio de redes y de la landing en oscuro."},
+      "neutral-dark-2-88": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.176, 0.0022, 95], "alpha": 0.88, "hex": "#111110"}, "$description": "neutral-dark.2 (surface) al 88 %: el vidrio de redes y de la landing sin backdrop-filter, en oscuro."},
+      "neutral-dark-1-8": {"$type": "color", "$value": {"colorSpace": "oklch", "components": [0.145, 0.002, 95], "alpha": 0.08, "hex": "#0a0a09"}, "$description": "neutral-dark.1 (el negro de marca) al 8 %: el separador adentro del vidrio de redes en claro."},
+      "white-3": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.03, "hex": "#ffffff"}, "$description": "El final del brillo diagonal del vidrio de redes."},
+      "white-6": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.06, "hex": "#ffffff"}, "$description": "El relleno de adentro del vidrio de redes en oscuro."},
+      "white-8": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.08, "hex": "#ffffff"}, "$description": "El comienzo del brillo diagonal del vidrio de redes."},
+      "white-12": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.12, "hex": "#ffffff"}, "$description": "El separador adentro del vidrio de redes en oscuro."},
+      "white-17": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.17, "hex": "#ffffff"}, "$description": "El borde del vidrio de redes en oscuro."},
+      "white-38": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.38, "hex": "#ffffff"}, "$description": "La línea de luz del vidrio de redes en oscuro."},
+      "white-50": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.5, "hex": "#ffffff"}, "$description": "El tinte del vidrio de redes en claro."},
+      "white-62": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.62, "hex": "#ffffff"}, "$description": "El relleno de adentro del vidrio de redes en claro."},
+      "white-80": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.8, "hex": "#ffffff"}, "$description": "El borde del vidrio de redes en claro."},
+      "white-90": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.9, "hex": "#ffffff"}, "$description": "El vidrio de redes sin backdrop-filter, en claro."},
+      "white-95": {"$type": "color", "$value": {"colorSpace": "srgb", "components": [1, 1, 1], "alpha": 0.95, "hex": "#ffffff"}, "$description": "La línea de luz del vidrio de redes en claro."}
     }
   },
   "font": {
     "family": {
       "signature": {"$type": "fontFamily", "$value": ["DM Serif Display Italic", "DM Serif Display", "DM Serif Display Italic Fallback", "serif"], "$description": "La firma. 'DM Serif Display Italic' es una familia propia de css/fonts.css, con una sola cara, la itálica, y no existe en otro lado. Afuera (Google Fonts, las piezas de redes, una pieza armada aparte) la familia es 'DM Serif Display' y la itálica sale de font-style: italic: por eso la pila trae los dos nombres, y carga en los dos lados. El fallback es Georgia Italic con las métricas ajustadas. Va en tres lugares y ninguno más: el logotipo y la i del ícono (los dos son dibujos) y la segunda línea de un titular de dos líneas (texto, 400, de 32px para arriba). Siempre con font-style: italic y font-synthesis: none."},
-      "sans": {"$type": "fontFamily", "$value": ["IBM Plex Sans", "IBM Plex Sans Fallback", "sans-serif"], "$description": "Todo lo que se lee y se opera, en 400 y 500. Las cifras de Plex ya son tabulares. El fallback es Arial con las métricas de Plex (css/fonts.css), para que el cambio no corra el texto."},
+      "sans": {"$type": "fontFamily", "$value": ["IBM Plex Sans", "IBM Plex Sans Fallback", "sans-serif"], "$description": "Todo lo que se lee y se opera, en 400 y 500. En redes y en la landing, además, 600 y 700 (titulares y cifras, capítulo 15): css/fonts.css los declara, y en la app no se usan. Las cifras de Plex ya son tabulares. El fallback es Arial con las métricas de Plex (css/fonts.css), para que el cambio no corra el texto."},
       "mono": {"$type": "fontFamily", "$value": ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"], "$description": "Sólo datos: ids, horas, nombres de tools, payloads, atajos. Mínimo 12px; nunca en eyebrows ni etiquetas."}
     },
     "weight": {
       "regular": {"$type": "fontWeight", "$value": 400, "$description": "Cuerpo y la firma."},
-      "medium": {"$type": "fontWeight", "$value": 500, "$description": "Titulares, títulos, etiquetas. No hay tercer peso."}
+      "medium": {"$type": "fontWeight", "$value": 500, "$description": "Titulares, títulos, etiquetas. En la app no hay tercer peso: 600 y 700 van sólo en redes y en la landing."}
+    },
+    "tracking": {
+      "signature": {"$type": "number", "$value": -0.01, "$description": "El tracking de la firma, en em: quien lo usa multiplica por 1em (letter-spacing: calc(var(--iris-font-tracking-signature) * 1em)). Vale para la frase en cualquier tamaño, también en las piezas, que miden en cqw. Los estilos typography.headline.*.second ya lo traen en px."}
     }
   },
   "typography": {
@@ -87,7 +105,7 @@
       },
       "section": {
         "first": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 40, "unit": "px"}, "fontWeight": "{font.weight.medium}", "letterSpacing": {"value": -0.6, "unit": "px"}, "lineHeight": 1.1}, "$description": "Primera línea de un titular de sección y del banner; el hero en pantallas angostas."},
-        "second": {"$type": "typography", "$value": {"fontFamily": "{font.family.signature}", "fontSize": {"value": 40, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": -0.4, "unit": "px"}, "lineHeight": 1.1}, "$description": "Segunda línea del mismo titular: la firma, en el sello. En la app, calada en el de tinta (signature.text sobre signature.block); en marketing (el banner, el hero en pantallas angostas), en el petróleo (signature.marketing.text sobre signature.marketing.block)."}
+        "second": {"$type": "typography", "$value": {"fontFamily": "{font.family.signature}", "fontSize": {"value": 40, "unit": "px"}, "fontWeight": "{font.weight.regular}", "letterSpacing": {"value": -0.4, "unit": "px"}, "lineHeight": 1.1}, "$description": "Segunda línea del mismo titular: la firma, sin bloque detrás, en el color de la frase (signature.phrase)."}
       }
     },
     "title": {"$type": "typography", "$value": {"fontFamily": "{font.family.sans}", "fontSize": {"value": 18, "unit": "px"}, "fontWeight": "{font.weight.medium}", "letterSpacing": {"value": -0.18, "unit": "px"}, "lineHeight": 1.35}, "$description": "Título de entidad en la app; título de card en la landing."},
@@ -175,9 +193,13 @@
     "pulse": {"$type": "number", "$value": 0.45, "$description": "El punto más bajo del latido del ◐."}
   },
   "glass": {
-    "$description": "El material de la capa que flota (barra de la landing, ⌘K, popovers, la aprobación cuando flota). Es el único blur del sistema y nunca se anima: el vidrio aparece y se va con opacity.",
+    "$description": "El material de la capa que flota (barra de la landing, ⌘K, popovers, la aprobación cuando flota). Es el único blur del sistema y nunca se anima: el vidrio aparece y se va con opacity. En redes y en la landing el vidrio es además el soporte de la pieza: glass.marketing.",
     "blur": {"$type": "dimension", "$value": {"value": 24, "unit": "px"}, "$description": "Desenfoque del fondo. Con 24px no se lee nada de lo que pasa por abajo."},
-    "saturate": {"$type": "number", "$value": 1.4, "$description": "Devuelve el tono a las fotos que el tinte apaga. Sobre neutros no hace nada."}
+    "saturate": {"$type": "number", "$value": 1.4, "$description": "Devuelve el tono a las fotos que el tinte apaga. Sobre neutros no hace nada."},
+    "marketing": {
+      "blur": {"$type": "dimension", "$value": {"value": 26, "unit": "px"}, "$description": "Desenfoque del vidrio de redes y de la landing (.glass-marketing). En una pieza de 1080 de ancho son 2,4cqw."},
+      "saturate": {"$type": "number", "$value": 1.7, "$description": "La saturación del vidrio de redes y de la landing: más que la de la app, para que la luz de color se vea a través del tinte."}
+    }
   },
   "duration": {
     "$description": "Se animan transform, opacity y colores. Nunca 'transition: all', nunca filter ni el blur. Con prefers-reduced-motion todo queda quieto y visible.",

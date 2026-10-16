@@ -1,11 +1,12 @@
 /*
-  iris · vidrio ahumado para la capa que flota, y la luz de fondo. Lee las variables de
+  iris · el vidrio ahumado y la luz de fondo: la única hoja del material. Lee las variables de
   dist/tokens.css (importala antes); acá no hay un solo valor de color.
 
   En la app va sólo en lo que flota sobre contenido que se mueve. Nunca en el contenido (feed,
   cards, tablas, chat, formularios), nunca vidrio sobre vidrio y nunca más de dos a la vez. Es el
-  único blur del sistema, y no se anima: aparece y se va con opacity. Las piezas de redes dibujan su
-  propio vidrio con pieces/redes/_base/vidrio.css (capítulo 15).
+  único blur del sistema, y no se anima: aparece y se va con opacity. En redes y en la landing el
+  vidrio es el soporte de la pieza (capítulo 15): .glass-marketing. La forma de cada pieza (marco,
+  contexto, pie) la pone su propia hoja; el material sale de acá.
 
   - .glass-bar    la barra que flota (la nav de la landing). Sólo text.primary, text.secondary,
                   el CTA de tinta sólido y el foco: ni texto gris, ni texto rojo, ni bordes de
@@ -17,10 +18,16 @@
                       por su modificador: -iris (petróleo, lo que hace iris), -attention (ámbar, lo
                       que te toca, sólo con una decisión pendiente) o -neutral (monocromo). Dónde va
                       y su tamaño los pone la pantalla; nada se lee sobre ella sin un vidrio encima.
+  - .glass-marketing  el vidrio de redes y de la landing: más transparente que el de la app, con
+                      un brillo diagonal bajo y sin sombra. Con la luz detrás pasan text.primary,
+                      text.secondary, la frase, los glifos de estado, el CTA y los colores de los
+                      gráficos; text.tertiary y el texto rojo, sólo donde no hay luz detrás. Sobre
+                      una foto, el tinte no alcanza: lo que va encima lo dice el capítulo 15.
 
   El contraste lo garantiza el tinte, no el blur: con el peor fondo detrás y sin desenfoque, el
-  texto permitido igual pasa (lo mide test/glass.test.mjs). Sin lente ni refracción: el filtro
-  SVG sólo lo pinta Chromium y @supports no lo detecta.
+  texto permitido igual pasa (lo mide test/glass.test.mjs; en .glass-marketing, el peor fondo es el
+  centro de la luz). Sin lente ni refracción: el filtro SVG sólo lo pinta Chromium y @supports no lo
+  detecta.
 */
 
 /* La luz es un degradé radial, no un blur: no cuesta nada pintarla y se ve igual en todos lados. */
@@ -51,7 +58,35 @@
   border: var(--iris-border-width-hairline) solid var(--iris-color-border-default);
 }
 
+/*
+  El vidrio de redes y de la landing. La posición, el radio y el padding los pone la pieza; el
+  brillo va en ::before, detrás del contenido.
+*/
+.glass-marketing {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--iris-color-glass-marketing-fallback);
+  border: var(--iris-border-width-hairline) solid var(--iris-color-glass-marketing-rim);
+  box-shadow: inset 0 var(--iris-border-width-hairline) 0 var(--iris-color-glass-marketing-specular); /* luz, no sombra */
+}
+
+.glass-marketing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background-image: linear-gradient(140deg, var(--iris-color-glass-marketing-sheen-start), transparent 36%, transparent 72%, var(--iris-color-glass-marketing-sheen-end));
+}
+
 @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass-marketing {
+    background-color: var(--iris-color-glass-marketing-tint);
+    -webkit-backdrop-filter: blur(var(--iris-glass-marketing-blur)) saturate(var(--iris-glass-marketing-saturate));
+    backdrop-filter: blur(var(--iris-glass-marketing-blur)) saturate(var(--iris-glass-marketing-saturate));
+  }
+
   .glass-bar,
   .glass-panel {
     border-color: var(--iris-color-glass-rim);
@@ -75,12 +110,14 @@
   contraste solo.
 */
 @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
-  .glass-backlight {
+  .glass-backlight,
+  .glass-marketing::before {
     display: none;
   }
 
   .glass-bar,
-  .glass-panel {
+  .glass-panel,
+  .glass-marketing {
     background-color: var(--iris-color-bg-raised);
     border-color: var(--iris-color-border-default);
     box-shadow: none;
@@ -90,12 +127,14 @@
 }
 
 @media (forced-colors: active) {
-  .glass-backlight {
+  .glass-backlight,
+  .glass-marketing::before {
     display: none;
   }
 
   .glass-bar,
-  .glass-panel {
+  .glass-panel,
+  .glass-marketing {
     background-color: Canvas;
     border-color: CanvasText;
     box-shadow: none;

@@ -24,8 +24,7 @@
   ],
   "scripts": {
     "build": "tz build && pnpm test",
-    "test": "node --test test/*.test.mjs",
-    "medir": "node pieces/redes/_base/medir/medir.mjs"
+    "test": "node --test test/*.test.mjs"
   },
   "devDependencies": {
     "@terrazzo/cli": "2.7.1",

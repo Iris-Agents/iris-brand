@@ -9,7 +9,7 @@ que se separan por luz y borde, y movimiento corto que frena suave.
 |---|---|---|
 | `radius.chip` | 4 px | Tecla (kbd), badge, controles chicos. |
 | `radius.control` | 6 px | Botón e input. |
-| `radius.card` | 8 px | Card, popover, burbuja de la persona en la app (en redes no hay burbuja), composer. |
+| `radius.card` | 8 px | Card, popover, burbuja de la persona en la app, composer. La burbuja de las piezas de redes es la de `vidrio.css` (capítulo 15, 15.7). |
 | `radius.panel` | 12 px | Paneles y diálogos; las cards grandes de la landing. |
 | `radius.frame` | 16 px | Marcos de captura y de video. |
 | `radius.pill` | 9999 px | Píldoras, como «Espera tu OK». |
@@ -96,7 +96,8 @@ achica el ritmo, no el contenido.
 - Sólo cuando ayudan a operar: nunca decorativos.
 - Ningún ícono de «IA»: ni destellos, ni cerebros, ni robots, ni varitas.
 - Los glifos de estado no son íconos: son los cinco del capítulo 04, de 10 px (en una pieza de
-  redes crecen: capítulo 08, 8.1), y no se reemplazan por un ícono de lucide.
+  redes crecen: capítulo 08, 8.1), y no se reemplazan por un ícono de lucide. Un control con ícono
+  tampoco es un glifo (capítulo 04, 4.6).
 
 ## 6.7 Movimiento
 
@@ -147,16 +148,44 @@ el trabajo de iris, nunca un adorno.
 
 ## 6.8 El vidrio
 
-**Vidrio ahumado sobre una luz de color.** En la app es la capa que flota; en las piezas de redes,
-el panel o la tarjeta de la pieza (capítulo 15). Es la única excepción a «sin blur» del sistema.
+**Vidrio ahumado sobre una luz de color.** En la app es la capa que flota; en las piezas de redes y
+en la landing, el material de la pieza (capítulo 15). Es la única excepción a «sin blur» del
+sistema.
 
 ### La regla
 
 En la app, el vidrio es la capa que flota sobre contenido que se mueve. Nunca va en el contenido,
-nunca vidrio sobre vidrio y nunca más de dos a la vez. En las piezas de redes es el soporte de la
-pieza, con su propia hoja (`pieces/redes/_base/vidrio.css`) y sus reglas (capítulo 15). **El contraste lo garantiza el
+nunca vidrio sobre vidrio y nunca más de dos a la vez. **En la app el contraste lo garantiza el
 tinte, no el blur:** con el peor fondo detrás y aunque el desenfoque no se pinte, el texto permitido
 pasa.
+
+### En las piezas
+
+En una pieza de redes el vidrio no flota sobre nada que se mueva: es el material de la pieza. Lo
+que se ve a través es la luz de la marca, y es lo que distingue a una pieza de iris en un feed lleno
+de fotos y de placas planas. Por eso una pieza quieta puede llevarlo, cuando una OG de la app no.
+Vale lo mismo para la landing. Es la clase `.glass-marketing` de `css/glass.css`, la única hoja del
+material; la forma de cada pieza la pone su propia hoja, y sus reglas están en el capítulo 15.
+
+- **Lo que hace al vidrio es el borde fino y la línea de luz de arriba.** El brillo en diagonal
+  queda apenas insinuado y **no lleva sombra**: la bruma y la sombra son lo que fecha un vidrio
+  (capítulo 15, 15.4).
+- **Es más transparente que el de la app**, para que la luz se vea a través. Con la luz detrás
+  pasan `text.primary`, `text.secondary`, la frase, los glifos de estado, el CTA y los colores de los
+  gráficos; `text.tertiary` y el texto rojo, sólo donde no hay luz detrás. Sobre una foto clara, el
+  tinte no alcanza solo y manda el criterio del 15.4.
+
+| Token | Oscuro | Claro |
+|---|---|---|
+| `glass.marketing.canvas`: el piso de la pieza | `brand.black` (#0A0A09) | `brand.day-white` (#E9E9E6) |
+| `glass.marketing.tint`: el tinte | `bg.surface` (#111110) al 42 % | blanco al 50 % |
+| `glass.marketing.fallback`: sin `backdrop-filter` | `bg.surface` al 88 % | blanco al 90 % |
+| `glass.marketing.rim`: el borde de 1 px | blanco al 17 % | blanco al 80 % |
+| `glass.marketing.specular`: la línea de luz inset de 1 px arriba | blanco al 38 % | blanco al 95 % |
+| `glass.marketing.sheen-start` y `sheen-end`: el brillo diagonal | blanco al 8 % y al 3 % | igual |
+| `glass.marketing.fill`: las filas, las pills, la casilla y el botón secundario | blanco al 6 % | blanco al 62 % |
+| `glass.marketing.divider`: el separador entre filas | blanco al 12 % | `brand.black` al 8 % |
+| `glass.marketing.blur` · `glass.marketing.saturate` | 26 px (2,4cqw en 1080) · 1,7 | igual |
 
 ### El material
 
@@ -195,7 +224,7 @@ En CSS son `--iris-color-glass-bar`, `--iris-color-glass-panel`, `--iris-color-g
 | Sí | No |
 |---|---|
 | La barra flotante de la landing. | El contenido: feed, cards, tablas, chat, documentos, formularios. |
-| La paleta ⌘K, **sin cortina detrás**: con el `backdrop` el vidrio desaparece, así que va uno de los dos. | Las piezas estáticas de la app y la landing (OG, banner, logo): sin movimiento detrás, el vidrio es un dibujo de vidrio. Las de redes lo usan a propósito, con su hoja (capítulo 15). |
+| La paleta ⌘K, **sin cortina detrás**: con el `backdrop` el vidrio desaparece, así que va uno de los dos. | Las piezas estáticas de la app (OG, logo): sin movimiento detrás, el vidrio es un dibujo de vidrio. Las de redes y la landing lo usan como material, a propósito (arriba, «En las piezas»). |
 | Popovers y menús. | La tarjeta de aprobación adentro del feed: ahí es contenido. |
 | La tarjeta de aprobación cuando flota sobre el contenido. Adentro todo es sólido: el CTA de tinta y el ghost. | Vidrio sobre vidrio, o más de dos vidrios a la vez. Nada a pantalla completa. |
 

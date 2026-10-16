@@ -27,12 +27,15 @@ llevado a los números.
 |---|---|---|---|---|
 | `data.series` | #EDEDEA | #1A1917 | Sólido, 1,5 px | La serie protagonista: lo que se está mirando. |
 | `data.comparison` | #9B9A96 | #686764 | Punteado, 1,5 px | La referencia: el período anterior, el precio del ganador. |
+| `data.highlight` | #B9D3D8 | #0B4A57 | Sólido | Lo que importa: la barra, el punto o el tramo que el gráfico señala. Uno por gráfico, en el petróleo de la frase; el resto va en `data.series`. |
 | `data.grid` | #2C2B29 | #E3E3E1 | 1 px | Grilla y ejes. Es decorativa. |
 
-- **Dos series como máximo por gráfico:** la protagonista y su referencia. Las dos pasan 3:1 sobre
-  todos los fondos de su modo (capítulo 04).
+- **Dos series como máximo por gráfico:** la protagonista y su referencia. Pasan 3:1 sobre todos los
+  fondos de su modo, también `data.highlight` (capítulo 04).
+- **Una sola cosa en petróleo:** `data.highlight` es el único color de un gráfico y marca una sola
+  barra, punto o tramo. Sigue en petróleo también en monocromo (capítulo 04, 4.9).
 - **Con más de dos, gráficos chicos repetidos**, uno al lado del otro y con la misma escala. Nunca
-  más grises, nunca colores.
+  más grises, nunca más colores.
 - **Se distinguen por el trazo**, sólido contra punteado, y no sólo por el gris: se leen igual en
   blanco y negro.
 - **Se rotula la línea, no una leyenda de colores:** el nombre de la serie va al lado de su línea, en

@@ -1,5 +1,5 @@
 {
-  "$comment": "Los formatos de las piezas de redes: el lienzo, lo que cada red tapa o recorta y el tamaño mínimo de la letra. Es la única fuente de estos números: plantillas.md y el manual remiten acá, y medir/ los usa para medir una pieza. Todo va en px de la pieza; x e y se cuentan desde arriba a la izquierda. De dónde sale cada medida está en plantillas.md («De dónde salen las medidas»).",
+  "$comment": "Los formatos de las piezas de redes: el lienzo, lo que cada red tapa o recorta y el tamaño mínimo de la letra. Es la única fuente de estos números: plantillas.md y el manual remiten acá. Todo va en px de la pieza; x e y se cuentan desde arriba a la izquierda. De dónde sale cada medida está en plantillas.md («De dónde salen las medidas»).",
   "minimumSizes": {
     "1080": {
       "note": "Las piezas de 1080 px de ancho. En el teléfono se ven a unos 390 px, o sea a 0,36 de su tamaño.",

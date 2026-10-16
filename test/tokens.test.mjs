@@ -119,14 +119,14 @@ describe("el petróleo", () => {
 });
 
 // Los dos colores de la marca, en sus tonos: el petróleo (lo que hace iris) y el ámbar (lo que te
-// toca). Van sólo en la luz de fondo y en la frase, cada tono en su modo.
+// toca). Van sólo en la luz de fondo, en la frase y en lo que importa de un gráfico, cada tono en su modo.
 describe("los tonos de la marca", () => {
 	const tints = [...foundation].filter(([id]) => id.startsWith("color.tint.")).map(([id, token]) => [id, token.value]);
 	const expected = {
-		dark: { "color.backlight.iris": "color.tint.petrol-deep", "color.backlight.attention": "color.tint.amber-deep", "color.signature.phrase": "color.tint.petrol-mist" },
-		light: { "color.backlight.iris": "color.tint.petrol-pale", "color.backlight.attention": "color.tint.amber-pale", "color.signature.phrase": "color.tint.petrol-ink" },
+		dark: { "color.backlight.iris": "color.tint.petrol-deep", "color.backlight.attention": "color.tint.amber-deep", "color.signature.phrase": "color.tint.petrol-mist", "color.data.highlight": "color.tint.petrol-mist" },
+		light: { "color.backlight.iris": "color.tint.petrol-pale", "color.backlight.attention": "color.tint.amber-pale", "color.signature.phrase": "color.tint.petrol-ink", "color.data.highlight": "color.tint.petrol-ink" },
 	};
-	test("sólo los usan la luz y la frase, con el tono de su modo", () => {
+	test("sólo los usan la luz, la frase y data.highlight, con el tono de su modo", () => {
 		for (const mode of modes) {
 			const users = Object.fromEntries([...semantics[mode]].flatMap(([id, token]) => aliasesIn(token.value).filter((target) => target.startsWith("color.tint.")).map((target) => [id, target])));
 			assert.deepEqual(users, expected[mode], mode);
@@ -175,9 +175,10 @@ describe("los tonos de la marca", () => {
 describe("tipografía", () => {
 	const styles = [...resolved.dark].filter(([, token]) => token.type === "typography");
 	const signatureFamily = foundation.get("font.family.signature").value[0];
+	const signatureTracking = foundation.get("font.tracking.signature").value;
 	const trackingEm = (id, family, size) => {
 		if (id === "typography.eyebrow") return 0.08;
-		if (family === signatureFamily) return -0.01;
+		if (family === signatureFamily) return signatureTracking;
 		if (family.includes("Mono")) return 0;
 		if (size <= 12) return 0;
 		if (size <= 24) return -0.01;
@@ -194,6 +195,11 @@ describe("tipografía", () => {
 			const expected = trackingEm(id, value.fontFamily[0], value.fontSize.value) * value.fontSize.value;
 			assert.ok(Math.abs(expected - value.letterSpacing.value) < 0.005, `${id}: letterSpacing ${value.letterSpacing.value}px, la regla da ${expected.toFixed(2)}px`);
 		}
+	});
+	// La frase de las piezas mide en cqw y lee el tracking en em: tiene que ser el mismo de la regla.
+	test("el tracking de la firma es -0,01em, en font.tracking.signature", () => {
+		assert.equal(foundation.get("font.tracking.signature").type, "number");
+		assert.equal(signatureTracking, -0.01);
 	});
 	test("nada baja de 12px", () => {
 		for (const [id, { value }] of styles) assert.ok(value.fontSize.value >= 12, id);

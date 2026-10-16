@@ -6,9 +6,9 @@
   En el markup se lee por rol: bg-canvas text-fg border-line-subtle · bg-action text-on-action ·
   font-signature italic text-signature-phrase (la firma en color) · rounded-card. El sello, donde
   ya está: bg-signature text-on-signature (en la landing, bg-signature-marketing
-  text-on-signature-marketing). El vidrio no está acá: va
-  con las clases de glass.css. No se bloquea la paleta de Tailwind ni se redefinen los nombres de
-  shadcn: eso lo decide la app.
+  text-on-signature-marketing). El vidrio y la luz no están acá: van con las clases de
+  glass.css (la luz no es un color plano). No se bloquea la paleta de Tailwind ni se redefinen los
+  nombres de shadcn: eso lo decide la app.
 */
 
 @theme inline {
@@ -56,14 +56,9 @@
   --color-status-done: var(--iris-color-status-done);
   --color-status-idle: var(--iris-color-status-idle);
 
-  /* La luz de fondo (css/glass.css): una sola, detrás del vidrio. Petróleo para lo que hace iris,
-     ámbar para lo que te toca, gris en monocromo */
-  --color-backlight-iris: var(--iris-color-backlight-iris);
-  --color-backlight-attention: var(--iris-color-backlight-attention);
-  --color-backlight-neutral: var(--iris-color-backlight-neutral);
-
   /* Datos y links */
   --color-data-series: var(--iris-color-data-series);
+  --color-data-highlight: var(--iris-color-data-highlight);
   --color-data-comparison: var(--iris-color-data-comparison);
   --color-data-grid: var(--iris-color-data-grid);
   --color-link-underline: var(--iris-color-link-underline);

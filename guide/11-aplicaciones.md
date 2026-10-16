@@ -11,7 +11,7 @@ Reglas que valen para todas:
 - **Sin efectos de adorno.** Sin glow ni gradientes llamativos. Lo que sí va es una sola luz de
   color detrás del vidrio y el fundido de una foto con el negro (capítulo 04, 4.8 y 4.9).
 - **El titular de dos líneas, con la frase.** La segunda línea va en la firma y en color, sin
-  bloque detrás (capítulo 05, 5.3). En LinkedIn va sin cursiva (capítulo 15, 15.8). El sello que
+  bloque detrás (capítulo 05, 5.3). Sólo los posts de LinkedIn van sin cursiva (5.3). El sello que
   llevaban estas piezas salió el 2026-10-15; el titular de la landing y sus OG todavía lo usan hasta
   que se rehagan (capítulo 04, 4.9).
 - **En lo público, el resultado.** Las filas dicen qué logró iris, sin el nombre del agente
@@ -72,8 +72,8 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
   x 67–702 en el celular. El contenido empieza en x 718.
 - **Después de esa zona:** el lockup (el ícono y «iris agents») y, debajo, el titular de dos
   líneas a 38 px, «Agentes expertos / a cargo de tu e-commerce.». La primera línea en la sans 500 y
-  `text.primary`; la segunda, la frase, en la sans 500 y `signature.phrase`, sin cursiva (capítulo
-  15, 15.8). Sin Mercado Libre en el titular.
+  `text.primary`; la segunda, la frase, en la firma y en `signature.phrase`: el banner es la marca y
+  lleva la itálica (capítulo 05, 5.3). Sin Mercado Libre en el titular.
 - **A la derecha:** el feed «Hoy en tu cuenta» en un panel de vidrio de 340 px, con los cinco resultados:
   «Mejoró la reputación», «Contestó 40 preguntas», «Resolvió 3 reclamos», «Generó 3 ventas
   adicionales» y «Adhirió a una promoción». Cada fila con ✓, el verbo en `text.secondary` y el
@@ -90,8 +90,8 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
 - **La portada** es `pieces/linkedin/portada-empresa.html` → `portada-empresa.png`, de 1512 × 256
   (verificada en la ayuda de LinkedIn el 2026-10-10). El logo de la página ya está al lado, así que
   va la **marca sola** («iris agents», sin el ícono) y el titular, «Agentes expertos / a cargo de tu
-  e-commerce.», con la frase en color y sin cursiva, a la derecha de donde cae el logo. Es lo
-  corporativo: plano, sin feed, porque no entra, y sin luz.
+  e-commerce.», con la frase en la firma y en color, a la derecha de donde cae el logo. Es plana:
+  sin feed, porque no entra, y sin luz.
 - **El logo** es `pieces/linkedin/logo-empresa-400.png`, de 400 × 400: el ícono a sangre de
   `logo/icon.svg`, cuadrado y sin transparencia. Sale de `logo-empresa.html`, y
   `logo-empresa-preview.png` lo muestra en chico, cuadrado y en círculo.
@@ -126,7 +126,8 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
 - **Se genera desde la página**: una plantilla HTML que lee `tokens.css` y se pasa a PNG en el
   build, con el mismo texto que dibuja la página. Nunca un PNG fijo con cifras que envejecen.
 - La OG por defecto (la de una página sin la suya) vive en `pieces/`.
-- Puede llevar la luz de la marca detrás de la imagen del producto (capítulo 04, 4.9).
+- Puede llevar la luz de la marca detrás de la imagen del producto (capítulo 04, 4.9). La de la
+  landing puede ir en el vidrio de las piezas (capítulo 15).
 
 ## 11.8 Video y demos
 
@@ -180,8 +181,10 @@ postulación a su programa de partners, una demo):
 ## 11.12 Las piezas de redes
 
 Viven en `pieces/redes/`. Cada pieza es un HTML editable; la PNG que se sube sale de renderizarlo.
-Al lado de cada HTML está su PNG limpia y su `-guias.png`, la misma pieza con las zonas seguras en
-magenta, que **nunca se publica**.
+Al lado de cada HTML está su PNG limpia. Las piezas fijas (la foto de perfil, la portada de Facebook
+y las destacadas) tienen además su `-guias.png`, la misma pieza con las zonas seguras en magenta,
+que **nunca se publica**. Las plantillas de vidrio no la traen: la zona segura de su formato está en
+`pieces/redes/_base/formatos.json`.
 
 - **Qué hay en cada carpeta:** `pieces/redes/README.md`.
 - **Las reglas de los posts, carruseles, stories y reels:** capítulo 15. **Cómo están hechas las
@@ -205,8 +208,8 @@ quedó en el capítulo 15 y en este:
 
 - **Una foto en una pieza** es del mundo del vendedor: sin logos ni marcas, sin el packaging de
   Mercado Libre y sin productos de clientes reales. Si es generada con IA, lo dice («Imagen generada
-  con IA.»). El texto que cae sobre la foto pasa 4,5:1 contra lo que tiene detrás, medido en la PNG
-  (`pieces/redes/plantillas.md`, sección 7), y el logo nunca va sobre la foto (capítulo 03, 3.8).
+  con IA.»). Qué texto puede ir sobre una foto está en el capítulo 15 (15.4), y el logo nunca va
+  sobre la foto (capítulo 03, 3.8).
 - **Un reel** cierra con el lockup, entero dentro de la zona segura del formato
   (`pieces/redes/_base/formatos.json`, «reel»).
 - **La línea «tool · estado»** usa el nombre real de la tool, verificado el día que se publica
@@ -218,8 +221,8 @@ Las plantillas de `pieces/redes/plantillas/vidrio/` son ejemplos, no el límite.
 carga `pieces/redes/_base/vidrio.css` y se arma con el capítulo 15; una pieza fija de la marca,
 con `pieces/redes/_base/brand.css`, que trae los colores, las fuentes, la frase y la flecha. Las dos
 se arman con las medidas de su formato: los márgenes, las zonas seguras y los tamaños mínimos están
-en `pieces/redes/_base/formatos.json` y valen igual sin plantilla. Cómo se renderiza, se mide y se revisa la pieza terminada: `pieces/redes/plantillas.md`,
-secciones 6 y 7.
+en `pieces/redes/_base/formatos.json`, la guía de medidas, y valen igual sin plantilla. Cómo se
+renderiza y se revisa la pieza terminada: `pieces/redes/plantillas.md`, secciones 6 y 7.
 
 **Qué hace buena una pieza.**
 - **Tiene vida.** La calma es de la voz, no quietud visual. Las primeras piezas, armadas con las
@@ -231,8 +234,8 @@ secciones 6 y 7.
 - **Una cifra protagonista por lámina.** Las demás van chicas, en filas: dos cifras grandes compiten
   y ninguna gana.
 - **Aire parejo.** Los bloques que van juntos van a la misma distancia. Lo que sobra se junta en un
-  solo vacío a propósito (el `.aire` del vidrio), y no en huecos sueltos. Los bloques de texto se separan con aire, no con un fondo: `bg.raised` es el
-  nivel de la tarjeta de aprobación.
+  solo vacío a propósito (el `.aire` del vidrio), y no en huecos sueltos. Los bloques de texto se
+  separan con aire, no con un fondo: `bg.raised` es el nivel de la tarjeta de aprobación.
 - **Movimiento donde hay trabajo.** En un reel se mueve lo que hace iris: el tipeo, la tool, la
   cifra que llega. Nada se anima de adorno (capítulo 06, 6.7).
 
@@ -244,16 +247,18 @@ tiene su reemplazo:
   5.1);
 - la numeración 01, 02, 03 delante de cada punto: el orden lo dan la posición y, en un carrusel, el
   contador;
-- fondos crema o cálidos: el fondo es el negro de marca, o el blanco de día de redes (capítulo 15);
+- fondos crema o cálidos: el fondo es el negro de marca, o el blanco de día de redes (capítulo 15).
+  La única calidez es la luz ámbar, chica y con una decisión pendiente (15.3);
 - botones en píldora en la app: ahí los controles son de radio chico (`radius.control`). En las
   piezas de vidrio los botones y los estados sí van en píldora (capítulo 15).
 
 **Los avisos.** Cuando iris dice algo y no hace nada («se te va a quedar sin stock»), se cuenta con
-el mensaje y la respuesta de iris (capítulo 15, 15.7), sin el OK, o con una fila del feed. La tarjeta de aprobación es sólo para una
-acción que iris hace con el OK: un aviso vestido de propuesta muestra un cambio que iris no va a
-hacer.
+el mensaje y la respuesta de iris (capítulo 15, 15.7), sin el OK, o con una fila del feed. La
+tarjeta de aprobación es sólo para una acción que iris hace con el OK: un aviso vestido de
+propuesta muestra un cambio que iris no va a hacer.
 
 **Ante la duda**, va la opción con más vida que respete este manual: lo que no está prohibido, se
 puede. Sólo tres cosas no salen sin una persona: un testimonio sin consentimiento escrito, un dato
-real de un cliente y una foto con personas reales (capítulo 09, 9.10). La única persona que aparece
-es la vocera, generada con IA y declarada (capítulo 15, 15.9).
+real de un cliente y una foto con personas reales (capítulo 09, 9.10). En una pieza no aparecen
+personas, salvo dos: la vocera, generada con IA y declarada, cuando exista su ficha (capítulo 15,
+15.9), y, en un post corporativo de LinkedIn, una persona real del equipo que lo autorizó (15.8).

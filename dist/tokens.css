@@ -21,7 +21,7 @@
   --iris-color-backdrop: #00000099;
   /* La luz de lo que te toca: va sólo donde hay una decisión pendiente, con el ● de status.attention a la vista. Decorativa, como backlight.iris. */
   --iris-color-backlight-attention: #6a4314;
-  /* La luz de lo que hace iris: un círculo desenfocado detrás del vidrio, una sola por pantalla o pieza. Decorativa: nada se lee sobre ella sin un vidrio de por medio, y nunca es un fondo plano. */
+  /* La luz de lo que hace iris: un degradé radial detrás del vidrio, radial-gradient(closest-side, el color, transparent), sin blur (.glass-backlight). Una sola por pantalla o pieza. Decorativa: nada se lee sobre ella sin un vidrio de por medio, y nunca es un fondo plano. */
   --iris-color-backlight-iris: #0b3a44;
   /* La luz en monocromo: con una foto, una persona, un gráfico o mucho contenido, el color lo pone la imagen. Es el valor de border.default. */
   --iris-color-backlight-neutral: #3a3937;
@@ -45,12 +45,32 @@
   --iris-color-data-comparison: #9b9a96;
   /* Grilla y ejes (decorativo). Las etiquetas de eje van en text.tertiary. */
   --iris-color-data-grid: #2c2b29;
+  /* Lo que importa en un gráfico: la barra, el punto o el tramo que la pieza señala, en el petróleo de la frase. Uno por gráfico; el resto va en data.series. >= 3:1 en los cinco fondos. */
+  --iris-color-data-highlight: #b9d3d8;
   /* La serie protagonista de un gráfico: trazo sólido de 1,5px. */
   --iris-color-data-series: #ededea;
   /* Anillo de foco: outline de 2px a 2px de distancia. */
   --iris-color-focus: #ededea;
   /* Tinte de la barra que flota (la nav de la landing). Lleva sólo text.primary, text.secondary, el CTA sólido y el foco; ni texto gris ni glifos de estado. En oscuro es bg.surface al 80 %. */
   --iris-color-glass-bar: #111110cc;
+  /* El piso de una pieza de redes o de la landing, debajo de la luz y el vidrio. En oscuro es el negro de marca, el mismo valor que bg.canvas. */
+  --iris-color-glass-marketing-canvas: #0a0a09;
+  /* El separador de 1px entre filas, adentro del vidrio de redes y de la landing. En oscuro, blanco al 12 %. */
+  --iris-color-glass-marketing-divider: #ffffff1f;
+  /* El vidrio de redes y de la landing donde no hay backdrop-filter: bg.surface al 88 %, que se lee igual. */
+  --iris-color-glass-marketing-fallback: #111110e0;
+  /* El relleno de lo que va adentro del vidrio de redes y de la landing: las filas, las pills, la casilla y el botón secundario. En oscuro, blanco al 6 %. */
+  --iris-color-glass-marketing-fill: #ffffff0f;
+  /* Borde de 1px del vidrio de redes y de la landing. En oscuro, blanco al 17 %. */
+  --iris-color-glass-marketing-rim: #ffffff2b;
+  /* El final del brillo diagonal, en la esquina de abajo a la derecha. */
+  --iris-color-glass-marketing-sheen-end: #ffffff08;
+  /* El brillo diagonal del vidrio de redes y de la landing, en la esquina de arriba a la izquierda: linear-gradient(140deg, sheen-start, transparent 36 %, transparent 72 %, sheen-end). Es bajo a propósito: un brillo fuerte fecha el vidrio. */
+  --iris-color-glass-marketing-sheen-start: #ffffff14;
+  /* Línea de luz de 1px, inset, en el borde de arriba del vidrio de redes y de la landing. Es luz, no sombra: este vidrio no lleva sombra. */
+  --iris-color-glass-marketing-specular: #ffffff61;
+  /* El tinte del vidrio de redes y de la landing (.glass-marketing): bg.surface al 42 %, más transparente que el de la app para que la luz se vea a través. Con la luz detrás pasan text.primary, text.secondary, la frase, los glifos de estado, el CTA y los colores de los gráficos; text.tertiary y el texto rojo, sólo donde no hay luz detrás (test/glass.test.mjs). Sobre una foto no lo garantiza: capítulo 15. */
+  --iris-color-glass-marketing-tint: #1111106b;
   /* Tinte del panel que flota (⌘K sin cortina, popover, la aprobación que flota): bg.raised al 94 %. Todo lo que pasa sobre los fondos pasa acá, aun con el peor fondo detrás. */
   --iris-color-glass-panel: #181816f0;
   /* Borde de 1px del vidrio. En oscuro, blanco al 14 %. */
@@ -111,16 +131,22 @@
   --iris-easing-out: cubic-bezier(0.23, 1, 0.32, 1);
   /* Sólo datos: ids, horas, nombres de tools, payloads, atajos. Mínimo 12px; nunca en eyebrows ni etiquetas. */
   --iris-font-family-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", "Menlo", monospace;
-  /* Todo lo que se lee y se opera, en 400 y 500. Las cifras de Plex ya son tabulares. El fallback es Arial con las métricas de Plex (css/fonts.css), para que el cambio no corra el texto. */
+  /* Todo lo que se lee y se opera, en 400 y 500. En redes y en la landing, además, 600 y 700 (titulares y cifras, capítulo 15): css/fonts.css los declara, y en la app no se usan. Las cifras de Plex ya son tabulares. El fallback es Arial con las métricas de Plex (css/fonts.css), para que el cambio no corra el texto. */
   --iris-font-family-sans: "IBM Plex Sans", "IBM Plex Sans Fallback", sans-serif;
   /* La firma. 'DM Serif Display Italic' es una familia propia de css/fonts.css, con una sola cara, la itálica, y no existe en otro lado. Afuera (Google Fonts, las piezas de redes, una pieza armada aparte) la familia es 'DM Serif Display' y la itálica sale de font-style: italic: por eso la pila trae los dos nombres, y carga en los dos lados. El fallback es Georgia Italic con las métricas ajustadas. Va en tres lugares y ninguno más: el logotipo y la i del ícono (los dos son dibujos) y la segunda línea de un titular de dos líneas (texto, 400, de 32px para arriba). Siempre con font-style: italic y font-synthesis: none. */
   --iris-font-family-signature: "DM Serif Display Italic", "DM Serif Display", "DM Serif Display Italic Fallback", serif;
-  /* Titulares, títulos, etiquetas. No hay tercer peso. */
+  /* El tracking de la firma, en em: quien lo usa multiplica por 1em (letter-spacing: calc(var(--iris-font-tracking-signature) * 1em)). Vale para la frase en cualquier tamaño, también en las piezas, que miden en cqw. Los estilos typography.headline.*.second ya lo traen en px. */
+  --iris-font-tracking-signature: -0.01;
+  /* Titulares, títulos, etiquetas. En la app no hay tercer peso: 600 y 700 van sólo en redes y en la landing. */
   --iris-font-weight-medium: 500;
   /* Cuerpo y la firma. */
   --iris-font-weight-regular: 400;
   /* Desenfoque del fondo. Con 24px no se lee nada de lo que pasa por abajo. */
   --iris-glass-blur: 24px;
+  /* Desenfoque del vidrio de redes y de la landing (.glass-marketing). En una pieza de 1080 de ancho son 2,4cqw. */
+  --iris-glass-marketing-blur: 26px;
+  /* La saturación del vidrio de redes y de la landing: más que la de la app, para que la luz de color se vea a través del tinte. */
+  --iris-glass-marketing-saturate: 1.7;
   /* Devuelve el tono a las fotos que el tinte apaga. Sobre neutros no hace nada. */
   --iris-glass-saturate: 1.4;
   /* Lado del glifo, en un viewBox de 10. */
@@ -283,17 +309,17 @@
   --iris-typography-headline-section-first-letter-spacing: -0.6px;
   /* Primera línea de un titular de sección y del banner; el hero en pantallas angostas. */
   --iris-typography-headline-section-first-line-height: 1.1;
-  /* Segunda línea del mismo titular: la firma, en el sello. En la app, calada en el de tinta (signature.text sobre signature.block); en marketing (el banner, el hero en pantallas angostas), en el petróleo (signature.marketing.text sobre signature.marketing.block). */
+  /* Segunda línea del mismo titular: la firma, sin bloque detrás, en el color de la frase (signature.phrase). */
   --iris-typography-headline-section-second: var(--iris-typography-headline-section-second-font-weight) var(--iris-typography-headline-section-second-font-size)/var(--iris-typography-headline-section-second-line-height) var(--iris-typography-headline-section-second-font-family);
-  /* Segunda línea del mismo titular: la firma, en el sello. En la app, calada en el de tinta (signature.text sobre signature.block); en marketing (el banner, el hero en pantallas angostas), en el petróleo (signature.marketing.text sobre signature.marketing.block). */
+  /* Segunda línea del mismo titular: la firma, sin bloque detrás, en el color de la frase (signature.phrase). */
   --iris-typography-headline-section-second-font-family: var(--iris-font-family-signature);
-  /* Segunda línea del mismo titular: la firma, en el sello. En la app, calada en el de tinta (signature.text sobre signature.block); en marketing (el banner, el hero en pantallas angostas), en el petróleo (signature.marketing.text sobre signature.marketing.block). */
+  /* Segunda línea del mismo titular: la firma, sin bloque detrás, en el color de la frase (signature.phrase). */
   --iris-typography-headline-section-second-font-size: 40px;
-  /* Segunda línea del mismo titular: la firma, en el sello. En la app, calada en el de tinta (signature.text sobre signature.block); en marketing (el banner, el hero en pantallas angostas), en el petróleo (signature.marketing.text sobre signature.marketing.block). */
+  /* Segunda línea del mismo titular: la firma, sin bloque detrás, en el color de la frase (signature.phrase). */
   --iris-typography-headline-section-second-font-weight: var(--iris-font-weight-regular);
-  /* Segunda línea del mismo titular: la firma, en el sello. En la app, calada en el de tinta (signature.text sobre signature.block); en marketing (el banner, el hero en pantallas angostas), en el petróleo (signature.marketing.text sobre signature.marketing.block). */
+  /* Segunda línea del mismo titular: la firma, sin bloque detrás, en el color de la frase (signature.phrase). */
   --iris-typography-headline-section-second-letter-spacing: -0.4px;
-  /* Segunda línea del mismo titular: la firma, en el sello. En la app, calada en el de tinta (signature.text sobre signature.block); en marketing (el banner, el hero en pantallas angostas), en el petróleo (signature.marketing.text sobre signature.marketing.block). */
+  /* Segunda línea del mismo titular: la firma, sin bloque detrás, en el color de la frase (signature.phrase). */
   --iris-typography-headline-section-second-line-height: 1.1;
   /* Botón, nav, título de fila, píldora. */
   --iris-typography-label: var(--iris-typography-label-font-weight) var(--iris-typography-label-font-size)/var(--iris-typography-label-line-height) var(--iris-typography-label-font-family);
@@ -343,7 +369,7 @@
   --iris-color-backdrop: #0000004d;
   /* La luz de lo que te toca: va sólo donde hay una decisión pendiente, con el ● de status.attention a la vista. Decorativa, como backlight.iris. */
   --iris-color-backlight-attention: #f2d6ae;
-  /* La luz de lo que hace iris: un círculo desenfocado detrás del vidrio, una sola por pantalla o pieza. Decorativa: nada se lee sobre ella sin un vidrio de por medio, y nunca es un fondo plano. */
+  /* La luz de lo que hace iris: un degradé radial detrás del vidrio, radial-gradient(closest-side, el color, transparent), sin blur (.glass-backlight). Una sola por pantalla o pieza. Decorativa: nada se lee sobre ella sin un vidrio de por medio, y nunca es un fondo plano. */
   --iris-color-backlight-iris: #bfd8dc;
   /* La luz en monocromo: con una foto, una persona, un gráfico o mucho contenido, el color lo pone la imagen. Es el valor de border.default. */
   --iris-color-backlight-neutral: #cececb;
@@ -367,12 +393,32 @@
   --iris-color-data-comparison: #686764;
   /* Grilla y ejes (decorativo). Las etiquetas de eje van en text.tertiary. */
   --iris-color-data-grid: #e3e3e1;
+  /* Lo que importa en un gráfico: la barra, el punto o el tramo que la pieza señala, en el petróleo de la frase. Uno por gráfico; el resto va en data.series. >= 3:1 en los cinco fondos. */
+  --iris-color-data-highlight: #0b4a57;
   /* La serie protagonista de un gráfico: trazo sólido de 1,5px. */
   --iris-color-data-series: #1a1917;
   /* Anillo de foco: outline de 2px a 2px de distancia. */
   --iris-color-focus: #1a1917;
   /* Tinte de la barra que flota (la nav de la landing). Lleva sólo text.primary, text.secondary, el CTA sólido y el foco; ni texto gris ni glifos de estado. En claro es bg.surface al 82 %. */
   --iris-color-glass-bar: #fafaf9d1;
+  /* El piso de una pieza de redes o de la landing, debajo de la luz y el vidrio. En claro es el blanco de día, un poco más gris que bg.canvas. */
+  --iris-color-glass-marketing-canvas: #e9e9e6;
+  /* El separador de 1px entre filas, adentro del vidrio de redes y de la landing. En claro, el negro de marca al 8 %. */
+  --iris-color-glass-marketing-divider: #0a0a0914;
+  /* El vidrio de redes y de la landing donde no hay backdrop-filter: blanco al 90 %, que se lee igual. */
+  --iris-color-glass-marketing-fallback: #ffffffe6;
+  /* El relleno de lo que va adentro del vidrio de redes y de la landing: las filas, las pills, la casilla y el botón secundario. En claro, blanco al 62 %. */
+  --iris-color-glass-marketing-fill: #ffffff9e;
+  /* Borde de 1px del vidrio de redes y de la landing. En claro, blanco al 80 %. */
+  --iris-color-glass-marketing-rim: #ffffffcc;
+  /* El final del brillo diagonal, en la esquina de abajo a la derecha. */
+  --iris-color-glass-marketing-sheen-end: #ffffff08;
+  /* El brillo diagonal del vidrio de redes y de la landing, en la esquina de arriba a la izquierda: linear-gradient(140deg, sheen-start, transparent 36 %, transparent 72 %, sheen-end). Es bajo a propósito: un brillo fuerte fecha el vidrio. */
+  --iris-color-glass-marketing-sheen-start: #ffffff14;
+  /* Línea de luz de 1px, inset, en el borde de arriba del vidrio de redes y de la landing. Es luz, no sombra: este vidrio no lleva sombra. */
+  --iris-color-glass-marketing-specular: #fffffff2;
+  /* El tinte del vidrio de redes y de la landing (.glass-marketing): blanco al 50 %, más transparente que el de la app para que la luz se vea a través. Con la luz detrás pasan text.primary, text.secondary, la frase, los glifos de estado, el CTA y los colores de los gráficos; text.tertiary y el texto rojo, sólo donde no hay luz detrás (test/glass.test.mjs). Sobre una foto no lo garantiza: capítulo 15. */
+  --iris-color-glass-marketing-tint: #ffffff80;
   /* Tinte del panel que flota (⌘K sin cortina, popover, la aprobación que flota): bg.raised al 94 %. Todo lo que pasa sobre los fondos pasa acá, aun con el peor fondo detrás. */
   --iris-color-glass-panel: #fafaf9f0;
   /* Borde de 1px del vidrio. En claro, text.primary al 20 %. */
@@ -428,7 +474,7 @@
     --iris-color-backdrop: #0000004d;
     /* La luz de lo que te toca: va sólo donde hay una decisión pendiente, con el ● de status.attention a la vista. Decorativa, como backlight.iris. */
     --iris-color-backlight-attention: #f2d6ae;
-    /* La luz de lo que hace iris: un círculo desenfocado detrás del vidrio, una sola por pantalla o pieza. Decorativa: nada se lee sobre ella sin un vidrio de por medio, y nunca es un fondo plano. */
+    /* La luz de lo que hace iris: un degradé radial detrás del vidrio, radial-gradient(closest-side, el color, transparent), sin blur (.glass-backlight). Una sola por pantalla o pieza. Decorativa: nada se lee sobre ella sin un vidrio de por medio, y nunca es un fondo plano. */
     --iris-color-backlight-iris: #bfd8dc;
     /* La luz en monocromo: con una foto, una persona, un gráfico o mucho contenido, el color lo pone la imagen. Es el valor de border.default. */
     --iris-color-backlight-neutral: #cececb;
@@ -452,12 +498,32 @@
     --iris-color-data-comparison: #686764;
     /* Grilla y ejes (decorativo). Las etiquetas de eje van en text.tertiary. */
     --iris-color-data-grid: #e3e3e1;
+    /* Lo que importa en un gráfico: la barra, el punto o el tramo que la pieza señala, en el petróleo de la frase. Uno por gráfico; el resto va en data.series. >= 3:1 en los cinco fondos. */
+    --iris-color-data-highlight: #0b4a57;
     /* La serie protagonista de un gráfico: trazo sólido de 1,5px. */
     --iris-color-data-series: #1a1917;
     /* Anillo de foco: outline de 2px a 2px de distancia. */
     --iris-color-focus: #1a1917;
     /* Tinte de la barra que flota (la nav de la landing). Lleva sólo text.primary, text.secondary, el CTA sólido y el foco; ni texto gris ni glifos de estado. En claro es bg.surface al 82 %. */
     --iris-color-glass-bar: #fafaf9d1;
+    /* El piso de una pieza de redes o de la landing, debajo de la luz y el vidrio. En claro es el blanco de día, un poco más gris que bg.canvas. */
+    --iris-color-glass-marketing-canvas: #e9e9e6;
+    /* El separador de 1px entre filas, adentro del vidrio de redes y de la landing. En claro, el negro de marca al 8 %. */
+    --iris-color-glass-marketing-divider: #0a0a0914;
+    /* El vidrio de redes y de la landing donde no hay backdrop-filter: blanco al 90 %, que se lee igual. */
+    --iris-color-glass-marketing-fallback: #ffffffe6;
+    /* El relleno de lo que va adentro del vidrio de redes y de la landing: las filas, las pills, la casilla y el botón secundario. En claro, blanco al 62 %. */
+    --iris-color-glass-marketing-fill: #ffffff9e;
+    /* Borde de 1px del vidrio de redes y de la landing. En claro, blanco al 80 %. */
+    --iris-color-glass-marketing-rim: #ffffffcc;
+    /* El final del brillo diagonal, en la esquina de abajo a la derecha. */
+    --iris-color-glass-marketing-sheen-end: #ffffff08;
+    /* El brillo diagonal del vidrio de redes y de la landing, en la esquina de arriba a la izquierda: linear-gradient(140deg, sheen-start, transparent 36 %, transparent 72 %, sheen-end). Es bajo a propósito: un brillo fuerte fecha el vidrio. */
+    --iris-color-glass-marketing-sheen-start: #ffffff14;
+    /* Línea de luz de 1px, inset, en el borde de arriba del vidrio de redes y de la landing. Es luz, no sombra: este vidrio no lleva sombra. */
+    --iris-color-glass-marketing-specular: #fffffff2;
+    /* El tinte del vidrio de redes y de la landing (.glass-marketing): blanco al 50 %, más transparente que el de la app para que la luz se vea a través. Con la luz detrás pasan text.primary, text.secondary, la frase, los glifos de estado, el CTA y los colores de los gráficos; text.tertiary y el texto rojo, sólo donde no hay luz detrás (test/glass.test.mjs). Sobre una foto no lo garantiza: capítulo 15. */
+    --iris-color-glass-marketing-tint: #ffffff80;
     /* Tinte del panel que flota (⌘K sin cortina, popover, la aprobación que flota): bg.raised al 94 %. Todo lo que pasa sobre los fondos pasa acá, aun con el peor fondo detrás. */
     --iris-color-glass-panel: #fafaf9f0;
     /* Borde de 1px del vidrio. En claro, text.primary al 20 %. */

@@ -156,7 +156,8 @@ corregir; el botón pasa a «Confirmar rechazo».
 
 **Cuando flota** sobre el feed o sobre fotos, la tarjeta es vidrio: la clase `.glass-panel` de
 `css/glass.css`, con el tinte de `bg.raised` al 94 % (capítulo 06). Adentro todo es sólido: el
-botón de tinta y el ghost. Dentro del hilo o del feed, y en cualquier pieza estática, va lisa.
+botón de tinta y el ghost. Dentro del hilo o del feed, y en cualquier pieza estática, va lisa,
+salvo en las piezas de redes, donde la propuesta va sobre el vidrio de la pieza (capítulo 15).
 
 **No se hace:** cambiar los textos de los botones, poner dos botones llenos, dejar «Aprobar» lleno
 al lado de un sello, sacar la fecha de lectura, mostrar una cifra sin antes → después, o pintar algo
@@ -180,8 +181,8 @@ entrada y la salida quedan a un clic.
 
 En una pieza (una OG, un video, un post) la línea puede llevar la hora:
 `items_price_bulk_update · listo · 10:40`. Es la prueba de que iris trabaja con herramientas
-reales, no una animación. En una pieza de 1080 px va a 26–30 px, en la mono y `text.tertiary`: la
-mono de 12 px es la de la app.
+reales, no una animación. En una pieza de redes va en la mono, al tamaño y en el color del capítulo
+15 (15.6): la mono de 12 px es la de la app.
 
 ---
 
@@ -250,44 +251,32 @@ La conversación con iris, como pieza: el dueño pregunta, iris lee la cuenta y 
 cifra, y lo que cambia algo espera el OK. Muestra, sin explicarlo, que del otro lado hay una IA que
 trabaja sobre tu cuenta.
 
-> **En redes v2** el mensaje de la persona va en la casilla o en la burbuja, con mayúscula y signos,
-> y la respuesta de iris sin globo, sobre el vidrio: manda el capítulo 15 (15.7). Lo de abajo es el
-> intercambio de los registros anteriores (capítulo 11, 11.13); siguen valiendo la línea «tool ·
-> estado» con el nombre real de la tool, la cifra con su unidad y el ● sólo si hay una decisión.
-
 **Anatomía**, de arriba abajo:
 
-1. **La pregunta, con cursor.** Lo que escribe el dueño, en sus palabras y como se tipea en el
-   teléfono: minúscula inicial, de vos. Va en Plex Sans 500 y `text.primary`, al tamaño de un
-   titular (64 px o más en una pieza de 1080), con `text-wrap: balance`. Termina en el cursor: una
-   barra fina y vertical en tinta (`text.primary`), del alto de una mayúscula. El cursor dice «esto
-   lo escribió una persona».
-2. **La línea «tool · estado»** (8.4), con la que empieza la respuesta: el glifo y
-   `nombre_de_la_tool · estado · hora`, en la mono y `text.tertiary`, a 26–30 px. Dice «esto lo
-   contestó iris, leyendo tu cuenta». Los nombres de las tools son los reales, y se verifican contra
-   las que existen el día que se publica.
-3. **La cifra grande.** La respuesta, en Plex Sans 500 con cifras tabulares y `text.primary`: es lo
-   más grande de la pieza. Al lado, su unidad en la sans 400: «**6.100** por venta.». Debajo, si
-   hace falta, dos o tres filas concepto / cifra como las de la tarjeta (el concepto en
-   `text.secondary`, la cifra en `text.primary` 500), separadas por `border.subtle`.
-4. **El OK**, sólo si la respuesta propone un cambio: el ● de te toca, de hasta 48 px, y al lado su
-   palabra en Plex Sans 500 y `text.primary`: «¿La bajo? Espera tu OK.».
+1. **El mensaje del dueño**, en sus palabras y de vos: en la casilla si todavía no lo envió, en la
+   burbuja si ya lo envió. Cómo se dibuja cada una, en el capítulo 15 (15.7); cómo se escribe, en el
+   09 (9.11).
+2. **La línea «tool · estado»** (8.4), con la que empieza la respuesta. Dice «esto lo contestó
+   iris, leyendo tu cuenta». Los nombres de las tools son los reales, y se verifican contra las que
+   existen el día que se publica.
+3. **La cifra grande.** La respuesta, en la sans con cifras tabulares y `text.primary`: es lo más
+   grande de la pieza. Al lado, su unidad: «**6.100** por venta.». Debajo, si hace falta, dos o tres
+   filas concepto / cifra como las de la tarjeta (el concepto en `text.secondary`, la cifra en
+   `text.primary` 500).
+4. **El OK**, sólo si la respuesta propone un cambio: la pill «Espera tu OK» (capítulo 15, 15.7).
 
 ```
-si bajo 15 % la mochila, ¿cuánto me queda?|
+[Si bajo 15 % la mochila, ¿cuánto me queda?]   Enviado · 10:39
 ✓ listing_prices_scan · listo · 10:40
 6.100 por venta.
 Hoy te quedan                         9.200
 Tu mínimo                             5.000
-● ¿La bajo? Espera tu OK.
+● Espera tu OK
 ```
 
 **Reglas.**
-- **Sin burbuja.** Las dos voces se separan por el cursor y por la línea de la tool: sin globos, sin
-  columnas por turno, sin avatar, sin caja de input ni botón de enviar, sin los tres puntitos de
-  «escribiendo» (capítulo 09, 9.11). En la app la persona sigue en burbuja.
-- **La respuesta va en la sans**, nunca en la firma: la firma no lleva números y queda para el
-  titular.
+- **La respuesta de iris va sin globo** y en la sans, nunca en la firma: la firma no lleva números
+  y queda para el titular.
 - **Sin titular.** El titular nunca comparte la imagen con la pregunta y la cifra: si el post lleva
   titular, va en otra lámina, y el reel lo lleva en su cuadro de cierre.
 - **El ● es el único color de estado** mientras la pieza espera el OK. En la línea, el glifo dice
@@ -296,6 +285,5 @@ Tu mínimo                             5.000
 - **En video**, los cuatro tiempos entran de a uno, con la secuencia de «Movimiento en piezas de
   video» (capítulo 06, 6.7).
 
-**No se hace:** la burbuja, la respuesta en serif, una pantalla de celular con la conversación
-adentro, la pregunta pulida como un titular de agencia (con mayúscula y sin cursor), una cifra sin
-unidad, el fondo marfil o el naranja de Claude.
+**No se hace:** la respuesta en serif o en un globo, una pantalla de celular con la conversación
+adentro, una cifra sin unidad, el fondo marfil o el naranja de Claude.

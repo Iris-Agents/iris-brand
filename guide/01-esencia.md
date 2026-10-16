@@ -51,12 +51,12 @@ Cada principio trae una consecuencia visual que se puede verificar en una pieza.
 
 Competente, preciso, de pocas palabras.
 
-**Se ve así:** blanco y negro, con dos colores que significan algo: el petróleo de lo que hace
-iris y el ámbar de lo que te toca, en una sola luz detrás del vidrio y en la frase (capítulo 04,
-4.9). No hay ilustraciones,
-mascotas, robots, emojis, destellos, glow, sombras ni gradientes llamativos (en redes v2 entran la
-vocera y la mascota: capítulo 15, 15.9). Hay dos pesos tipográficos, 400 y 500: el bold que grita no
-existe. El copy es corto y en voz activa.
+**Se ve así:** blanco y negro, con dos colores que significan algo: el petróleo, que es iris, y el
+ámbar, que aparece sólo con el ● de lo que te toca, en una sola luz detrás del vidrio y en la frase
+(capítulo 04, 4.9). No hay ilustraciones, mascotas, robots, emojis, destellos, glow, sombras ni
+gradientes llamativos (en redes entra la vocera, cuando exista su ficha: capítulo 15, 15.9). Hay dos
+pesos tipográficos, 400 y 500, y las piezas de redes y la landing suman 600 y 700 para frenar el
+scroll (capítulo 15, 15.6): el bold que grita no existe. El copy es corto y en voz activa.
 
 ### 2. La memoria se ve y se lee
 
@@ -65,9 +65,8 @@ es parte del producto.
 
 **Se ve así:** la lectura larga se trata como tipografía de libro: `copy.reading` a 15/1,65, hasta
 72 caracteres por línea, en `text.primary`. El agente escribe sobre el papel, sin globo; la persona
-sí va en burbuja (en la app: en una pieza de redes la persona se marca con el cursor, capítulo 09,
-9.11). El texto de apoyo va en `text.secondary`; `text.tertiary` queda para datos sueltos
-y nunca para una oración.
+sí va en burbuja, en la app y en una pieza de redes (capítulo 15, 15.7). El texto de apoyo va en
+`text.secondary`; `text.tertiary` queda para datos sueltos y nunca para una oración.
 
 ### 3. Hechos, no adjetivos
 

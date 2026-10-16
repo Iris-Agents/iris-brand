@@ -29,12 +29,9 @@ repo. Si dice otra cosa que este manual, manda el manual.
 
 - Si el manual y los tokens no coinciden, gana el token, y el manual se corrige.
 - Si un valor no está en los tokens, no existe. Si cambia, cambia en un solo lugar y se propaga.
-- Hay dos excepciones escritas, porque no son valores que se reusen:
-  - **La geometría del logo** (proporciones de la i, el resguardo, el lockup) vive en los SVG de
-    `logo/` y en el capítulo 03.
-  - **Lo propio de las piezas de redes** (el blanco de día, el vidrio más transparente, su sombra y
-    la pill del OK) vive en `pieces/redes/_base/vidrio.css` y en el capítulo 15. No son token: los
-    colores de la marca que esa hoja copia, sí, y el test los controla.
+- Hay una excepción escrita, porque no son valores que se reusen: **la geometría del logo**
+  (proporciones de la i, el resguardo, el lockup), que vive en los SVG de `logo/` y en el capítulo
+  03. Lo propio de las piezas de redes también es token (capítulo 15, 15.10).
 
 ## 0.4 Cómo se lee un nombre de token
 
@@ -53,9 +50,10 @@ Hay dos capas. Los **primitivos** son la paleta cruda; los **semánticos** dicen
   o `bg-fg-tertiary` no tienen sentido.
 - Un primitivo en el CSS de una app es un error: se usa siempre el semántico.
 - Los colores de la marca son primitivos como los demás (`color.brand.petrol` y los tonos de
-  `color.tint`): llegan a una app por su rol, `signature.phrase` y `backlight.*`
-  (`text-signature-phrase`, `bg-backlight-iris` en Tailwind), y a las piezas de redes por las
-  variables de `pieces/redes/_base/vidrio.css` (capítulo 04, 4.9).
+  `color.tint`): llegan a una app por su rol, `signature.phrase`, `data.highlight` y `backlight.*`
+  (`text-signature-phrase` en Tailwind; la luz no es un color plano y va con las clases
+  `.glass-backlight-*` de `css/glass.css`), y a las piezas de redes por las variables de
+  `pieces/redes/_base/vidrio.css` (capítulo 04, 4.9).
 - En este manual el valor va con su hex, por ejemplo `text.secondary` (#BFBEB9 en oscuro,
   #4E4D49 en claro). El hex está para leer. En código, nunca.
 

@@ -1,20 +1,21 @@
 # 05 · Tipografía
 
 **Tres familias, dos pesos.** Cada familia tiene un solo trabajo y no hay ninguna otra, ni siquiera
-de reserva.
+de reserva. Las piezas de redes y la landing suman 600 y 700 (capítulo 15, 15.6).
 
 ## 5.1 Las tres familias
 
 | Familia | Token | Trabajo | Pesos |
 |---|---|---|---|
 | **DM Serif Display itálica** | `font.family.signature` | La firma: el logotipo, la i del ícono y la segunda línea de un titular de dos líneas. Nada más. | 400, el único que tiene. |
-| **IBM Plex Sans** | `font.family.sans` | Todo lo que se lee y se opera: titulares, cuerpo, interfaz, botones, etiquetas, cifras. | 400 para leer, 500 para titulares, títulos, etiquetas y botones. No hay tercer peso. |
+| **IBM Plex Sans** | `font.family.sans` | Todo lo que se lee y se opera: titulares, cuerpo, interfaz, botones, etiquetas, cifras. | 400 para leer, 500 para titulares, títulos, etiquetas y botones. No hay tercer peso, salvo 600 y 700 en las piezas de redes y la landing (capítulo 15, 15.6). |
 | **IBM Plex Mono** | `font.family.mono` | Sólo datos: ids, horas, nombres de tools, payloads, atajos de teclado. | 400. |
 
 Los pesos son `font.weight.regular` (400) y `font.weight.medium` (500). El bold que grita no existe.
 
 Las tres tienen licencia SIL OFL 1.1. Vienen de Google Fonts y de sus repos oficiales
-(`googlefonts/dm-fonts` e `IBM/plex`), y viven autoalojadas en `fonts/` con su licencia al lado.
+(`googlefonts/dm-fonts` e `IBM/plex`), y viven autoalojadas en `fonts/` con su licencia al lado,
+también Plex Sans 600 y 700 para las piezas de redes y la landing.
 
 ## 5.2 La regla de la firma
 
@@ -25,7 +26,7 @@ escasea.
 |---|---|---|
 | El logotipo | Header, footer, OG, firma de mail, el lockup | Dibujo vectorial (`wordmark.svg`), desde 20 px de cuerpo. |
 | La i del ícono | Favicon, foto de perfil, ícono de app, conector de Claude | Dibujo vectorial (`icon.svg`), desde 16 px con el master chico. |
-| La segunda línea de un titular de dos líneas | Hero y OG (64 px), secciones y banner (40 px) | Texto, 400 itálica, del mismo tamaño que la primera línea, desde 32 px, en la frase (5.3). |
+| La segunda línea de un titular de dos líneas | Hero y OG (64 px), secciones y banner (40 px) | Texto, 400 itálica, del mismo tamaño que la primera línea (en las piezas de redes, un poco más grande: 5.3), desde 32 px, en la frase (5.3). |
 | **Nada más** | — | Ni una palabra suelta adentro de una línea sans, ni un titular de una sola línea, ni un estado vacío, ni números, ni botones, ni eyebrows, ni cuerpo, ni interfaz. |
 
 - **Por qué tan poco:** tiene un solo peso y no trae cifras tabulares, así que no sirve para datos
@@ -49,7 +50,7 @@ escasea.
 |---|---|---|
 | Familia | IBM Plex Sans 500 | La firma, 400 itálica |
 | Color | `text.primary` | La frase: `signature.phrase`, el petróleo, sin bloque detrás. En lo que te toca, `text.primary` |
-| Tamaño | El mismo en las dos | El mismo en las dos |
+| Tamaño | El mismo en las dos; en las piezas de redes, la frase un poco más grande | El mismo en las dos; en las piezas de redes, la frase un poco más grande |
 | Interlineado | El de su estilo | El de su estilo |
 
 - **El corte lo decide el copy:** la firma entra donde la frase se vuelve personal.
@@ -76,6 +77,14 @@ claro; 9,65:1 y 8,13:1 en el peor fondo). En una pantalla o pieza de lo que te t
 4.9) va en `text.primary`: el ámbar no se usa para letra.
 
 - **Lo remarca la letra**, la itálica y su color: sin bloque, sin subrayado, sin resaltado.
+- **Nunca va sola.** Es la segunda línea de un titular, y arriba lleva su primera línea en la sans.
+  Una pieza no remata con la frase suelta, tampoco una story: así la itálica sigue siendo escasa.
+- **En las piezas de redes va un poco más grande que la primera línea:** 84 px contra 78 en una
+  pieza de 1080 (capítulo 15, 15.6). Es compensación óptica: la itálica de DM Serif tiene el ojo
+  más chico que la Plex 600 y, al mismo cuerpo, se ve menor.
+- **En LinkedIn**, el banner del perfil y la portada de la página son la marca y llevan la frase en
+  la itálica, como todo lo demás. Sólo los posts de LinkedIn van sin cursiva: ahí la frase va en
+  Plex Sans 500 y en `signature.phrase`.
 - **El botón principal va lleno**, como en toda la app (capítulo 06, 6.5): sin bloque a la vista, no
   compite con nada.
 - Con Tailwind: `font-signature italic text-signature-phrase`.
@@ -93,7 +102,8 @@ Hasta octubre de 2026 la segunda línea iba en un sello, un bloque de esquinas r
 firma: de tinta en la app (`.signature-seal`) y petróleo en marketing (`.signature-seal-marketing`,
 y el `.sello` de las plantillas de redes). **No va en nada nuevo**, y las piezas de este repo ya no
 lo llevan. Queda, con su receta de `css/signature.css`, sólo en el titular de la landing y sus OG
-hasta que se rehagan, y entonces se borra (capítulo 04, 4.9). Mientras esté a la vista, el botón principal de esa pantalla va con borde.
+hasta que se rehagan, y entonces se borra sin alias ni período de gracia (capítulo 04, 4.9).
+Mientras esté a la vista, el botón principal de esa pantalla va con borde.
 
 ## 5.4 La escala
 
@@ -101,8 +111,9 @@ Doce estilos, los de la pantalla: la app, la landing y los documentos. El tracki
 con la regla de su familia y vive en cada estilo, en px.
 
 **Una pieza de redes de 1080 px no usa esta escala.** Se ve a un tercio de su tamaño, así que elige
-sus propios tamaños, con las mismas tres familias y los mismos dos pesos, sin bajar de los mínimos
-de `pieces/redes/_base/formatos.json` y con el tracking por tamaño de `pieces/redes/plantillas.md`.
+sus propios tamaños, con las mismas tres familias y con 600 y 700 además de los dos pesos (capítulo
+15, 15.6), sin bajar de los mínimos de `pieces/redes/_base/formatos.json` y con el tracking por
+tamaño de `pieces/redes/plantillas.md`.
 
 | Token | Para qué | Familia | Tamaño / interlineado | Peso | Tracking |
 |---|---|---|---|---|---|
@@ -141,8 +152,8 @@ El largo de línea está en `layout.measure.lede` (60), `layout.measure.prose` (
 - En el HTML se escribe en minúscula normal («Hoy en tu cuenta») y el CSS lo pasa a mayúsculas.
 - Nunca lleva «iris»: saldría «IRIS».
 - Los encabezados de una tabla usan el mismo estilo.
-- **En una pieza de redes**, el eyebrow de arriba de todo es la línea de contexto y va en
-  `text.primary`, no en `text.tertiary` (capítulo 09, 9.11).
+- **En una pieza de redes**, el eyebrow de arriba de todo es la línea de contexto: va en una pill y
+  en `text.primary`, no en `text.tertiary` (capítulo 15, 15.6).
 
 ## 5.6 Números
 
@@ -179,12 +190,12 @@ El largo de línea está en `layout.measure.lede` (60), `layout.measure.prose` (
 
 ## 5.9 Prohibido
 
-- Un tercer peso (600 o 700) o un bold falso. Un titular va en 500. Las piezas de redes v2 son la
-  única excepción (capítulo 15, 15.6).
+- Un tercer peso (600 o 700) o un bold falso. Un titular va en 500. Las piezas de redes y la landing
+  son la única excepción (capítulo 15, 15.6).
 - La firma recta (DM Serif Display regular), la firma fuera de sus tres usos o por debajo de 32 px
   como texto.
-- La segunda línea del titular en gris, con un bloque o un resaltado detrás, o en ámbar; un sello
-  en algo nuevo (capítulo 04, 4.9).
+- La segunda línea del titular en gris, con un bloque o un resaltado detrás, o en ámbar; la frase
+  sola, sin su primera línea; un sello en algo nuevo (capítulo 04, 4.9).
 - Plex Sans en itálica: no se carga y el navegador la falsearía. La única itálica es la firma.
 - La mono en eyebrows, etiquetas, botones o palabras («en curso» y «hoy» van en sans).
 - Un texto de menos de 12 px; en una pieza de redes, de menos de su mínimo (5.4).

@@ -7,16 +7,15 @@ Cada pieza es un HTML editable; la PNG sale de renderizarlo.
 
 Las reglas de las piezas están en el manual: los posts, carruseles, stories y reels, en el capítulo
 15, y cómo se arma una pieza sin plantilla, en el 11 (11.14). Cómo están hechas las piezas (las dos
-hojas, las plantillas, cómo se renderiza y cómo se revisa) es [`plantillas.md`](plantillas.md);
-las medidas de cada formato, [`_base/formatos.json`](_base/formatos.json), y cómo se mide una pieza
-terminada, [`_base/medir/`](_base/medir/README.md). Cómo se escribe y se publica un post no está en
-este repo.
+hojas, las plantillas, cómo se renderiza y cómo se revisa) es [`plantillas.md`](plantillas.md), y
+la guía de medidas de cada formato, [`_base/formatos.json`](_base/formatos.json). Cómo se escribe y
+se publica un post no está en este repo.
 
 ## Qué hay en cada carpeta
 
 | Carpeta | Qué tiene | Para qué red |
 |---|---|---|
-| `_base/` | `vidrio.css` (la hoja de los posts de redes v2), `brand.css` (la de las piezas fijas de la marca: tokens de color, fuentes de Google y las clases `.signature`, `.frase` y `.flecha`, la «→» en SVG), `render.sh` (una PNG), `render-all.sh` y `piezas.tsv` (todas las PNG), `formatos.json` (las medidas de cada formato) y `medir/` (la medición de una pieza terminada). | Todas |
+| `_base/` | `vidrio.css` (la hoja de los posts de redes v2), `brand.css` (la de las piezas fijas de la marca: tokens de color, fuentes de Google y las clases `.signature`, `.frase` y `.flecha`, la «→» en SVG), `render.sh` (una PNG), `render-all.sh` y `piezas.tsv` (todas las PNG) y `formatos.json` (la guía de medidas de cada formato). | Todas |
 | `perfil/` | La foto de perfil: la i del ícono a sangre sobre negro. `perfil-preview.html` es una hoja de control con la foto en chico. | Instagram, Facebook y WhatsApp: la misma foto en las tres |
 | `facebook/` | La portada de la página, en una sola versión: `portada.html`, con el titular «Agentes expertos / a cargo de tu e-commerce.» y el panel de vidrio. Cómo se arma, en el capítulo 11 del manual (11.6). | Facebook |
 | `instagram/destacadas/` | Las portadas de las historias destacadas: Demo, Casos, Precios y Ayuda, más tres propuestas (Cómo funciona, Novedades, Permisos). `destacadas-preview.html` las muestra juntas en chico. | Instagram |

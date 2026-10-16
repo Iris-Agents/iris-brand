@@ -10,6 +10,17 @@ regeneran las piezas.
 Qué hay en cada carpeta del repo está en una sola tabla: la del [README](../README.md) de la raíz
 («Qué hay adentro»). El registro de cómo se decidió cada cosa no está en el repo (capítulo 00, 0.2).
 
+### Quién la usa
+
+Lo que un cambio puede romper, y a quién se le avisa (14.5):
+
+| Quién | Qué lee | A quién se le avisa |
+|---|---|---|
+| **La landing** (`iris-landing`) | Como dependencia (14.2): `tokens.css`, `tailwind.css`, `fonts.css` con los WOFF2 de `fonts/`, los archivos de `logo/` y, con el vidrio, `glass.css`. Mientras siga el sello, `signature.css`. | A la sesión de la landing. Toma un cambio recién cuando actualiza la dependencia. |
+| **El operador de contenido** (`iris-contenido`) | Clona `main` en cada corrida. Lee el manual (sobre todo el 11.14, el 15 y lo que remiten), `pieces/redes/plantillas.md`, las hojas y `formatos.json` de `pieces/redes/_base/`, `render.sh`, `tokens/` y `logo/`. | A quien gestiona el operador, con la lista de archivos que cambian. Si cambia un archivo o una sección que su `CLAUDE.md` o sus skills nombran, se cambia ahí en el mismo momento. |
+| **El agente de redes** (`rrss-agent`) | El capítulo 09. | A quien lo mantiene, cuando cambia el 09. |
+| **La app** | Nada todavía: la adopta en su propia tarea (14.2). | — |
+
 ---
 
 ## 14.2 Cómo lo instala una app
@@ -27,7 +38,7 @@ Y en el CSS principal, después de Tailwind:
 @import "iris-brand/fonts.css";     /* las caras: DM Serif Display itálica, IBM Plex Sans y Plex Mono */
 @import "iris-brand/tokens.css";    /* las variables --iris-*, en oscuro y en claro */
 @import "iris-brand/tailwind.css";  /* las utilidades: bg-canvas, text-fg, rounded-card… */
-@import "iris-brand/glass.css";     /* el vidrio y la luz de fondo (capítulo 06, 6.8) */
+@import "iris-brand/glass.css";     /* el vidrio, el de redes y la landing, y la luz (capítulo 06, 6.8) */
 @import "iris-brand/signature.css"; /* sólo donde sigue un sello (capítulo 05, 5.3) */
 
 html {
@@ -75,7 +86,7 @@ Se lee por rol, nunca por gris:
 
 | Qué | Nombres |
 |---|---|
-| Colores, con cualquier prefijo (`bg-`, `text-`, `border-`, `fill-`…) | Fondos: `canvas` `surface` `raised` `hover` `selected` · Texto: `fg` `fg-secondary` `fg-tertiary` `fg-placeholder` `fg-disabled` `on-action` · Bordes: `line-subtle` `line` `line-control` · Acción: `action` `action-destructive` `focus` `selection` `backdrop` · La frase: `signature-phrase` · La luz: `backlight-iris` `backlight-attention` `backlight-neutral` (o las clases `.glass-backlight-*`) · El sello, donde sigue: `signature` `on-signature`; en la landing, `signature-marketing` `on-signature-marketing` · Estados, sólo en el glifo: `status-attention` `status-working` `status-failed` `status-done` `status-idle` · Datos: `data-series` `data-comparison` `data-grid` `link-underline` |
+| Colores, con cualquier prefijo (`bg-`, `text-`, `border-`, `fill-`…) | Fondos: `canvas` `surface` `raised` `hover` `selected` · Texto: `fg` `fg-secondary` `fg-tertiary` `fg-placeholder` `fg-disabled` `on-action` · Bordes: `line-subtle` `line` `line-control` · Acción: `action` `action-destructive` `focus` `selection` `backdrop` · La frase: `signature-phrase` · La luz no es un color plano: va con las clases `.glass-backlight-*` de `glass.css` · El sello, donde sigue: `signature` `on-signature`; en la landing, `signature-marketing` `on-signature-marketing` · Estados, sólo en el glifo: `status-attention` `status-working` `status-failed` `status-done` `status-idle` · Datos: `data-series` `data-highlight` `data-comparison` `data-grid` `link-underline` |
 | Radios | `rounded-chip` `rounded-control` `rounded-card` `rounded-panel` `rounded-frame`; las píldoras, `rounded-full` |
 | Estilos de texto (tamaño, interlineado, tracking y peso) | `text-hero` `text-hero-signature` `text-section` `text-section-signature` `text-title` `text-lede` `text-body` `text-reading` `text-ui` `text-label` `text-eyebrow` `text-mono` |
 | Familias | `font-sans` `font-signature` `font-mono` |
@@ -142,34 +153,42 @@ test, sin red: los esquemas están en `test/schemas/`. Frena cuando:
    gris que `text.tertiary`, el petróleo lo usa un token que no es `signature.marketing.block`, o
    queda a menos de ΔEOK 0,091 de un estado, de los colores de Claude o de Anthropic, de los de
    Mercado Libre o Mercado Pago, o de un color ya descartado (capítulo 04, 4.9); un tono de
-   `color.tint` lo usa otro rol que la luz o la frase de su modo, se aleja más de 12° del tono de
+   `color.tint` lo usa otro rol que la luz, la frase o `data.highlight` de su modo, se aleja más de
+   12° del tono de
    su color, o queda a menos de 0,091 de lo que se esquiva (salvo las tres cercanías anotadas, que
    no pueden bajar de su piso), o la luz de monocromo deja de ser `border.default`;
-4. alguno de los 169 pares de contraste baja de su mínimo sobre cualquier fondo de su modo: WCAG
+4. alguno de los 179 pares de contraste baja de su mínimo sobre cualquier fondo de su modo: WCAG
    2.2 AA, y 7:1 para la firma sobre el sello de marketing (capítulo 04, 4.4, y capítulo 13);
 5. no son doce estilos, aparece un peso fuera de 400 y 500, algo baja de 12 px, un estilo no cumple
-   la regla de tracking de su familia, o las dos líneas de un titular no comparten tamaño e
-   interlineado;
+   la regla de tracking de su familia, el tracking de la firma (`font.tracking.signature`) deja de
+   ser −0,01em, o las dos líneas de un titular no comparten tamaño e interlineado;
 6. la firma, como texto, aparece por debajo de 32 px, fuera del peso 400 o fuera de la segunda línea
    de un titular (el logotipo y la i del ícono son dibujos de `logo/`);
 7. un tinte del vidrio deja de ser el neutro que dice su nombre, la barra deja de ser `bg.surface` y
-   el panel `bg.raised` con alfa, o el texto permitido no pasa con blanco o negro puro detrás;
+   el panel `bg.raised` con alfa, o el texto permitido no pasa con blanco o negro puro detrás; en el
+   vidrio de redes y de la landing (`glass.marketing.*`), lo permitido no pasa sobre el vidrio, su
+   brillo o su relleno con el fondo o el centro de cada luz detrás, o la reserva sin
+   `backdrop-filter` no pasa con todo (sobre una foto no se exige: lo decide el capítulo 15, 15.4);
+   o, con transparencia reducida, contraste alto o colores forzados, `.glass-backlight` no se apaga
+   o algún vidrio conserva el blur o la sombra;
 8. `css/tailwind.css` choca con los nombres de shadcn o con la paleta de Tailwind, nombra una
-   variable que `dist/tokens.css` no tiene o le falta un rol de color (salvo el vidrio, que va por
-   `css/glass.css`); `css/glass.css` o
+   variable que `dist/tokens.css` no tiene, le falta un rol de color (salvo el vidrio y la luz, que
+   van por `css/glass.css`) o le da una utilidad de color al vidrio o a la luz; `css/glass.css` o
    `css/signature.css` escriben un color propio, o `.signature-seal` y `.signature-seal-marketing`
    leen los colores del otro sello; `css/fonts.css` no declara una familia de los tokens (salvo «DM
    Serif Display», el nombre de afuera de la firma, que las piezas cargan de Google Fonts) o nombra
    un archivo que no existe;
 9. `dist/` no es exactamente lo que generan los tokens (un `dist/` viejo o editado a mano no pasa),
    un primitivo sale al CSS, el petróleo aparece en `dist/tokens.css` en otra variable que
-   `--iris-color-signature-marketing-block`, un tono de `color.tint` aparece en otra que la luz o la
-   frase, o un bloque del claro trae algo más que color;
+   `--iris-color-signature-marketing-block`, un tono de `color.tint` aparece en otra que la luz, la
+   frase o `data.highlight`, o un bloque del claro trae algo más que color;
 10. una variable de `pieces/redes/_base/brand.css` no tiene su token o vale otra cosa, le faltan la
     frase o la luz (`--signature-phrase` y `--backlight-iris`), o una pieza de `pieces/` vuelve a
     usar el sello;
-11. un color de la marca en `pieces/redes/_base/vidrio.css` (el negro y el blanco, los estados, las
-    luces y la frase de cada variante) no es el del token de su modo;
+11. un color de la marca en `pieces/redes/_base/vidrio.css` (el fondo y el texto, los estados, las
+    luces y la frase de cada variante) no es el del token de su modo, ni como hex ni como su
+    `var(--iris-…)`, o una pieza de `pieces/` nombra una `var(--iris-…)` que `dist/tokens.css` no
+    tiene;
 12. un token o una variable de CSS (en `css/` o `pieces/`) se llama como lo descartado: `piece`,
     `cardboard` o cartón (capítulo 04, 4.9).
 
@@ -188,9 +207,9 @@ La marca es lo que está en `main`. Un cambio es un commit a `main` con el build
 
 **Un cambio que rompe a quien consume** (renombrar o borrar un token, una variable de CSS o una
 clase) cambia a los consumidores conocidos en el mismo momento: las piezas de `pieces/` en el mismo
-commit y cada app que lo usa, en su repo. El mensaje del commit dice qué se renombró o se borró y
-qué va en su lugar. No hay alias ni período de gracia: el nombre viejo deja de existir en ese
-commit.
+commit y cada app que lo usa, en su repo. El mensaje del commit lleva una línea «Rompe:» con qué
+se renombró o se borró y qué va en su lugar, y se avisa a quien lo usa según la tabla de 14.1. No
+hay alias ni período de gracia: el nombre viejo deja de existir en ese commit.
 
 ### Un token
 
