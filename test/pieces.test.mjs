@@ -81,7 +81,7 @@ test("las familias de brand.css son las de los tokens", () => {
 });
 
 // pieces/redes/_base/vidrio.css (redes v2, capítulo 15) también usa colores de la marca: el negro y el
-// blanco, los estados, las luces y la frase. Cada variante lee los de su modo: n1a y n1b son el
+// blanco, los estados, las luces, la frase y el acento. Cada variante lee los de su modo: n1a y n1b son el
 // oscuro; n2a y n2b, el claro. Cada valor puede ser el hex del token o su var(--iris-…). El texto de
 // la pieza pasa a text.primary (revisión de la v2, 3.8); el blanco y el negro de marca se aceptan
 // mientras vidrio.css no lo cambie, y esa salvedad se borra cuando cambie. El
@@ -94,8 +94,8 @@ const vidrioRules = new Map(
 	]),
 );
 const vidrioTokens = {
-	".vp.n1a, .vp.n1b": { mode: "dark", tokens: { "--vp-bg": "color.glass.marketing.canvas", "--vp-fg": ["color.text.primary", "color.brand.white"], "--vp-toca": "color.status.attention", "--vp-trabajando": "color.status.working", "--vp-esperando": "color.status.idle", "--vp-listo": "color.status.done", "--vp-fallo": "color.status.failed" } },
-	".vp.n2a, .vp.n2b": { mode: "light", tokens: { "--vp-bg": "color.glass.marketing.canvas", "--vp-fg": ["color.text.primary", "color.brand.black"], "--vp-toca": "color.status.attention", "--vp-trabajando": "color.status.working", "--vp-esperando": "color.status.idle", "--vp-listo": "color.status.done", "--vp-fallo": "color.status.failed" } },
+	".vp.n1a, .vp.n1b": { mode: "dark", tokens: { "--vp-bg": "color.glass.marketing.canvas", "--vp-fg": ["color.text.primary", "color.brand.white"], "--vp-toca": "color.status.attention", "--vp-trabajando": "color.status.working", "--vp-esperando": "color.status.idle", "--vp-listo": "color.status.done", "--vp-fallo": "color.status.failed", "--vp-acento": "color.accent" } },
+	".vp.n2a, .vp.n2b": { mode: "light", tokens: { "--vp-bg": "color.glass.marketing.canvas", "--vp-fg": ["color.text.primary", "color.brand.black"], "--vp-toca": "color.status.attention", "--vp-trabajando": "color.status.working", "--vp-esperando": "color.status.idle", "--vp-listo": "color.status.done", "--vp-fallo": "color.status.failed", "--vp-acento": "color.accent" } },
 	".vp.n1a": { mode: "dark", tokens: { "--vp-luz": "color.backlight.iris", "--vp-frase": "color.signature.phrase" } },
 	".vp.n1b": { mode: "dark", tokens: { "--vp-luz": "color.backlight.attention" } },
 	".vp.n2a": { mode: "light", tokens: { "--vp-luz": "color.backlight.iris", "--vp-frase": "color.signature.phrase" } },
@@ -115,6 +115,20 @@ test("los colores de la marca en vidrio.css son los de los tokens, cada variante
 		}
 	}
 	assert.deepEqual(differing, []);
+});
+
+// El petróleo en vidrio.css (capítulo 04, 4.9): el acento se declara una vez por modo (ninguna
+// variante ni el monocromo lo pisan) y se puede usar en un detalle, pero sólo como color de texto o de
+// trazo: nunca de fondo ni de borde. La pill del descuento es la neutra de las de estado, sin fondo
+// ni borde propios.
+test("en vidrio.css el acento es sólo color de texto o trazo, y la pill del descuento es la neutra", () => {
+	assert.deepEqual([...vidrioRules].filter(([, declarations]) => declarations.has("--vp-acento")).map(([selector]) => selector), [".vp.n1a, .vp.n1b", ".vp.n2a, .vp.n2b"]);
+	const source = readText("pieces/redes/_base/vidrio.css").replaceAll(/\/\*[\s\S]*?\*\//g, "");
+	const bodies = [...source.matchAll(/([^{}]+)\{([^}]*)\}/g)].map(([, selectors, body]) => ({ selectors: selectors.split(";").at(-1).trim().replaceAll(/\s+/g, " "), body }));
+	const misused = bodies.flatMap(({ selectors, body }) => [...body.matchAll(/([\w-]+)\s*:[^;]*var\(--vp-acento\)/g)].filter(([, property]) => property !== "color").map(([, property]) => `${selectors} ${property}`));
+	assert.deepEqual(misused, [], "el acento va de fondo, de borde o en otra propiedad que color");
+	assert.ok(bodies.some(({ selectors }) => selectors === ".vp .estado, .vp .descuento"), "la pill del descuento no comparte la regla de las pills de estado");
+	assert.deepEqual(bodies.filter(({ selectors, body }) => selectors !== ".vp .estado, .vp .descuento" && selectors.includes("descuento") && /background|border/.test(body)).map(({ selectors }) => selectors), [], "la pill del descuento tiene fondo o borde propios");
 });
 
 // Una pieza que lee los tokens (dist/tokens.css y css/glass.css) sólo puede nombrar variables que existen:

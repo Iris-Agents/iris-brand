@@ -35,7 +35,10 @@ cinco estados (4.6), lo prohibido (4.8) y los dos colores de la marca, con la lu
 - **En `vidrio.css`** cada variante (`.n1a`, `.n1b`, `.n2a`, `.n2b`) declara sus colores en
   variables `--vp-*`, que salen de su token (el hex con el nombre del token al lado, o su
   `var(--iris-…)`): el fondo y el texto, los estados, la luz (`backlight.*`) y la frase
-  (`signature.phrase`). El material del vidrio es `glass.marketing.*` (capítulo 06, 6.8). Qué es
+  (`signature.phrase`). El acento (`--vp-acento`, `accent`) va una vez por modo y no cambia con la
+  variante ni con el monocromo: lo lee el texto de la pill del descuento (`.descuento`), que es la
+  pill neutra de las de estado, y lo puede leer un detalle de la pieza, sólo como color de texto o
+  de trazo (capítulo 04, 4.9). El material del vidrio es `glass.marketing.*` (capítulo 06, 6.8). Qué es
   propio de redes, en el capítulo 15 (15.10).
 - **En `brand.css`** cada color es una variable con el nombre de su token y guiones:
   `text.secondary` es `--text-secondary`. Una pieza usa siempre la variable, nunca el hex suelto.
@@ -269,7 +272,8 @@ de teléfono:
 - [ ] Con foto, persona, gráfico o mucho contenido, va en monocromo (15.5).
 - [ ] El mensaje de la persona va en la casilla o en la burbuja, bien escrito (capítulo 09, 9.11);
   la respuesta de iris va sin globo, con el nombre real de la tool (15.7).
-- [ ] Lo único lleno es «Aprobar»: la pill del OK es neutra (15.7).
+- [ ] Lo único lleno es «Aprobar»: la pill del OK es neutra (15.7), y la del descuento también, con
+  el texto en petróleo.
 - [ ] No hay cartón ni texturas, verde claro, rosa ni violeta, ni los colores de Mercado Libre o
   Mercado Pago.
 - [ ] «Mercado Libre» no va en el titular ni en una pieza de pauta, y su logo va sólo como apoyo (capítulo 12).
