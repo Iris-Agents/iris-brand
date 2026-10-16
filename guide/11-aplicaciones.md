@@ -20,7 +20,7 @@ Reglas que valen para todas:
   tiene lugar para una nota (en `text.tertiary`: capítulo 04, 4.5), y siempre en el HTML. Un dato
   real de un cliente no va nunca, salvo en un testimonio con consentimiento escrito (9.10).
 - **Mercado Libre se nombra como un hecho**, chico y en texto, nunca en un titular, en pauta ni con
-  su logo o sus colores. En una pieza orgánica de redes puede ir arriba, en la línea de contexto, en
+  sus colores; su logo, sólo como apoyo. En una pieza orgánica de redes puede ir arriba, en la línea de contexto, en
   `text.primary`; en los banners y las portadas de LinkedIn y Facebook, no (capítulo 12, 12.1).
 
 ---
@@ -260,5 +260,5 @@ propuesta muestra un cambio que iris no va a hacer.
 **Ante la duda**, va la opción con más vida que respete este manual: lo que no está prohibido, se
 puede. Sólo tres cosas no salen sin una persona: un testimonio sin consentimiento escrito, un dato
 real de un cliente y una foto con personas reales (capítulo 09, 9.10). En una pieza no aparecen
-personas, salvo dos: la vocera, generada con IA y declarada, cuando exista su ficha (capítulo 15,
+personas, salvo dos: la vocera, generada con IA y declarada (capítulo 15,
 15.9), y, en un post corporativo de LinkedIn, una persona real del equipo que lo autorizó (15.8).

@@ -143,7 +143,7 @@ Las respuestas las escribe el modelo; lo que iris controla es lo que le devuelve
   buyers and manages a Mercado Libre seller account, within the permissions the owner sets.» En
   castellano: «iris atiende a tus clientes y maneja tu cuenta de Mercado Libre, con los permisos
   que vos le das.»
-- **El logo de Claude**, sólo con aprobación previa de Anthropic (capítulo 12). En texto,
+- **El logo de Claude**, sólo como apoyo (capítulo 12, 12.5). En texto,
   «funciona en Claude» o «conectá tu cuenta a Claude».
 - Lo que pide el directorio (tamaños, formato del ícono, largo de la descripción) hay que
   verificarlo en su documentación antes de cada envío.

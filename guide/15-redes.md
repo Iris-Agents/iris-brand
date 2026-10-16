@@ -16,7 +16,7 @@ Este capítulo queda con lo propio de redes, que está listado en un solo lugar:
 
 Lo que cambia respecto de los tres registros del capítulo 11, en una línea: **el vidrio sobre una
 sola luz de color reemplaza al sello, entran el ámbar como color de tema, los pesos 600 y 700, los
-íconos, la casilla y la burbuja del mensaje, y la vocera cuando tenga su ficha.** Lo demás sigue
+íconos, la casilla y la burbuja del mensaje, la vocera y la mascota.** Lo demás sigue
 igual.
 
 La hoja de estilos es `pieces/redes/_base/vidrio.css`; las plantillas de ejemplo, en
@@ -221,8 +221,8 @@ Siguen valiendo las reglas de copy del 09 (9.2): sin superlativos, sin métricas
 de ejemplo marcadas, nada de «MCP».
 
 **La vocera.** Una persona generada con IA estilo UGC: la cara de iris, que habla de vendedor a
-vendedor. **Queda habilitada recién cuando exista su ficha**, que fija quién es, cómo se ve, cómo
-habla y dónde aparece; hasta entonces, ninguna pieza la lleva. La ficha parte de esto:
+vendedor. Su receta (quién es, cómo se ve, cómo habla y dónde aparece) vive en la skill de la
+sesión de contenido, para que salga siempre igual. La marca fija esto:
 - es energética, transmite confianza y tiene una voz atractiva: habla con ganas y seguridad, sin
   gritar ni vender de más;
 - aparece en lugares luminosos y variados del negocio (un centro logístico, un estudio de fotos de
@@ -234,7 +234,9 @@ habla y dónde aparece; hasta entonces, ninguna pieza la lleva. La ficha parte d
 Con la vocera en la pieza, va en monocromo (15.5). No va en los posts corporativos de LinkedIn. El
 capítulo 01 (1.5) prohíbe personas en la marca de la app; en redes, la vocera es la excepción.
 
-**La mascota** no va en ninguna pieza hasta que esté diseñada.
+**La mascota** va con su receta de la sesión de contenido, siempre igual. Es un personaje: nunca
+reemplaza al logo ni va al lado del lockup (capítulo 03), y la pieza dice que es un personaje
+generado con IA.
 
 ## 15.10 Lo propio de redes y lo que pasó a la marca
 

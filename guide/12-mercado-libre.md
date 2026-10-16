@@ -20,11 +20,15 @@ decir un hecho, nunca su identidad.
   línea de contexto, en texto: qué dice, en el capítulo 09 (9.11), y cómo se ve, en el 15 (15.6).
   Con estos límites:
   - nunca en el titular;
-  - nunca con su logo, su amarillo ni su azul (12.2);
+  - su logo, sólo como apoyo (abajo); nunca su amarillo ni su azul (12.2);
   - nunca en pauta: un aviso pago no lo nombra (12.2);
   - iris siempre se ve más: la línea de contexto es un rótulo, y el lockup y lo que dice la pieza
     pesan más;
   - los banners y las portadas (LinkedIn, Facebook) siguen sin Mercado Libre: va en el «Acerca de».
+- **Su logo, como apoyo.** En una pieza orgánica de redes o en la landing puede ir el archivo oficial,
+  sin alterar, chico, como dato de compatibilidad («funciona con»): nunca en el titular, nunca más
+  grande que el lockup, nunca en pauta y nunca con «partner», «oficial» ni «certificado». Lo mismo
+  vale para Claude y ChatGPT (12.5). Decisión de Franco del 2026-10-16.
 - **«Mercado Libre»** en castellano y en inglés; **«Mercado Livre»** en portugués de Brasil.
   Siempre en dos palabras y con mayúsculas.
 - **«tu cuenta de Mercado Libre», no «tu Mercado Libre».** La segunda se puede leer como que iris
@@ -36,7 +40,7 @@ decir un hecho, nunca su identidad.
 
 | No | Por qué |
 |---|---|
-| Su logo, su isotipo o una captura de su interfaz como imagen de marca | Son su identidad: una pieza que los lleva parece suya. |
+| Su logo como protagonista, alterado o en pauta, o una captura de su interfaz como imagen de marca | Son su identidad: una pieza que los lleva parece suya. |
 | Su amarillo (#FFE600 y vecinos), su azul, o un diseño que se le parezca | Lo mismo con su color y su diseño: quien ve la pieza tiene que saber que es de iris. |
 | «partner», «oficial», «certificado», «aliado», «integración oficial», «powered by» | Cada una sugiere una relación que iris no tiene: no es partner ni una aplicación certificada de Mercado Libre. |
 | Mercado Libre, o «mercado», «libre», «pago», «envíos», «crédito», en el nombre de la app, de un módulo o de una cuenta | Son palabras de su marca: un nombre que las lleva se confunde con uno de sus productos. La app se llama «iris», nunca «iris para Mercado Libre»; «iris Envíos» no va; el usuario de una red no lleva Mercado Libre. |
@@ -77,8 +81,9 @@ Lo que dicen sus *Trademark Guidelines* (anthropic.com/legal/trademark-guideline
 
 Cómo lo aplica iris:
 - **En texto, como un hecho:** «conectá tu cuenta a Claude», «funciona en Claude».
-- **Su logo no se usa** sin esa aprobación, ni en la landing, ni en el directorio de conectores, ni
-  en una pieza.
+- **Su logo, sólo como apoyo**, con las mismas reglas que el de Mercado Libre (12.1): el archivo
+  oficial, chico, sin alterar y nunca más grande que iris. Lo decidió Franco el 2026-10-16, con lo
+  que dicen sus guidelines a la vista.
 - **«Claude» no entra en ningún nombre nuestro**: ni la app, ni un módulo, ni el conector.
 - **No se imita su identidad:** ni el clay (#D97757), ni el marfil, ni su tipografía. Los colores
   de estado se midieron contra los de Claude para calzar en su familia sin copiarlos.
@@ -88,7 +93,7 @@ Cómo lo aplica iris:
 
 Si iris suma otro canal de venta, vale lo mismo que para Mercado Libre:
 - se nombra como un hecho, en texto («tu tienda en…»);
-- sin su logo, sus colores ni co-branding;
+- su logo, sólo como apoyo (12.1); sin sus colores ni co-branding;
 - nunca en el nombre de la app, de un módulo o de una cuenta;
 - se leen sus reglas de marca antes de la primera pieza, y lo que se decide entra en este capítulo.
 

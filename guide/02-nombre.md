@@ -76,5 +76,5 @@ Los agentes tampoco aparecen nunca en un claim ni en un titular.
 - **Mercado Libre** se nombra como un hecho y nunca como parte del nombre: «para vendedores de
   Mercado Libre», «tu cuenta de Mercado Libre». En portugués es «Mercado Livre». Nunca
   «MercadoLibre», «ML» ni «MeLi» en algo público. Las reglas completas están en el capítulo 12.
-- **Claude** se nombra en texto: «conectá tu cuenta a Claude». Su logo, sólo con aprobación previa
-  (capítulo 12).
+- **Claude** se nombra en texto: «conectá tu cuenta a Claude». Su logo, sólo como apoyo
+  (capítulo 12, 12.5).

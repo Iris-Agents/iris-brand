@@ -54,7 +54,7 @@ Competente, preciso, de pocas palabras.
 **Se ve así:** blanco y negro, con dos colores que significan algo: el petróleo, que es iris, y el
 ámbar, que aparece sólo con el ● de lo que te toca, en una sola luz detrás del vidrio y en la frase
 (capítulo 04, 4.9). No hay ilustraciones, mascotas, robots, emojis, destellos, glow, sombras ni
-gradientes llamativos (en redes entra la vocera, cuando exista su ficha: capítulo 15, 15.9). Hay dos
+gradientes llamativos (en redes entran la vocera y la mascota: capítulo 15, 15.9). Hay dos
 pesos tipográficos, 400 y 500, y las piezas de redes y la landing suman 600 y 700 para frenar el
 scroll (capítulo 15, 15.6): el bold que grita no existe. El copy es corto y en voz activa.
 
@@ -112,7 +112,7 @@ el logotipo, la i del ícono y la segunda línea de un titular de dos líneas.
 iris es multi-país (es, pt, en), el SKU es la columna vertebral para que entren más canales, y es
 un producto, no el informe de un cliente.
 
-**Se ve así:** no se usan el amarillo ni el logo de Mercado Libre, y no hay co-branding. La marca base
+**Se ve así:** no se usa el amarillo de Mercado Libre, su logo va sólo como apoyo (capítulo 12) y no hay co-branding. La marca base
 no lleva modismos, monedas ni organismos de un país: lo local vive en los datos. Los casos públicos
 no nombran clientes ni rubros identificables, salvo un testimonio con consentimiento escrito
 (9.10). Mercado Libre se nombra como un hecho y con la grafía

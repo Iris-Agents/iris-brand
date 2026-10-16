@@ -164,7 +164,7 @@ sigue con datos de ejemplo.
 - **El permiso se puede retirar.** Si la persona lo retira, la pieza se baja de donde se pueda, no
   se vuelve a usar y se anota la fecha del retiro junto al consentimiento.
 - **Mercado Libre sigue igual:** no va en titulares ni en pauta paga aunque la persona venda ahí. Si
-  hace falta, va como un hecho chico («vende en Mercado Libre»), nunca con su logo (capítulo 12).
+  hace falta, va como un hecho chico («vende en Mercado Libre»), y su logo sólo como apoyo (capítulo 12).
 - **Se ve como testimonio:** la cita lleva el nombre y la fecha. Una pieza con un testimonio no
   lleva «Datos de ejemplo.»: o es real y aprobada, o es de ejemplo, nunca las dos en la misma pieza.
 

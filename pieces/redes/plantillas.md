@@ -172,7 +172,7 @@ sola de 40 px de cuerpo.
 ## 4. Mercado Libre
 
 Las reglas están en el capítulo 12 del manual (12.1 y 12.2). En vidrio, «Para vendedores de Mercado
-Libre» va en la línea de contexto (`.contexto`), en texto, sin su logo ni sus colores (capítulo 12).
+Libre» va en la línea de contexto (`.contexto`), en texto y sin sus colores; su logo, sólo como apoyo (capítulo 12).
 En la portada de Facebook y en las de LinkedIn no va: se nombra en el «Acerca de».
 
 ---
@@ -272,7 +272,7 @@ de teléfono:
 - [ ] Lo único lleno es «Aprobar»: la pill del OK es neutra (15.7).
 - [ ] No hay cartón ni texturas, verde claro, rosa ni violeta, ni los colores de Mercado Libre o
   Mercado Pago.
-- [ ] «Mercado Libre» no va en el titular, con su logo ni en una pieza de pauta (capítulo 12).
+- [ ] «Mercado Libre» no va en el titular ni en una pieza de pauta, y su logo va sólo como apoyo (capítulo 12).
 - [ ] Cada glifo tiene su palabra, y el ● va sólo si hay una decisión del dueño.
 - [ ] Ninguna fila nombra un agente: cada fila dice el resultado.
 - [ ] Las cifras inventadas están marcadas, y no hay ningún dato real sin autorización. Con la
