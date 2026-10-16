@@ -55,8 +55,8 @@ Cada principio trae una consecuencia visual que se puede verificar en una pieza.
 
 Competente, preciso, de pocas palabras.
 
-**Se ve así:** blanco y negro, con dos colores que significan algo: el petróleo, que es iris, y el
-ámbar, que aparece sólo con el ● de lo que te toca, en una sola luz detrás del vidrio y en la frase
+**Se ve así:** blanco y negro, con dos colores: el petróleo, el secundario, en los detalles, la
+frase y una sola luz detrás del vidrio, y el ámbar, que aparece sólo con el ● de lo que te toca
 (capítulo 04, 4.9). No hay ilustraciones, mascotas, robots, emojis, destellos, glow, sombras ni
 gradientes llamativos (en redes entran la vocera y la mascota: capítulo 15, 15.9). Hay dos
 pesos tipográficos, 400 y 500, y las piezas de redes y la landing suman 600 y 700 para frenar el
@@ -87,7 +87,8 @@ reputación». No hay badges ni contadores sin base.
 
 Lo que necesita al dueño va arriba. Lo que iris resolvió va abajo y en silencio.
 
-**Se ve así:** casi monocromo. La jerarquía sale de la luz y la tinta es el acento. Lo que grita es
+**Se ve así:** casi monocromo. La jerarquía sale de la luz y de la tinta; el petróleo queda para
+los detalles. Lo que grita es
 poco y siempre lo mismo: un solo bloque lleno por pantalla (el CTA) y el ● ámbar de «te toca», el
 único ● del sistema, agrupado arriba, con su luz ámbar si la pantalla espera una decisión. Lo resuelto
 lleva una ✓ gris y, en la app, su texto baja a gris (capítulo 08, 8.2). El movimiento dura

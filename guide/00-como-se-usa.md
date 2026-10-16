@@ -50,8 +50,9 @@ Hay dos capas. Los **primitivos** son la paleta cruda; los **semánticos** dicen
   o `bg-fg-tertiary` no tienen sentido.
 - Un primitivo en el CSS de una app es un error: se usa siempre el semántico.
 - Los colores de la marca son primitivos como los demás (`color.brand.petrol` y los tonos de
-  `color.tint`): llegan a una app por su rol, `signature.phrase`, `data.highlight` y `backlight.*`
-  (`text-signature-phrase` en Tailwind; la luz no es un color plano y va con las clases
+  `color.tint`): llegan a una app por su rol, `accent`, `signature.phrase`, `data.highlight` y
+  `backlight.*` (`text-brand-accent` y `text-signature-phrase` en Tailwind; el acento es sólo de
+  texto, porque nunca es fondo ni borde; la luz no es un color plano y va con las clases
   `.glass-backlight-*` de `css/glass.css`), y a las piezas de redes por las variables de
   `pieces/redes/_base/vidrio.css` (capítulo 04, 4.9).
 - En este manual el valor va con su hex, por ejemplo `text.secondary` (#BFBEB9 en oscuro,

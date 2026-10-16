@@ -60,8 +60,11 @@ El blanco de día (`brand.day-white`, uno solo para las dos variantes blancas) e
 que el `bg.canvas` del claro (#FAFAF9): en un feed lleno de blanco, el vidrio necesita un fondo que
 no sea papel.
 
-- **El petróleo es iris** y es el tema de toda pieza. **El ámbar es la excepción:** va sólo en la
-  pieza o la lámina que tiene a la vista el ● de «Espera tu OK» (capítulo 04, 4.9).
+- **El petróleo es el tema de toda pieza:** la luz y la frase. **El ámbar es la excepción:** va
+  sólo en la pieza o la lámina que tiene a la vista el ● de «Espera tu OK» (capítulo 04, 4.9).
+- **El petróleo también puede ir en un detalle** (`--vp-acento`, el `accent` de su modo), como el
+  texto del descuento, en cualquier variante, también en ámbar y en monocromo: es un detalle, no el
+  tema. La misma clase de elemento, el mismo color en toda la pieza (capítulo 04, 4.9).
 - **Un carrusel no cambia de negro a blanco** entre láminas, y va en petróleo. Sólo la lámina que
   pide el OK pasa a ámbar, con el mismo fondo.
 - **En la grilla se alternan negro y blanco:** nunca dos negras ni dos blancas seguidas.
@@ -134,6 +137,7 @@ herramienta, que es la prueba de que iris trabaja, no puede quedar en un susurro
 | Texto y la bajada de la cifra | IBM Plex Sans 400 | 39 px | `text.secondary` |
 | Herramienta | IBM Plex Mono 400 | 30 px | `text.secondary` |
 | Pill de estado | IBM Plex Sans 600 en «Espera tu OK», 500 en las demás | 29 px | `text.primary`; «Listo», en `text.secondary`, y «No se pudo leer», en el rojo de su estado. El resto del color, sólo en el glifo |
+| Pill del descuento | IBM Plex Sans 500 | 29 px | `accent`, sobre la pill neutra (15.7) |
 | Contexto | IBM Plex Sans 500, mayúsculas | 28 px | `text.primary` |
 | Pie | IBM Plex Sans 400 | 26 px | `text.tertiary` |
 
@@ -166,11 +170,17 @@ herramienta, que es la prueba de que iris trabaja, no puede quedar en un susurro
 - **Una pieza que dice «ya están listas»** no lleva al lado el ◐ de «Leyendo tu cuenta»: los
   estados de una pieza no se contradicen.
 
+**El descuento** (`.descuento`) es la misma pill neutra que las de estado, con el mismo fondo y el
+mismo borde, sin glifo y con el texto en el acento: «38 % menos». Nunca con fondo de color. El
+precio de antes va tachado y neutro (`.antes`).
+
 La declaración de IA no es una pill: va como texto al pie («Imagen generada con IA.», «Voz generada
 con IA.»), además de la etiqueta de IA de la red.
 
 **Íconos.** Los de lucide, como en la app (capítulo 06, 6.6), de trazo fino y en el color del
-texto. Uno por fila, pill o botón; nunca en un titular ni en la cifra; nunca en lugar de un glifo de
+texto; como detalle, pueden ir en el acento (`--vp-acento`), y entonces van así todos los de la
+pieza que son de la misma clase (todas las filas, todas las pills). El de un botón lleno («Aprobar»,
+enviar) va siempre en el color del botón (capítulo 04, 4.9). Uno por fila, pill o botón; nunca en un titular ni en la cifra; nunca en lugar de un glifo de
 estado; ningún ícono de «IA». Un control con ícono no es un glifo (capítulo 04, 4.6). El set de
 redes: ventas (`shopping-bag`), stock (`package`), precio (`tag`), lo que te queda (`banknote`),
 promos (`badge-percent`), preguntas (`message-circle-question`), reclamos

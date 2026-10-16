@@ -1,10 +1,10 @@
 # 04 · Color
 
-**Blanco y negro, con dos colores que significan algo.** La jerarquía sale de la luz y la tinta es
-el acento: más claro es más importante en oscuro, más oscuro en claro. Fuera de los neutros están
-los colores de estado, que viven en su glifo, y los dos colores de la marca: **el petróleo es iris;
-el ámbar es la excepción, y aparece sólo con un ● a la vista.** Van en la luz de fondo y en la
-frase, nunca de relleno (4.9).
+**Blanco y negro, con dos colores.** La jerarquía sale de la luz y de la tinta: más claro es más
+importante en oscuro, más oscuro en claro. Fuera de los neutros están los colores de estado, que
+viven en su glifo, y los dos colores de la marca: **el petróleo es el color secundario, el de los
+detalles; el ámbar es la excepción, y aparece sólo con un ● a la vista.** Ninguno va de relleno
+(4.9).
 
 - **El oscuro es la noche y el claro es el día** de la misma marca. El oscuro es el default: landing,
   OG, banner y el resolver de tokens. El claro es para quien usa la app de día, y en redes se
@@ -32,8 +32,8 @@ mismo tono 70 del ● de «te toca», más hondo o más pálido: dice lo mismo.
 |---|---|---|---|
 | `color.tint.petrol-deep` | #0B3A44 | 0.323 0.0511 215.4 | `backlight.iris` en oscuro |
 | `color.tint.petrol-pale` | #BFD8DC | 0.865 0.0273 208.3 | `backlight.iris` en claro |
-| `color.tint.petrol-mist` | #B9D3D8 | 0.8491 0.0287 210.5 | `signature.phrase` y `data.highlight` en oscuro |
-| `color.tint.petrol-ink` | #0B4A57 | 0.3784 0.0626 215.8 | `signature.phrase` y `data.highlight` en claro |
+| `color.tint.petrol-mist` | #B9D3D8 | 0.8491 0.0287 210.5 | `accent`, `signature.phrase` y `data.highlight` en oscuro |
+| `color.tint.petrol-ink` | #0B4A57 | 0.3784 0.0626 215.8 | `accent`, `signature.phrase` y `data.highlight` en claro |
 | `color.tint.amber-deep` | #6A4314 | 0.4193 0.0808 66.7 | `backlight.attention` en oscuro |
 | `color.tint.amber-pale` | #F2D6AE | 0.8895 0.061 76.6 | `backlight.attention` en claro |
 
@@ -111,8 +111,9 @@ Un componente usa sólo estos nombres. Cambian de valor con el modo; el rol es e
 | `border.control` | #72716E | #868581 | Borde de input y de todo control sin otra señal; el borde de la píldora. |
 | `action.primary` | #EDEDEA | #1A1917 | El CTA: relleno de tinta con `text.on-action` encima. Con el sello a la vista, el botón principal va con borde (capítulo 06, 6.5). |
 | `action.destructive` | #E66E68 | #BC3732 | Texto y borde del botón que borra o revierte. Ghost, nunca relleno. |
-| `signature.phrase` | #B9D3D8 | #0B4A57 | La frase: la firma en color, sin bloque, en la segunda línea del titular (capítulo 05, 5.3). Petróleo, porque dice lo que hace iris; en lo que te toca, la firma va en `text.primary`. |
-| `backlight.iris` | #0B3A44 | #BFD8DC | La luz de lo que hace iris, detrás del vidrio (4.9 y capítulo 06). Decorativa. |
+| `accent` | #B9D3D8 | #0B4A57 | El acento: el petróleo para detalles, opcional. El trazo de un ícono, el texto de una pill (el descuento), un subrayado o un dato puntual, con la misma clase de elemento en el mismo color (4.9). Es el valor de `signature.phrase`. En Tailwind, `text-brand-accent`, sólo de texto. |
+| `signature.phrase` | #B9D3D8 | #0B4A57 | La frase: la firma en color, sin bloque, en la segunda línea del titular (capítulo 05, 5.3). En petróleo; en lo que te toca, la firma va en `text.primary`. |
+| `backlight.iris` | #0B3A44 | #BFD8DC | La luz petróleo, la de siempre, detrás del vidrio (4.9 y capítulo 06). Decorativa. |
 | `backlight.attention` | #6A4314 | #F2D6AE | La luz de lo que te toca: sólo con una decisión pendiente. Decorativa. |
 | `backlight.neutral` | #3A3937 | #CECECB | La luz en monocromo, con foto, persona, gráfico o mucho contenido. Es el valor de `border.default`. |
 | `signature.block` | #EDEDEA | #1A1917 | El sello de la app: el bloque de tinta detrás de la segunda línea del titular. Es el valor de `text.primary`. Sólo donde ya está (4.9). |
@@ -129,15 +130,15 @@ Un componente usa sólo estos nombres. Cambian de valor con el modo; el rol es e
 
 ## 4.3 Por qué casi no hay color
 
-El acento es la tinta: el valor de `text.primary` es también el relleno del CTA y el anillo de foco.
-Como casi todo comparte tinta, lo que grita no puede ser el color: grita la forma. Un solo bloque
-lleno de tinta por pantalla y el ● de «te toca».
+La jerarquía es de la tinta: el valor de `text.primary` es también el relleno del CTA y el anillo
+de foco. Como casi todo comparte tinta, lo que grita no puede ser el color: grita la forma. Un solo
+bloque lleno de tinta por pantalla y el ● de «te toca».
 
-**El color, cuando significa algo.** La interfaz no tiene un color de marca para pintar botones ni
-un azul para «novedad»: se probó, queda a ΔE 0,091 del cian de Mercado Pago y, al lado del ámbar,
-arma la pareja de colores de Mercado Libre. Los dos colores de la marca no decoran: dicen de quién
-es el turno (4.9). Por eso van en la luz, que se siente, y en la frase, que se lee, y el petróleo
-también en lo que importa de un gráfico; nunca en un botón, un borde ni un fondo plano.
+**El color, en lo chico.** La interfaz no tiene un color de marca para pintar botones ni un azul
+para «novedad»: se probó, queda a ΔE 0,091 del cian de Mercado Pago y, al lado del ámbar, arma la
+pareja de colores de Mercado Libre. El petróleo es el color secundario: va en la frase, la luz y lo
+que importa de un gráfico, y se puede usar en un detalle, siempre igual dentro de la pieza. El ámbar
+dice que te toca. Ninguno va en un botón, un borde ni un fondo plano (4.9).
 
 ## 4.4 Contraste
 
@@ -157,7 +158,7 @@ redondeado a dos decimales. El test compara el valor sin redondear.
 | `text.on-action` sobre `action.primary` | 4,5 | 16,89 | — | 16,82 | — |
 | `signature.text` sobre `signature.block` | 4,5 | 16,89 | — | 16,82 | — |
 | `signature.marketing.text` sobre `signature.marketing.block` | **7** | 11,87 | — | 11,87 | — |
-| `signature.phrase` | 4,5 | 12,61 | 9,65 | 9,43 | 8,13 |
+| `signature.phrase` · `accent` | 4,5 | 12,61 | 9,65 | 9,43 | 8,13 |
 | ● `status.attention` | 3 | 10,34 | 7,92 | 3,87 | **3,33** |
 | ◐ `status.working` | 3 | 6,18 | 4,73 | 6,53 | 5,62 |
 | ✓ `status.done` | 3 | 7,03 | 5,38 | 5,42 | 4,66 |
@@ -177,6 +178,9 @@ redondeado a dos decimales. El test compara el valor sin redondear.
   las tres luces de `backlight.*`, que nunca llevan nada encima sin un vidrio de por medio, y
   `border.subtle`, `border.default` y `data.grid`, que son decorativos (1,40 y 1,72:1 sobre el canvas
   oscuro). El logotipo en `brand.white` sobre `brand.black` da 18,96:1.
+- **El acento sobre el vidrio de redes y de la landing**, con cualquier luz detrás y también sobre
+  el relleno de una pill, no baja de 6,39:1 en oscuro (con la luz ámbar) ni de 7,96:1 en claro:
+  pasa como texto chico, como el de una pill.
 - **La firma sobre el sello de marketing** tiene un mínimo más alto, 7:1, porque el bloque casi no
   se despega del negro (1,42:1, a propósito, y sin umbral): lo que separa el sello es la letra
   (4.9).
@@ -280,9 +284,14 @@ raised) y el borde, un paso. En claro todo es el mismo blanco y el nivel lo dice
 - El amarillo de Mercado Libre (#FFE600) y parecidos, su azul (#3483FA) y el cian de Mercado Pago
   (#00BCFF), tampoco en redes. El naranja y el marfil de Claude.
 - Un color que no esté en los tokens, o un hex suelto en código.
-- El petróleo o el ámbar fuera de la luz, la frase, `data.highlight` en un gráfico y el sello que ya
-  existe (4.9): de fondo plano, en una franja, como borde, botón, ícono, glifo o estado, o en el
-  logo. El ámbar como luz sin un ● a la vista.
+- El petróleo de fondo plano, en una franja, como borde, en un botón lleno o su ícono, en un
+  estado o un glifo de estado, en texto largo (un párrafo, una oración de cuerpo, un titular entero)
+  o en el logo. Va sólo en los detalles, la frase, la luz, `data.highlight` y el sello que ya existe
+  (4.9).
+- Mezclar el petróleo con otro color en la misma clase de elemento: si un ícono de una lista o
+  una grilla va en petróleo, van todos los de esa lista (4.9).
+- Una pill con fondo de color: la pill es neutra, y el petróleo va, si va, sólo en su texto.
+- El ámbar fuera de la luz y del ● de «te toca». El ámbar como luz sin un ● a la vista.
 - Más de una luz de color por pantalla o pieza, o una luz con texto encima sin vidrio.
 - Gradientes llamativos y glow. Las únicas excepciones son tres:
   - la luz de fondo (`backlight.*`, 4.9): un círculo de color que se apaga hacia afuera, detrás
@@ -297,19 +306,45 @@ raised) y el borde, un paso. En claro todo es el mismo blanco y el nivel lo dice
 
 ## 4.9 Los dos colores de la marca: el petróleo y el ámbar
 
-iris es blanco y negro, con dos colores que significan algo. **El petróleo es iris. El ámbar es la
-excepción: aparece sólo con un ● a la vista.** Lo decidió el encargado de contenido para redes el
-2026-10-13 y pasó a toda la marca el 2026-10-15, para que la app se vea igual; aprueba Franco
-(capítulo 00, 0.7).
+iris es blanco y negro, con dos colores. **El petróleo es el color secundario: el de los detalles.
+El ámbar es la excepción: aparece sólo con un ● a la vista.** El ámbar y la luz los decidió el
+encargado de contenido para redes el 2026-10-13 y pasaron a toda la marca el 2026-10-15. El
+petróleo como color secundario lo decidió Franco el 2026-10-16 (capítulo 00, 0.7): se puede usar
+en los detalles, a criterio de quien diseña, con una sola condición, **la misma clase de elemento,
+el mismo color.**
+
+### El petróleo, para detalles
+
+Es un solo tono por modo, #B9D3D8 en oscuro y #0B4A57 en claro: `accent`, `signature.phrase` y
+`data.highlight` valen lo mismo. La luz tiene su tono propio.
+
+| Dónde | Token | Cómo |
+|---|---|---|
+| **Un detalle, si quien diseña lo elige** | `accent` | El trazo de un ícono, el texto de una pill, un subrayado o un dato puntual. No es obligatorio en ningún detalle: la landing, por ejemplo, lleva los íconos en el color del texto y sólo el descuento en petróleo («38 % menos», dentro de la pill neutra; el precio de antes, tachado y neutro). |
+| **La frase** | `signature.phrase` | La segunda línea del titular. En lo que te toca va en `text.primary`. |
+| **La luz** | `backlight.iris` | La luz de siempre, detrás del vidrio. En lo que te toca la reemplaza la ámbar. |
+| **Un gráfico** | `data.highlight` | Lo que importa, uno por gráfico (capítulo 07, 7.2). |
+
+**La condición: coherencia dentro de la pieza o pantalla.** La misma clase de elemento lleva el
+mismo color: si un ícono de una lista o una grilla va en petróleo, van todos los de esa lista; no se
+mezclan.
+
+**Nunca en petróleo:** un fondo plano grande (una franja, una card, una pieza entera), un botón
+lleno ni su ícono (el CTA va en tinta), un borde, el fondo de una pill (la pill es neutra; el color
+va sólo en su texto), un estado o un glifo de estado, texto largo (un párrafo, una oración de
+cuerpo, un titular entero) ni el logo.
+
+### El ámbar, lo que te toca
 
 | Color | Qué dice | La luz | La frase |
 |---|---|---|---|
-| **Petróleo** | Lo que hace iris: lee la cuenta, responde, propone. | `backlight.iris` | `signature.phrase` |
 | **Ámbar** | Lo que te toca: una decisión, una aprobación, un OK. Es el color del ● de `status.attention`. | `backlight.attention` | `text.primary`: la firma no se pinta de ámbar |
 
-- **Uno por pantalla o pieza.** El petróleo es el de siempre: el ingreso, el estado vacío o una
-  portada son de iris aunque iris no esté haciendo nada. El ámbar entra sólo donde se ve el ● de
-  «te toca», y entonces reemplaza al petróleo. No se mezclan.
+- **Una luz y una frase por pantalla o pieza.** La luz y la frase van en petróleo: el ingreso,
+  el estado vacío o una portada son de iris aunque iris no esté haciendo nada. El ámbar entra sólo
+  donde se ve el ● de «te toca», y entonces reemplaza al petróleo en la luz y la frase pasa a
+  `text.primary`. Los detalles en petróleo, si la pieza los lleva, no cambian: son detalles, no el
+  tema.
 
 ### Monocromo
 
@@ -327,6 +362,7 @@ como filas de datos. Glifo por glifo:
 | ✕ falló | Sigue en rojo: un fallo no es decoración. |
 | ✓ resuelto y ○ esperando | Igual que siempre: ya son neutros. |
 | La barra que importa en un gráfico | Sigue en `data.highlight` (capítulo 07, 7.2). |
+| Los detalles en petróleo | Si la pieza los lleva, siguen en `accent`: son detalles. Sobre una foto, lo que va encima del vidrio lo dice el capítulo 15 (15.4). |
 
 ### La luz
 
@@ -375,8 +411,13 @@ del vidrio).
 
 Se probaron y no van (2026-10-10):
 - **El cartón**: ni de sello, ni como textura de cinta, ni como token.
-- **El fondo petróleo** de una pieza entera: el petróleo va en la luz y en la frase, nunca de fondo
-  plano.
+- **El fondo petróleo** de una pieza entera: el petróleo va en los detalles, la luz y la frase,
+  nunca de fondo plano.
+- **El petróleo sólo en los íconos de lo que hace iris**, con el resto neutros, y **la pill del
+  descuento con fondo petróleo** (2026-10-16): unos íconos con color y otros sin él no era
+  coherente, y el fondo de color quedaba feo en el descuento.
+- **Todos los íconos en petróleo, por regla** (2026-10-16): era demasiado limitado. El petróleo se
+  puede usar en los detalles; no es obligatorio en ninguno.
 - **El verde claro** (aguamarina) para el sello, y los verdes más verdes, que caen en la menta.
 - **El rosa**, en la firma o en el sello.
 - **El violeta**, en cualquier tono, también en el cursor de una pieza: el cursor va en tinta.

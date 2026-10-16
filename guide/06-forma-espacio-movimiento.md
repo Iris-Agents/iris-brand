@@ -92,7 +92,10 @@ achica el ritmo, no el contenido.
 
 ## 6.6 Íconos de interfaz
 
-- **lucide, de 16 px**, en el color del texto que acompañan.
+- **lucide, de 16 px**, en el color del texto que acompañan o, como detalle, en el acento
+  (`accent`, `text-brand-accent` en Tailwind). Lo elige quien diseña, con una condición: los íconos
+  de una misma lista, grilla o barra van todos en el mismo color. El de un botón lleno va siempre en
+  el color del botón (capítulo 04, 4.9).
 - Sólo cuando ayudan a operar: nunca decorativos.
 - Ningún ícono de «IA»: ni destellos, ni cerebros, ni robots, ni varitas.
 - Los glifos de estado no son íconos: son los cinco del capítulo 04, de 10 px (en una pieza de
@@ -210,7 +213,7 @@ En CSS son `--iris-color-glass-bar`, `--iris-color-glass-panel`, `--iris-color-g
 ### Dos niveles, por rol
 
 - **La barra** (`.glass-bar`) es la nav flotante de la landing. Lleva sólo `text.primary`,
-  `text.secondary`, el CTA de tinta sólido (con el sello del hero a la vista, con borde: 6.5) y el
+  `text.secondary`, `accent` en un detalle (6,51:1 en el peor caso), el CTA de tinta sólido (con el sello del hero a la vista, con borde: 6.5) y el
   foco. Ni `text.tertiary`, ni placeholder, ni texto
   rojo, ni `border.control`, ni glifos de estado: con blanco puro detrás la barra da #414140 y el
   terciario baja a 3,63:1. Si hace falta algo de eso, es un panel.
@@ -236,7 +239,7 @@ En CSS son `--iris-color-glass-bar`, `--iris-color-glass-panel`, `--iris-color-g
 ### La luz de fondo
 
 Detrás del vidrio puede ir una luz de color, una sola por pantalla: `.glass-backlight` con su color,
-`.glass-backlight-iris` (petróleo, lo que hace iris), `.glass-backlight-attention` (ámbar, sólo con
+`.glass-backlight-iris` (petróleo, la de siempre), `.glass-backlight-attention` (ámbar, sólo con
 una decisión pendiente) o `.glass-backlight-neutral` (monocromo). Qué dice cada color y dónde va,
 en el capítulo 04 (4.9).
 

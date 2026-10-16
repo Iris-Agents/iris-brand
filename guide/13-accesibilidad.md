@@ -7,7 +7,7 @@ frena el test no se puede romper, y lo demás se revisa antes de entregar una pi
 
 ## 13.1 Contraste
 
-Lo frena el test: ninguno de los 179 pares baja de su mínimo sobre ninguno de los fondos de su
+Lo frena el test: ninguno de los 189 pares baja de su mínimo sobre ninguno de los fondos de su
 modo (canvas, surface, raised, hover y selected en oscuro; canvas, hover y selected en claro).
 
 Cada par, con su mínimo y su valor sobre el canvas y sobre el peor fondo de cada modo, está en el
@@ -25,6 +25,9 @@ capítulo 04 (4.4).
       claro) o, en lo que te toca, en `text.primary`; nunca en ámbar. Donde sigue un sello, la letra
       se lee contra su bloque: 16,89:1 y 16,82:1 el de tinta, 11,87:1 el petróleo, con un mínimo de
       7:1 (capítulo 04, 4.9).
+- [ ] Un detalle en el acento (`accent`), aunque sea texto chico como el de una pill, pasa como
+      texto: 9,65:1 y 8,13:1 en el peor fondo de cada modo, y 6,39:1 y 7,96:1 sobre el vidrio de
+      redes con cualquier luz detrás (capítulo 04, 4.4).
 - [ ] La luz de fondo es decorativa: nada se lee sobre ella sin un vidrio encima, lleva
       `aria-hidden` y se apaga con `prefers-reduced-transparency`, `prefers-contrast: more` y
       `forced-colors`.

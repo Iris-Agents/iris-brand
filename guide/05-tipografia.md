@@ -72,7 +72,7 @@ Hay dos pares, sin tipografía fluida: `headline.hero` (64/1,05) para el hero y 
 ### La frase
 
 La segunda línea no va en gris: el gris, en lugar de remarcar, apagaba. Va en color, en la firma y
-sin nada detrás: `signature.phrase`, el petróleo de lo que hace iris (#B9D3D8 en oscuro, #0B4A57 en
+sin nada detrás: `signature.phrase`, el petróleo de la marca (#B9D3D8 en oscuro, #0B4A57 en
 claro; 9,65:1 y 8,13:1 en el peor fondo). En una pantalla o pieza de lo que te toca (capítulo 04,
 4.9) va en `text.primary`: el ámbar no se usa para letra.
 

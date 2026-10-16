@@ -153,11 +153,11 @@ test, sin red: los esquemas están en `test/schemas/`. Frena cuando:
    gris que `text.tertiary`, el petróleo lo usa un token que no es `signature.marketing.block`, o
    queda a menos de ΔEOK 0,091 de un estado, de los colores de Claude o de Anthropic, de los de
    Mercado Libre o Mercado Pago, o de un color ya descartado (capítulo 04, 4.9); un tono de
-   `color.tint` lo usa otro rol que la luz, la frase o `data.highlight` de su modo, se aleja más de
-   12° del tono de
-   su color, o queda a menos de 0,091 de lo que se esquiva (salvo las tres cercanías anotadas, que
-   no pueden bajar de su piso), o la luz de monocromo deja de ser `border.default`;
-4. alguno de los 179 pares de contraste baja de su mínimo sobre cualquier fondo de su modo: WCAG
+   `color.tint` lo usa otro rol que la luz, la frase, `accent` o `data.highlight` de su modo, se
+   aleja más de 12° del tono de su color, o queda a menos de 0,091 de lo que se esquiva (salvo las
+   tres cercanías anotadas, que no pueden bajar de su piso); el acento deja de valer lo mismo que
+   la frase y `data.highlight`, o la luz de monocromo deja de ser `border.default`;
+4. alguno de los 189 pares de contraste baja de su mínimo sobre cualquier fondo de su modo: WCAG
    2.2 AA, y 7:1 para la firma sobre el sello de marketing (capítulo 04, 4.4, y capítulo 13);
 5. no son doce estilos, aparece un peso fuera de 400 y 500, algo baja de 12 px, un estilo no cumple
    la regla de tracking de su familia, el tracking de la firma (`font.tracking.signature`) deja de
@@ -173,7 +173,8 @@ test, sin red: los esquemas están en `test/schemas/`. Frena cuando:
    o algún vidrio conserva el blur o la sombra;
 8. `css/tailwind.css` choca con los nombres de shadcn o con la paleta de Tailwind, nombra una
    variable que `dist/tokens.css` no tiene, le falta un rol de color (salvo el vidrio y la luz, que
-   van por `css/glass.css`) o le da una utilidad de color al vidrio o a la luz; `css/glass.css` o
+   van por `css/glass.css`, y el acento, que va por su utilidad) o le da una utilidad de color al
+   vidrio o a la luz, o el acento entra al `@theme` o tiene otra utilidad que `text-brand-accent`; `css/glass.css` o
    `css/signature.css` escriben un color propio, o `.signature-seal` y `.signature-seal-marketing`
    leen los colores del otro sello; `css/fonts.css` no declara una familia de los tokens (salvo «DM
    Serif Display», el nombre de afuera de la firma, que las piezas cargan de Google Fonts) o nombra
@@ -181,14 +182,15 @@ test, sin red: los esquemas están en `test/schemas/`. Frena cuando:
 9. `dist/` no es exactamente lo que generan los tokens (un `dist/` viejo o editado a mano no pasa),
    un primitivo sale al CSS, el petróleo aparece en `dist/tokens.css` en otra variable que
    `--iris-color-signature-marketing-block`, un tono de `color.tint` aparece en otra que la luz, la
-   frase o `data.highlight`, o un bloque del claro trae algo más que color;
+   frase, el acento o `data.highlight`, o un bloque del claro trae algo más que color;
 10. una variable de `pieces/redes/_base/brand.css` no tiene su token o vale otra cosa, le faltan la
     frase o la luz (`--signature-phrase` y `--backlight-iris`), o una pieza de `pieces/` vuelve a
     usar el sello;
 11. un color de la marca en `pieces/redes/_base/vidrio.css` (el fondo y el texto, los estados, las
-    luces y la frase de cada variante) no es el del token de su modo, ni como hex ni como su
-    `var(--iris-…)`, o una pieza de `pieces/` nombra una `var(--iris-…)` que `dist/tokens.css` no
-    tiene;
+    luces, la frase y el acento de cada variante) no es el del token de su modo, ni como hex ni como
+    su `var(--iris-…)`; una variante pisa el acento, el acento va en otra propiedad que `color` (de
+    fondo o de borde), o la pill del descuento tiene fondo o borde propios; o una pieza de `pieces/`
+    nombra una `var(--iris-…)` que `dist/tokens.css` no tiene;
 12. un token o una variable de CSS (en `css/` o `pieces/`) se llama como lo descartado: `piece`,
     `cardboard` o cartón (capítulo 04, 4.9).
 
