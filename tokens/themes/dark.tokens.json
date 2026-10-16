@@ -29,12 +29,13 @@
     "signature": {
       "block": {"$type": "color", "$value": "{color.neutral-dark.11}", "$description": "El sello de la app: el bloque de tinta detrás de la segunda línea de un titular de dos líneas, con la firma calada en signature.text. Es el valor de text.primary. Lo nuevo no lleva sello: la firma va en signature.phrase. Si hay un sello a la vista, es el único bloque lleno de tinta de la pantalla y el botón principal va con borde."},
       "text": {"$type": "color", "$value": "{color.neutral-dark.1}", "$description": "La firma calada en el sello: el color del fondo, sólo sobre signature.block. Es el valor de text.on-action."},
-      "phrase": {"$type": "color", "$value": "{color.tint.petrol-mist}", "$description": "La frase: la firma en color, sin bloque detrás, en la segunda línea de un titular de dos líneas. Es el petróleo de lo que hace iris; en una pieza o pantalla de lo que te toca, la firma va en text.primary. Reemplaza al sello en todo lo nuevo. 9,65:1 en el peor fondo del oscuro."},
+      "phrase": {"$type": "color", "$value": "{color.tint.petrol-mist}", "$description": "La frase: la firma en color, sin bloque detrás, en la segunda línea de un titular de dos líneas. Es el petróleo de la marca, el mismo valor que accent; en una pieza o pantalla de lo que te toca, la firma va en text.primary. Reemplaza al sello en todo lo nuevo. 9,65:1 en el peor fondo del oscuro."},
       "marketing": {
         "block": {"$type": "color", "$value": "{color.brand.petrol}", "$description": "El sello de marketing: el bloque petróleo detrás de la segunda línea de un titular de dos líneas, con la firma en signature.marketing.text. Queda sólo en el titular de la landing y sus OG hasta que se rehagan; lo nuevo lleva la firma en signature.phrase. Es el único rol que usa brand.petrol. Casi no se despega del negro, a propósito (1,42:1 sobre bg.canvas del oscuro): el sello lo hace la letra. Si hay un botón principal a la vista, va con borde de 1px en text.primary, sin relleno. Igual en los dos modos: el bloque es oscuro siempre."},
         "text": {"$type": "color", "$value": "{color.neutral-dark.11}", "$description": "La firma sobre el sello de marketing: la tinta del oscuro, sólo sobre signature.marketing.block (11,87:1). Igual en los dos modos."}
       }
     },
+    "accent": {"$type": "color", "$value": "{color.tint.petrol-mist}", "$description": "El acento: el petróleo como color secundario de la marca, para detalles y opcional. Puede ir en el trazo de un ícono, el texto de una pill, un subrayado o un dato puntual, a criterio de quien diseña, con una condición: la misma clase de elemento lleva el mismo color en toda la pieza o pantalla. Es el mismo petróleo que signature.phrase. Nunca de fondo plano, en un borde, en un botón lleno, en un glifo de estado, en un párrafo ni en el logo. 9,65:1 en el peor fondo del oscuro; >= 6,39:1 sobre el vidrio de redes, con cualquier luz detrás."},
     "focus": {"$type": "color", "$value": "{color.neutral-dark.11}", "$description": "Anillo de foco: outline de 2px a 2px de distancia."},
     "selection": {"$type": "color", "$value": "{color.neutral-dark.7}", "$description": "Fondo de la selección de texto."},
     "backdrop": {"$type": "color", "$value": "{color.alpha.black-60}", "$description": "Cortina detrás de un diálogo. Nunca detrás de un vidrio: con cortina, el vidrio desaparece."},
@@ -55,13 +56,13 @@
       "underline": {"$type": "color", "$value": "{color.neutral-dark.8}", "$description": "Subrayado de un link en texto corrido: 1px, a link.underline-offset. En hover pasa a text.primary. El link no cambia de color."}
     },
     "glass": {
-      "bar": {"$type": "color", "$value": "{color.alpha.neutral-dark-2-80}", "$description": "Tinte de la barra que flota (la nav de la landing). Lleva sólo text.primary, text.secondary, el CTA sólido y el foco; ni texto gris ni glifos de estado. En oscuro es bg.surface al 80 %."},
+      "bar": {"$type": "color", "$value": "{color.alpha.neutral-dark-2-80}", "$description": "Tinte de la barra que flota (la nav de la landing). Lleva sólo text.primary, text.secondary, accent en un detalle, el CTA sólido y el foco; ni texto gris ni glifos de estado. En oscuro es bg.surface al 80 %."},
       "panel": {"$type": "color", "$value": "{color.alpha.neutral-dark-3-94}", "$description": "Tinte del panel que flota (⌘K sin cortina, popover, la aprobación que flota): bg.raised al 94 %. Todo lo que pasa sobre los fondos pasa acá, aun con el peor fondo detrás."},
       "rim": {"$type": "color", "$value": "{color.alpha.white-14}", "$description": "Borde de 1px del vidrio. En oscuro, blanco al 14 %."},
       "specular": {"$type": "color", "$value": "{color.alpha.white-10}", "$description": "Línea de luz de 1px, inset, en el borde de arriba. Es luz, no sombra."},
       "marketing": {
         "canvas": {"$type": "color", "$value": "{color.neutral-dark.1}", "$description": "El piso de una pieza de redes o de la landing, debajo de la luz y el vidrio. En oscuro es el negro de marca, el mismo valor que bg.canvas."},
-        "tint": {"$type": "color", "$value": "{color.alpha.neutral-dark-2-42}", "$description": "El tinte del vidrio de redes y de la landing (.glass-marketing): bg.surface al 42 %, más transparente que el de la app para que la luz se vea a través. Con la luz detrás pasan text.primary, text.secondary, la frase, los glifos de estado, el CTA y los colores de los gráficos; text.tertiary y el texto rojo, sólo donde no hay luz detrás (test/glass.test.mjs). Sobre una foto no lo garantiza: capítulo 15."},
+        "tint": {"$type": "color", "$value": "{color.alpha.neutral-dark-2-42}", "$description": "El tinte del vidrio de redes y de la landing (.glass-marketing): bg.surface al 42 %, más transparente que el de la app para que la luz se vea a través. Con la luz detrás pasan text.primary, text.secondary, la frase, el acento, los glifos de estado, el CTA y los colores de los gráficos; text.tertiary y el texto rojo, sólo donde no hay luz detrás (test/glass.test.mjs). Sobre una foto no lo garantiza: capítulo 15."},
         "fallback": {"$type": "color", "$value": "{color.alpha.neutral-dark-2-88}", "$description": "El vidrio de redes y de la landing donde no hay backdrop-filter: bg.surface al 88 %, que se lee igual."},
         "rim": {"$type": "color", "$value": "{color.alpha.white-17}", "$description": "Borde de 1px del vidrio de redes y de la landing. En oscuro, blanco al 17 %."},
         "specular": {"$type": "color", "$value": "{color.alpha.white-38}", "$description": "Línea de luz de 1px, inset, en el borde de arriba del vidrio de redes y de la landing. Es luz, no sombra: este vidrio no lleva sombra."},
@@ -72,7 +73,7 @@
       }
     },
     "backlight": {
-      "iris": {"$type": "color", "$value": "{color.tint.petrol-deep}", "$description": "La luz de lo que hace iris: un degradé radial detrás del vidrio, radial-gradient(closest-side, el color, transparent), sin blur (.glass-backlight). Una sola por pantalla o pieza. Decorativa: nada se lee sobre ella sin un vidrio de por medio, y nunca es un fondo plano."},
+      "iris": {"$type": "color", "$value": "{color.tint.petrol-deep}", "$description": "La luz petróleo, la de siempre: un degradé radial detrás del vidrio, radial-gradient(closest-side, el color, transparent), sin blur (.glass-backlight). Una sola por pantalla o pieza. Decorativa: nada se lee sobre ella sin un vidrio de por medio, y nunca es un fondo plano."},
       "attention": {"$type": "color", "$value": "{color.tint.amber-deep}", "$description": "La luz de lo que te toca: va sólo donde hay una decisión pendiente, con el ● de status.attention a la vista. Decorativa, como backlight.iris."},
       "neutral": {"$type": "color", "$value": "{color.neutral-dark.7}", "$description": "La luz en monocromo: con una foto, una persona, un gráfico o mucho contenido, el color lo pone la imagen. Es el valor de border.default."}
     }

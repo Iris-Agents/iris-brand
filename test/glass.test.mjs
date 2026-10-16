@@ -8,9 +8,9 @@ import { foundation, modes, resolved } from "./lib/tokens.mjs";
 
 const worstBackdrops = ["#ffffff", "#000000"];
 const allowed = {
-	bar: { text: ["text.primary", "text.secondary"], graphic: ["action.primary", "focus"] },
+	bar: { text: ["text.primary", "text.secondary", "accent"], graphic: ["action.primary", "focus"] },
 	panel: {
-		text: ["text.primary", "text.secondary", "text.tertiary", "text.placeholder", "signature.phrase", "status.failed", "action.destructive"],
+		text: ["text.primary", "text.secondary", "text.tertiary", "text.placeholder", "signature.phrase", "accent", "status.failed", "action.destructive"],
 		graphic: ["border.control", "status.attention", "status.working", "status.done", "status.idle", "focus", "data.series", "data.highlight", "data.comparison", "link.underline", "action.primary"],
 	},
 };
@@ -70,7 +70,7 @@ describe("legibilidad del vidrio con el peor fondo detrás", () => {
 // tinte de reserva es casi opaco: con cualquier fondo de la marca detrás, pasa todo.
 const marketing = {
 	withLight: {
-		text: ["text.primary", "text.secondary", "signature.phrase"],
+		text: ["text.primary", "text.secondary", "signature.phrase", "accent"],
 		graphic: ["status.attention", "status.working", "status.done", "status.idle", "status.failed", "action.primary", "data.series", "data.highlight", "data.comparison"],
 	},
 	withoutLight: { text: ["text.tertiary", "status.failed"], graphic: [] },

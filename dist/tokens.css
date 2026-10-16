@@ -13,6 +13,8 @@
   --iris-border-width-hairline: 1px;
   /* Regla inset de la fila activa: de las listas, nunca un adorno de card. */
   --iris-border-width-rule: 2px;
+  /* El acento: el petróleo como color secundario de la marca, para detalles y opcional. Puede ir en el trazo de un ícono, el texto de una pill, un subrayado o un dato puntual, a criterio de quien diseña, con una condición: la misma clase de elemento lleva el mismo color en toda la pieza o pantalla. Es el mismo petróleo que signature.phrase. Nunca de fondo plano, en un borde, en un botón lleno, en un glifo de estado, en un párrafo ni en el logo. 9,65:1 en el peor fondo del oscuro; >= 6,39:1 sobre el vidrio de redes, con cualquier luz detrás. */
+  --iris-color-accent: #b9d3d8;
   /* Texto y borde del botón que borra o revierte (ghost, nunca relleno). Va con una confirmación que repite el objeto. */
   --iris-color-action-destructive: #e66e68;
   /* El CTA es tinta: relleno de text.primary con text.on-action encima. */
@@ -21,7 +23,7 @@
   --iris-color-backdrop: #00000099;
   /* La luz de lo que te toca: va sólo donde hay una decisión pendiente, con el ● de status.attention a la vista. Decorativa, como backlight.iris. */
   --iris-color-backlight-attention: #6a4314;
-  /* La luz de lo que hace iris: un degradé radial detrás del vidrio, radial-gradient(closest-side, el color, transparent), sin blur (.glass-backlight). Una sola por pantalla o pieza. Decorativa: nada se lee sobre ella sin un vidrio de por medio, y nunca es un fondo plano. */
+  /* La luz petróleo, la de siempre: un degradé radial detrás del vidrio, radial-gradient(closest-side, el color, transparent), sin blur (.glass-backlight). Una sola por pantalla o pieza. Decorativa: nada se lee sobre ella sin un vidrio de por medio, y nunca es un fondo plano. */
   --iris-color-backlight-iris: #0b3a44;
   /* La luz en monocromo: con una foto, una persona, un gráfico o mucho contenido, el color lo pone la imagen. Es el valor de border.default. */
   --iris-color-backlight-neutral: #3a3937;
@@ -51,7 +53,7 @@
   --iris-color-data-series: #ededea;
   /* Anillo de foco: outline de 2px a 2px de distancia. */
   --iris-color-focus: #ededea;
-  /* Tinte de la barra que flota (la nav de la landing). Lleva sólo text.primary, text.secondary, el CTA sólido y el foco; ni texto gris ni glifos de estado. En oscuro es bg.surface al 80 %. */
+  /* Tinte de la barra que flota (la nav de la landing). Lleva sólo text.primary, text.secondary, accent en un detalle, el CTA sólido y el foco; ni texto gris ni glifos de estado. En oscuro es bg.surface al 80 %. */
   --iris-color-glass-bar: #111110cc;
   /* El piso de una pieza de redes o de la landing, debajo de la luz y el vidrio. En oscuro es el negro de marca, el mismo valor que bg.canvas. */
   --iris-color-glass-marketing-canvas: #0a0a09;
@@ -69,7 +71,7 @@
   --iris-color-glass-marketing-sheen-start: #ffffff14;
   /* Línea de luz de 1px, inset, en el borde de arriba del vidrio de redes y de la landing. Es luz, no sombra: este vidrio no lleva sombra. */
   --iris-color-glass-marketing-specular: #ffffff61;
-  /* El tinte del vidrio de redes y de la landing (.glass-marketing): bg.surface al 42 %, más transparente que el de la app para que la luz se vea a través. Con la luz detrás pasan text.primary, text.secondary, la frase, los glifos de estado, el CTA y los colores de los gráficos; text.tertiary y el texto rojo, sólo donde no hay luz detrás (test/glass.test.mjs). Sobre una foto no lo garantiza: capítulo 15. */
+  /* El tinte del vidrio de redes y de la landing (.glass-marketing): bg.surface al 42 %, más transparente que el de la app para que la luz se vea a través. Con la luz detrás pasan text.primary, text.secondary, la frase, el acento, los glifos de estado, el CTA y los colores de los gráficos; text.tertiary y el texto rojo, sólo donde no hay luz detrás (test/glass.test.mjs). Sobre una foto no lo garantiza: capítulo 15. */
   --iris-color-glass-marketing-tint: #1111106b;
   /* Tinte del panel que flota (⌘K sin cortina, popover, la aprobación que flota): bg.raised al 94 %. Todo lo que pasa sobre los fondos pasa acá, aun con el peor fondo detrás. */
   --iris-color-glass-panel: #181816f0;
@@ -87,7 +89,7 @@
   --iris-color-signature-marketing-block: #03313c;
   /* La firma sobre el sello de marketing: la tinta del oscuro, sólo sobre signature.marketing.block (11,87:1). Igual en los dos modos. */
   --iris-color-signature-marketing-text: #ededea;
-  /* La frase: la firma en color, sin bloque detrás, en la segunda línea de un titular de dos líneas. Es el petróleo de lo que hace iris; en una pieza o pantalla de lo que te toca, la firma va en text.primary. Reemplaza al sello en todo lo nuevo. 9,65:1 en el peor fondo del oscuro. */
+  /* La frase: la firma en color, sin bloque detrás, en la segunda línea de un titular de dos líneas. Es el petróleo de la marca, el mismo valor que accent; en una pieza o pantalla de lo que te toca, la firma va en text.primary. Reemplaza al sello en todo lo nuevo. 9,65:1 en el peor fondo del oscuro. */
   --iris-color-signature-phrase: #b9d3d8;
   /* La firma calada en el sello: el color del fondo, sólo sobre signature.block. Es el valor de text.on-action. */
   --iris-color-signature-text: #0a0a09;
@@ -361,6 +363,8 @@
 
 [data-theme="light"] {
   color-scheme: light;
+  /* El acento: el petróleo como color secundario de la marca, para detalles y opcional. Puede ir en el trazo de un ícono, el texto de una pill, un subrayado o un dato puntual, a criterio de quien diseña, con una condición: la misma clase de elemento lleva el mismo color en toda la pieza o pantalla. Es el mismo petróleo que signature.phrase. Nunca de fondo plano, en un borde, en un botón lleno, en un glifo de estado, en un párrafo ni en el logo. 8,13:1 en el peor fondo del claro; >= 7,96:1 sobre el vidrio de redes, con cualquier luz detrás. */
+  --iris-color-accent: #0b4a57;
   /* Texto y borde del botón que borra o revierte (ghost, nunca relleno). Va con una confirmación que repite el objeto. */
   --iris-color-action-destructive: #bc3732;
   /* El CTA es tinta: relleno de text.primary con text.on-action encima. */
@@ -369,7 +373,7 @@
   --iris-color-backdrop: #0000004d;
   /* La luz de lo que te toca: va sólo donde hay una decisión pendiente, con el ● de status.attention a la vista. Decorativa, como backlight.iris. */
   --iris-color-backlight-attention: #f2d6ae;
-  /* La luz de lo que hace iris: un degradé radial detrás del vidrio, radial-gradient(closest-side, el color, transparent), sin blur (.glass-backlight). Una sola por pantalla o pieza. Decorativa: nada se lee sobre ella sin un vidrio de por medio, y nunca es un fondo plano. */
+  /* La luz petróleo, la de siempre: un degradé radial detrás del vidrio, radial-gradient(closest-side, el color, transparent), sin blur (.glass-backlight). Una sola por pantalla o pieza. Decorativa: nada se lee sobre ella sin un vidrio de por medio, y nunca es un fondo plano. */
   --iris-color-backlight-iris: #bfd8dc;
   /* La luz en monocromo: con una foto, una persona, un gráfico o mucho contenido, el color lo pone la imagen. Es el valor de border.default. */
   --iris-color-backlight-neutral: #cececb;
@@ -399,7 +403,7 @@
   --iris-color-data-series: #1a1917;
   /* Anillo de foco: outline de 2px a 2px de distancia. */
   --iris-color-focus: #1a1917;
-  /* Tinte de la barra que flota (la nav de la landing). Lleva sólo text.primary, text.secondary, el CTA sólido y el foco; ni texto gris ni glifos de estado. En claro es bg.surface al 82 %. */
+  /* Tinte de la barra que flota (la nav de la landing). Lleva sólo text.primary, text.secondary, accent en un detalle, el CTA sólido y el foco; ni texto gris ni glifos de estado. En claro es bg.surface al 82 %. */
   --iris-color-glass-bar: #fafaf9d1;
   /* El piso de una pieza de redes o de la landing, debajo de la luz y el vidrio. En claro es el blanco de día, un poco más gris que bg.canvas. */
   --iris-color-glass-marketing-canvas: #e9e9e6;
@@ -417,7 +421,7 @@
   --iris-color-glass-marketing-sheen-start: #ffffff14;
   /* Línea de luz de 1px, inset, en el borde de arriba del vidrio de redes y de la landing. Es luz, no sombra: este vidrio no lleva sombra. */
   --iris-color-glass-marketing-specular: #fffffff2;
-  /* El tinte del vidrio de redes y de la landing (.glass-marketing): blanco al 50 %, más transparente que el de la app para que la luz se vea a través. Con la luz detrás pasan text.primary, text.secondary, la frase, los glifos de estado, el CTA y los colores de los gráficos; text.tertiary y el texto rojo, sólo donde no hay luz detrás (test/glass.test.mjs). Sobre una foto no lo garantiza: capítulo 15. */
+  /* El tinte del vidrio de redes y de la landing (.glass-marketing): blanco al 50 %, más transparente que el de la app para que la luz se vea a través. Con la luz detrás pasan text.primary, text.secondary, la frase, el acento, los glifos de estado, el CTA y los colores de los gráficos; text.tertiary y el texto rojo, sólo donde no hay luz detrás (test/glass.test.mjs). Sobre una foto no lo garantiza: capítulo 15. */
   --iris-color-glass-marketing-tint: #ffffff80;
   /* Tinte del panel que flota (⌘K sin cortina, popover, la aprobación que flota): bg.raised al 94 %. Todo lo que pasa sobre los fondos pasa acá, aun con el peor fondo detrás. */
   --iris-color-glass-panel: #fafaf9f0;
@@ -435,7 +439,7 @@
   --iris-color-signature-marketing-block: #03313c;
   /* La firma sobre el sello de marketing: la tinta del oscuro, sólo sobre signature.marketing.block (11,87:1). Igual en los dos modos. */
   --iris-color-signature-marketing-text: #ededea;
-  /* La frase: la firma en color, sin bloque detrás, en la segunda línea de un titular de dos líneas. Es el petróleo de lo que hace iris; en una pieza o pantalla de lo que te toca, la firma va en text.primary. Reemplaza al sello en todo lo nuevo. 8,13:1 en el peor fondo del claro. */
+  /* La frase: la firma en color, sin bloque detrás, en la segunda línea de un titular de dos líneas. Es el petróleo de la marca, el mismo valor que accent; en una pieza o pantalla de lo que te toca, la firma va en text.primary. Reemplaza al sello en todo lo nuevo. 8,13:1 en el peor fondo del claro. */
   --iris-color-signature-phrase: #0b4a57;
   /* La firma calada en el sello: el color del fondo, sólo sobre signature.block. Es el valor de text.on-action. */
   --iris-color-signature-text: #fafaf9;
@@ -466,6 +470,8 @@
 @media (prefers-color-scheme: light) {
   :root:not([data-theme]) {
     color-scheme: light;
+    /* El acento: el petróleo como color secundario de la marca, para detalles y opcional. Puede ir en el trazo de un ícono, el texto de una pill, un subrayado o un dato puntual, a criterio de quien diseña, con una condición: la misma clase de elemento lleva el mismo color en toda la pieza o pantalla. Es el mismo petróleo que signature.phrase. Nunca de fondo plano, en un borde, en un botón lleno, en un glifo de estado, en un párrafo ni en el logo. 8,13:1 en el peor fondo del claro; >= 7,96:1 sobre el vidrio de redes, con cualquier luz detrás. */
+    --iris-color-accent: #0b4a57;
     /* Texto y borde del botón que borra o revierte (ghost, nunca relleno). Va con una confirmación que repite el objeto. */
     --iris-color-action-destructive: #bc3732;
     /* El CTA es tinta: relleno de text.primary con text.on-action encima. */
@@ -474,7 +480,7 @@
     --iris-color-backdrop: #0000004d;
     /* La luz de lo que te toca: va sólo donde hay una decisión pendiente, con el ● de status.attention a la vista. Decorativa, como backlight.iris. */
     --iris-color-backlight-attention: #f2d6ae;
-    /* La luz de lo que hace iris: un degradé radial detrás del vidrio, radial-gradient(closest-side, el color, transparent), sin blur (.glass-backlight). Una sola por pantalla o pieza. Decorativa: nada se lee sobre ella sin un vidrio de por medio, y nunca es un fondo plano. */
+    /* La luz petróleo, la de siempre: un degradé radial detrás del vidrio, radial-gradient(closest-side, el color, transparent), sin blur (.glass-backlight). Una sola por pantalla o pieza. Decorativa: nada se lee sobre ella sin un vidrio de por medio, y nunca es un fondo plano. */
     --iris-color-backlight-iris: #bfd8dc;
     /* La luz en monocromo: con una foto, una persona, un gráfico o mucho contenido, el color lo pone la imagen. Es el valor de border.default. */
     --iris-color-backlight-neutral: #cececb;
@@ -504,7 +510,7 @@
     --iris-color-data-series: #1a1917;
     /* Anillo de foco: outline de 2px a 2px de distancia. */
     --iris-color-focus: #1a1917;
-    /* Tinte de la barra que flota (la nav de la landing). Lleva sólo text.primary, text.secondary, el CTA sólido y el foco; ni texto gris ni glifos de estado. En claro es bg.surface al 82 %. */
+    /* Tinte de la barra que flota (la nav de la landing). Lleva sólo text.primary, text.secondary, accent en un detalle, el CTA sólido y el foco; ni texto gris ni glifos de estado. En claro es bg.surface al 82 %. */
     --iris-color-glass-bar: #fafaf9d1;
     /* El piso de una pieza de redes o de la landing, debajo de la luz y el vidrio. En claro es el blanco de día, un poco más gris que bg.canvas. */
     --iris-color-glass-marketing-canvas: #e9e9e6;
@@ -522,7 +528,7 @@
     --iris-color-glass-marketing-sheen-start: #ffffff14;
     /* Línea de luz de 1px, inset, en el borde de arriba del vidrio de redes y de la landing. Es luz, no sombra: este vidrio no lleva sombra. */
     --iris-color-glass-marketing-specular: #fffffff2;
-    /* El tinte del vidrio de redes y de la landing (.glass-marketing): blanco al 50 %, más transparente que el de la app para que la luz se vea a través. Con la luz detrás pasan text.primary, text.secondary, la frase, los glifos de estado, el CTA y los colores de los gráficos; text.tertiary y el texto rojo, sólo donde no hay luz detrás (test/glass.test.mjs). Sobre una foto no lo garantiza: capítulo 15. */
+    /* El tinte del vidrio de redes y de la landing (.glass-marketing): blanco al 50 %, más transparente que el de la app para que la luz se vea a través. Con la luz detrás pasan text.primary, text.secondary, la frase, el acento, los glifos de estado, el CTA y los colores de los gráficos; text.tertiary y el texto rojo, sólo donde no hay luz detrás (test/glass.test.mjs). Sobre una foto no lo garantiza: capítulo 15. */
     --iris-color-glass-marketing-tint: #ffffff80;
     /* Tinte del panel que flota (⌘K sin cortina, popover, la aprobación que flota): bg.raised al 94 %. Todo lo que pasa sobre los fondos pasa acá, aun con el peor fondo detrás. */
     --iris-color-glass-panel: #fafaf9f0;
@@ -540,7 +546,7 @@
     --iris-color-signature-marketing-block: #03313c;
     /* La firma sobre el sello de marketing: la tinta del oscuro, sólo sobre signature.marketing.block (11,87:1). Igual en los dos modos. */
     --iris-color-signature-marketing-text: #ededea;
-    /* La frase: la firma en color, sin bloque detrás, en la segunda línea de un titular de dos líneas. Es el petróleo de lo que hace iris; en una pieza o pantalla de lo que te toca, la firma va en text.primary. Reemplaza al sello en todo lo nuevo. 8,13:1 en el peor fondo del claro. */
+    /* La frase: la firma en color, sin bloque detrás, en la segunda línea de un titular de dos líneas. Es el petróleo de la marca, el mismo valor que accent; en una pieza o pantalla de lo que te toca, la firma va en text.primary. Reemplaza al sello en todo lo nuevo. 8,13:1 en el peor fondo del claro. */
     --iris-color-signature-phrase: #0b4a57;
     /* La firma calada en el sello: el color del fondo, sólo sobre signature.block. Es el valor de text.on-action. */
     --iris-color-signature-text: #fafaf9;

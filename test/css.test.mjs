@@ -51,7 +51,8 @@ describe("dist/tokens.css", () => {
 	});
 });
 
-// El petróleo hondo sale al CSS sólo como el sello de marketing; sus tonos, sólo en la luz y la frase.
+// El petróleo hondo sale al CSS sólo como el sello de marketing; sus tonos, sólo en la luz, la frase,
+// el acento y lo que importa de un gráfico.
 describe("el color de la marca", () => {
 	const petrol = hexOf(foundation.get("color.brand.petrol").value);
 	test("dist/tokens.css trae el sello de marketing en los tres bloques, y ninguna otra variable con el petróleo", () => {
@@ -62,12 +63,12 @@ describe("el color de la marca", () => {
 			assert.deepEqual(declared.filter(([, value]) => value.toLowerCase() === petrol).map(([name]) => name), ["--iris-color-signature-marketing-block"], blockName);
 		}
 	});
-	// Los tonos de color.tint salen sólo en la luz de fondo, en la frase y en lo que importa de un gráfico.
-	test("los tonos de la marca salen sólo en --iris-color-backlight-*, --iris-color-signature-phrase y --iris-color-data-highlight", () => {
+	// Los tonos de color.tint salen sólo en la luz de fondo, en la frase, en el acento y en lo que importa de un gráfico.
+	test("los tonos de la marca salen sólo en --iris-color-backlight-*, --iris-color-signature-phrase, --iris-color-accent y --iris-color-data-highlight", () => {
 		const tints = new Set([...foundation].filter(([id]) => id.startsWith("color.tint.")).map(([, token]) => hexOf(token.value)));
 		for (const [blockName, block] of Object.entries(blocks)) {
 			const users = [...declarationsOf(block)].filter(([, value]) => tints.has(value.toLowerCase())).map(([name]) => name);
-			assert.deepEqual(users.sort(), ["--iris-color-backlight-attention", "--iris-color-backlight-iris", "--iris-color-data-highlight", "--iris-color-signature-phrase"], blockName);
+			assert.deepEqual(users.sort(), ["--iris-color-accent", "--iris-color-backlight-attention", "--iris-color-backlight-iris", "--iris-color-data-highlight", "--iris-color-signature-phrase"], blockName);
 		}
 	});
 	// Lo que quedó afuera (el cartón y los colores de pieza) no vuelve como token: ni un id, ni una
@@ -126,10 +127,17 @@ describe("css/tailwind.css", () => {
 		const colors = namesIn("color");
 		assert.deepEqual(namesIn("text").filter((name) => colors.includes(name)), []);
 	});
-	test("están todos los semánticos de color salvo el vidrio y la luz, que van por glass.css", () => {
+	test("están todos los semánticos de color salvo el vidrio y la luz, que van por glass.css, y el acento, que va por su utilidad", () => {
 		const mapped = new Set([...theme.values()]);
-		const missing = [...semantics.dark.keys()].filter((id) => !id.startsWith("color.glass.") && !id.startsWith("color.backlight.")).filter((id) => !mapped.has(`var(${cssName(id)})`));
+		const missing = [...semantics.dark.keys()].filter((id) => !id.startsWith("color.glass.") && !id.startsWith("color.backlight.") && id !== "color.accent").filter((id) => !mapped.has(`var(${cssName(id)})`));
 		assert.deepEqual(missing, []);
+	});
+	// En el @theme, el acento tendría bg-, border- y ring-: el petróleo sería un fondo o un borde. Va
+	// como una sola utilidad de texto, que también pinta el trazo de un ícono (currentColor).
+	test("el acento es sólo text-brand-accent: ninguna variable del @theme lo lee", () => {
+		assert.deepEqual([...theme].filter(([, value]) => value === "var(--iris-color-accent)").map(([name]) => name), []);
+		const utilities = [...source.matchAll(/@utility\s+([\w-]+)\s*\{([^}]*)\}/g)].map(([, name, body]) => [name, body.trim()]);
+		assert.deepEqual(utilities, [["text-brand-accent", "color: var(--iris-color-accent);"]]);
 	});
 	// Con bg-backlight-* la luz sería un fondo plano, y nunca lo es.
 	test("ni el vidrio ni la luz tienen utilidad de color", () => {

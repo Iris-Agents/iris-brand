@@ -9,20 +9,22 @@
   contexto, pie) la pone su propia hoja; el material sale de acá.
 
   - .glass-bar    la barra que flota (la nav de la landing). Sólo text.primary, text.secondary,
-                  el CTA de tinta sólido y el foco: ni texto gris, ni texto rojo, ni bordes de
-                  control, ni glifos de estado. Si hacen falta, es un panel.
+                  el acento en un detalle, el CTA de tinta sólido y el foco: ni texto gris, ni
+                  texto rojo, ni bordes de control, ni glifos de estado. Si hacen falta, es un
+                  panel.
   - .glass-panel  lo que flota con texto (⌘K sin cortina, popovers, la aprobación cuando flota).
                   El tinte es bg.raised al 94 %: todo lo que pasa sobre los fondos pasa acá.
   - .glass-backlight  la luz de fondo: un círculo de color que se apaga hacia afuera, detrás del
                       vidrio. Una sola por pantalla, decorativa (aria-hidden) y quieta. El color va
-                      por su modificador: -iris (petróleo, lo que hace iris), -attention (ámbar, lo
+                      por su modificador: -iris (petróleo, la de siempre), -attention (ámbar, lo
                       que te toca, sólo con una decisión pendiente) o -neutral (monocromo). Dónde va
                       y su tamaño los pone la pantalla; nada se lee sobre ella sin un vidrio encima.
   - .glass-marketing  el vidrio de redes y de la landing: más transparente que el de la app, con
                       un brillo diagonal bajo y sin sombra. Con la luz detrás pasan text.primary,
-                      text.secondary, la frase, los glifos de estado, el CTA y los colores de los
-                      gráficos; text.tertiary y el texto rojo, sólo donde no hay luz detrás. Sobre
-                      una foto, el tinte no alcanza: lo que va encima lo dice el capítulo 15.
+                      text.secondary, la frase, el acento, los glifos de estado, el CTA y los
+                      colores de los gráficos; text.tertiary y el texto rojo, sólo donde no hay
+                      luz detrás. Sobre una foto, el tinte no alcanza: lo que va encima lo dice el
+                      capítulo 15.
 
   El contraste lo garantiza el tinte, no el blur: con el peor fondo detrás y sin desenfoque, el
   texto permitido igual pasa (lo mide test/glass.test.mjs; en .glass-marketing, el peor fondo es el

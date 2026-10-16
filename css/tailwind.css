@@ -4,11 +4,16 @@
   modo lo resuelve tokens.css: no hace falta `dark:` para los colores de la marca.
 
   En el markup se lee por rol: bg-canvas text-fg border-line-subtle · bg-action text-on-action ·
-  font-signature italic text-signature-phrase (la firma en color) · rounded-card. El sello, donde
+  font-signature italic text-signature-phrase (la firma en color) · text-brand-accent (el acento,
+  opcional: un ícono, el texto de una pill o un dato) · rounded-card. El sello, donde
   ya está: bg-signature text-on-signature (en la landing, bg-signature-marketing
   text-on-signature-marketing). El vidrio y la luz no están acá: van con las clases de
   glass.css (la luz no es un color plano). No se bloquea la paleta de Tailwind ni se redefinen los
   nombres de shadcn: eso lo decide la app.
+
+  El acento no entra al @theme: ahí tendría bg-, border- y ring-, y el petróleo nunca es fondo ni
+  borde. Es una sola utilidad de texto, al final. Los íconos de lucide dibujan con currentColor:
+  text-brand-accent les pinta el trazo. No se llama text-accent porque accent es de shadcn.
 */
 
 @theme inline {
@@ -39,7 +44,7 @@
   --color-selection: var(--iris-color-selection);
   --color-backdrop: var(--iris-color-backdrop);
 
-  /* La firma en color: la segunda línea del titular, sin bloque, en lo que hace iris */
+  /* La firma en color: la segunda línea del titular, sin bloque, en petróleo */
   --color-signature-phrase: var(--iris-color-signature-phrase);
 
   /* El sello (css/signature.css), sólo en las piezas que ya lo llevan: en la app, el bloque de tinta
@@ -124,4 +129,9 @@
   --text-mono--line-height: var(--iris-typography-mono-line-height);
   --text-mono--letter-spacing: var(--iris-typography-mono-letter-spacing);
   --text-mono--font-weight: var(--iris-typography-mono-font-weight);
+}
+
+/* El acento: el petróleo para detalles (capítulo 04, 4.9). Sólo texto y trazo, nunca fondo. */
+@utility text-brand-accent {
+  color: var(--iris-color-accent);
 }

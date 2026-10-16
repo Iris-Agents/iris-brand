@@ -118,20 +118,30 @@ describe("el petróleo", () => {
 	});
 });
 
-// Los dos colores de la marca, en sus tonos: el petróleo (lo que hace iris) y el ámbar (lo que te
-// toca). Van sólo en la luz de fondo, en la frase y en lo que importa de un gráfico, cada tono en su modo.
+// Los dos colores de la marca, en sus tonos: el petróleo (iris, y el acento de los detalles) y el
+// ámbar (lo que te toca). Van sólo en la luz de fondo, en la frase, en el acento y en lo que importa
+// de un gráfico, cada tono en su modo. El ámbar no tiene acento: sólo luz.
 describe("los tonos de la marca", () => {
 	const tints = [...foundation].filter(([id]) => id.startsWith("color.tint.")).map(([id, token]) => [id, token.value]);
 	const expected = {
-		dark: { "color.backlight.iris": "color.tint.petrol-deep", "color.backlight.attention": "color.tint.amber-deep", "color.signature.phrase": "color.tint.petrol-mist", "color.data.highlight": "color.tint.petrol-mist" },
-		light: { "color.backlight.iris": "color.tint.petrol-pale", "color.backlight.attention": "color.tint.amber-pale", "color.signature.phrase": "color.tint.petrol-ink", "color.data.highlight": "color.tint.petrol-ink" },
+		dark: { "color.backlight.iris": "color.tint.petrol-deep", "color.backlight.attention": "color.tint.amber-deep", "color.signature.phrase": "color.tint.petrol-mist", "color.accent": "color.tint.petrol-mist", "color.data.highlight": "color.tint.petrol-mist" },
+		light: { "color.backlight.iris": "color.tint.petrol-pale", "color.backlight.attention": "color.tint.amber-pale", "color.signature.phrase": "color.tint.petrol-ink", "color.accent": "color.tint.petrol-ink", "color.data.highlight": "color.tint.petrol-ink" },
 	};
-	test("sólo los usan la luz, la frase y data.highlight, con el tono de su modo", () => {
+	test("sólo los usan la luz, la frase, el acento y data.highlight, con el tono de su modo", () => {
 		for (const mode of modes) {
 			const users = Object.fromEntries([...semantics[mode]].flatMap(([id, token]) => aliasesIn(token.value).filter((target) => target.startsWith("color.tint.")).map((target) => [id, target])));
 			assert.deepEqual(users, expected[mode], mode);
 		}
 		assert.deepEqual([...foundation].filter(([, token]) => aliasesIn(token.value).some((target) => target.startsWith("color.tint."))).map(([id]) => id), [], "foundation");
+	});
+	// Un solo petróleo para leer: la frase, el acento (un detalle, si lo hay) y lo que
+	// importa de un gráfico. Si se separan, el detalle deja de ser el mismo color que la firma.
+	test("el acento es el petróleo de la frase y de data.highlight, en los dos modos", () => {
+		for (const mode of modes) {
+			const phrase = hexOf(resolved[mode].get("color.signature.phrase").value);
+			assert.equal(hexOf(resolved[mode].get("color.accent").value), phrase, mode);
+			assert.equal(hexOf(resolved[mode].get("color.data.highlight").value), phrase, mode);
+		}
 	});
 	test("la luz de monocromo es border.default, en los dos modos", () => {
 		for (const mode of modes) assert.equal(hexOf(resolved[mode].get("color.backlight.neutral").value), hexOf(resolved[mode].get("color.border.default").value), mode);
