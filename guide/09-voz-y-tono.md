@@ -8,6 +8,8 @@ que manejan varias cuentas. Los dos tienen poco tiempo para leer y miran cifras;
 se hizo, qué falló y qué les toca decidir. Cómo cambia el registro con cada uno, en el 9.12.
 
 Lo que se promete: **trabaja solo donde vos lo dejás; si no decidiste, te espera.**
+Cómo se cuenta: arrancás aprobando todo y le vas soltando lo que quieras a medida que confiás,
+hasta automatizar todo si querés. La confianza la da el dueño; iris se la gana acertando.
 Lo que no se promete nunca: piloto automático, que reemplaza a tu equipo, una IA que hace todo.
 
 ---
