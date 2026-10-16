@@ -23,7 +23,7 @@
   La marca y el titular empiezan en x 640, a la derecha de los dos logos.
 -->
 <link rel="stylesheet" href="../redes/_base/brand.css">
-<link rel="stylesheet" href="../redes/plantillas/_comun/plantilla.css">
+<link rel="stylesheet" href="linkedin.css">
 <script>if (new URLSearchParams(location.search).has('guias')) document.documentElement.classList.add('guias');</script>
 <style>
   :root { --ancho: 1512px; --alto: 256px; }
@@ -34,6 +34,8 @@
   .marca { display: block; margin-block: 5.8px -3.2px; }
   .titular { font-size: 40px; line-height: 1.1; letter-spacing: -0.015em; }
   .titular > span { white-space: nowrap; }
+  /* LinkedIn corporativo: plano, sin luz ni cursiva (capítulo 15, 15.8). La frase va en su color. */
+  .titular .frase { font-family: var(--font-sans); font-weight: 500; margin-top: 0.06em; letter-spacing: -0.015em; }
 </style>
 </head>
 <body>
@@ -47,12 +49,11 @@
     <h1 class="titular">
       <!-- EDITAR: línea 1 del titular, en Plex. Máximo 18 caracteres. -->
       <span data-slot="titular-linea-1">Agentes expertos</span>
-      <!-- EDITAR: línea 2 del titular, en la firma, en el sello (el texto va adentro del
-           <span class="sello">). Termina en punto y no lleva números. «Mercado Libre» no va en el
-           titular: va en el «Acerca de» de la página (guide/12-mercado-libre.md). Hasta 28
-           caracteres: con 28 de texto ancho el sello termina en x 1240 y en y 205, lejos de la
-           esquina de abajo a la derecha. -->
-      <span class="signature"><span class="sello" data-slot="titular-linea-2">a cargo de tu e-commerce.</span></span>
+      <!-- EDITAR: línea 2 del titular, la frase en color. En LinkedIn va sin cursiva (capítulo 15,
+           15.8). Termina en punto y no lleva números. «Mercado Libre» no va en el titular: va en el
+           «Acerca de» de la página (guide/12-mercado-libre.md). Hasta 28 caracteres: con 28 de texto
+           ancho termina antes de x 1240, lejos de la esquina de abajo a la derecha. -->
+      <span class="frase" data-slot="titular-linea-2">a cargo de tu e-commerce.</span>
     </h1>
   </div>
 </main>

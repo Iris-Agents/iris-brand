@@ -2,12 +2,12 @@
 // renderizan sin build). Este test las ata a los tokens: cada variable de su :root tiene acá su
 // token equivalente, y si una no está en el mapa, el test falla también.
 import assert from "node:assert/strict";
+import { readdirSync } from "node:fs";
 import { test } from "node:test";
 import { hexOf } from "./lib/color.mjs";
-import { readText, resolved } from "./lib/tokens.mjs";
+import { readText, repoUrl, resolved } from "./lib/tokens.mjs";
 
-// Variable de brand.css → token. Las piezas son de la marca, así que leen el modo oscuro. El sello
-// de las piezas es el de marketing (el bloque petróleo con la firma en tinta), no el de la app.
+// Variable de brand.css → token. Las piezas son de la marca, así que leen el modo oscuro.
 const colorTokens = {
 	"--brand-black": "color.brand.black",
 	"--brand-white": "color.brand.white",
@@ -22,8 +22,8 @@ const colorTokens = {
 	"--text-tertiary": "color.text.tertiary",
 	"--text-secondary": "color.text.secondary",
 	"--text-primary": "color.text.primary",
-	"--signature-marketing-block": "color.signature.marketing.block",
-	"--signature-marketing-text": "color.signature.marketing.text",
+	"--signature-phrase": "color.signature.phrase",
+	"--backlight-iris": "color.backlight.iris",
 	"--status-attention": "color.status.attention",
 	"--status-working": "color.status.working",
 	"--status-done": "color.status.done",
@@ -57,12 +57,19 @@ test("los colores de brand.css son los del oscuro", () => {
 	assert.deepEqual(differing, []);
 });
 
-// El test de arriba compara sólo lo que brand.css declara: sin estas dos, la clase .sello se quedaría
-// sin color y nadie se enteraría.
-test("brand.css trae el sello de marketing: --signature-marketing-block y --signature-marketing-text", () => {
-	for (const [name, id] of [["--signature-marketing-block", "color.signature.marketing.block"], ["--signature-marketing-text", "color.signature.marketing.text"]]) {
+// La frase y la luz de las piezas que se rehicieron (la portada de Facebook y LinkedIn): sin estas dos,
+// .frase y .luz se quedarían sin color y nadie se enteraría.
+test("brand.css trae la frase y la luz: --signature-phrase y --backlight-iris", () => {
+	for (const [name, id] of [["--signature-phrase", "color.signature.phrase"], ["--backlight-iris", "color.backlight.iris"]]) {
 		assert.equal(pieceVariables.get(name)?.toLowerCase(), hexOf(resolved.dark.get(id).value), name);
 	}
+});
+
+// Ninguna pieza lleva el sello: salió de las piezas el 2026-10-15 (guide/05-tipografia.md, 5.3).
+test("ninguna pieza usa el sello", () => {
+	const files = readdirSync(new URL("pieces/", repoUrl), { recursive: true }).filter((name) => /\.(html|css)$/.test(name));
+	const withSeal = files.filter((name) => /class="[^"]*\bsello\b|\.sello\b|signature-seal|--signature-marketing/.test(readText(`pieces/${name}`).replaceAll(/\/\*[\s\S]*?\*\/|<!--[\s\S]*?-->/g, "")));
+	assert.deepEqual(withSeal, []);
 });
 
 test("las familias de brand.css son las de los tokens", () => {
@@ -71,30 +78,6 @@ test("las familias de brand.css son las de los tokens", () => {
 		const pieceFamily = pieceVariables.get(name).split(",")[0].trim().replaceAll(/["']/g, "");
 		assert.equal(pieceFamily, family(resolved.dark.get(id).value), name);
 	}
-});
-
-// El sello se escribe en dos lugares: css/signature.css (la app y la landing) y brand.css (las
-// piezas). La geometría es una sola: si una copia cambia el relleno o el interlineado, las letras que
-// bajan (p, g, y, f) se salen del bloque en esa copia.
-const declarationsOf = (css, selector) => {
-	const withoutComments = css.replaceAll(/\/\*[\s\S]*?\*\//g, "");
-	const rule = [...withoutComments.matchAll(/([^{}]+)\{([^}]*)\}/g)].find(([, selectors]) => selectors.split(",").map((name) => name.trim()).includes(selector));
-	assert.ok(rule, `no hay una regla para ${selector}`);
-	return Object.fromEntries([...rule[2].matchAll(/([\w-]+)\s*:\s*([^;]+);?/g)].map(([, property, value]) => [property, value.trim()]));
-};
-const sealGeometry = (declarations) => ({ padding: declarations.padding, "line-height": declarations["line-height"] });
-
-test("los sellos tienen la misma geometría en signature.css y brand.css", () => {
-	const appSeal = sealGeometry(declarationsOf(readText("css/signature.css"), ".signature-seal"));
-	const marketingSeal = sealGeometry(declarationsOf(readText("css/signature.css"), ".signature-seal-marketing"));
-	const pieceSeal = sealGeometry(declarationsOf(readText("pieces/redes/_base/brand.css"), ".sello"));
-	assert.deepEqual(marketingSeal, appSeal);
-	assert.deepEqual(pieceSeal, appSeal);
-});
-
-test(".sello lee el sello de marketing: --signature-marketing-block y --signature-marketing-text", () => {
-	const seal = declarationsOf(readText("pieces/redes/_base/brand.css"), ".sello");
-	assert.deepEqual([seal.background, seal.color], ["var(--signature-marketing-block)", "var(--signature-marketing-text)"]);
 });
 
 // pieces/redes/_base/vidrio.css (redes v2, capítulo 15) también copia colores de la marca: el negro y el

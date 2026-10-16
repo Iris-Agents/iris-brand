@@ -1,26 +1,19 @@
 # 11 · Aplicaciones
 
 Cómo se arma cada pieza que sale de iris. Todas usan lo mismo: el negro de marca, el ícono o el
-lockup, el titular de dos líneas y las piezas propias del capítulo 08. Lo que cambia es el tamaño y
-lo que la plataforma tapa.
-
-> **La marca desde el 2026-10-15.** La segunda línea del titular va en la frase, en color y sin
-> bloque, y la luz de color detrás del vidrio es parte de la marca (capítulo 04, 4.9; capítulo 05,
-> 5.3). Las piezas de este capítulo (el banner, las portadas, las OG y el titular de la landing) se
-> armaron con el sello petróleo y quedan así hasta que se rehagan; lo que se rehace o se hace nuevo
-> va con la frase, y en redes, con el capítulo 15.
+lockup, el titular de dos líneas con la frase y las piezas propias del capítulo 08. Lo que cambia
+es el tamaño y lo que la plataforma tapa. Los posts, carruseles, stories y reels siguen el capítulo
+15.
 
 Reglas que valen para todas:
-- **Oscuro.** El fondo es `color.brand.black` (#0A0A09). El claro existe para la app; las piezas no
-  lo usan, salvo el email (11.10).
-- **Sin efectos.** Sin glow, sombras, vidrio ni gradientes. Las excepciones son las dos luces
-  radiales blancas y el fundido de la foto de La trastienda con el negro (capítulo 04, 4.8).
-- **El titular de dos líneas, con el sello petróleo.** La segunda línea va en el sello de
-  marketing: la firma en tinta sobre el bloque petróleo, sobre el negro (capítulo 04, 4.9; capítulo
-  05, 5.3). Es el mismo en todas las piezas de este capítulo y en el titular de la landing, que usa
-  la clase `.signature-seal-marketing` de `css/signature.css`; la app sigue con el sello de tinta
-  (`.signature-seal`). Si la pieza muestra la tarjeta de aprobación, «Aprobar» va con borde
-  (capítulo 06, 6.5): el foco es la firma y lo que dice la pieza.
+- **Oscuro.** El fondo es `color.brand.black` (#0A0A09). Las piezas de este capítulo no usan el
+  claro, salvo el email (11.10); en redes, el blanco alterna con el negro (capítulo 15).
+- **Sin efectos de adorno.** Sin glow ni gradientes llamativos. Lo que sí va es una sola luz de
+  color detrás del vidrio y el fundido de una foto con el negro (capítulo 04, 4.8 y 4.9).
+- **El titular de dos líneas, con la frase.** La segunda línea va en la firma y en color, sin
+  bloque detrás (capítulo 05, 5.3). En LinkedIn va sin cursiva (capítulo 15, 15.8). El sello que
+  llevaban estas piezas salió el 2026-10-15; el titular de la landing y sus OG todavía lo usan hasta
+  que se rehagan (capítulo 04, 4.9).
 - **En lo público, el resultado.** Las filas dicen qué logró iris, sin el nombre del agente
   (capítulo 09).
 - **Las cifras de una pieza son de ejemplo**, y se marcan: «Datos de ejemplo.» en la pieza cuando
@@ -74,13 +67,14 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
 
 - El archivo es `pieces/linkedin/banner-perfil.html` → `banner-perfil.png`, y va como foto de
   fondo del perfil personal. Las zonas medidas y sus fuentes están en `pieces/linkedin/README.md`.
-- **Fondo** `color.brand.black`, con el degradé radial de blanco al 4 %, arriba a la derecha.
+- **Fondo** `color.brand.black`, con una luz petróleo suave (`backlight.iris`) detrás del panel.
 - **La zona de la foto, libre:** LinkedIn pone la foto encima, en x 33–373 en la computadora y en
   x 67–702 en el celular. El contenido empieza en x 718.
 - **Después de esa zona:** el lockup (el ícono y «iris agents») y, debajo, el titular de dos
-  líneas a 40 px, «Agentes expertos / a cargo de tu e-commerce.». La primera línea en la sans 500 y
-  `text.primary`; la segunda en la firma, en el sello petróleo. Sin Mercado Libre en el titular.
-- **A la derecha:** el feed «Hoy en tu cuenta» en un panel de 340 px, con los cinco resultados:
+  líneas a 38 px, «Agentes expertos / a cargo de tu e-commerce.». La primera línea en la sans 500 y
+  `text.primary`; la segunda, la frase, en la sans 500 y `signature.phrase`, sin cursiva (capítulo
+  15, 15.8). Sin Mercado Libre en el titular.
+- **A la derecha:** el feed «Hoy en tu cuenta» en un panel de vidrio de 340 px, con los cinco resultados:
   «Mejoró la reputación», «Contestó 40 preguntas», «Resolvió 3 reclamos», «Generó 3 ventas
   adicionales» y «Adhirió a una promoción». Cada fila con ✓, el verbo en `text.secondary` y el
   objeto en `text.primary` 500 (capítulo 08, sección 8.2).
@@ -88,15 +82,16 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
   perfil, como un hecho: «para vendedores de Mercado Libre».
 - **Antes de darlo por bueno,** mirarlo subido en la computadora y en un celular: cuánto recorta
   la app del celular a los costados no está medido.
-- El diseño salió del canvas del banner en Claude Design; lo que se edita es el HTML.
+- El diseño salió del canvas del banner en Claude Design y se rehízo con la marca nueva el
+  2026-10-15; lo que se edita es el HTML.
 
 ## 11.5 Portada y logo de la página de empresa en LinkedIn
 
 - **La portada** es `pieces/linkedin/portada-empresa.html` → `portada-empresa.png`, de 1512 × 256
   (verificada en la ayuda de LinkedIn el 2026-10-10). El logo de la página ya está al lado, así que
   va la **marca sola** («iris agents», sin el ícono) y el titular, «Agentes expertos / a cargo de tu
-  e-commerce.», con la segunda línea en el sello, a la derecha de donde cae el logo. Sin feed,
-  porque no entra, y sin degradé.
+  e-commerce.», con la frase en color y sin cursiva, a la derecha de donde cae el logo. Es lo
+  corporativo: plano, sin feed, porque no entra, y sin luz.
 - **El logo** es `pieces/linkedin/logo-empresa-400.png`, de 400 × 400: el ícono a sangre de
   `logo/icon.svg`, cuadrado y sin transparencia. Sale de `logo-empresa.html`, y
   `logo-empresa-preview.png` lo muestra en chico, cuadrado y en círculo.
@@ -105,8 +100,9 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
 ## 11.6 Portada de la página de Facebook (1640 × 624)
 
 - El archivo es `pieces/redes/facebook/portada.html` → `portada.png`, y es la única versión. Lleva
-  el mismo titular que el banner, «Agentes expertos / a cargo de tu e-commerce.», con la segunda
-  línea en el sello, y el mismo degradé radial; es su hermana.
+  el mismo titular que el banner, «Agentes expertos / a cargo de tu e-commerce.», con la frase en
+  la firma y en color, y el panel «Hoy en tu cuenta» de vidrio sobre la luz petróleo: es redes v2
+  completo (capítulo 15).
 - **Mercado Libre** no va en la portada, ni en el titular ni arriba: va en el «Acerca de» de la
   página, como un hecho.
 - La foto de perfil tapa la esquina de abajo a la izquierda y el celular recorta los costados: las
@@ -122,23 +118,22 @@ Va el ícono a sangre: la i blanca sobre el cuadrado negro, sin borde.
   `twitter:card` va `summary_large_image` con la misma imagen.
 - **La composición:**
   - el lockup arriba a la izquierda y un eyebrow de contexto arriba a la derecha;
-  - el titular de dos líneas a 64 px, con la segunda en el sello petróleo, el mismo del titular de
-    la landing (`.signature-seal-marketing`);
-  - la tarjeta de aprobación o unas filas del feed, como imagen del producto; en la tarjeta,
-    «Aprobar» va con borde, porque el foco es la firma y lo que dice la pieza;
+  - el titular de dos líneas a 64 px, con la frase (capítulo 05, 5.3). La de la landing todavía
+    lleva el sello, hasta que se rehaga;
+  - la tarjeta de aprobación o unas filas del feed, como imagen del producto;
   - abajo a la izquierda, una línea de hechos con su fuente; abajo a la derecha, el dominio en la
     mono.
 - **Se genera desde la página**: una plantilla HTML que lee `tokens.css` y se pasa a PNG en el
   build, con el mismo texto que dibuja la página. Nunca un PNG fijo con cifras que envejecen.
 - La OG por defecto (la de una página sin la suya) vive en `pieces/`.
-- Sin luz radial: la llevan el banner, la portada de Facebook y las piezas de redes.
+- Puede llevar la luz de la marca detrás de la imagen del producto (capítulo 04, 4.9).
 
 ## 11.8 Video y demos
 
 - **Las demos:** 1920 × 1080 a 30 fps, fondo `color.brand.black`.
 - **Los reels y las stories de video:** vertical, 1080 × 1920 a 30 fps. Lo esencial va dentro de la
   zona segura del reel (`pieces/redes/_base/formatos.json`, «reel»), porque la interfaz de la red
-  tapa arriba y abajo. Es el registro En vivo (11.13), con el movimiento del capítulo 06
+  tapa arriba y abajo. Va con el vidrio del capítulo 15 y el movimiento del capítulo 06
   («Movimiento en piezas de video»).
 - Clips de 15 a 25 s donde se vean las llamadas, con la línea «tool · estado» (capítulo 08,
   sección 8.4).
@@ -189,8 +184,9 @@ Al lado de cada HTML está su PNG limpia y su `-guias.png`, la misma pieza con l
 magenta, que **nunca se publica**.
 
 - **Qué hay en cada carpeta:** `pieces/redes/README.md`.
-- **Cómo están hechas las plantillas** (el sello ya armado, los slots y sus largos máximos, cómo se
-  renderiza y la lista de control): `pieces/redes/plantillas.md`. **Las medidas de cada formato**:
+- **Las reglas de los posts, carruseles, stories y reels:** capítulo 15. **Cómo están hechas las
+  piezas** (las dos hojas, las plantillas de vidrio, cómo se renderiza y la lista de control):
+  `pieces/redes/plantillas.md`. **Las medidas de cada formato**:
   `pieces/redes/_base/formatos.json`. En Instagram va el 4:5; el cuadrado queda para Facebook.
 - **LinkedIn** va aparte, en `pieces/linkedin/` (11.4 y 11.5).
 - **Los datos fijos** (el usuario de Instagram, la página de Facebook, la web), en el capítulo 02
@@ -200,82 +196,29 @@ magenta, que **nunca se publica**.
 
 Cómo se regeneran las PNG: capítulo 14.
 
-## 11.13 Los tres registros de redes
+## 11.13 Los registros anteriores
 
-> **Redes v2.** Desde octubre de 2026 las piezas de redes se arman con el vidrio del capítulo 15,
-> que manda donde este apartado y el 11.14 dicen distinto. Lo de acá sigue siendo la referencia de
-> las plantillas anteriores.
+Hasta octubre de 2026 los posts se armaban en tres registros (Pregunta y cifra, En vivo y La
+trastienda), con el sello y la luz radial blanca. Los reemplazó el vidrio del capítulo 15, y sus
+plantillas se borraron el 2026-10-15; están en el historial de git. Lo que sigue valiendo de ellos
+quedó en el capítulo 15 y en este:
 
-Los posts de redes se arman sobre el mismo sistema en tres registros. **Cada post usa uno solo**, y
-lo fija su primera lámina. Un carrusel es un post: su portada fija el registro, y las láminas que
-siguen (el interior y el cierre) son las del carrusel de siempre, sobre el negro, y pueden llevar
-una pieza propia. Cada lámina lleva una sola imagen: la foto, el intercambio o una pieza propia. El
-sello es el mismo en los tres: el petróleo de marketing, con la firma en tinta (capítulo 04, 4.9).
-
-| Registro | Cuándo va | La imagen | El sello |
-|---|---|---|---|
-| **Pregunta y cifra** | La base: los posts y los carruseles | El intercambio (capítulo 08, 8.9): la pregunta con cursor, la línea «tool · estado» y la cifra grande. O una pieza propia (la tarjeta, el feed) debajo de su titular | Petróleo, en el titular: el de la pieza propia, o el de otra lámina (la portada o el cierre), porque el intercambio va sin titular |
-| **En vivo** | Los reels | La secuencia del intercambio en el tiempo: pregunta → ◐ trabajando → respuesta → OK, con el cursor en tinta (#EDEDEA) | Petróleo, en el cuadro de cierre: el titular de dos líneas con el lockup, después de la secuencia, que va sin titular |
-| **La trastienda** | Campañas y fechas | Una foto oscura y quieta del mundo del vendedor | Petróleo, en el titular |
-
-### Pregunta y cifra
-
-- La imagen es la conversación: arriba la línea de contexto, después la pregunta con su cursor, la
-  línea «tool · estado», la cifra grande con su unidad y, si la respuesta propone algo, el OK con
-  el ●.
-- O es una pieza propia, la tarjeta de aprobación o el feed, debajo de un titular de dos líneas.
-- **El intercambio va sin titular** (capítulo 08, 8.9): si el post lo lleva, va en otra lámina, la
-  portada o el cierre de un carrusel. La plantilla es `pieces/redes/plantillas/intercambio/`.
-- El fondo es el negro de siempre.
-
-### En vivo
-
-- Un reel vertical de 1080 × 1920 (11.8). El primer tiempo es la pregunta que se tipea; después el ◐
-  de trabajando en la línea de la tool, la respuesta con su cifra y el OK con su ●.
-- **La secuencia va sin titular**, como el intercambio quieto.
-- **El reel cierra con un cuadro aparte:** el titular de dos líneas, con la segunda en el sello
-  petróleo, y el lockup (el SVG, capítulo 03). Es el único cuadro del reel con el sello. Va entero
-  dentro de la zona segura del reel, el lockup también (`pieces/redes/_base/formatos.json`,
-  «reel»): abajo lo tapa la leyenda, así que este cuadro no lleva pie.
-- El cursor va en tinta (`text.primary`). El movimiento sigue el capítulo 06 («Movimiento en
-  piezas de video»).
-
-### La trastienda
-
-- **La foto:** oscura y quieta, del mundo del vendedor: cajas, kraft, una persiana. Va sin personas,
-  sin logos ni marcas, sin el packaging de Mercado Libre y sin productos de clientes reales.
-- **La foto se funde con el negro** donde se encuentra con él: se apaga hacia el `bg.canvas`, sin
-  otro color, para que no quede un corte recto debajo del texto. Es una de las excepciones a «sin
-  gradientes» (capítulo 04, 4.8); cuánto ocupa el fundido en cada formato, en
-  `pieces/redes/plantillas.md`.
-- **Si es generada con IA, lo dice**, en chico y en `text.tertiary`: «Imagen generada con IA.».
-- **El texto que cae sobre la foto** pasa 4,5:1 contra lo que tiene detrás, medido en la PNG. Lo
-  demás va sobre el negro liso.
-- **El logo nunca va sobre la foto** (capítulo 03, 3.8): va sobre el negro.
-- **El sello es el mismo petróleo** de los otros dos registros, detrás de la segunda línea del
-  titular. La foto no le cambia el color ni la letra.
-
-### Medidas en las piezas de redes
-
-| Qué | Regla |
-|---|---|
-| El sello | El de marketing: la firma en `signature.marketing.text` (#EDEDEA) sobre `signature.marketing.block` (#03313C), 11,87:1, con las medidas de siempre (capítulo 05, 5.3). En `brand.css`, `--signature-marketing-block` y `--signature-marketing-text`. |
-| La luz radial | Blanca, de hasta el 6 %, una sola, detrás del punto focal (la cifra o el titular). Nunca a pantalla completa ni de color. En su centro, todo el texto sigue pasando (el terciario da 6,25:1, medido en la PNG). |
-| Los glifos ● y ◐ | Como objeto, de hasta 48 px, siempre con su palabra (capítulo 08, 8.1). |
-| La línea «tool · estado» | 26–30 px en una pieza de 1080, en la mono y `text.tertiary` (capítulo 08, 8.4). |
-| La línea de contexto | El eyebrow de arriba de todo, en `text.primary` (capítulo 09, 9.11). En una pieza orgánica puede decir «Para vendedores de Mercado Libre» (capítulo 12, 12.1). |
-| El botón principal | «Aprobar», con borde de tinta y sin relleno (capítulo 06, 6.5). El borde crece con la pieza (capítulo 08). |
-| La burbuja | No va: la persona se marca con el cursor (capítulo 09, 9.11). |
-| El video | Vertical, 1080 × 1920 a 30 fps (11.8). |
+- **Una foto en una pieza** es del mundo del vendedor: sin logos ni marcas, sin el packaging de
+  Mercado Libre y sin productos de clientes reales. Si es generada con IA, lo dice («Imagen generada
+  con IA.»). El texto que cae sobre la foto pasa 4,5:1 contra lo que tiene detrás, medido en la PNG
+  (`pieces/redes/plantillas.md`, sección 7), y el logo nunca va sobre la foto (capítulo 03, 3.8).
+- **Un reel** cierra con el lockup, entero dentro de la zona segura del formato
+  (`pieces/redes/_base/formatos.json`, «reel»).
+- **La línea «tool · estado»** usa el nombre real de la tool, verificado el día que se publica
+  (capítulo 08, 8.4).
 
 ## 11.14 Una pieza sin plantilla
 
-Las plantillas de `pieces/redes/plantillas/` son ejemplos, no el límite. Una pieza nueva carga
-`pieces/redes/_base/brand.css`, que trae los colores, las fuentes, el sello y la flecha, y se arma
-con lo mismo que las plantillas (el negro, el titular con su sello, las piezas propias, el
-intercambio, la foto de La trastienda) y con las medidas de su formato: los márgenes, las zonas
-seguras y los tamaños mínimos están en `pieces/redes/_base/formatos.json` y valen igual sin
-plantilla. Cómo se renderiza, se mide y se revisa la pieza terminada: `pieces/redes/plantillas.md`,
+Las plantillas de `pieces/redes/plantillas/vidrio/` son ejemplos, no el límite. Un post nuevo
+carga `pieces/redes/_base/vidrio.css` y se arma con el capítulo 15; una pieza fija de la marca,
+con `pieces/redes/_base/brand.css`, que trae los colores, las fuentes, la frase y la flecha. Las dos
+se arman con las medidas de su formato: los márgenes, las zonas seguras y los tamaños mínimos están
+en `pieces/redes/_base/formatos.json` y valen igual sin plantilla. Cómo se renderiza, se mide y se revisa la pieza terminada: `pieces/redes/plantillas.md`,
 secciones 6 y 7.
 
 **Qué hace buena una pieza.**
@@ -288,30 +231,29 @@ secciones 6 y 7.
 - **Una cifra protagonista por lámina.** Las demás van chicas, en filas: dos cifras grandes compiten
   y ninguna gana.
 - **Aire parejo.** Los bloques que van juntos van a la misma distancia. Lo que sobra se junta en un
-  solo vacío a propósito, como el de arriba del titular en las plantillas que lo anclan abajo, y no
-  en huecos sueltos. Los bloques de texto se separan con aire, no con un fondo: `bg.raised` es el
+  solo vacío a propósito (el `.aire` del vidrio), y no en huecos sueltos. Los bloques de texto se separan con aire, no con un fondo: `bg.raised` es el
   nivel de la tarjeta de aprobación.
 - **Movimiento donde hay trabajo.** En un reel se mueve lo que hace iris: el tipeo, la tool, la
   cifra que llega. Nada se anima de adorno (capítulo 06, 6.7).
 
 **Lo que sale por costumbre y en iris no va.** Son reflejos de un modelo que diseña, y cada uno
 tiene su reemplazo:
-- palabras en itálica para acentuar un titular: la itálica es sólo la firma, en el sello (capítulo
-  05, 5.2), y lo que remarca un titular es su segunda línea (capítulo 09, 9.8);
+- palabras en itálica para acentuar un titular: la itálica es sólo la firma, en la frase
+  (capítulo 05, 5.2), y lo que remarca un titular es su segunda línea (capítulo 09, 9.8);
 - rótulos en mono de adorno: la mono es sólo para datos, como horas, tools e ids (capítulo 05,
   5.1);
 - la numeración 01, 02, 03 delante de cada punto: el orden lo dan la posición y, en un carrusel, el
   contador;
-- fondos crema o cálidos: el fondo es el negro de marca;
-- botones en píldora: los controles son de radio chico (`radius.control`), y la píldora es sólo
-  «Espera tu OK».
+- fondos crema o cálidos: el fondo es el negro de marca, o el blanco de día de redes (capítulo 15);
+- botones en píldora en la app: ahí los controles son de radio chico (`radius.control`). En las
+  piezas de vidrio los botones y los estados sí van en píldora (capítulo 15).
 
 **Los avisos.** Cuando iris dice algo y no hace nada («se te va a quedar sin stock»), se cuenta con
-el intercambio, sin el OK, o con una fila del feed. La tarjeta de aprobación es sólo para una
+el mensaje y la respuesta de iris (capítulo 15, 15.7), sin el OK, o con una fila del feed. La tarjeta de aprobación es sólo para una
 acción que iris hace con el OK: un aviso vestido de propuesta muestra un cambio que iris no va a
 hacer.
 
 **Ante la duda**, va la opción con más vida que respete este manual: lo que no está prohibido, se
 puede. Sólo tres cosas no salen sin una persona: un testimonio sin consentimiento escrito, un dato
-real de un cliente y una foto con personas reales (capítulo 09, 9.10). En La trastienda no van
-personas nunca (11.13).
+real de un cliente y una foto con personas reales (capítulo 09, 9.10). La única persona que aparece
+es la vocera, generada con IA y declarada (capítulo 15, 15.9).

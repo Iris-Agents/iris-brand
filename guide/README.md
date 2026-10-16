@@ -23,7 +23,7 @@ hex al lado para que se lea; en código se usa siempre el token.
 | [08 · Piezas propias](08-piezas-propias.md) | La tarjeta de aprobación, el feed «Hoy en tu cuenta», los glifos con su leyenda, la línea «tool · estado» y el intercambio. |
 | [09 · Voz y tono](09-voz-y-tono.md) | Cómo habla iris, las reglas de copy, los idiomas y las palabras que no se usan. |
 | [10 · iris adentro de Claude](10-iris-en-claude.md) | Nombres y descripciones de las tools, respuestas y la presencia en el directorio de conectores. |
-| [11 · Aplicaciones](11-aplicaciones.md) | Favicon, ícono de app, perfiles y banners, OG, video, propuestas, mail, los tres registros de redes y cómo se arma una pieza sin plantilla. |
+| [11 · Aplicaciones](11-aplicaciones.md) | Favicon, ícono de app, perfiles y banners, OG, video, propuestas, mail, lo que sigue valiendo de los registros anteriores y cómo se arma una pieza sin plantilla. |
 | [12 · Mercado Libre y otras marcas](12-mercado-libre.md) | Cómo se nombra a Mercado Libre, qué no se usa nunca, el descargo, y Claude, Mercado Pago y los canales futuros. |
 | [13 · Accesibilidad](13-accesibilidad.md) | La lista de control: contraste, foco, tamaño de lo que se toca, estado sin depender del color, movimiento. |
 | [14 · Recursos](14-recursos.md) | Cómo la instala y la actualiza una app, qué frena el test, cómo se cambia la marca y cómo se regeneran las piezas. |

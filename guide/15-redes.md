@@ -6,8 +6,8 @@ dicha de una forma más visual y menos técnica, para un vendedor que scrollea e
 publicaciones.
 
 **Qué cubre:** las piezas de Instagram, Facebook, TikTok, YouTube Shorts y estados de WhatsApp, y
-las de LinkedIn que muestran el producto. Donde este capítulo y el 11 (11.13 y 11.14) dicen distinto
-para una pieza de redes, manda este. Lo decidió el encargado de contenido el 2026-10-13; lo aprueba
+las de LinkedIn que muestran el producto. Donde este capítulo y el 11 (11.14) dicen distinto para una
+pieza de redes, manda este. Lo decidió el encargado de contenido el 2026-10-13; lo aprueba
 Franco (capítulo 00, 0.7).
 
 **Lo que es de toda la marca** (los dos colores y lo que dice cada uno, la luz, la frase en lugar

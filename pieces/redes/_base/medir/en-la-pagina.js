@@ -1,7 +1,7 @@
 // Mide una pieza de redes terminada, adentro de su propia página, y dice en palabras lo que el ojo
 // de un modelo no ve: el texto fuera del margen o en una zona que tapa la red, la letra bajo el
-// mínimo, las fuentes que no cargaron o que caen a otra, los colores fuera de la paleta, el petróleo
-// fuera del sello y el texto que se sale de su caja. No frena ni puntúa: cada observación dice qué
+// mínimo, las fuentes que no cargaron o que caen a otra, los colores fuera de la paleta y el texto
+// que se sale de su caja. No frena ni puntúa: cada observación dice qué
 // midió, dónde, cuánto dio, contra qué y qué sección del manual lo explica. Sin dependencias.
 // Uso (README.md): await medirPieza({ formats, format, brandCss }), con formats el contenido de
 // ../formatos.json, format el nombre de un formato y brandCss el texto de ../brand.css.
@@ -11,13 +11,12 @@
     fonts: 'capítulo 05, 5.1 y 5.8',
     fakedFace: 'capítulo 05, 5.9',
     palette: 'capítulo 04, 4.1 y 4.8',
-    light: 'capítulo 04, 4.8, y capítulo 11, 11.13',
-    petrol: 'capítulo 04, 4.9',
+    light: 'capítulo 04, 4.8 y 4.9',
     overflow: 'pieces/redes/plantillas.md, 7',
   };
   const zonesManual = (formatName) => `pieces/redes/_base/formatos.json, «${formatName}»`;
   // Un color a 2 niveles de 8 bits es el mismo (redondeos de una conversión); 1,5 px es un redondeo de
-  // layout; la luz radial blanca de las piezas llega al 6 % (capítulo 11, 11.13).
+  // layout; una luz radial blanca llega al 6 % (capítulo 04, 4.8).
   const COLOR_TOLERANCE = 2;
   const PX_TOLERANCE = 1.5;
   const LIGHT_MAX_ALPHA = 0.06;
@@ -72,10 +71,9 @@
     const root = brandCss.replace(/\/\*[\s\S]*?\*\//g, '').match(/:root\s*\{([^}]*)\}/)?.[1] ?? '';
     const palette = [...root.matchAll(/(--[\w-]+):\s*#([0-9a-f]{6})\s*;/gi)].map(([, name, hex]) => ({ name, r: parseInt(hex.slice(0, 2), 16), g: parseInt(hex.slice(2, 4), 16), b: parseInt(hex.slice(4), 16) }));
     const stacks = Object.fromEntries([...root.matchAll(/(--font-[\w-]+):\s*([^;]+);/g)].map(([, name, stack]) => [name, firstFamily(stack)]));
-    const petrol = palette.find((entry) => entry.name === '--signature-marketing-block');
     const canvas = palette.find((entry) => entry.name === '--bg-canvas');
-    if (!petrol || !canvas || !stacks['--font-signature']) throw new Error('brandCss tiene que ser el texto de pieces/redes/_base/brand.css');
-    return { palette, petrol, canvas, families: Object.values(stacks), signatureFamily: stacks['--font-signature'] };
+    if (!canvas || !stacks['--font-signature']) throw new Error('brandCss tiene que ser el texto de pieces/redes/_base/brand.css');
+    return { palette, canvas, families: Object.values(stacks), signatureFamily: stacks['--font-signature'] };
   }
 
   // Chrome da los colores computados en rgb() o color(srgb); los que vienen en otro espacio (oklch,
@@ -117,8 +115,7 @@
     const inkTop = Math.max(0, metrics.fontBoundingBoxAscent - metrics.actualBoundingBoxAscent) * scale;
     const inkBottom = Math.max(0, metrics.fontBoundingBoxDescent - metrics.actualBoundingBoxDescent) * scale;
     const box = union(rects.map((rect) => ({ left: rect.left, right: rect.right, top: rect.top + inkTop, bottom: rect.bottom - inkBottom })));
-    const rawBox = union(rects.map((rect) => ({ left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom })));
-    return { element, style, content, size: zoomedSize * scale, box, rawBox, lineTops: rects.map((rect) => Math.round(rect.top)) };
+    return { element, style, content, size: zoomedSize * scale, box };
   }
 
   // Un grupo por elemento con texto propio y visible.
@@ -134,7 +131,7 @@
       if (!rects.length) continue;
       const text = measureText(node, element, rects, context);
       const group = groups.get(element);
-      groups.set(element, group ? { ...group, content: `${group.content} ${text.content}`, box: union([group.box, text.box]), rawBox: union([group.rawBox, text.rawBox]), lineTops: [...group.lineTops, ...text.lineTops] } : text);
+      groups.set(element, group ? { ...group, content: `${group.content} ${text.content}`, box: union([group.box, text.box]) } : text);
     }
     return [...groups.values()];
   }
@@ -269,16 +266,14 @@
     return colors;
   }
 
-  // Un elemento y los ::before y ::after que dibuja: la luz de las plantillas es un ::before.
+  // Un elemento y los ::before y ::after que dibuja: el brillo del vidrio es un ::before.
   const layersOf = (element) => [['', getComputedStyle(element)], ...['::before', '::after']
     .map((pseudo) => [pseudo, getComputedStyle(element, pseudo)])
     .filter(([, style]) => style.content !== 'none' && style.display !== 'none')];
 
-  // La foto (img, video) no se mide: es la de La trastienda y tiene sus reglas. Un fondo petróleo
-  // en un pseudoelemento nunca es el sello, que es el span del titular.
-  function checkColors(groups, brand) {
+  // La foto (img, video) no se mide: tiene sus reglas (plantillas.md, 7).
+  function checkColors(brand) {
     const findings = new Map();
-    const petrolBlocks = [];
     for (const element of document.body.querySelectorAll('*')) {
       if (element.closest(`${SKIPPED}, img, video, picture`) || !isVisible(element)) continue;
       for (const [pseudo, style] of layersOf(element)) for (const [kind, value] of colorsOf(element, style, pseudo)) {
@@ -286,22 +281,17 @@
         if (!color || color.a === 0) continue;
         const { entry, distance } = nearest(color, brand.palette);
         const inPalette = distance <= COLOR_TOLERANCE;
-        const isPetrol = inPalette && entry === brand.petrol;
-        if (isPetrol && kind === 'el fondo' && !pseudo) {
-          petrolBlocks.push(element);
-          continue;
-        }
         const isWhite = Math.min(color.r, color.g, color.b) >= 240 && Math.max(color.r, color.g, color.b) - Math.min(color.r, color.g, color.b) <= 6;
         // En un degradé pasan la luz blanca y el fundido hacia el negro del fondo, con cualquier alfa.
         const isBlack = nearest(color, [brand.canvas]).distance <= COLOR_TOLERANCE;
         const isLight = kind === 'un degradé' && ((color.a <= LIGHT_MAX_ALPHA + 0.0005 && (inPalette || isWhite)) || isBlack);
-        if (isLight || (!isPetrol && inPalette && color.a >= 0.99)) continue;
-        const key = isPetrol ? `petrol|${kind}` : `${kind}|${toHex(color)}|${color.a}`;
-        const finding = findings.get(key) ?? { petrol: isPetrol, kind, color, entry: distance <= 24 ? entry : null, element, pseudo, elements: new Set() };
+        if (isLight || (inPalette && color.a >= 0.99)) continue;
+        const key = `${kind}|${toHex(color)}|${color.a}`;
+        const finding = findings.get(key) ?? { kind, color, entry: distance <= 24 ? entry : null, element, pseudo, elements: new Set() };
         findings.set(key, { ...finding, elements: finding.elements.add(element) });
       }
     }
-    return [...colorObservations(findings, brand), ...petrolBlocks.flatMap((element) => checkPetrolBlock(element, groups, brand))];
+    return colorObservations(findings, brand);
   }
 
   function colorObservations(findings, brand) {
@@ -309,34 +299,14 @@
       const more = andMore(finding.elements.size - 1, 'elemento');
       const where = `${finding.kind[0].toUpperCase()}${finding.kind.slice(1)} de ${describe(finding.element, finding.pseudo)}${more}`;
       const box = finding.pseudo ? null : finding.element.getBoundingClientRect();
-      if (finding.petrol) return observe('petrol', where, 'va en petróleo', 'El petróleo va sólo de fondo del sello, detrás de la segunda línea del titular: nunca de texto, borde, relleno, degradé ni franja', MANUAL.petrol, box);
       const { color, entry } = finding;
       const hex = toHex(color);
       const seen = color.a < 0.99 ? ` al ${Math.round(color.a * 100)} % (sobre el negro se ve ${toHex({ r: color.r * color.a + brand.canvas.r * (1 - color.a), g: color.g * color.a + brand.canvas.g * (1 - color.a), b: color.b * color.a + brand.canvas.b * (1 - color.a) })})` : '';
-      if (finding.kind === 'un degradé') return observe('color', where, `lleva ${hex}${seen}`, 'La única luz es una radial blanca, de hasta el 6 % y detrás del punto focal; no hay otros degradés ni glow', MANUAL.light, box);
+      if (finding.kind === 'un degradé') return observe('color', where, `lleva ${hex}${seen}`, 'Fuera de la luz de la marca, el brillo del vidrio y el fundido de una foto con el negro, no hay degradés ni glow', MANUAL.light, box);
       if (entry && nearest(color, [entry]).distance <= COLOR_TOLERANCE) return observe('color', where, `va en ${entry.name}${seen}`, 'Con transparencia, lo que se ve no es un color de la paleta de brand.css', MANUAL.palette, box);
       const hint = entry ? `; el más cercano es ${entry.name} (${toHex(entry)}): va la variable` : '';
       return observe('color', where, `va en ${hex}${seen}`, `No es un color de la paleta de brand.css${hint}`, MANUAL.palette, box);
     });
-  }
-
-  // El sello: un bloque petróleo pegado a una letra que es toda de la firma. En dos renglones es un
-  // solo bloque del ancho del titular (capítulo 05, 5.3), así que de ancho se mide sólo en uno.
-  function checkPetrolBlock(element, groups, brand) {
-    const inside = groups.filter((group) => element.contains(group.element));
-    const rect = element.getBoundingClientRect();
-    const where = `El fondo petróleo de ${describe(element)} (${Math.round(rect.width)} × ${Math.round(rect.height)})`;
-    const against = 'El petróleo va sólo en el sello: el bloque pegado a la segunda línea del titular, en la firma';
-    if (!inside.length) return [observe('petrol', where, 'no tiene texto encima', against, MANUAL.petrol, rect)];
-    const notSignature = inside.find((group) => firstFamily(group.style.fontFamily) !== brand.signatureFamily);
-    if (notSignature) return [observe('petrol', where, `va detrás de ${quote(notSignature.element.textContent)}, que no es la firma`, against, MANUAL.petrol, rect)];
-    const text = union(inside.map((group) => group.rawBox));
-    const em = parseFloat(getComputedStyle(element).fontSize) * (element.currentCSSZoom ?? 1);
-    const lines = new Set(inside.flatMap((group) => group.lineTops)).size;
-    const wider = lines === 1 && rect.width - (text.right - text.left) > 0.45 * em + 2;
-    const taller = rect.height - (text.bottom - text.top) > 0.6 * em;
-    if (!wider && !taller) return [];
-    return [observe('petrol', where, `es más grande que su letra (${Math.round(text.right - text.left)} × ${Math.round(text.bottom - text.top)}): es una franja, no un sello`, against, MANUAL.petrol, rect)];
   }
 
   // Una caja que se ve (fondo, borde) o que recorta: si el texto se sale, se nota. Las que no se ven
@@ -379,7 +349,7 @@
       ...checkZones(groups, format, formatName, format.width, format.height),
       ...checkSizes(groups, formats.minimumSizes[format.minimumSizes], brand),
       ...fonts,
-      ...checkColors(groups, brand),
+      ...checkColors(brand),
       ...checkOverflow(groups, format.width, format.height),
     ];
   };

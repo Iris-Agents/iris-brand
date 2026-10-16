@@ -24,9 +24,8 @@
                                 signature.marketing.text (11,87:1, igual en los dos modos). Es el
                                 único lugar de brand.petrol.
 
-  Los dos sellos tienen la misma geometría; cambia sólo el color. Las piezas de redes no usan este
-  archivo: van con la clase .sello de pieces/redes/_base/brand.css, que ya trae el sello de
-  marketing. Las medidas van en em: siguen al tamaño del titular. Con el sello a la vista, el botón
+  Los dos sellos tienen la misma geometría; cambia sólo el color. Ninguna pieza de pieces/ lo usa
+  (el test lo frena). Las medidas van en em: siguen al tamaño del titular. Con el sello a la vista, el botón
   principal (el «Aprobar» de la tarjeta en una pieza, el botón principal del hero o de una pantalla
   de la app) va con borde de 1 px en text.primary, sin relleno.
 */

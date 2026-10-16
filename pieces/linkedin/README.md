@@ -8,8 +8,8 @@ arma cada una está en el manual: `guide/11-aplicaciones.md`, 11.4 y 11.5.
 
 | Archivo | Qué es | Dónde se sube | Tamaño (px) |
 |---|---|---|---|
-| `banner-perfil.png` | El lockup, el titular «Agentes expertos / a cargo de tu e-commerce.» y el panel «Hoy en tu cuenta» con cinco resultados, sobre el negro con el degradé radial. | Perfil personal: la foto de fondo. | 1584 × 396 |
-| `portada-empresa.png` | La marca sola («iris agents», sin el ícono, porque el logo de la página va pegado) y el mismo titular. Sin panel y sin degradé. | Página de empresa: la portada. | 1512 × 256 |
+| `banner-perfil.png` | El lockup, el titular «Agentes expertos / a cargo de tu e-commerce.» y el panel «Hoy en tu cuenta» con cinco resultados, en vidrio sobre una luz petróleo suave. La frase va sin cursiva. | Perfil personal: la foto de fondo. | 1584 × 396 |
+| `portada-empresa.png` | La marca sola («iris agents», sin el ícono, porque el logo de la página va pegado) y el mismo titular, plano: sin panel y sin luz. | Página de empresa: la portada. | 1512 × 256 |
 | `logo-empresa-400.png` | El ícono a sangre (`logo/icon.svg`): la i a 0,64 del lado, cuadrado, sin esquinas horneadas ni transparencia. | Página de empresa: el logo. | 400 × 400 |
 | `banner-perfil-guias.png`, `portada-empresa-guias.png` | La misma pieza con las zonas en magenta. **Nunca se publica.** | No se sube. | Las de su pieza |
 | `logo-empresa-preview.png` | Hoja de control: el logo a 128, 60 y 32 px, cuadrado y en círculo, sobre blanco y sobre negro. **Nunca se publica.** | No se sube. | 700 × 380 |
@@ -41,11 +41,10 @@ La medida es la de la ayuda de LinkedIn.
 Cómo quedó:
 - El lockup y el titular empiezan en x 718, 16 px a la derecha de todas las fotos. Ninguna zona de
   foto tiene un píxel de tinta.
-- El sello de la segunda línea del titular (el `.sello` de `pieces/redes/_base/brand.css`) termina
-  en x 1167: entra entero aun con el recorte del 20 %.
-- El panel mide 340 px y va en x 1208–1547, a 36 px del borde derecho, con 40 px de aire después
-  del sello. Con el titular a 40 px no entra uno más ancho: el sello sumó 14 px al ancho de la
-  línea, y el panel se corrió 4 px a la derecha para no perder el aire.
+- El titular va a 38 px, con la frase sin cursiva (guide/15-redes.md, 15.8), y termina en x 1163:
+  entra entero aun con el recorte del 20 %.
+- El panel mide 340 px y va en x 1208–1547, a 36 px del borde derecho, con 45 px de aire después
+  del titular. Es de vidrio, sobre una luz petróleo suave (`--backlight-iris`).
 - En el celular el banner se ve a 0,25 y las filas quedan en 4 px: ahí se lee el titular. Si la
   app recorta los costados, el panel pierde su parte derecha.
 
@@ -62,8 +61,7 @@ La medida es la de la ayuda de LinkedIn (linkedin.com/help/linkedin/answer/a5633
 | Lo importante | En el centro y lejos de los bordes, sobre todo de la esquina de abajo a la derecha | La ayuda de LinkedIn. |
 
 Cómo quedó: la marca y el titular empiezan en x 640, a la derecha de los dos logos, y la tinta
-ocupa x 640–1089, y 48–205 (el sello de la segunda línea va de x 640 a 1089 y de y 159 a 205, con
-la g de «cargo» adentro).
+ocupa x 640–1108, y 52–202. Es lo corporativo: plano, sin luz, y la frase en color y sin cursiva.
 
 ### Logo de la página (400 × 400)
 

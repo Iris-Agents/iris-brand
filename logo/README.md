@@ -103,7 +103,7 @@ la tinta, en unidades de la fuente: 4264 × 936.
 óptico. La palabra tiene 0,77 A de cuerpo y su caja de interlineado 1 se centra en el alto del
 ícono. La separación es 0,27 A, del borde del cuadrado al origen de la palabra. El borde de la
 versión oscura mide 1/52 A: 1 px a 52 px. El lockup completo mide 4,594 A de ancho. Medido
-contra el `.lockup` de `pieces/redes/plantillas/_comun/plantilla.css` a 208 px, la palabra y el alto
+contra el lockup que armaban en CSS las primeras plantillas de redes, a 208 px, la palabra y el alto
 de la i coinciden al píxel. Difiere en dos cosas: la i del cuadrado va 0,034 A más a la izquierda,
 con el centrado óptico del ícono (el CSS la centra por avance), y la palabra termina 0,02 A antes
 por los ajustes de kerning.

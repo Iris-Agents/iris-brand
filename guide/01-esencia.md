@@ -53,7 +53,7 @@ Competente, preciso, de pocas palabras.
 
 **Se ve así:** blanco y negro, con dos colores que significan algo: el petróleo de lo que hace
 iris y el ámbar de lo que te toca, en una sola luz detrás del vidrio y en la frase (capítulo 04,
-4.9). Una pieza de La trastienda suma una foto oscura (capítulo 11); nada más. No hay ilustraciones,
+4.9). No hay ilustraciones,
 mascotas, robots, emojis, destellos, glow, sombras ni gradientes llamativos (en redes v2 entran la
 vocera y la mascota: capítulo 15, 15.9). Hay dos pesos tipográficos, 400 y 500: el bold que grita no
 existe. El copy es corto y en voz activa.

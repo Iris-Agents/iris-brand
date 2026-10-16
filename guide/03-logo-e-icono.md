@@ -111,8 +111,9 @@ A es el lado del ícono. Son las medidas que usan las plantillas de `pieces/rede
 | Claro: `bg.canvas` del claro (#FAFAF9) y sus neutros | `color.brand.black` | Su cuadrado negro, sin borde |
 | Una foto, un color de estado, un degradé, el amarillo o el azul de Mercado Libre, el cian de Mercado Pago, un fondo con ruido | No va | No va |
 
-La única excepción es el degradé radial muy sutil (blanco al 4 %) del banner de LinkedIn y de la
-portada de Facebook: ahí el lockup va encima, en `color.brand.white`.
+La única excepción es la luz de la marca (`backlight.*`, capítulo 04, 4.9), que en el banner de
+LinkedIn y la portada de Facebook queda detrás del panel: el lockup va sobre el negro, en
+`color.brand.white`.
 
 ## 3.9 Usos incorrectos
 

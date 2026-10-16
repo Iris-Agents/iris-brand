@@ -76,8 +76,8 @@ achica el ritmo, no el contenido.
 - **El CTA es tinta:** relleno de `action.primary` con `text.on-action` encima, en `label`. Hay uno
   solo por pantalla. En hover baja a opacidad 0,9 (`opacity.hover`).
 - **Con un sello a la vista, el CTA va con borde.** El sello ya no va en nada nuevo (capítulo 05,
-  5.3): la firma va en color y el CTA, lleno. Donde el sello sigue (el hero de la landing, las
-  plantillas viejas), el botón principal se dibuja con borde de 1 px en `text.primary`, sin relleno
+  5.3): la firma va en color y el CTA, lleno. Donde el sello sigue (el hero de la landing, hasta
+  que se rehaga), el botón principal se dibuja con borde de 1 px en `text.primary`, sin relleno
   y con la letra en `text.primary`, para que el sello sea el único bloque lleno de tinta. Del ghost
   lo separa el borde: tinta, no `border.default`. Su hover es `bg.hover`, como el de todo control
   sin relleno.
@@ -122,14 +122,13 @@ achica el ritmo, no el contenido.
 
 ### Movimiento en piezas de video
 
-Un reel cuenta una conversación en el tiempo (el registro En vivo, capítulo 11, 11.13). Lo que se
-anima es el trabajo de iris, nunca un adorno.
+Un reel cuenta una conversación en el tiempo, sobre el vidrio del capítulo 15. Lo que se anima es
+el trabajo de iris, nunca un adorno.
 
 - **La secuencia** es siempre la misma, una entrada por tiempo: la pregunta que se tipea → la línea
   «tool · estado» con el ◐ de trabajando → la respuesta, con la cifra → el OK, con el ● y su
   palabra. Cuando la tool termina, la línea pasa de ◐ a ✓.
-- **La secuencia va sin titular:** el titular va en el cuadro de cierre del reel (capítulo 11,
-  11.13).
+- **La secuencia va sin titular:** el titular va en el cuadro de cierre del reel, con el lockup.
 - **El cursor titila** en tinta (`text.primary`, #EDEDEA), prendido y apagado, y sólo cuando el
   tipeo para: mientras se tipea, va fijo al final del texto.
 - **El ◐ late** como en la app: en opacidad hasta `opacity.pulse` (0,45) y de vuelta, con

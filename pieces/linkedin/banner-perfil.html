@@ -8,8 +8,8 @@
   Banner del perfil personal de Franco en LinkedIn: 1584 × 396 (la medida de la ayuda de LinkedIn).
   Render: ../redes/_base/render.sh banner-perfil.html 1584 396 "$PWD/banner-perfil.png"
   Guías:  ../redes/_base/render.sh "banner-perfil.html?guias" 1584 396 "$PWD/banner-perfil-guias.png"
-  Es el diseño del canvas del banner en Claude Design, con los tokens: el lockup y el panel son los
-  de ../redes/plantillas/_comun/plantilla.css, y el panel es el mismo de la portada de Facebook.
+  Salió del canvas del banner en Claude Design y se rehízo con la marca nueva el 2026-10-15: el
+  lockup y el panel son los de linkedin.css, con el vidrio sobrio de LinkedIn (guide/15-redes.md, 15.8).
 
   ZONAS, en píxeles de esta imagen (el detalle y las fuentes, en README.md):
   - Escritorio, foto de perfil: x 33–373, y 228–396 (medido en la vista pública de LinkedIn, con
@@ -22,7 +22,7 @@
   panel puede perder su borde derecho si la app recorta.
 -->
 <link rel="stylesheet" href="../redes/_base/brand.css">
-<link rel="stylesheet" href="../redes/plantillas/_comun/plantilla.css">
+<link rel="stylesheet" href="linkedin.css">
 <script>if (new URLSearchParams(location.search).has('guias')) document.documentElement.classList.add('guias');</script>
 <style>
   :root { --ancho: 1584px; --alto: 396px; --pieza-zoom: 1.2; }
@@ -30,16 +30,28 @@
     position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 36px 0 718px;
-    /* El degradé radial de la marca: sólo en este banner y en la portada de Facebook. */
-    background:
-      radial-gradient(900px 460px at 70% 20%, color-mix(in srgb, var(--brand-white) 4%, transparent), transparent 70%),
-      var(--bg-canvas);
+    isolation: isolate; overflow: hidden;
+    background: var(--bg-canvas);
   }
+  /* LinkedIn que muestra el producto: el vidrio de redes v2 en su versión más sobria (capítulo 15,
+     15.8). Una luz petróleo suave detrás del panel, y el titular sin cursiva. */
+  .luz {
+    position: absolute; z-index: -1; left: 1020px; top: -330px; width: 720px; aspect-ratio: 1;
+    border-radius: 50%; background: var(--backlight-iris); filter: blur(100px); opacity: 0.75;
+  }
+  .titular .frase { font-family: var(--font-sans); font-weight: 500; margin-top: 0.06em; letter-spacing: -0.015em; }
+  .feed {
+    background: rgba(14, 14, 13, 0.45); border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+    -webkit-backdrop-filter: blur(18px) saturate(150%); backdrop-filter: blur(18px) saturate(150%);
+  }
+  .fila { border-top-color: rgba(255, 255, 255, 0.09); }
   .lead { display: flex; flex-direction: column; gap: 26px; padding-bottom: 12px; }
-  .titular { font-size: 40px; line-height: 1.1; letter-spacing: -0.015em; }
+  /* 38 y no 40: sin cursiva, la frase en Plex es más ancha y tiene que terminar antes de x 1168. */
+  .titular { font-size: 38px; line-height: 1.1; letter-spacing: -0.015em; }
   .titular > span { white-space: nowrap; }
-  /* El panel mide 340 px y va a 36 del borde derecho, en x 1208–1547: así el sello del titular, que
-     termina en x 1167, tiene 40 px de aire antes del borde del panel. */
+  /* El panel mide 340 px y va a 36 del borde derecho, en x 1208–1547: el titular termina antes de
+     x 1168 y le quedan 40 px de aire. */
   .feed { width: calc(340px / var(--pieza-zoom)); }
   .fila .que { white-space: nowrap; }
 </style>
@@ -50,6 +62,7 @@
 </svg>
 
 <main class="banner">
+  <span class="luz" aria-hidden="true"></span>
   <div class="lead">
     <!-- El logo es logo/lockup.svg en línea, a 52 px de alto y con el borde a 2 px: no se tipea ni se toca. -->
     <svg class="lockup" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4594.09 1000" width="238.89" height="52" role="img" aria-label="iris agents">
@@ -62,12 +75,11 @@
     <h1 class="titular">
       <!-- EDITAR: línea 1 del titular, en Plex. Máximo 18 caracteres. -->
       <span data-slot="titular-linea-1">Agentes expertos</span>
-      <!-- EDITAR: línea 2 del titular, en la firma, en el sello (el texto va adentro del
-           <span class="sello">). Termina en punto y no lleva números. El sello entra hasta x 1168
-           (40 px antes del borde del panel, en x 1208): con este texto mide 450 px y termina en
-           x 1167, así que está en el tope. Máximo 25 caracteres de texto común. «Mercado Libre»
-           no va en el titular: va en el «Acerca de» (guide/12-mercado-libre.md). -->
-      <span class="signature"><span class="sello" data-slot="titular-linea-2">a cargo de tu e-commerce.</span></span>
+      <!-- EDITAR: línea 2 del titular, la frase en color. En LinkedIn va sin cursiva (capítulo 15,
+           15.8). Termina en punto y no lleva números. Entra hasta x 1168 (40 px antes del borde del
+           panel, en x 1208). Máximo 25 caracteres de texto común. «Mercado Libre» no va en el
+           titular: va en el «Acerca de» (guide/12-mercado-libre.md). -->
+      <span class="frase" data-slot="titular-linea-2">a cargo de tu e-commerce.</span>
     </h1>
   </div>
 

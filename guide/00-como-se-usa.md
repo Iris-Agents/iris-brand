@@ -32,9 +32,9 @@ repo. Si dice otra cosa que este manual, manda el manual.
 - Hay dos excepciones escritas, porque no son valores que se reusen:
   - **La geometría del logo** (proporciones de la i, el resguardo, el lockup) vive en los SVG de
     `logo/` y en el capítulo 03.
-  - **Las luces radiales**: la del banner (blanco al 4 %) vive sólo en el banner de LinkedIn y en la
-    portada de Facebook, y la de las piezas de redes (blanco hasta el 6 %, sólo detrás del punto
-    focal) en los posts y los reels (capítulo 11, 11.13). No son token.
+  - **Lo propio de las piezas de redes** (el blanco de día, el vidrio más transparente, su sombra y
+    la pill del OK) vive en `pieces/redes/_base/vidrio.css` y en el capítulo 15. No son token: los
+    colores de la marca que esa hoja copia, sí, y el test los controla.
 
 ## 0.4 Cómo se lee un nombre de token
 
