@@ -20,7 +20,7 @@ vende dejó de ser la velocidad. Es esto: **lo que aprendió una vez le sirve pa
 criterio y a la vista.
 
 - **Lo que se promete:** trabaja solo donde vos lo dejás; si no decidiste, te espera.
-- **Lo que no se promete nunca:** «piloto automático», «reemplaza a tu equipo», «IA que hace todo»,
+- **Lo que no se promete nunca:** «piloto automático», «reemplaza a tu equipo», «IA que hace todo» (sola, sin que lo decidas),
   «el primer empleado de IA».
 
 ## 1.3 El alma
