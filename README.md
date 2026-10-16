@@ -10,20 +10,20 @@ cambia acá y cada app lo toma cuando quiere. Este repo no modifica ninguna app.
 
 ### Para armar una pieza de redes
 
-Una persona o un agente, con plantilla o sin ella. **Desde octubre de 2026 las piezas de redes son
-las de redes v2, con el vidrio: [capítulo 15](guide/15-redes.md)**, que manda sobre lo de abajo
-donde dicen distinto.
+Una persona o un agente, con plantilla o sin ella.
 
-1. **Qué hace buena una pieza, qué no va y qué hacer ante la duda:** el
-   [capítulo 11](guide/11-aplicaciones.md), 11.14. Los tres registros de redes, en 11.13.
-2. **Las reglas de cada cosa**, en el [manual](guide/README.md): el logo (03), el color, el
-   petróleo y el ámbar (04), la tipografía y la frase (05), las piezas propias y el intercambio (08), la voz
-   (09) y Mercado Libre (12).
-3. **Cómo están hechas las plantillas** (sus slots y largos, las clases de `brand.css`) y cómo se
-   renderiza una pieza: [`pieces/redes/plantillas.md`](pieces/redes/plantillas.md).
-4. **Las medidas de cada formato** (el lienzo, el margen, lo que tapa cada red y el tamaño mínimo de
+1. **Las reglas de los posts, carruseles, stories y reels:** el vidrio, las cuatro variantes, la
+   luz, el mensaje y los personajes, en el [capítulo 15](guide/15-redes.md).
+2. **Qué hace buena una pieza, qué no va y qué hacer ante la duda:** el
+   [capítulo 11](guide/11-aplicaciones.md), 11.14.
+3. **Las reglas de cada cosa**, en el [manual](guide/README.md): el logo (03), el color, el
+   petróleo y el ámbar (04), la tipografía y la frase (05), las piezas propias (08), la voz (09) y
+   Mercado Libre (12).
+4. **Cómo están hechas las piezas** (`vidrio.css`, `brand.css` y las plantillas de vidrio) y cómo se
+   renderiza una: [`pieces/redes/plantillas.md`](pieces/redes/plantillas.md).
+5. **Las medidas de cada formato** (el lienzo, el margen, lo que tapa cada red y el tamaño mínimo de
    la letra): [`pieces/redes/_base/formatos.json`](pieces/redes/_base/formatos.json).
-5. **La pieza terminada se mide** con `pnpm medir <pieza.html> <formato>`, que dice en palabras lo
+6. **La pieza terminada se mide** con `pnpm medir <pieza.html> <formato>`, que dice en palabras lo
    que el ojo no ve ([`pieces/redes/_base/medir/`](pieces/redes/_base/medir/README.md)), y la PNG
    se revisa con la sección 7 de `plantillas.md`.
 

@@ -19,12 +19,10 @@
   --text-secondary: #bfbeb9;
   --text-primary: #ededea;
 
-  /* El sello de la firma (la segunda línea del titular) en marketing: la letra en tinta sobre un
-     bloque petróleo, el único acento de color de la marca (decisión de Franco del 2026-10-10). Es
-     signature.marketing de los tokens; la app usa el sello de tinta. El botón principal, como
-     «Aprobar», va con borde de tinta y sin relleno: el foco es la firma y lo que dice la pieza. */
-  --signature-marketing-block: #03313c;
-  --signature-marketing-text: #ededea;
+  /* La frase y la luz (capítulo 04, 4.9): signature.phrase y backlight.iris del oscuro. La frase es
+     la segunda línea del titular, en la firma y en color, sin bloque; la luz va detrás del vidrio. */
+  --signature-phrase: #b9d3d8;
+  --backlight-iris: #0b3a44;
 
   /* Estados (paleta verificada 2026-10-10, modo oscuro). Usarlos sólo por variable.
      Decisión de Franco del 2026-10-10: verde = en movimiento (trabajando, ◐ medio círculo:
@@ -48,9 +46,8 @@ body { font-family: var(--font-sans); }
 /* La firma: sólo logotipo, la i del ícono y la segunda línea de un titular de dos líneas. */
 .signature { font-family: var(--font-signature); font-style: italic; font-weight: 400; font-synthesis: none; }
 
-/* El sello: va adentro de la segunda línea del titular, que lleva margin-top 0.16em y line-height 1
-   (lo pone el CSS de cada pieza). Esquinas rectas; las medidas en em siguen al tamaño del titular. */
-.sello { display: inline-block; padding: 0.14em 0.16em 0.18em 0.13em; line-height: 0.86; background: var(--signature-marketing-block); color: var(--signature-marketing-text); }
+/* La frase: la segunda línea del titular, con .signature (guide/05-tipografia.md, 5.3). */
+.frase { color: var(--signature-phrase); }
 
 /* La flecha «→» («3 → 43», «deslizá →»): las Plex que carga este archivo no traen U+2192, y tipeada
    sale con la fuente del sistema. Va siempre como este SVG en línea, nunca tipeada:

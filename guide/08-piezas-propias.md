@@ -10,13 +10,14 @@ Son ocho: el glifo de estado, el feed «Hoy en tu cuenta», la tarjeta de aproba
 intercambio, que es la conversación con iris como pieza (8.9).
 
 Los valores salen de los tokens: el capítulo 04 para color, el 05 para tipografía y el 06 para
-forma. Este capítulo dice cómo se arma cada pieza y qué no se le cambia. Las plantillas de
-`pieces/redes/plantillas/` traen el markup del glifo, del feed y de la tarjeta de aprobación.
+forma. Este capítulo dice cómo se arma cada pieza y qué no se le cambia. La portada de Facebook y
+el banner de LinkedIn traen el markup del glifo y del feed; las plantillas de vidrio
+(`pieces/redes/plantillas/vidrio/`), el de los estados en pill y la propuesta que espera el OK.
 
 **En una pieza de redes**, una pieza propia se dibuja como en la app y se agranda entera: el texto,
 los glifos, los bordes y los radios crecen juntos y conservan la proporción de la app. Por eso un
-glifo de 10 px o un borde de 1 px miden más en una pieza de 1080. Cuánto se agranda en cada formato
-está en `pieces/redes/plantillas.md`.
+glifo de 10 px o un borde de 1 px miden más en una pieza de 1080. En vidrio todo se mide en `cqw` y
+sigue el ancho de la pieza (capítulo 15).
 
 ---
 
@@ -144,10 +145,9 @@ solo donde vos lo dejás; si no decidiste, te espera.
 - Dos botones, y sus textos no se cambian:
   - **«Aprobar»**: el CTA de tinta (`action.primary` con `text.on-action`). Es el único botón
     lleno de la pantalla.
-  - **En una pieza con sello** (un post, una OG, un carrusel: la segunda línea del titular va en
-    el sello petróleo, capítulo 05, 5.3), «Aprobar» va con borde y sin relleno, y sigue siendo el
-    principal: cómo se dibuja y por qué, en el capítulo 06 (6.5). En la app pasa lo mismo con el
-    sello de tinta a la vista.
+  - **Donde sigue un sello** (el titular de la landing, hasta que se rehaga: capítulo 05, 5.3),
+    «Aprobar» va con borde y sin relleno, y sigue siendo el principal (capítulo 06, 6.5). Con la
+    frase, va lleno.
   - **«Rechazar con motivo»**: ghost, con `border.default`.
 
 **En la app** la tarjeta además dice cuánto arriesga (en mono) y deja abrir lo que va a mandar
@@ -159,7 +159,7 @@ corregir; el botón pasa a «Confirmar rechazo».
 botón de tinta y el ghost. Dentro del hilo o del feed, y en cualquier pieza estática, va lisa.
 
 **No se hace:** cambiar los textos de los botones, poner dos botones llenos, dejar «Aprobar» lleno
-al lado del sello, sacar la fecha de lectura, mostrar una cifra sin antes → después, o pintar algo
+al lado de un sello, sacar la fecha de lectura, mostrar una cifra sin antes → después, o pintar algo
 de ámbar: la píldora es neutra, y el ámbar va sólo en el ● (capítulo 04, 4.6). Tampoco se cuenta
 con ella un aviso, que no propone nada (capítulo 11, 11.14).
 
@@ -248,8 +248,12 @@ La pieza para un usuario real que firmó su consentimiento (las condiciones, en 
 
 La conversación con iris, como pieza: el dueño pregunta, iris lee la cuenta y contesta con una
 cifra, y lo que cambia algo espera el OK. Muestra, sin explicarlo, que del otro lado hay una IA que
-trabaja sobre tu cuenta. Es la imagen del registro Pregunta y cifra y la secuencia de En vivo
-(capítulo 11, 11.13).
+trabaja sobre tu cuenta.
+
+> **En redes v2** el mensaje de la persona va en la casilla o en la burbuja, con mayúscula y signos,
+> y la respuesta de iris sin globo, sobre el vidrio: manda el capítulo 15 (15.7). Lo de abajo es el
+> intercambio de los registros anteriores (capítulo 11, 11.13); siguen valiendo la línea «tool ·
+> estado» con el nombre real de la tool, la cifra con su unidad y el ● sólo si hay una decisión.
 
 **Anatomía**, de arriba abajo:
 
@@ -284,8 +288,8 @@ Tu mínimo                             5.000
   «escribiendo» (capítulo 09, 9.11). En la app la persona sigue en burbuja.
 - **La respuesta va en la sans**, nunca en la firma: la firma no lleva números y queda para el
   titular.
-- **Sin titular.** El sello nunca comparte la imagen con la pregunta y la cifra: si el post lleva
-  titular, va en otra lámina, y el reel lo lleva en su cuadro de cierre (capítulo 11, 11.13).
+- **Sin titular.** El titular nunca comparte la imagen con la pregunta y la cifra: si el post lleva
+  titular, va en otra lámina, y el reel lo lleva en su cuadro de cierre.
 - **El ● es el único color de estado** mientras la pieza espera el OK. En la línea, el glifo dice
   cómo terminó la tool: ✓ en gris; el ◐ verde sólo en video, mientras trabaja.
 - **La cifra es de ejemplo** y se marca (capítulo 11), con su unidad; el cero también se muestra.

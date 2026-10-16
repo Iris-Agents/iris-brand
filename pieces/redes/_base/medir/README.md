@@ -4,7 +4,7 @@ Mide una pieza de redes terminada y dice en palabras lo que el ojo de un modelo 
 no puntúa y no tiene ids: cada observación dice qué midió, dónde, cuánto dio, contra qué y la
 sección del manual que lo explica. Qué se hace con eso lo decide quien arma la pieza.
 
-Mide seis cosas, y nada más:
+Mide cinco cosas, y nada más:
 
 - **Zonas:** texto fuera de la zona segura del formato o sobre lo que tapa la red (el contador
   de Instagram, la foto de perfil de Facebook, los botones del reel). Las medidas son las de
@@ -15,12 +15,13 @@ Mide seis cosas, y nada más:
   una itálica que la marca no carga, y cada carácter que la fuente no trae y sale con otra, como
   la «→» o un emoji.
 - **Colores:** el texto, el fondo, el borde, el relleno de un SVG y los degradés que no están en la
-  paleta de `../brand.css`, o que llevan transparencia, también en un `::before` o un `::after` (la
-  luz de las plantillas es uno). Pasa la luz radial blanca de hasta el 6 %. La foto (`img`,
+  paleta de `../brand.css`, o que llevan transparencia, también en un `::before` o un `::after` (el
+  brillo del vidrio es uno). Pasa la luz radial blanca de hasta el 6 % y el fundido hacia el negro. La foto (`img`,
   `video`) no se mide, ni el texto que un recorte de 1 × 1 px deja sólo para lectores de pantalla.
-- **Petróleo:** en cualquier lugar que no sea el fondo del sello, o en un bloque que no está
-  pegado a la firma.
 - **Desborde:** texto que se sale de una caja que se ve (con fondo o borde) o que lo recorta.
+
+Mide contra `brand.css`. En una pieza de vidrio (redes v2) avisa por la luz, la frase, el vidrio y
+los pesos 600 y 700, que son de `vidrio.css`: esos avisos son esperables (capítulo 15).
 
 ## El comando
 
@@ -74,7 +75,7 @@ Cada observación trae:
 
 | Campo | Qué es |
 |---|---|
-| `check` | Qué midió: `zone`, `size`, `font`, `color`, `petrol` u `overflow`. |
+| `check` | Qué midió: `zone`, `size`, `font`, `color` u `overflow`. |
 | `where` | Dónde: el texto entre comillas y su elemento, o el elemento y su propiedad. |
 | `box` | La caja en px de la pieza, cuando la hay. |
 | `measured` | Cuánto dio. |

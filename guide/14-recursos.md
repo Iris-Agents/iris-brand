@@ -165,10 +165,9 @@ test, sin red: los esquemas están en `test/schemas/`. Frena cuando:
    un primitivo sale al CSS, el petróleo aparece en `dist/tokens.css` en otra variable que
    `--iris-color-signature-marketing-block`, un tono de `color.tint` aparece en otra que la luz o la
    frase, o un bloque del claro trae algo más que color;
-10. una variable de `pieces/redes/_base/brand.css` no tiene su token o vale otra cosa, le falta el
-    sello de marketing (`--signature-marketing-block` y `--signature-marketing-text`), `.sello` no
-    los lee, o una de las dos copias del sello (`css/signature.css` y `brand.css`) cambia el relleno
-    o el interlineado;
+10. una variable de `pieces/redes/_base/brand.css` no tiene su token o vale otra cosa, le faltan la
+    frase o la luz (`--signature-phrase` y `--backlight-iris`), o una pieza de `pieces/` vuelve a
+    usar el sello;
 11. un color de la marca en `pieces/redes/_base/vidrio.css` (el negro y el blanco, los estados, las
     luces y la frase de cada variante) no es el del token de su modo;
 12. un token o una variable de CSS (en `css/` o `pieces/`) se llama como lo descartado: `piece`,

@@ -20,7 +20,7 @@ la frase, nunca de relleno (4.9).
 |---|---|---|---|
 | `color.brand.black` | #0A0A09 | 0.145 0.002 95 | El fondo del ícono y el piso del oscuro en todo. Un negro neutro: hoy conviven tres (#0A0A0B en el ícono, #070708 en la landing y el banner, #121211 en la app) y queda éste. |
 | `color.brand.white` | #FAFAF9 | 0.985 0.0013 95 | La i del ícono, el logotipo sobre oscuro y el piso del claro. No es el color del texto: el texto del oscuro es `text.primary`. |
-| `color.brand.petrol` | #03313C | 0.29 0.05 219 | El petróleo en su tono más hondo: el bloque del sello de marketing, que queda sólo en las piezas que ya lo llevan (4.9). Lo nuevo usa sus tonos, abajo. |
+| `color.brand.petrol` | #03313C | 0.29 0.05 219 | El petróleo en su tono más hondo: el bloque del sello de marketing, que queda sólo en el titular de la landing y sus OG hasta que se rehagan (4.9). Lo nuevo usa sus tonos, abajo. |
 
 ### Los tonos de la marca: `color.tint`
 
@@ -116,7 +116,7 @@ Un componente usa sólo estos nombres. Cambian de valor con el modo; el rol es e
 | `backlight.neutral` | #3A3937 | #CECECB | La luz en monocromo, con foto, persona, gráfico o mucho contenido. Es el valor de `border.default`. |
 | `signature.block` | #EDEDEA | #1A1917 | El sello de la app: el bloque de tinta detrás de la segunda línea del titular. Es el valor de `text.primary`. Sólo donde ya está (4.9). |
 | `signature.text` | #0A0A09 | #FAFAF9 | La firma calada en el sello de la app: el color del fondo, sólo sobre `signature.block`. Es el valor de `text.on-action`. |
-| `signature.marketing.block` | #03313C | #03313C | El sello de marketing: el bloque petróleo detrás de la segunda línea del titular en la landing, sus OG, el banner, las portadas y las plantillas de los tres registros de redes, hasta que se rehagan (4.9). Es `brand.petrol`, el mismo en los dos modos. |
+| `signature.marketing.block` | #03313C | #03313C | El sello de marketing: el bloque petróleo detrás de la segunda línea del titular de la landing y sus OG, hasta que se rehagan (4.9). Es `brand.petrol`, el mismo en los dos modos. |
 | `signature.marketing.text` | #EDEDEA | #EDEDEA | La firma en tinta sobre el sello de marketing, sólo sobre `signature.marketing.block`. Es `neutral-dark.11` en los dos modos: el bloque es oscuro siempre. |
 | `focus` | #EDEDEA | #1A1917 | El anillo de foco: 2 px a 2 px de distancia. |
 | `selection` | #3A3937 | #DBDBD8 | El fondo de la selección de texto. |
@@ -277,14 +277,13 @@ raised) y el borde, un paso. En claro todo es el mismo blanco y el nivel lo dice
   en una franja, como borde, botón, ícono, glifo o estado, o en el logo. El ámbar como luz sin una
   decisión pendiente.
 - Más de una luz de color por pantalla o pieza, o una luz con texto encima sin vidrio.
-- Gradientes llamativos y glow. Las únicas excepciones son cuatro:
+- Gradientes llamativos y glow. Las únicas excepciones son tres:
   - la luz de fondo (`backlight.*`, 4.9): un círculo de color que se apaga hacia afuera, detrás
     del vidrio;
-  - las dos luces radiales blancas, que no son token: la del banner de LinkedIn y la portada de
-    Facebook (al 4 %) y la de las piezas de redes, de hasta el 6 % y sólo detrás del punto focal
-    (capítulo 11, 11.13). Nunca a pantalla completa ni de color;
-  - el fundido de la foto de La trastienda con el negro, que la apaga hacia el `bg.canvas` sin otro
-    color (capítulo 11, 11.13).
+  - el brillo del vidrio de las piezas de redes, un degradé blanco muy bajo en diagonal (capítulo
+    15);
+  - el fundido de una foto con el negro, que la apaga hacia el fondo sin otro color, donde lleva
+    texto encima.
 - Sombras, o blur fuera del vidrio. La única sombra es la suave del vidrio de las piezas de redes
   (capítulo 15), que no existe en la app.
 - Un color de estado fuera de su glifo, o el color como única señal.
@@ -327,11 +326,11 @@ que te toca va en `text.primary`. Reemplaza al sello (capítulo 05, 5.3).
 
 ### El sello, de salida
 
-El sello (el bloque detrás de la firma) ya no va en nada nuevo. Queda donde está hoy, con sus
-tokens, hasta que esas piezas se rehagan: el titular de la landing y sus OG
-(`.signature-seal-marketing`), el banner de LinkedIn, la portada de Facebook y las plantillas de los
-tres registros de redes (`.sello` de `brand.css`). Cuando se rehagan, el sello se borra con sus
-tokens y sus clases, como dice 14.5. El petróleo hondo de `brand.petrol` es el de ese bloque, y
+El sello (el bloque detrás de la firma) ya no va en nada nuevo. Las piezas de este repo ya no lo
+llevan: la portada de Facebook y las de LinkedIn se rehicieron con la frase y las plantillas de los
+tres registros se borraron el 2026-10-15. Queda, con sus tokens y `css/signature.css`, sólo en el
+titular de la landing y sus OG (`.signature-seal-marketing`). Cuando la landing pase a la frase, el
+sello se borra con sus tokens y sus clases, como dice 14.5. El petróleo hondo de `brand.petrol` es el de ese bloque, y
 el test frena que lo use otro rol.
 
 ### Por qué estos

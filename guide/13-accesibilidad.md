@@ -96,7 +96,7 @@ capítulo 04 (4.4).
 - [ ] El video tiene poster, `preload="none"`, y su conversación también está en HTML. Si tiene voz,
       lleva subtítulos.
 - [ ] Una censura con chip dice «oculto» en texto, que también se lee con un lector de pantalla.
-- [ ] En una pieza de La trastienda, el texto que cae sobre la foto pasa 4,5:1 contra lo que tiene
+- [ ] En una pieza con foto, el texto que cae sobre la foto pasa 4,5:1 contra lo que tiene
       detrás, medido en la PNG; si la foto es generada con IA, la pieza lo dice.
 
 ---

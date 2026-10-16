@@ -36,34 +36,47 @@ html, body { width: var(--cover-width); height: var(--cover-height); overflow: h
   justify-content: space-between;
   gap: 40px;
   padding: 40px 294px 84px;
-  background:
-    radial-gradient(980px 560px at 66% 32%, color-mix(in srgb, var(--brand-white) 4%, transparent), transparent 70%),
-    var(--bg-canvas);
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--bg-canvas);
+}
+
+/* La luz petróleo (backlight.iris), detrás del panel: un círculo desenfocado, como en las piezas de
+   redes v2 (pieces/redes/_base/vidrio.css). */
+.luz {
+  position: absolute; z-index: -1; left: 680px; top: -200px; width: 820px; aspect-ratio: 1;
+  border-radius: 50%; background: var(--backlight-iris); filter: blur(110px);
 }
 
 /* Lockup y titular */
 .lead { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 32px; }
 /* El lockup es logo/lockup.svg en línea, nunca tipeado, a 52 px de alto. Esta imagen es el doble de la
-   pantalla: el borde del cuadrado va de 2 px, como en las plantillas (la cuenta está en
-   plantillas/_comun/plantilla.css). */
+   pantalla: el borde del cuadrado va de 2 px, como en LinkedIn (la cuenta está en
+   ../../linkedin/linkedin.css). */
 .lockup { display: block; flex: none; }
 .headline { margin: 0; font-size: 38px; line-height: 1.14; font-weight: 500; letter-spacing: -0.015em; color: var(--text-primary); }
 .headline > span { display: block; white-space: nowrap; }
-/* La 2 va en el sello (.sello, en brand.css): la línea lleva 0,16em de aire arriba e interlineado 1. */
-.headline .signature { margin-top: 0.16em; line-height: 1; letter-spacing: -0.01em; }
+/* La 2 es la frase (.frase, en brand.css): la firma en signature.phrase, sin bloque. */
+.headline .signature { margin-top: 0.08em; line-height: 1.08; letter-spacing: -0.01em; }
 
-/* Panel "Hoy en tu cuenta": el mismo del banner de LinkedIn. Cinco resultados resueltos, sin hora
-   ni leyenda; abajo queda el mismo aire que arriba porque ya no hay leyenda. */
+/* Panel "Hoy en tu cuenta", en el vidrio de redes v2 (capítulo 15, 15.4): translúcido sobre la luz,
+   con el borde y la línea de luz de arriba. Cinco resultados resueltos, sin hora ni leyenda. */
 .feed {
-  flex: none; width: 544px;
-  padding: 24px 24px 10px;
-  background: var(--bg-surface); border: 2px solid var(--border-subtle); border-radius: 16px;
+  position: relative; flex: none; width: 544px;
+  padding: 24px 24px 10px; border-radius: 24px;
+  background: rgba(14, 14, 13, 0.42); border: 2px solid rgba(255, 255, 255, 0.17);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.3), 0 30px 80px rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(26px) saturate(170%); backdrop-filter: blur(26px) saturate(170%);
+}
+.feed::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 36%, rgba(255, 255, 255, 0) 72%, rgba(255, 255, 255, 0.06));
 }
 .eyebrow { margin: 0 0 6px; font-size: 22px; font-weight: 500; line-height: 1.4; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
 .feed ul { margin: 0; padding: 0; list-style: none; }
 .feed-row {
   display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 14px; align-items: center;
-  padding: 14px 0; border-top: 2px solid var(--border-subtle);
+  padding: 14px 0; border-top: 2px solid rgba(255, 255, 255, 0.1);
   font-size: 23px; line-height: 1.4; white-space: nowrap;
 }
 .feed-row:first-child { border-top: 0; }

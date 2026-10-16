@@ -91,10 +91,9 @@ claro; 9,65:1 y 8,13:1 en el peor fondo). En una pantalla o pieza de lo que te t
 
 Hasta octubre de 2026 la segunda línea iba en un sello, un bloque de esquinas rectas detrás de la
 firma: de tinta en la app (`.signature-seal`) y petróleo en marketing (`.signature-seal-marketing`,
-y el `.sello` de las plantillas de redes). **No va en nada nuevo.** Queda, con su receta de
-`css/signature.css`, en lo que ya lo lleva (el titular de la landing y sus OG, el banner, las
-portadas y las plantillas de los tres registros de redes) hasta que se rehaga, y entonces se borra
-(capítulo 04, 4.9). Mientras esté a la vista, el botón principal de esa pantalla va con borde.
+y el `.sello` de las plantillas de redes). **No va en nada nuevo**, y las piezas de este repo ya no
+lo llevan. Queda, con su receta de `css/signature.css`, sólo en el titular de la landing y sus OG
+hasta que se rehagan, y entonces se borra (capítulo 04, 4.9). Mientras esté a la vista, el botón principal de esa pantalla va con borde.
 
 ## 5.4 La escala
 

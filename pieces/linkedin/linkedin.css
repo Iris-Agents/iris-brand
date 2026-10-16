@@ -1,0 +1,46 @@
+/* Las piezas de LinkedIn: el banner del perfil y la portada de la página de empresa.
+   Se enlaza DESPUÉS de ../redes/_base/brand.css: de ahí salen todos los colores y las fuentes.
+   Cada HTML fija en su <style> el tamaño del lienzo, el fondo y lo propio de la pieza. */
+
+html, body { width: var(--ancho); height: var(--alto); overflow: hidden; }
+body { position: relative; font-weight: 400; }
+
+.eyebrow { margin: 0; font-weight: 500; line-height: 1.3; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+
+/* Titular de dos líneas: la 1 en Plex 500 y la 2, la frase (.frase, en brand.css), del mismo tamaño.
+   En LinkedIn la frase va sin cursiva (guide/15-redes.md, 15.8): cada HTML la pasa a la sans. */
+.titular { margin: 0; font-weight: 500; line-height: 1.04; letter-spacing: -0.02em; color: var(--text-primary); }
+.titular > span { display: block; text-wrap: balance; }
+
+/* El logo nunca se tipea (guide/03-logo-e-icono.md): es logo/lockup.svg en línea, con sus trazados
+   tal cual. Cada pieza le pone en los atributos el alto A (el lado del ícono) y el ancho 4,594 A, y
+   el borde del cuadrado a 2 px: stroke-width 2000 / A, x e y la mitad del trazo, lado 1000 menos el
+   trazo y rx 230 menos medio trazo. El archivo lo trae a 1/52 A, que es 1 px en pantalla. */
+.lockup { display: block; flex: none; }
+
+/* El panel «Hoy en tu cuenta» se dibuja a la escala de la app (los px de los tokens) y se agranda
+   con zoom (--pieza-zoom). */
+.pieza { zoom: var(--pieza-zoom); font-size: 14px; line-height: 1.45; letter-spacing: -0.01em; }
+.pieza .eyebrow { font-size: 12px; line-height: 1.4; }
+
+.glifo { display: block; flex: none; width: 10px; height: 10px; overflow: visible; }
+.glifo.resuelto { color: var(--status-done); }
+
+.feed { display: grid; gap: 10px; padding: 18px 20px 14px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px; }
+.feed ul { margin: 0; padding: 0; list-style: none; }
+.fila { display: grid; grid-template-columns: 10px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 11px 0; border-top: 1px solid var(--border-subtle); }
+.fila:first-child { border-top: 0; }
+/* Cada fila es un resultado: lo que cambió (la cifra o el objeto) va en <b>, más claro; el resto, en secundario. */
+.fila .que { color: var(--text-secondary); }
+.fila .que b { font-weight: 500; color: var(--text-primary); }
+
+/* ---------- Guías (sólo con ?guias en la URL) ----------
+   El magenta no es un color de marca: existe sólo para dibujar zonas y nunca sale en la pieza limpia. */
+
+:root { --guia: #ff2d95; }
+.guia { display: none; position: absolute; pointer-events: none; border: 3px dashed var(--guia); }
+html.guias .guia { display: block; }
+.guia.punteada { border-style: dotted; border-width: 4px; }
+.guia::after { content: attr(data-etiqueta); position: absolute; top: 8px; left: 8px; padding: 4px 8px; background: var(--brand-black); color: var(--guia); font: 500 20px/1.2 var(--font-mono); letter-spacing: 0; white-space: nowrap; }
+.guia.etiqueta-abajo::after { top: auto; bottom: 8px; }
+.guia.etiqueta-derecha::after { left: auto; right: 8px; }
