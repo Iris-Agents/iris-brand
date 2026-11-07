@@ -73,7 +73,7 @@ Hay dos pares, sin tipografía fluida: `headline.hero` (64/1,05) para el hero y 
 
 La segunda línea no va en gris: el gris, en lugar de remarcar, apagaba. Va en color, en la firma y
 sin nada detrás: `signature.phrase`, el petróleo de la marca (#B9D3D8 en oscuro, #0B4A57 en
-claro; 9,65:1 y 8,13:1 en el peor fondo). En una pantalla o pieza de lo que te toca (capítulo 04,
+claro; 9,64:1 y 8,12:1 en el peor fondo). En una pantalla o pieza de lo que te toca (capítulo 04,
 4.9) va en `text.primary`: el ámbar no se usa para letra.
 
 - **Lo remarca la letra**, la itálica y su color: sin bloque, sin subrayado, sin resaltado.
@@ -172,7 +172,7 @@ El largo de línea está en `layout.measure.lede` (60), `layout.measure.prose` (
 ## 5.7 Links en texto corrido
 
 - Del mismo color que el texto que los rodea: el link no cambia de color.
-- Subrayado de 1 px en `link.underline` (#72716E en oscuro, #868581 en claro), a 3 px de distancia
+- Subrayado de 1 px en `link.underline` (#717171 en oscuro, #848484 en claro), a 3 px de distancia
   (`link.underline-offset`).
 - En hover, el subrayado pasa a `text.primary`.
 - La prohibición de rayas y subrayados es del logotipo, no de los links.

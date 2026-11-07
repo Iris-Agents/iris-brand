@@ -21,12 +21,12 @@ capítulo 04 (4.4).
       04, 4.5).
 - [ ] En claro, el ámbar de te toca va sólo como glifo lleno: nunca como texto ni en un trazo fino
       (no llega a 4,5:1).
-- [ ] La frase va en `signature.phrase` (9,65:1 en el peor fondo del oscuro, 8,13:1 en el del
+- [ ] La frase va en `signature.phrase` (9,64:1 en el peor fondo del oscuro, 8,12:1 en el del
       claro) o, en lo que te toca, en `text.primary`; nunca en ámbar. Donde sigue un sello, la letra
-      se lee contra su bloque: 16,89:1 y 16,82:1 el de tinta, 11,87:1 el petróleo, con un mínimo de
+      se lee contra su bloque: 16,92:1 y 16,83:1 el de tinta, 11,89:1 el petróleo, con un mínimo de
       7:1 (capítulo 04, 4.9).
 - [ ] Un detalle en el acento (`accent`), aunque sea texto chico como el de una pill, pasa como
-      texto: 9,65:1 y 8,13:1 en el peor fondo de cada modo, y 6,39:1 y 7,96:1 sobre el vidrio de
+      texto: 9,64:1 y 8,12:1 en el peor fondo de cada modo, y 6,39:1 y 7,97:1 sobre el vidrio de
       redes con cualquier luz detrás (capítulo 04, 4.4).
 - [ ] La luz de fondo es decorativa: nada se lee sobre ella sin un vidrio encima, lleva
       `aria-hidden` y se apaga con `prefers-reduced-transparency`, `prefers-contrast: more` y

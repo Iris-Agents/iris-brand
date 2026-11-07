@@ -133,7 +133,7 @@ el trabajo de iris, nunca un adorno.
   «tool · estado» con el ◐ de trabajando → la respuesta, con la cifra → el OK, con el ● y su
   palabra. Cuando la tool termina, la línea pasa de ◐ a ✓.
 - **La secuencia va sin titular:** el titular va en el cuadro de cierre del reel, con el lockup.
-- **El cursor titila** en tinta (`text.primary`, #EDEDEA), prendido y apagado, y sólo cuando el
+- **El cursor titila** en tinta (`text.primary`, #EDEDED), prendido y apagado, y sólo cuando el
   tipeo para: mientras se tipea, va fijo al final del texto.
 - **El ◐ late** como en la app: en opacidad hasta `opacity.pulse` (0,45) y de vuelta, con
   `duration.pulse` (1200 ms) por latido y `easing.in-out`, una o dos veces, y queda quieto. Nunca
@@ -181,7 +181,7 @@ material; la forma de cada pieza la pone su propia hoja, y sus reglas están en 
 | Token | Oscuro | Claro |
 |---|---|---|
 | `glass.marketing.canvas`: el piso de la pieza | `brand.black` (#0A0A09) | `brand.day-white` (#E9E9E6) |
-| `glass.marketing.tint`: el tinte | `bg.surface` (#111110) al 42 % | blanco al 50 % |
+| `glass.marketing.tint`: el tinte | `bg.surface` (#111111) al 42 % | blanco al 50 % |
 | `glass.marketing.fallback`: sin `backdrop-filter` | `bg.surface` al 88 % | blanco al 90 % |
 | `glass.marketing.rim`: el borde de 1 px | blanco al 17 % | blanco al 80 % |
 | `glass.marketing.specular`: la línea de luz inset de 1 px arriba | blanco al 38 % | blanco al 95 % |
@@ -196,9 +196,9 @@ material; la forma de cada pieza la pone su propia hoja, y sus reglas están en 
 |---|---|---|
 | `glass.blur` | 24 px | 24 px |
 | `glass.saturate` | 1,4 | 1,4 |
-| `glass.bar`: el tinte de la barra | `bg.surface` (#111110) al 80 % | `bg.surface` (#FAFAF9) al 82 % |
-| `glass.panel`: el tinte del panel | `bg.raised` (#181816) al 94 % | `bg.raised` (#FAFAF9) al 94 % |
-| `glass.rim`: el borde de 1 px | blanco al 14 % | `text.primary` (#1A1917) al 20 % |
+| `glass.bar`: el tinte de la barra | `bg.surface` (#111111) al 80 % | `bg.surface` (#FAFAF9) al 82 % |
+| `glass.panel`: el tinte del panel | `bg.raised` (#181818) al 94 % | `bg.raised` (#FAFAF9) al 94 % |
+| `glass.rim`: el borde de 1 px | blanco al 14 % | `text.primary` (#191919) al 20 % |
 | `glass.specular`: la línea de luz inset de 1 px arriba | blanco al 10 % | blanco al 70 % |
 
 En CSS son `--iris-color-glass-bar`, `--iris-color-glass-panel`, `--iris-color-glass-rim`,
@@ -218,8 +218,8 @@ En CSS son `--iris-color-glass-bar`, `--iris-color-glass-panel`, `--iris-color-g
   rojo, ni `border.control`, ni glifos de estado: con blanco puro detrás la barra da #414140 y el
   terciario baja a 3,63:1. Si hace falta algo de eso, es un panel.
 - **El panel** (`.glass-panel`) es lo que flota con contenido: ⌘K, popovers y menús, la aprobación
-  cuando flota. En oscuro, con blanco puro detrás, da exactamente `bg.selected` (#262624); en claro,
-  con negro puro detrás, da #EBEBEA, apenas más claro que su `bg.selected` (#EAE9E8): todo lo que
+  cuando flota. En oscuro, con blanco puro detrás, da exactamente `bg.selected` (#262626); en claro,
+  con negro puro detrás, da #EBEBEA, apenas más claro que su `bg.selected` (#E9E9E9): todo lo que
   pasa sobre `bg.selected` pasa acá por construcción, glifos de estado incluidos.
 
 ### Dónde sí y dónde no

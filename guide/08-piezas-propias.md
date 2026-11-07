@@ -31,8 +31,8 @@ forma: nunca la reemplaza.
 | ● lleno | te toca | `status.attention` | #F7AC4D · #AD721C | El dueño tiene que decidir. Es el único ● del set. |
 | ✕ | falló | `status.failed` | #E66E68 · #BC3732 | Algo no se pudo hacer. |
 | ◐ medio círculo | iris trabajando | `status.working` | #50A064 · #266739 | Algo está en curso ahora. |
-| ○ hueco | esperando o sin declarar | `status.idle` | #EDEDEA · #4E4D49 | Espera a un tercero (un comprador, el canal) o nadie lo configuró. |
-| ✓ | resuelto | `status.done` | #9B9A96 · #686764 | Terminó. Va en silencio: es el gris de los datos sueltos. |
+| ○ hueco | esperando o sin declarar | `status.idle` | #EDEDED · #4D4D4D | Espera a un tercero (un comprador, el canal) o nadie lo configuró. |
+| ✓ | resuelto | `status.done` | #9A9A9A · #676767 | Terminó. Va en silencio: es el gris de los datos sueltos. |
 
 Los glifos, para copiar. El cuadro es de 10 × 10, el color sale de `currentColor` y en la app se
 dibujan a 10 px:

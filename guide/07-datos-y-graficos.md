@@ -25,10 +25,10 @@ llevado a los números.
 
 | Token | Oscuro | Claro | Trazo | Para qué |
 |---|---|---|---|---|
-| `data.series` | #EDEDEA | #1A1917 | Sólido, 1,5 px | La serie protagonista: lo que se está mirando. |
-| `data.comparison` | #9B9A96 | #686764 | Punteado, 1,5 px | La referencia: el período anterior, el precio del ganador. |
+| `data.series` | #EDEDED | #191919 | Sólido, 1,5 px | La serie protagonista: lo que se está mirando. |
+| `data.comparison` | #9A9A9A | #676767 | Punteado, 1,5 px | La referencia: el período anterior, el precio del ganador. |
 | `data.highlight` | #B9D3D8 | #0B4A57 | Sólido | Lo que importa: la barra, el punto o el tramo que el gráfico señala. Uno por gráfico, en el petróleo de la frase; el resto va en `data.series`. |
-| `data.grid` | #2C2B29 | #E3E3E1 | 1 px | Grilla y ejes. Es decorativa. |
+| `data.grid` | #2B2B2B | #E3E3E3 | 1 px | Grilla y ejes. Es decorativa. |
 
 - **Dos series como máximo por gráfico:** la protagonista y su referencia. Pasan 3:1 sobre todos los
   fondos de su modo, también `data.highlight` (capítulo 04).

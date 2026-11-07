@@ -65,7 +65,7 @@ A es el lado del ícono. Son las medidas que usan las plantillas de `pieces/rede
   lo mismo que la i de «iris» (0,55 A) y las dos se leen del mismo cuerpo.
 - El radio del cuadrado existe sólo cuando el ícono se dibuja adentro de una pieza: `lockup.svg` ya
   lo trae, y un ícono suelto que va como tile lo recibe del CSS de la pieza.
-- **Sobre un fondo del mismo negro**, el cuadrado lleva un borde `border.default` (#3A3937): 1 px en
+- **Sobre un fondo del mismo negro**, el cuadrado lleva un borde `border.default` (#393939): 1 px en
   pantalla, 2 px en una pieza de 1080. Sin el borde, el cuadrado se pierde. `lockup.svg` trae el
   de pantalla (1 px con A = 52), así que en una pieza de 1080 la copia en línea lleva el borde a
   2 px: además del tamaño, es lo único que cambia del SVG. Las plantillas ya lo traen así; la

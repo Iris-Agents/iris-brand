@@ -131,7 +131,7 @@ IA de estos años. Conviene decirlo como es:
 
 - El negro de iris, #0A0A09, es a la vista el `neutral-950` de Tailwind con un punto menos de azul.
 - El blanco, #FAFAF9, es literalmente el `stone-50` de Tailwind.
-- No se vende una calidez que no se ve: el leve tinte cálido vive en los grises medios.
+- Los grises son neutros, sin tinte: no se vende una calidez que no se ve.
 
 **La diferencia no está en la paleta.** Está en dos cosas:
 

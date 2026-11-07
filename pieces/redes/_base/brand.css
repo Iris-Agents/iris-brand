@@ -8,16 +8,16 @@
   --brand-white: #fafaf9;
 
   --bg-canvas: #0a0a09;
-  --bg-surface: #111110;
-  --bg-raised: #181816;
-  --bg-hover: #201f1e;
-  --bg-selected: #262624;
-  --border-subtle: #2c2b29;
-  --border-default: #3a3937;
-  --border-control: #72716e;
-  --text-tertiary: #9b9a96;
-  --text-secondary: #bfbeb9;
-  --text-primary: #ededea;
+  --bg-surface: #111111;
+  --bg-raised: #181818;
+  --bg-hover: #1f1f1f;
+  --bg-selected: #262626;
+  --border-subtle: #2b2b2b;
+  --border-default: #393939;
+  --border-control: #717171;
+  --text-tertiary: #9a9a9a;
+  --text-secondary: #bebebe;
+  --text-primary: #ededed;
 
   /* La frase y la luz (capítulo 04, 4.9): signature.phrase y backlight.iris del oscuro. La frase es
      la segunda línea del titular, en la firma y en color, sin bloque; la luz va detrás del vidrio. */
@@ -30,9 +30,9 @@
      que --text-tertiary). El único ● es te toca y el único ○ es esperando. */
   --status-attention: #f7ac4d;
   --status-working: #50a064;
-  --status-done: #9b9a96;
+  --status-done: #9a9a9a;
   --status-failed: #e66e68;
-  --status-idle: #ededea;
+  --status-idle: #ededed;
 
   --font-signature: 'DM Serif Display', Georgia, serif;
   --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;

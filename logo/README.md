@@ -16,7 +16,7 @@ puede usar SVG, va un PNG de `png/`.
 | `wordmark.svg` | El logotipo «iris agents», con `fill="currentColor"`. | SVG en línea o como máscara CSS: toma el color del texto que lo rodea. |
 | `wordmark-white.svg` | El logotipo en `brand.white`. | Sobre fondo oscuro, cuando va como `<img>` o en una herramienta que no hereda color. |
 | `wordmark-black.svg` | El logotipo en `brand.black`. | Sobre fondo claro, en las mismas condiciones. |
-| `lockup.svg` | Ícono y logotipo en una pieza, para fondo oscuro. El cuadrado lleva el borde `border.default` (#3A3937) para no perderse contra el negro. | El logo principal: web, firma de mail, documentos, banner. |
+| `lockup.svg` | Ícono y logotipo en una pieza, para fondo oscuro. El cuadrado lleva el borde `border.default` (#393939) para no perderse contra el negro. | El logo principal: web, firma de mail, documentos, banner. |
 | `lockup-on-light.svg` | El mismo lockup para fondo claro: palabra en `brand.black`, cuadrado sin borde. | Lo mismo, sobre claro. |
 | `favicon.ico` | 16 y 32 px, desde `icon-small.svg`. | El favicon de respaldo para lo que no lee SVG. |
 | `apple-touch-icon.png` | 180 px, desde `icon.svg`. | Ícono de iOS al guardar la web en la pantalla de inicio. iOS le pone su máscara. |

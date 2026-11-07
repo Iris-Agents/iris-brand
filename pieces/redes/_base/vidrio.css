@@ -27,8 +27,8 @@
   --vp-boton-texto: #0a0a09;
   --vp-toca: #f7ac4d;          /* color.status.attention, oscuro */
   --vp-trabajando: #50a064;    /* color.status.working, oscuro */
-  --vp-esperando: #ededea;     /* color.status.idle, oscuro */
-  --vp-listo: #9b9a96;         /* color.status.done, oscuro */
+  --vp-esperando: #ededed;     /* color.status.idle, oscuro */
+  --vp-listo: #9a9a9a;         /* color.status.done, oscuro */
   --vp-fallo: #e66e68;         /* color.status.failed, oscuro */
   --vp-acento: #b9d3d8;        /* color.accent, oscuro: un detalle, si la pieza lo lleva (04, 4.9) */
 }
@@ -46,8 +46,8 @@
   --vp-boton-texto: #fafaf9;
   --vp-toca: #ad721c;          /* color.status.attention, claro: sólo como relleno */
   --vp-trabajando: #266739;    /* color.status.working, claro */
-  --vp-esperando: #4e4d49;     /* color.status.idle, claro */
-  --vp-listo: #686764;         /* color.status.done, claro */
+  --vp-esperando: #4d4d4d;     /* color.status.idle, claro */
+  --vp-listo: #676767;         /* color.status.done, claro */
   --vp-fallo: #bc3732;         /* color.status.failed, claro */
   --vp-acento: #0b4a57;        /* color.accent, claro: un detalle, si la pieza lo lleva (04, 4.9) */
 }
@@ -60,8 +60,8 @@
 
 /* Monocromo: con foto, vocera, mascota o mucho contenido (15.5). El color lo pone la imagen. La luz
    es color.backlight.neutral de su modo. */
-.vp.mono.n1a, .vp.mono.n1b { --vp-luz: #3a3937; --vp-frase: var(--vp-fg); --vp-trabajando: var(--vp-mut); --vp-ok: #fafaf9; --vp-ok-texto: #0a0a09; --vp-ok-borde: transparent; }
-.vp.mono.n2a, .vp.mono.n2b { --vp-luz: #cececb; --vp-frase: var(--vp-fg); --vp-trabajando: var(--vp-mut); --vp-ok: #0a0a09; --vp-ok-texto: #fafaf9; --vp-ok-borde: transparent; }
+.vp.mono.n1a, .vp.mono.n1b { --vp-luz: #393939; --vp-frase: var(--vp-fg); --vp-trabajando: var(--vp-mut); --vp-ok: #fafaf9; --vp-ok-texto: #0a0a09; --vp-ok-borde: transparent; }
+.vp.mono.n2a, .vp.mono.n2b { --vp-luz: #cecece; --vp-frase: var(--vp-fg); --vp-trabajando: var(--vp-mut); --vp-ok: #0a0a09; --vp-ok-texto: #fafaf9; --vp-ok-borde: transparent; }
 
 /* LinkedIn de producto: el mismo vidrio, más quieto (15.8). */
 .vp.linkedin-producto .luz { opacity: 0.55; filter: blur(12cqw); }

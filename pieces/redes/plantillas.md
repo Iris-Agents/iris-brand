@@ -162,7 +162,7 @@ Cómo va en una pieza:
   trae a 1/52 A, que es 1 px en pantalla, así que en la copia cambia el `<rect>` del borde:
   `stroke-width` 2000 / A, `x` e `y` la mitad del trazo, el lado 1000 menos el trazo y `rx` 230
   menos medio trazo. A 56 px queda `<rect x="17.86" y="17.86" width="964.29" height="964.29"
-  rx="212.14" fill="none" stroke="#3a3937" stroke-width="35.71"/>`. La portada de Facebook
+  rx="212.14" fill="none" stroke="#393939" stroke-width="35.71"/>`. La portada de Facebook
   y el banner de LinkedIn lo traen a 52 px: medido en sus PNG, el borde da 2,0 px.
 
 ### El resguardo

@@ -37,40 +37,40 @@ mismo tono 70 del ● de «te toca», más hondo o más pálido: dice lo mismo.
 | `color.tint.amber-deep` | #6A4314 | 0.4193 0.0808 66.7 | `backlight.attention` en oscuro |
 | `color.tint.amber-pale` | #F2D6AE | 0.8895 0.061 76.6 | `backlight.attention` en claro |
 
-La escala va en tono 95 con croma de 0,002 a 0,006: el leve tinte cálido se percibe recién en los
-grises medios. En oscuro, cada nivel de fondo sube 3,1 puntos de luz (0,031 de L en OKLCH): es el
-escalón que la landing había calibrado, porque menos no se veía y más se leía gris.
+Los grises son neutros, de croma 0: sin tinte, para que no se lean amarillos. En oscuro, cada nivel
+de fondo sube 3,1 puntos de luz (0,031 de L en OKLCH): es el escalón que la landing había calibrado,
+porque menos no se veía y más se leía gris.
 
 ### Neutros del oscuro: `color.neutral-dark`
 
 | Paso | Hex | OKLCH | Roles |
 |---|---|---|---|
 | 1 | #0A0A09 | = `brand.black` | `bg.canvas` · `text.on-action` · `signature.text` |
-| 2 | #111110 | 0.176 0.0022 95 | `bg.surface` |
-| 3 | #181816 | 0.207 0.0025 95 | `bg.raised` |
-| 4 | #201F1E | 0.240 0.0028 95 | `bg.hover` |
-| 5 | #262624 | 0.268 0.003 95 | `bg.selected` |
-| 6 | #2C2B29 | 0.290 0.0035 95 | `border.subtle` · `data.grid` |
-| 7 | #3A3937 | 0.345 0.004 95 | `border.default` · `selection` |
-| 8 | #72716E | 0.550 0.005 95 | `border.control` · `text.disabled` · `link.underline` |
-| 9 | #9B9A96 | 0.685 0.006 95 | `text.tertiary` · `text.placeholder` · `status.done` · `data.comparison` |
-| 10 | #BFBEB9 | 0.800 0.006 95 | `text.secondary` |
-| 11 | #EDEDEA | 0.945 0.004 95 | `text.primary` · `action.primary` · `focus` · `status.idle` · `data.series` · `signature.block` · `signature.marketing.text` |
+| 2 | #111111 | 0.176 0 0 | `bg.surface` |
+| 3 | #181818 | 0.207 0 0 | `bg.raised` |
+| 4 | #1F1F1F | 0.240 0 0 | `bg.hover` |
+| 5 | #262626 | 0.268 0 0 | `bg.selected` |
+| 6 | #2B2B2B | 0.290 0 0 | `border.subtle` · `data.grid` |
+| 7 | #393939 | 0.345 0 0 | `border.default` · `selection` |
+| 8 | #717171 | 0.550 0 0 | `border.control` · `text.disabled` · `link.underline` |
+| 9 | #9A9A9A | 0.685 0 0 | `text.tertiary` · `text.placeholder` · `status.done` · `data.comparison` |
+| 10 | #BEBEBE | 0.800 0 0 | `text.secondary` |
+| 11 | #EDEDED | 0.945 0 0 | `text.primary` · `action.primary` · `focus` · `status.idle` · `data.series` · `signature.block` · `signature.marketing.text` |
 
 ### Neutros del claro: `color.neutral-light`
 
 | Paso | Hex | OKLCH | Roles |
 |---|---|---|---|
 | 1 | #FAFAF9 | = `brand.white` | `bg.canvas` · `bg.surface` · `bg.raised` · `text.on-action` · `signature.text` |
-| 2 | #F0F0EF | 0.955 0.002 95 | `bg.hover` |
-| 3 | #EAE9E8 | 0.935 0.0025 95 | `bg.selected` |
-| 4 | #E3E3E1 | 0.915 0.003 95 | `border.subtle` · `data.grid` |
-| 5 | #DBDBD8 | 0.890 0.0035 95 | `selection` |
-| 6 | #CECECB | 0.850 0.004 95 | `border.default` |
-| 7 | #868581 | 0.615 0.0055 95 | `border.control` · `text.disabled` · `link.underline` |
-| 8 | #686764 | 0.515 0.006 95 | `text.tertiary` · `text.placeholder` · `status.done` · `data.comparison` |
-| 9 | #4E4D49 | 0.420 0.006 95 | `text.secondary` · `status.idle` |
-| 10 | #1A1917 | 0.215 0.004 95 | `text.primary` · `action.primary` · `focus` · `data.series` · `signature.block` |
+| 2 | #F0F0F0 | 0.955 0 0 | `bg.hover` |
+| 3 | #E9E9E9 | 0.935 0 0 | `bg.selected` |
+| 4 | #E3E3E3 | 0.915 0 0 | `border.subtle` · `data.grid` |
+| 5 | #DBDBDB | 0.890 0 0 | `selection` |
+| 6 | #CECECE | 0.850 0 0 | `border.default` |
+| 7 | #848484 | 0.615 0 0 | `border.control` · `text.disabled` · `link.underline` |
+| 8 | #676767 | 0.515 0 0 | `text.tertiary` · `text.placeholder` · `status.done` · `data.comparison` |
+| 9 | #4D4D4D | 0.420 0 0 | `text.secondary` · `status.idle` |
+| 10 | #191919 | 0.215 0.004 95 | `text.primary` · `action.primary` · `focus` · `data.series` · `signature.block` |
 
 ### Señal: `color.signal`
 
@@ -96,37 +96,37 @@ Un componente usa sólo estos nombres. Cambian de valor con el modo; el rol es e
 | Token | Oscuro | Claro | Para qué |
 |---|---|---|---|
 | `bg.canvas` | #0A0A09 | #FAFAF9 | El piso de la página (nivel 0). |
-| `bg.surface` | #111110 | #FAFAF9 | Card, panel, composer (nivel 1). |
-| `bg.raised` | #181816 | #FAFAF9 | Popover, menú, diálogo, ⌘K (nivel 2). |
-| `bg.hover` | #201F1E | #F0F0EF | Hover de fila, ítem o botón secundario, sobre cualquier nivel. |
-| `bg.selected` | #262624 | #EAE9E8 | Fila o ítem seleccionado, con la regla inset de 2 px en `text.primary`. |
-| `text.primary` | #EDEDEA | #1A1917 | Titulares, nombres, el hilo del agente, todo lo que se lee de corrido. |
-| `text.secondary` | #BFBEB9 | #4E4D49 | Texto de apoyo de 13 px para arriba: bajadas, ayudas, el verbo de una fila. |
-| `text.tertiary` | #9B9A96 | #686764 | Datos sueltos: hora, id, contador, eyebrow, meta de fila, leyenda. Nunca una oración. |
-| `text.placeholder` | #9B9A96 | #686764 | El placeholder de un input. Es el valor del terciario para que pase AA sobre cualquier fondo. |
-| `text.disabled` | #72716E | #868581 | Etiqueta deshabilitada. |
+| `bg.surface` | #111111 | #FAFAF9 | Card, panel, composer (nivel 1). |
+| `bg.raised` | #181818 | #FAFAF9 | Popover, menú, diálogo, ⌘K (nivel 2). |
+| `bg.hover` | #1F1F1F | #F0F0F0 | Hover de fila, ítem o botón secundario, sobre cualquier nivel. |
+| `bg.selected` | #262626 | #E9E9E9 | Fila o ítem seleccionado, con la regla inset de 2 px en `text.primary`. |
+| `text.primary` | #EDEDED | #191919 | Titulares, nombres, el hilo del agente, todo lo que se lee de corrido. |
+| `text.secondary` | #BEBEBE | #4D4D4D | Texto de apoyo de 13 px para arriba: bajadas, ayudas, el verbo de una fila. |
+| `text.tertiary` | #9A9A9A | #676767 | Datos sueltos: hora, id, contador, eyebrow, meta de fila, leyenda. Nunca una oración. |
+| `text.placeholder` | #9A9A9A | #676767 | El placeholder de un input. Es el valor del terciario para que pase AA sobre cualquier fondo. |
+| `text.disabled` | #717171 | #848484 | Etiqueta deshabilitada. |
 | `text.on-action` | #0A0A09 | #FAFAF9 | El texto sobre el CTA de tinta. |
-| `border.subtle` | #2C2B29 | #E3E3E1 | El hairline dominante: separadores y cards. |
-| `border.default` | #3A3937 | #CECECB | Línea fuerte: popovers, diálogos, botón secundario, el borde del ícono sobre negro. |
-| `border.control` | #72716E | #868581 | Borde de input y de todo control sin otra señal; el borde de la píldora. |
-| `action.primary` | #EDEDEA | #1A1917 | El CTA: relleno de tinta con `text.on-action` encima. Con el sello a la vista, el botón principal va con borde (capítulo 06, 6.5). |
+| `border.subtle` | #2B2B2B | #E3E3E3 | El hairline dominante: separadores y cards. |
+| `border.default` | #393939 | #CECECE | Línea fuerte: popovers, diálogos, botón secundario, el borde del ícono sobre negro. |
+| `border.control` | #717171 | #848484 | Borde de input y de todo control sin otra señal; el borde de la píldora. |
+| `action.primary` | #EDEDED | #191919 | El CTA: relleno de tinta con `text.on-action` encima. Con el sello a la vista, el botón principal va con borde (capítulo 06, 6.5). |
 | `action.destructive` | #E66E68 | #BC3732 | Texto y borde del botón que borra o revierte. Ghost, nunca relleno. |
 | `accent` | #B9D3D8 | #0B4A57 | El acento: el petróleo para detalles, opcional. El trazo de un ícono, el texto de una pill (el descuento), un subrayado o un dato puntual, con la misma clase de elemento en el mismo color (4.9). Es el valor de `signature.phrase`. En Tailwind, `text-brand-accent`, sólo de texto. |
 | `signature.phrase` | #B9D3D8 | #0B4A57 | La frase: la firma en color, sin bloque, en la segunda línea del titular (capítulo 05, 5.3). En petróleo; en lo que te toca, la firma va en `text.primary`. |
 | `backlight.iris` | #0B3A44 | #BFD8DC | La luz petróleo, la de siempre, detrás del vidrio (4.9 y capítulo 06). Decorativa. |
 | `backlight.attention` | #6A4314 | #F2D6AE | La luz de lo que te toca: sólo con una decisión pendiente. Decorativa. |
-| `backlight.neutral` | #3A3937 | #CECECB | La luz en monocromo, con foto, persona, gráfico o mucho contenido. Es el valor de `border.default`. |
-| `signature.block` | #EDEDEA | #1A1917 | El sello de la app: el bloque de tinta detrás de la segunda línea del titular. Es el valor de `text.primary`. Sólo donde ya está (4.9). |
+| `backlight.neutral` | #393939 | #CECECE | La luz en monocromo, con foto, persona, gráfico o mucho contenido. Es el valor de `border.default`. |
+| `signature.block` | #EDEDED | #191919 | El sello de la app: el bloque de tinta detrás de la segunda línea del titular. Es el valor de `text.primary`. Sólo donde ya está (4.9). |
 | `signature.text` | #0A0A09 | #FAFAF9 | La firma calada en el sello de la app: el color del fondo, sólo sobre `signature.block`. Es el valor de `text.on-action`. |
 | `signature.marketing.block` | #03313C | #03313C | El sello de marketing: el bloque petróleo detrás de la segunda línea del titular de la landing y sus OG, hasta que se rehagan (4.9). Es `brand.petrol`, el mismo en los dos modos. |
-| `signature.marketing.text` | #EDEDEA | #EDEDEA | La firma en tinta sobre el sello de marketing, sólo sobre `signature.marketing.block`. Es `neutral-dark.11` en los dos modos: el bloque es oscuro siempre. |
-| `focus` | #EDEDEA | #1A1917 | El anillo de foco: 2 px a 2 px de distancia. |
-| `selection` | #3A3937 | #DBDBD8 | El fondo de la selección de texto. |
+| `signature.marketing.text` | #EDEDED | #EDEDED | La firma en tinta sobre el sello de marketing, sólo sobre `signature.marketing.block`. Es `neutral-dark.11` en los dos modos: el bloque es oscuro siempre. |
+| `focus` | #EDEDED | #191919 | El anillo de foco: 2 px a 2 px de distancia. |
+| `selection` | #393939 | #DBDBDB | El fondo de la selección de texto. |
 | `backdrop` | negro al 60 % | negro al 30 % | La cortina detrás de un diálogo. |
 | `status.*` | ver «Los cinco estados» | | |
-| `data.series` · `data.comparison` · `data.grid` | #EDEDEA · #9B9A96 · #2C2B29 | #1A1917 · #686764 · #E3E3E1 | Gráficos (capítulo 07). |
+| `data.series` · `data.comparison` · `data.grid` | #EDEDED · #9A9A9A · #2B2B2B | #191919 · #676767 · #E3E3E3 | Gráficos (capítulo 07). |
 | `data.highlight` | #B9D3D8 | #0B4A57 | Lo que importa en un gráfico, uno por gráfico, en el petróleo de la frase (capítulo 07, 7.2). |
-| `link.underline` | #72716E | #868581 | El subrayado de un link en texto corrido (capítulo 05). |
+| `link.underline` | #717171 | #848484 | El subrayado de un link en texto corrido (capítulo 05). |
 
 ## 4.3 Por qué casi no hay color
 
@@ -151,35 +151,35 @@ redondeado a dos decimales. El test compara el valor sin redondear.
 
 | Par | Mínimo | Oscuro · canvas | Oscuro · peor | Claro · canvas | Claro · peor |
 |---|---|---|---|---|---|
-| `text.primary` | 4,5 | 16,89 | 12,92 | 16,82 | 14,49 |
-| `text.secondary` | 4,5 | 10,64 | 8,14 | 8,10 | 6,98 |
-| `text.tertiary` · `text.placeholder` | 4,5 | 7,03 | 5,38 | 5,42 | 4,66 |
-| `status.failed` · `action.destructive` como texto | 4,5 | 6,41 | 4,91 | 5,39 | 4,64 |
-| `text.on-action` sobre `action.primary` | 4,5 | 16,89 | — | 16,82 | — |
-| `signature.text` sobre `signature.block` | 4,5 | 16,89 | — | 16,82 | — |
-| `signature.marketing.text` sobre `signature.marketing.block` | **7** | 11,87 | — | 11,87 | — |
-| `signature.phrase` · `accent` | 4,5 | 12,61 | 9,65 | 9,43 | 8,13 |
-| ● `status.attention` | 3 | 10,34 | 7,92 | 3,87 | **3,33** |
-| ◐ `status.working` | 3 | 6,18 | 4,73 | 6,53 | 5,62 |
-| ✓ `status.done` | 3 | 7,03 | 5,38 | 5,42 | 4,66 |
-| ○ `status.idle` | 3 | 16,89 | 12,92 | 8,10 | 6,98 |
-| `border.control` · `link.underline` | 3 | 4,06 | **3,11** | 3,54 | **3,05** |
-| `focus` · `data.series` | 3 | 16,89 | 12,92 | 16,82 | 14,49 |
-| `data.comparison` | 3 | 7,03 | 5,38 | 5,42 | 4,66 |
-| `data.highlight` | 3 | 12,61 | 9,65 | 9,43 | 8,13 |
+| `text.primary` | 4,5 | 16,92 | 12,93 | 16,83 | 14,48 |
+| `text.secondary` | 4,5 | 10,66 | 8,14 | 8,09 | 6,96 |
+| `text.tertiary` · `text.placeholder` | 4,5 | 7,04 | 5,38 | 5,42 | 4,66 |
+| `status.failed` · `action.destructive` como texto | 4,5 | 6,41 | 4,90 | 5,39 | 4,64 |
+| `text.on-action` sobre `action.primary` | 4,5 | 16,92 | — | 16,83 | — |
+| `signature.text` sobre `signature.block` | 4,5 | 16,92 | — | 16,83 | — |
+| `signature.marketing.text` sobre `signature.marketing.block` | **7** | 11,89 | — | 11,89 | — |
+| `signature.phrase` · `accent` | 4,5 | 12,61 | 9,64 | 9,43 | 8,12 |
+| ● `status.attention` | 3 | 10,34 | 7,90 | 3,87 | **3,33** |
+| ◐ `status.working` | 3 | 6,18 | 4,72 | 6,53 | 5,61 |
+| ✓ `status.done` | 3 | 7,04 | 5,38 | 5,42 | 4,66 |
+| ○ `status.idle` | 3 | 16,92 | 12,93 | 8,09 | 6,96 |
+| `border.control` · `link.underline` | 3 | 4,06 | **3,10** | 3,58 | **3,08** |
+| `focus` · `data.series` | 3 | 16,92 | 12,93 | 16,83 | 14,48 |
+| `data.comparison` | 3 | 7,04 | 5,38 | 5,42 | 4,66 |
+| `data.highlight` | 3 | 12,61 | 9,64 | 9,43 | 8,12 |
 
-- **Los pares más justos** son el borde de control (3,11 y 3,05), el ámbar de «te toca» en claro
-  (3,33), el rojo como texto (4,91 y 4,64) y el terciario en claro (4,66). Cualquier cambio de valor
+- **Los pares más justos** son el borde de control (3,10 y 3,08), el ámbar de «te toca» en claro
+  (3,33), el rojo como texto (4,90 y 4,64) y el terciario en claro (4,66). Cualquier cambio de valor
   que los toque pasa primero por el test.
-- **APCA, como dato** (Lc sobre canvas / sobre selected): `text.primary` 95,8 / 92,9 en oscuro y
-  101,4 / 91,5 en claro; `text.secondary` 67,2 / 64,3 y 86,1 / 76,2; `text.tertiary` 47,5 / 44,6 y
-  75,3 / 65,4. Por eso el terciario del oscuro queda para datos que se leen de un vistazo.
+- **APCA, como dato** (Lc sobre canvas / sobre selected): `text.primary` 96,0 / 93,0 en oscuro y
+  101,4 / 91,4 en claro; `text.secondary` 67,3 / 64,4 y 86,1 / 76,1; `text.tertiary` 47,6 / 44,6 y
+  75,3 / 65,3. Por eso el terciario del oscuro queda para datos que se leen de un vistazo.
 - **Exentos:** `text.disabled` (WCAG exime lo deshabilitado; igual queda en 3:1 o más),
   las tres luces de `backlight.*`, que nunca llevan nada encima sin un vidrio de por medio, y
-  `border.subtle`, `border.default` y `data.grid`, que son decorativos (1,40 y 1,72:1 sobre el canvas
+  `border.subtle`, `border.default` y `data.grid`, que son decorativos (1,40 y 1,71:1 sobre el canvas
   oscuro). El logotipo en `brand.white` sobre `brand.black` da 18,96:1.
 - **El acento sobre el vidrio de redes y de la landing**, con cualquier luz detrás y también sobre
-  el relleno de una pill, no baja de 6,39:1 en oscuro (con la luz ámbar) ni de 7,96:1 en claro:
+  el relleno de una pill, no baja de 6,39:1 en oscuro (con la luz ámbar) ni de 7,97:1 en claro:
   pasa como texto chico, como el de una pill.
 - **La firma sobre el sello de marketing** tiene un mínimo más alto, 7:1, porque el bloque casi no
   se despega del negro (1,42:1, a propósito, y sin umbral): lo que separa el sello es la letra
@@ -209,8 +209,8 @@ glifo más una leyenda.
 | ● | **Te toca** | `status.attention` | #F7AC4D | #AD721C | El dueño tiene que decidir. Es el único ● del set. |
 | ◐ | **iris trabajando** | `status.working` | #50A064 | #266739 | iris lo está haciendo ahora. El verde es movimiento. |
 | ✕ | **Falló** | `status.failed` | #E66E68 | #BC3732 | Una acción que no se pudo hacer. |
-| ✓ | **Resuelto** | `status.done` = `text.tertiary` | #9B9A96 | #686764 | Hecho. Va en silencio. |
-| ○ | **Esperando o sin declarar** | `status.idle` | #EDEDEA | #4E4D49 | Espera a un tercero (un comprador, Mercado Libre) o nadie lo configuró. |
+| ✓ | **Resuelto** | `status.done` = `text.tertiary` | #9A9A9A | #676767 | Hecho. Va en silencio. |
+| ○ | **Esperando o sin declarar** | `status.idle` | #EDEDED | #4D4D4D | Espera a un tercero (un comprador, Mercado Libre) o nadie lo configuró. |
 
 El SVG de cada glifo, con `viewBox` de 10 y el color por `currentColor`, está en el capítulo 08
 (8.1).
@@ -380,7 +380,7 @@ detrás de una tabla, un formulario o el hilo del agente, que son para trabajar.
 ### La frase
 
 La segunda línea de un titular de dos líneas, en la firma, va en color y sin bloque:
-`signature.phrase` (#B9D3D8 en oscuro, #0B4A57 en claro), 9,65:1 y 8,13:1 en el peor fondo. En lo
+`signature.phrase` (#B9D3D8 en oscuro, #0B4A57 en claro), 9,64:1 y 8,12:1 en el peor fondo. En lo
 que te toca va en `text.primary`. Reemplaza al sello (capítulo 05, 5.3).
 
 ### El sello, de salida

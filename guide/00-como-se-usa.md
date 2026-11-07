@@ -55,8 +55,8 @@ Hay dos capas. Los **primitivos** son la paleta cruda; los **semánticos** dicen
   texto, porque nunca es fondo ni borde; la luz no es un color plano y va con las clases
   `.glass-backlight-*` de `css/glass.css`), y a las piezas de redes por las variables de
   `pieces/redes/_base/vidrio.css` (capítulo 04, 4.9).
-- En este manual el valor va con su hex, por ejemplo `text.secondary` (#BFBEB9 en oscuro,
-  #4E4D49 en claro). El hex está para leer. En código, nunca.
+- En este manual el valor va con su hex, por ejemplo `text.secondary` (#BEBEBE en oscuro,
+  #4D4D4D en claro). El hex está para leer. En código, nunca.
 
 ## 0.5 Cómo lo consume cada uno
 
